@@ -2,6 +2,7 @@ package Amiyamod.cards;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.Yzuzhou.Yjianwang;
+import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yjianceyi;
@@ -28,7 +29,7 @@ public class AmiyaStrike extends CustomCard {
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.ATTACK;//卡片类型
-    private static final CardColor COLOR = CardColor.COLORLESS;//卡牌颜色
+    private static final CardColor COLOR = CardColorEnum.Amiyathecolor;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.BASIC;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
 

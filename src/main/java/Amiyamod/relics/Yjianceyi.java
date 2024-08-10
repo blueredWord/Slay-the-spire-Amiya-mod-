@@ -24,7 +24,6 @@ public class Yjianceyi extends CYrelic implements CustomSavable<Integer> {
     private static final RelicTier RELIC_TIER = RelicTier.STARTER;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
-
     public int value = 0;
 
     // 保存

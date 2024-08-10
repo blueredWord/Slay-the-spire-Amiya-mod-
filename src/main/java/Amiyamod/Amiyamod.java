@@ -1,6 +1,8 @@
 package Amiyamod;
 
 import Amiyamod.cards.AmiyaStrike;
+import Amiyamod.cards.Yzuzhou.Ychengyin;
+import Amiyamod.cards.Yzuzhou.Ytiruo;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.LibraryTypeEnum;
 import Amiyamod.patches.CardColorEnum;
@@ -56,6 +58,8 @@ public class Amiyamod implements
         return MOD_ID + ":" + id;
     }
 
+
+
     public static final String MODNAME = "Amiya Mod";
     public static final String AUTHOR = "A";
     public static final String DESCRIPTION = "Amiya Mod.";
@@ -78,10 +82,11 @@ public class Amiyamod implements
 
 
     public static Properties AmiyaModDefaults = new Properties();
-
+    public int value = 0;
     public static final Color Amiya_Color = new Color(0.171F,0.722F,0.722F,1.0F);
     public Amiyamod(){
         logger.debug("Constructor started.");
+
         BaseMod.subscribe(this);
         //CaseMod.subscribe(this);
         BaseMod.addColor(CardColorEnum.Amiyathecolor,
@@ -96,7 +101,6 @@ public class Amiyamod implements
                 "img/cardui/1024/card_lime_orb.png",
                 "img/cardui/512/card_lime_small_orb.png"
         );
-
 
         loadConfig();
         logger.debug("Constructor finished.");
@@ -239,6 +243,16 @@ public class Amiyamod implements
             default:
                 return Settings.GameLanguage.ENG;
         }
+    }
+
+    // 保存
+    public Integer onSave() {
+        return value;
+    }
+
+    // 读取
+    public void onLoad(Integer save) {
+        this.value = save;
     }
 
     @Override
