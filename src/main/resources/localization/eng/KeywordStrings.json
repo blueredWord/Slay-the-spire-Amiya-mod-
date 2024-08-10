@@ -1,0 +1,62 @@
+[
+    {
+      "PROPER_NAME": "Cold Down",
+      "NAMES": ["cold\u00a0down"],
+      "DESCRIPTION": "You can't play cards with this name for X turns."
+    },
+  {
+    "PROPER_NAME": "Cold Snap",
+    "NAMES": ["cold\u00a0snap"],
+    "DESCRIPTION": "The next damage dealt will also apply #yVulnerable and #yWeak ."
+  },
+  {
+    "PROPER_NAME": "Forge Spirit",
+    "NAMES": ["forge\u00a0spirit"],
+    "DESCRIPTION": "Orb: deals damage and apply #yVulnerable ."
+  },
+  {
+    "PROPER_NAME": "Disarm",
+    "NAMES": ["disarm"],
+    "DESCRIPTION": "This creature deals half damage."
+  },
+  {"PROPER_NAME": "true_damage",
+    "NAMES": ["true\u00a0damage"],
+    "DESCRIPTION": "Won't affected by damage modifiers."
+  },
+  {"PROPER_NAME": "Talent Specialization",
+    "NAMES": ["blood\u00a0realm","evil\u00a0realm","ice\u00a0realm","talent realm"],
+    "DESCRIPTION": "Gain additional effects when you have a talent specialization."
+  },
+  {"PROPER_NAME": "Life Leech",
+    "NAMES": ["life\u00a0leech"],
+    "DESCRIPTION": "Heal life equal to damage dealt."
+  },
+  {"PROPER_NAME": "sadistic",
+    "NAMES": ["sadistic"],
+    "DESCRIPTION": "Whenever you apply a debuff to an enemy, deal damage."
+  },
+  {"PROPER_NAME": "Rune Energy",
+    "NAMES": ["rune\u00a0energy"],
+    "DESCRIPTION": "Energy charged in Rune Sword, to a maximum of 6. Gain 2 rune energy at the start of your turn."
+  },
+  {"PROPER_NAME": "Plated Armor",
+    "NAMES": ["plated\u00a0armor"],
+    "DESCRIPTION": "At the end of your turn, gain #yBlock . Receiving unblocked attack damage reduces #yPlated #yArmor by #b1."
+  },
+  {"PROPER_NAME": "Quest",
+    "NAMES": ["quest"],
+    "DESCRIPTION": "Clear the Quest, gain the reward."
+  },
+  {"PROPER_NAME": "Realm Increase",
+    "NAMES": ["realm increase"],
+    "DESCRIPTION": "Increases your Talent Specialization effect."
+  },
+  {"PROPER_NAME": "Blood Mark",
+    "NAMES": ["blood mark"],
+    "DESCRIPTION": "On death, heals equal to debuff stacks."
+  },
+  {"PROPER_NAME": "Angry",
+    "NAMES": ["angry"],
+    "DESCRIPTION": "Upon receiving attack damage, gain #yStrength."
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "WarlordEmblem:SpireHeart_DeathKnight": {
+  "NAME": "Spire Heart",
+  "DESCRIPTIONS": [
+    "NL You ready your Rune Sword..."
+  ],
+  "OPTIONS": [
+  ]
+},
+  "WarlordEmblem:SpireHeart_Kael": {
+  "NAME": "Spire Heart",
+  "DESCRIPTIONS": [
+    "NL You charge your core to its maximum..."
+  ],
+  "OPTIONS": [
+  ]
+},
+  "WarlordEmblem:SpireHeart_Crowbot": {
+  "NAME": "Spire Heart",
+  "DESCRIPTIONS": [
+    "NL You charge your core to its maximum..."
+  ],
+  "OPTIONS": [
+  ]
+},
+  "WarlordEmblem:Vampires_Kael": {
+  "NAME": "Vampires(?)",
+  "DESCRIPTIONS": [
+    "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+  ],
+  "OPTIONS": [
+  ]
+},
+  "WarlordEmblem:Vampires_DeathKnight": {
+  "NAME": "Vampires(?)",
+  "DESCRIPTIONS": [
+    "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+  ],
+  "OPTIONS": [
+  ]
+},
+  "WarlordEmblem:Vampires_Crowbot": {
+  "NAME": "Vampires(?)",
+  "DESCRIPTIONS": [
+    "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
+  ],
+  "OPTIONS": [
+  ]
+}
+}

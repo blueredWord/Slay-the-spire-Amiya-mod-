@@ -1,0 +1,10 @@
+{
+  "modid": "ArkninghtsAmiyaAMod",
+  "name": "AmiyaMod",
+  "author_list": ["A","巾凡"] ,
+  "description": "来自明日方舟的阿米娅的MOD。",
+  "version": "0.0.1",
+  "sts_version": "05-30-2024",
+  "mts_version": "3.23.2",
+  "dependencies": ["basemod"]
+}

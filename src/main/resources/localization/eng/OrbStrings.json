@@ -1,0 +1,12 @@
+{
+	"WarlordEmblem:ForgedSpirit":
+	{
+		"NAME": "Forged Spirit",
+		"DESCRIPTION":
+		[
+			"#yPassive: At the end of turn, deal #b",
+			" damage to a random enemy and apply 1 Vulnerable. NL #yEvoke: deal  #b" ,
+			" damage to a random enemy and apply 2 Vulnerable."
+		]
+	}
+}

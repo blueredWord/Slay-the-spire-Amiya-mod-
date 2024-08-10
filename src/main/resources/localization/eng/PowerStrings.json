@@ -1,0 +1,77 @@
+{
+  "WarlordEmblem:ColdSnapPower": {
+    "NAME": "Cold Snap",
+    "DESCRIPTIONS": [
+      "Next ",
+      " attack damage will also apply #yVulnerable and #yWeak ."
+    ]
+  },
+  "WarlordEmblem:DeafeningBlastPower": {
+  "NAME": "Deafening Blast",
+  "DESCRIPTIONS": [
+    "Deal Half damage."
+  ]
+},
+  "WarlordEmblem:CrystalCenterPower": {
+  "NAME": "Crystal Center",
+  "DESCRIPTIONS": [
+    "All damage you inflict from cards is 12."
+  ]
+},
+  "WarlordEmblem:RealmRiderPower": {
+  "NAME": "Death Rider",
+  "DESCRIPTIONS": [
+    "You have the abilities of all three talent Specializations."
+  ]
+},
+  "WarlordEmblem:RealmIncreasePower": {
+  "NAME": "Specialization increase",
+  "DESCRIPTIONS": [
+    "Increases specialization effect by #b",
+    "Decreases specialization effect by #b",
+    "."
+  ]
+},
+  "WarlordEmblem:LichkingWraithPower": {
+  "NAME": "Lich King Wraith",
+  "DESCRIPTIONS": [
+    "At the start of your turn, gain #b",
+    " #yRealm Increase."
+  ]
+},
+  "WarlordEmblem:RuneMultiplexPower": {
+  "NAME": "Rune Multiplex",
+  "DESCRIPTIONS": [
+    "This turn, your next #b",
+    " use #yRune Energy card(s) will not use #yRune Energy."
+  ]
+},
+  "WarlordEmblem:BloodMaskPower": {
+  "NAME": "Blood Mark",
+  "DESCRIPTIONS": [
+    "On death, heals you for #b",
+    " HP"
+  ]
+},
+  "WarlordEmblem:RuneIndexPower": {
+  "NAME": "Rune Index",
+  "DESCRIPTIONS": [
+    "At the start of your turn,add #b",
+    " random \"Rune\" card(s) into your hand and gain #b",
+    " #yRune Energy."
+  ]
+},
+  "WarlordEmblem:WrathOfSindragosaPower": {
+  "NAME": "Wrath Of Sindragosa",
+  "DESCRIPTIONS": [
+    "When you played a:",
+    " #rAttack ,apply #y",
+    " Weak to all enemy,",
+    " #gSkill ,deal #y",
+    " damage to all enemy,",
+    " #bPower ,all enemy lost #y",
+    " Strength.",
+    " NL "
+  ]
+}
+}
