@@ -4,6 +4,8 @@ import Amiyamod.Amiyamod;
 import Amiyamod.cards.Yzuzhou.Ychengyin;
 import Amiyamod.cards.Yzuzhou.Yjiejin;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.power.LineBow;
+import Amiyamod.power.LittleTePower;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -60,13 +62,8 @@ public class LineBody extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 获得4（5）层 茧
-        AbstractDungeon.actionManager.addToBottom(
-                new AddTemporaryHPAction(
-                        p, //受益者是玩家
-                        p, //来源是是玩家
-                        this.magicNumber //获得数量
-                )
-        );
+        this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,this.magicNumber)));
+
         //向弃牌堆中加入一张“源石诅咒”。
         CustomCard c = Amiyamod.Yzuzhou.get(new Random().nextInt(Amiyamod.Yzuzhou.size()));
         this.addToBot(new MakeTempCardInDiscardAction( c, 1));
