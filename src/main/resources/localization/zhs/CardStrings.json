@@ -8,10 +8,10 @@
     "DESCRIPTION": "获得 !B! 点格挡。"
   },
   "AmiyaMod:Strike_A": {
-    "NAME": "元素祈唤",
-    "DESCRIPTION": "根据最左边三个充能球，加入一张牌。 NL 虚无 消耗 。",
-    "UPGRADE_DESCRIPTION": "根据最左边三个充能球，加入一张牌。 NL 消耗 。",
-    "EXTENDED_DESCRIPTION": ["需要三个元素球","回合冷却"," NL (冰冰冰：急速冷却"," NL (冰冰雷：幽冥漫步"," NL (雷雷火：灵动迅捷"," NL (火火火：阳炎冲击"," NL (雷雷雷：电磁脉冲"," NL (火火雷：混沌陨石"," NL (冰冰火：寒冰之墙"," NL (冰雷火：超震声波"," NL (雷雷冰：强袭飓风"," NL (火火冰：熔炉精灵","）"]
+    "NAME": "",
+    "DESCRIPTION": "",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": ["",""]
   }
 
 }
