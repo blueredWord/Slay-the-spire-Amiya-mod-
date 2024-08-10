@@ -1,12 +1,16 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.Yzuzhou.Ychengyin;
+import Amiyamod.cards.Yzuzhou.Yjiejin;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.status.Burn;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,7 +19,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 // 丝线予身
 // 获得4（5）层 茧 ，向弃牌堆中加入一张“源石诅咒”。
@@ -62,7 +68,8 @@ public class LineBody extends CustomCard {
                 )
         );
         //向弃牌堆中加入一张“源石诅咒”。
-        Amiyamod.BurnSelf(2);
+        CustomCard c = Amiyamod.Yzuzhou.get(new Random().nextInt(Amiyamod.Yzuzhou.size()));
+        this.addToBot(new MakeTempCardInDiscardAction( c, 1));
     }
 
     public AbstractCard makeCopy() {

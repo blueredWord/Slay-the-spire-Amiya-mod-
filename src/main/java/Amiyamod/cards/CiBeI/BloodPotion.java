@@ -50,17 +50,13 @@ public class BloodPotion extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 给予所有敌人1层虚弱及1层易伤
-        Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-        while(var3.hasNext()) {
-            AbstractMonster mo = (AbstractMonster)var3.next();
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
         // 升级后再触发一次
         if (this.upgraded) {
-            Iterator var2 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
-            while(var2.hasNext()) {
-                AbstractMonster mo = (AbstractMonster)var2.next();
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                 this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
                 this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
             }

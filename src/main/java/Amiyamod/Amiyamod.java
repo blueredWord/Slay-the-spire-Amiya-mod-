@@ -2,6 +2,7 @@ package Amiyamod;
 
 import Amiyamod.cards.AmiyaStrike;
 import Amiyamod.cards.Yzuzhou.Ychengyin;
+import Amiyamod.cards.Yzuzhou.Yjiejin;
 import Amiyamod.cards.Yzuzhou.Ytiruo;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.LibraryTypeEnum;
@@ -58,7 +59,7 @@ public class Amiyamod implements
         return MOD_ID + ":" + id;
     }
 
-
+    public static ArrayList<CustomCard> Yzuzhou = new ArrayList();
 
     public static final String MODNAME = "Amiya Mod";
     public static final String AUTHOR = "A";
@@ -86,7 +87,6 @@ public class Amiyamod implements
     public static final Color Amiya_Color = new Color(0.171F,0.722F,0.722F,1.0F);
     public Amiyamod(){
         logger.debug("Constructor started.");
-
         BaseMod.subscribe(this);
         //CaseMod.subscribe(this);
         BaseMod.addColor(CardColorEnum.Amiyathecolor,
@@ -109,6 +109,8 @@ public class Amiyamod implements
     public static void initialize() {
         logger.info("========================= 开始初始化 =========================");
         new Amiyamod();
+        Yzuzhou.add(new Ychengyin());
+        Yzuzhou.add(new Yjiejin());
         logger.info("========================= 初始化完成 =========================");
     }
 
