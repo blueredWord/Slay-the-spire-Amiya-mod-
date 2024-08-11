@@ -29,6 +29,11 @@ public class Yjiejin extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
     }
 
+    public void triggerWhenDrawn() {
+        //源石诅咒被抽到时共通效果
+        Amiyamod.WhenYcardDrawn();
+    }
+
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         //如果打出非源石牌 扣血
         if (!c.hasTag(YCardTagClassEnum.YCard)){

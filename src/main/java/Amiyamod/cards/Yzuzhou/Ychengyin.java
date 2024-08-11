@@ -33,9 +33,12 @@ public class Ychengyin extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
-    public  void OnPowersModified(){
 
+    public void triggerWhenDrawn() {
+        //源石诅咒被抽到时共通效果
+        Amiyamod.WhenYcardDrawn();
     }
+
     public void triggerOnEndOfPlayerTurn() {
         AbstractPlayer p = AbstractDungeon.player;
         boolean var1 = false;

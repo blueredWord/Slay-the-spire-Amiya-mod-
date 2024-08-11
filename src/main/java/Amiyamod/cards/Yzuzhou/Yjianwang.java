@@ -32,6 +32,8 @@ public class Yjianwang extends CustomCard {
     public void triggerWhenDrawn() {
         //被抽到时 随机一张手牌变为虚无
         AbstractDungeon.player.hand.getRandomCard(true).isEthereal = true;
+        //源石诅咒被抽到时共通效果
+        Amiyamod.WhenYcardDrawn();
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

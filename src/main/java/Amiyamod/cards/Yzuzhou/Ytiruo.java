@@ -31,6 +31,11 @@ public class Ytiruo extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
     }
 
+    public void triggerWhenDrawn() {
+        //源石诅咒被抽到时共通效果
+        Amiyamod.WhenYcardDrawn();
+    }
+
     public void triggerOnEndOfPlayerTurn() {
         AbstractPlayer p = AbstractDungeon.player;
         Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();

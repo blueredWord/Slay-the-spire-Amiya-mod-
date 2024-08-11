@@ -1,6 +1,7 @@
 package Amiyamod;
 
 import Amiyamod.cards.AmiyaStrike;
+import Amiyamod.cards.CiBeI.RollFood;
 import Amiyamod.cards.Yzuzhou.Ychengyin;
 import Amiyamod.cards.Yzuzhou.Yjiejin;
 import Amiyamod.cards.Yzuzhou.Ytiruo;
@@ -21,8 +22,11 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.unique.DeckToHandAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -115,7 +119,25 @@ public class Amiyamod implements
     }
 
     public static void BurnSelf(int number) {
-        AbstractDungeon.actionManager.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, number));
+        AbstractDungeon.actionManager.addToTop(
+                new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, number)
+        );
+    }
+
+    public static void WhenYcardDrawn() {
+        AbstractPlayer p = AbstractDungeon.player;
+        for (AbstractCard c : p.drawPile.group) {
+            if (c instanceof RollFood) {
+                p.drawPile.addToHand(c);
+            }
+        }
+        for (AbstractCard c : p.discardPile.group) {
+            if (c instanceof RollFood) {
+                p.discardPile.addToHand(c);
+                //AbstractDungeon.actionManager.addToTop(new DiscardToHandAction(c));
+            }
+        }
+        p.hand.refreshHandLayout();
     }
 
     public static void loadConfig() {
