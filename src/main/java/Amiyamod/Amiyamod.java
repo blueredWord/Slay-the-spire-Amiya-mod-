@@ -119,9 +119,11 @@ public class Amiyamod implements
     }
 
     public static void BurnSelf(int number) {
-        AbstractDungeon.actionManager.addToTop(
-                new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, number)
-        );
+        for(int i=0;i < number;i++){
+            AbstractDungeon.actionManager.addToTop(
+                    new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 1)
+            );
+        }
     }
 
     public static void WhenYcardDrawn() {

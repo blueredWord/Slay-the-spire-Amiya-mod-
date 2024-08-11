@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
-
+//鲜血制剂
 public class BloodPotion extends CustomCard {
     private static final String NAME = "BloodPotion";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -27,7 +27,7 @@ public class BloodPotion extends CustomCard {
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiyathecolor;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ALL;//是否指向敌人
+    private static final AbstractCard.CardTarget TARGET = CardTarget.ALL;//是否指向敌人
 
     public BloodPotion() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
