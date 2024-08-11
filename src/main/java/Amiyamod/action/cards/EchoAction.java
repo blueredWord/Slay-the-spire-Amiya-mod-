@@ -1,4 +1,4 @@
-package Amiyamod.action;
+package Amiyamod.action.cards;
 
 import Amiyamod.Amiyamod;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;

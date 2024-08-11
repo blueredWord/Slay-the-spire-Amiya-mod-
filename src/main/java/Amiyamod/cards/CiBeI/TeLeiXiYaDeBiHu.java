@@ -2,21 +2,17 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.power.HerSeePower;
-import Amiyamod.power.LineBow;
 import Amiyamod.power.LittleTePower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class LittleTe extends CustomCard {
-    private static final String NAME = "LittleTe";//卡片名字
+public class TeLeiXiYaDeBiHu extends CustomCard {
+    private static final String NAME = "TeLeiXiYaDeBiHu";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -28,7 +24,7 @@ public class LittleTe extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
-    public LittleTe() {
+    public TeLeiXiYaDeBiHu() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -49,5 +45,5 @@ public class LittleTe extends CustomCard {
         //获得状态:获得格挡时改为获得等量的丝线
         this.addToTop(new ApplyPowerAction(p, p, new LittleTePower(p)));
     }
-    public AbstractCard makeCopy() {return new LittleTe();}
+    public AbstractCard makeCopy() {return new TeLeiXiYaDeBiHu();}
 }

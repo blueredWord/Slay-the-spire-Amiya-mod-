@@ -21,7 +21,7 @@ public class EnhancedToolbox extends AbstractRelic {
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = Amiyamod.makeID(NAME);
     // 图片路径
-    private static final String IMG_PATH = "ExampleModResources/img/relics/"+NAME+".png";
+    private static final String IMG_PATH = "img/relics/"+NAME+".png";
     // 构造函数，初始化遗物
     public EnhancedToolbox() {
         super(ID, IMG_PATH, RelicTier.STARTER, LandingSound.HEAVY);

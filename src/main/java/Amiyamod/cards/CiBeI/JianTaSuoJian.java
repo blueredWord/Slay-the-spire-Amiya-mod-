@@ -1,29 +1,21 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.cards.Yzuzhou.Yjianwang;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.HerSeePower;
 import Amiyamod.power.LineBow;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 
-import java.util.Iterator;
-
-public class HerSee extends CustomCard {
-    private static final String NAME = "HerSee";//卡片名字
+public class JianTaSuoJian extends CustomCard {
+    private static final String NAME = "JianTaSuoJian";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -36,7 +28,7 @@ public class HerSee extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
-    public HerSee() {
+    public JianTaSuoJian() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
@@ -76,5 +68,5 @@ public class HerSee extends CustomCard {
         //获得状态：每花费1能量燃己2
         this.addToTop(new ApplyPowerAction(p, p, new HerSeePower(p, this.magicNumber), this.magicNumber));
     }
-    public AbstractCard makeCopy() {return new HerSee();}
+    public AbstractCard makeCopy() {return new JianTaSuoJian();}
 }

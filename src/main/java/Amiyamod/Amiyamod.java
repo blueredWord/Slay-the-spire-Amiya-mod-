@@ -1,7 +1,8 @@
 package Amiyamod;
 
 import Amiyamod.cards.AmiyaStrike;
-import Amiyamod.cards.CiBeI.RollFood;
+import Amiyamod.cards.CiBeI.YongDongZhiCan;
+import Amiyamod.cards.CiBeI.YongDongZhiCan;
 import Amiyamod.cards.Yzuzhou.Ychengyin;
 import Amiyamod.cards.Yzuzhou.Yjiejin;
 import Amiyamod.cards.Yzuzhou.Ytiruo;
@@ -127,12 +128,12 @@ public class Amiyamod implements
     public static void WhenYcardDrawn() {
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.drawPile.group) {
-            if (c instanceof RollFood) {
+            if (c instanceof YongDongZhiCan) {
                 p.drawPile.addToHand(c);
             }
         }
         for (AbstractCard c : p.discardPile.group) {
-            if (c instanceof RollFood) {
+            if (c instanceof YongDongZhiCan) {
                 p.discardPile.addToHand(c);
                 //AbstractDungeon.actionManager.addToTop(new DiscardToHandAction(c));
             }

@@ -2,7 +2,6 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.power.HerDoPower;
 import Amiyamod.power.NoFengPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,8 +11,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class NoFeng extends CustomCard {
-    private static final String NAME = "HerDo";//卡片名字
+public class WuFeng extends CustomCard {
+    private static final String NAME = "WuFeng";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -26,7 +25,7 @@ public class NoFeng extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
-    public NoFeng() {
+    public WuFeng() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
@@ -50,5 +49,5 @@ public class NoFeng extends CustomCard {
         //获得状态：直到下个回合开始，每受到2次伤害，获得!M!层茧。
         this.addToTop(new ApplyPowerAction(p, p, new NoFengPower(p, this.magicNumber), this.magicNumber));
     }
-    public AbstractCard makeCopy() {return new NoFeng();}
+    public AbstractCard makeCopy() {return new WuFeng();}
 }
