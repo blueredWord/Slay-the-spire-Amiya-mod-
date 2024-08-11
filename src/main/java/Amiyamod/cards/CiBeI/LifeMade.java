@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 // 生命固化
 // 获得12（16）点 丝线。燃己2
 public class LifeMade extends CustomCard {
-    private static final String NAME = "RollFood";//卡片名字
+    private static final String NAME = "LifeMade";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
@@ -61,6 +61,6 @@ public class LifeMade extends CustomCard {
     }
 
     public AbstractCard makeCopy() {
-        return new RollFood();
+        return new LifeMade();
     }
 }

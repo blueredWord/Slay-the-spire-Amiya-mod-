@@ -19,7 +19,7 @@ public class Yjianceyi extends CYrelic implements CustomSavable<Integer> {
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = Amiyamod.makeID(NAME);
     // 图片路径
-    private static final String IMG_PATH = "ExampleModResources/img/relics/"+NAME+".png";
+    private static final String IMG_PATH = "img/relics/"+NAME+".png";
     // 遗物类型 初始遗物STARTER
     private static final RelicTier RELIC_TIER = RelicTier.STARTER;
     // 点击音效

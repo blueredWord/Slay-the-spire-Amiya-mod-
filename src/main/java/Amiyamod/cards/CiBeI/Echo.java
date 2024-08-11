@@ -1,15 +1,10 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.EchoAction;
+import Amiyamod.action.cards.EchoAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.unique.WhirlwindAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
