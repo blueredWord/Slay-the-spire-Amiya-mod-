@@ -52,7 +52,7 @@ public class HerDoPower extends AbstractPower {
 
             this.addToBot(new SFXAction("ATTACK_HEAVY"));
             this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
-            this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner, this.amount, DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
+            this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
         }
 
         return damageAmount;
