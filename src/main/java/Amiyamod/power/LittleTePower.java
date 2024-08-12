@@ -44,13 +44,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
             public float modifyBlock(float blockAmount, AbstractCard card) {
                 if (blockAmount > 0){
                     this.flash();
-                    AbstractDungeon.actionManager.addToBottom(
-                            new AddTemporaryHPAction(
-                                    this.owner, //受益者是能力持有者
-                                    this.owner, //来源是能力持有者
-                                    (int)blockAmount //获得数量为原本获得的格挡
-                            )
-                    );
+                    Amiyamod.LinePower((int)blockAmount,this.owner);
                     return 0;
                 }else{
                     return blockAmount;

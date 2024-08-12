@@ -1,23 +1,15 @@
 package Amiyamod.cards;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.cards.Yzuzhou.Yjianwang;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.YCardTagClassEnum;
-import Amiyamod.relics.CYrelic;
-import Amiyamod.relics.Yjianceyi;
-import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.deprecated.DEPRECATEDHotHot;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.Keyword;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class AmiyaStrike extends CustomCard {

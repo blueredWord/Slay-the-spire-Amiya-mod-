@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import java.util.Iterator;
 
 public class Yjianwang extends CustomCard {
-    private static final String NAME = "Strike";//卡片名字
+    private static final String NAME = "Yjianwang";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图

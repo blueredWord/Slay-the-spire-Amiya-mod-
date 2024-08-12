@@ -46,12 +46,7 @@ public class SadMind extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //如果伤害意图大于0
         if (m.getIntentBaseDmg() > 0) {
-            this.addToBot(new AddTemporaryHPAction(
-                            p, //受益者是能力持有者
-                            p, //来源是能力持有者
-                            m.getIntentBaseDmg() //获得等量丝线
-                    )
-            );
+            Amiyamod.LinePower(m.getIntentBaseDmg());
         }
     }
 

@@ -42,13 +42,7 @@ public class SoulDefendPower extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (damageAmount > 0) {
             this.flash();
-            AbstractDungeon.actionManager.addToBottom(
-                    new AddTemporaryHPAction(
-                            this.owner, //受益者是能力持有者
-                            this.owner, //来源是能力持有者
-                            this.amount //获得数量为层数
-                    )
-            );
+            Amiyamod.LinePower(this.amount,this.owner);
         }
         return damageAmount;
     }

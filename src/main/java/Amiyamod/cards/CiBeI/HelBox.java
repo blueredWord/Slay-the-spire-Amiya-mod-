@@ -50,7 +50,7 @@ public class HelBox extends CustomCard {
         // 从抽牌堆消耗一张卡
         this.addToBot(new HelBoxAction(1));
         // 获得6点丝线
-        this.addToBot(new AddTemporaryHPAction(p, p,this.magicNumber));
+        Amiyamod.LinePower(this.magicNumber);
         //燃己1
         Amiyamod.BurnSelf(1);
     }

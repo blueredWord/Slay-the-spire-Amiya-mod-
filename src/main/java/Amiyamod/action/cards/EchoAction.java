@@ -65,12 +65,7 @@ public class EchoAction extends AbstractGameAction {
                 this.addToBot(new SFXAction("ATTACK_HEAVY"));
                 this.addToBot(new VFXAction(this.p, new CleaveEffect(), 0.0F));
                 this.addToBot(new DamageAllEnemiesAction(this.p, this.multiDamage, this.damageType, AttackEffect.NONE, true));
-                this.addToBot( new AddTemporaryHPAction(
-                                p, //受益者是能力持有者
-                                p, //来源是能力持有者
-                                this.line //获得丝线
-                        )
-                );
+                Amiyamod.LinePower(this.line);
             }
 
             if (!this.freeToPlayOnce) {

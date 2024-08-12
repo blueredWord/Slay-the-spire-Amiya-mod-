@@ -63,9 +63,8 @@ public class LineBody extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 获得4（5）层 茧
         this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,this.magicNumber)));
-
         //向弃牌堆中加入一张“源石诅咒”。
-        CustomCard c = Amiyamod.Yzuzhou.get(new Random().nextInt(Amiyamod.Yzuzhou.size()));
+        AbstractCard c = Amiyamod.GetNextYcard(true);
         this.addToBot(new MakeTempCardInDiscardAction( c, 1));
     }
 

@@ -42,7 +42,7 @@ public class MercyPower extends AbstractPower {
     @Override
     public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
         this.flash();
-        this.addToBot(new AddTemporaryHPAction(this.owner,this.owner,(int)damage * this.amount));
+        Amiyamod.LinePower((int)damage * this.amount,this.owner);
         return damage;
     }
     // 能力在回合开始时移除

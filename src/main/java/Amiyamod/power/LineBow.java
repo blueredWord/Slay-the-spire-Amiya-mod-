@@ -1,5 +1,6 @@
 package Amiyamod.power;// 阿米亚状态 茧
 
+import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -43,13 +44,7 @@ public class LineBow extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        AbstractDungeon.actionManager.addToBottom(
-                new AddTemporaryHPAction(
-                        this.owner, //受益者是能力持有者
-                        this.owner, //来源是能力持有者
-                        this.amount //获得数量为层数
-                )
-        );
+        Amiyamod.LinePower(this.amount,this.owner);
     }
 
 }

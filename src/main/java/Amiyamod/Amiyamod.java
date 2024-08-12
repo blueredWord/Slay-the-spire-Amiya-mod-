@@ -2,13 +2,14 @@ package Amiyamod;
 
 import Amiyamod.cards.AmiyaStrike;
 import Amiyamod.cards.CiBeI.RollFood;
-import Amiyamod.cards.Yzuzhou.Ychengyin;
-import Amiyamod.cards.Yzuzhou.Yjiejin;
-import Amiyamod.cards.Yzuzhou.Ytiruo;
+import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.LibraryTypeEnum;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.AbstractCardEnum;
+import Amiyamod.power.SoulDefendPower;
+import Amiyamod.relics.CYrelic;
+import Amiyamod.relics.Yill;
 import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.relics.TheTen;
@@ -17,22 +18,28 @@ import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.unique.DeckToHandAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
+import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.sun.org.apache.xpath.internal.compiler.Keywords;
 import org.apache.logging.log4j.LogManager;
@@ -42,6 +49,7 @@ import com.badlogic.gdx.graphics.Color;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -113,11 +121,65 @@ public class Amiyamod implements
     public static void initialize() {
         logger.info("========================= 开始初始化 =========================");
         new Amiyamod();
-        Yzuzhou.add(new Ychengyin());
-        Yzuzhou.add(new Yjiejin());
+
         logger.info("========================= 初始化完成 =========================");
     }
+    //  调动遗物记录源石感染的接口
+    public void addY(int n) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (n>0 && !p.hasBlight(Yill.ID)){
+            p.blights.add(new Yill().makeCopy());
+        }
+        if (n != 0){
+            CYrelic Y = (CYrelic) p.getBlight(Yill.ID);
+            Y.addC(n);
+        }
+    }
+    //获得丝线接口
+    public static void LinePower(int number,AbstractCreature p){
+        boolean sex = false;
+        if (p.isPlayer){
+            for (AbstractCard c:AbstractDungeon.player.hand.group){
+                //如果是玩家要获得丝线，检查手里有没有活性化诅咒
+                if (c instanceof Ysex){
+                    sex = true;
+                    break;
+                }
+            }
+            if (sex){//有活性化诅咒的话改为获得格挡，否则直接获得丝线
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p,number));
+            }else{
+                AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,number));
+            }
+        } else {
+            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,number));
+        }
 
+    }
+    public static void LinePower(int number){
+        LinePower(number,AbstractDungeon.player);//获得丝线的默认对象为玩家
+    }
+    //  获取随机的下一张诅咒的接口
+    public static AbstractCard GetNextYcard(boolean isTemp) {
+        if (Yzuzhou.isEmpty()){
+            Yzuzhou.add(new Ychengyin());
+            Yzuzhou.add(new Yjiejin());
+            Yzuzhou.add(new Yangry());
+            Yzuzhou.add(new Ydead());
+            Yzuzhou.add(new Yjianwang());
+            Yzuzhou.add(new Ysex());
+            Yzuzhou.add(new Ymust());
+            Yzuzhou.add(new Ysnake());
+            Yzuzhou.add(new Ytiruo());
+        }
+        Collections.shuffle(Yzuzhou);
+        AbstractCard c = Yzuzhou.get(0).makeCopy();
+        if (!isTemp){
+            Yzuzhou.remove(0);
+        }
+        return c;
+    }
+    //  燃己的接口
     public static void BurnSelf(int number) {
         for(int i=0;i < number;i++){
             AbstractDungeon.actionManager.addToTop(
@@ -125,7 +187,7 @@ public class Amiyamod implements
             );
         }
     }
-
+    //  抽到诅咒卡时的通用处理
     public static void WhenYcardDrawn() {
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.drawPile.group) {
