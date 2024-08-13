@@ -25,24 +25,22 @@ import java.util.UUID;
 
 //璀璨生命的效果
 //消耗 抽2（3）张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的真实伤害。
-public class BeautifulLifePower extends AbstractPower {
+public class BeautifulLifePower extends ABeautifulLifePower {
     public static final String NAME = "BeautifulLifePower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static int bombIdOffset;
-    public ArrayList<UUID> CardGroup= new ArrayList<UUID>();
     public BeautifulLifePower(AbstractCreature owner,ArrayList<AbstractCard> G) {
+        super(owner,G);
         this.name = powerStrings.NAME;
-        this.ID = POWER_ID+bombIdOffset;
-        ++bombIdOffset;
+        this.ID = POWER_ID;
         this.owner = owner;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = -1;
         this.type = PowerType.DEBUFF;
 
         for(AbstractCard card : G){
-            this.CardGroup.add(card.uuid);
+            CardGroup.add(card.uuid);
         }
 
         // 添加图标                         this.img = new Texture("img/Reimupowers/" + NAME + ".png");
@@ -60,7 +58,7 @@ public class BeautifulLifePower extends AbstractPower {
     // 效果 : 打出记录的卡后扣血
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        for(UUID uid : this.CardGroup){
+        for(UUID uid : CardGroup){
             if (uid == card.uuid){
                 AbstractDungeon.actionManager.addToTop(
                         new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, card.makeCopy().cost*2)

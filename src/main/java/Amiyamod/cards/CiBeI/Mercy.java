@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.power.MercyPower;
 import Amiyamod.power.NoFengPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -51,7 +52,7 @@ public class Mercy extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得状态：本回合造成伤害时获得等同于伤害点丝线。
-        this.addToTop(new ApplyPowerAction(p, p, new NoFengPower(p, this.magicNumber), this.magicNumber));
+        this.addToTop(new ApplyPowerAction(p, p, new MercyPower(p,this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new Mercy();}
 }

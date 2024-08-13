@@ -7,11 +7,10 @@
     "NAME": "基础法术防御击",
     "DESCRIPTION": "获得 !B! 点格挡。"
   },
-  "AmiyaMod:Strike_A": {
+  "AmiyaMod:BadZhufu": {
     "NAME": "",
     "DESCRIPTION": "",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": ["",""]
   }
-
 }

@@ -3,15 +3,15 @@
   "keywords": [
     {
       "NAMES": [
-        ""
+        "感染阶段"
       ],
-      "DESCRIPTION": " #r大吉 :抽 #b4 张牌。 NL #r小吉 :抽 #b3 张牌。 NL #b小凶 :抽 #b2 张牌。 NL #b大凶 :抽 #b0 张牌。"
+      "DESCRIPTION": "每打出 #b10 张 #r源石技艺 牌会上升1级 NL 每提升1级会获得1张 #r源石诅咒 "
     },
     {
       "NAMES": [
-        ""
+        "不是哥们"
       ],
-      "DESCRIPTION": " #r大吉 :获得 #b30 金币。 NL #r小吉 :获得 #b20 金币。 NL #b小凶 :获得 #b10 金币。 NL #b大凶 :获得 #b0 金币。"
+      "DESCRIPTION": "？"
     }
   ]
 }

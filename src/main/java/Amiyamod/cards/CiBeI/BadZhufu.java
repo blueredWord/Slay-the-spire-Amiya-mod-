@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.relics.Yill;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -24,8 +25,8 @@ public class BadZhufu extends CustomCard {
 
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiyathecolor;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
+    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public BadZhufu() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -50,7 +51,8 @@ public class BadZhufu extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得丝线
-        Amiyamod.LinePower(this.misc);
+        int level = p.hasBlight(Yill.ID)? Yill.level : 0;
+        Amiyamod.LinePower(level+this.misc);
         //永久强化
         Iterator var1 = AbstractDungeon.player.masterDeck.group.iterator();
         AbstractCard c;

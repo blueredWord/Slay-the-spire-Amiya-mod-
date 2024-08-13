@@ -35,7 +35,11 @@ public class MercyPower extends AbstractPower {
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        if (this.amount == 1){
+            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        } else{
+
+        }
     }
 
     // 效果 : 本回合造成伤害时获得等同于伤害点丝线。

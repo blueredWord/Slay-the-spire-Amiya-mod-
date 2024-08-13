@@ -1,47 +1,34 @@
 package Amiyamod;
 
+import Amiyamod.cards.AmiyaDefend;
 import Amiyamod.cards.AmiyaStrike;
-import Amiyamod.cards.CiBeI.RollFood;
+import Amiyamod.cards.CiBeI.*;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
-import Amiyamod.patches.LibraryTypeEnum;
+import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.AbstractCardEnum;
-import Amiyamod.power.SoulDefendPower;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yill;
 import basemod.interfaces.EditKeywordsSubscriber;
-import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.relics.TheTen;
-import basemod.ModLabeledToggleButton;
-import basemod.ModPanel;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.unique.DeckToHandAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.sun.org.apache.xpath.internal.compiler.Keywords;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import basemod.abstracts.CustomCard;
@@ -285,16 +272,45 @@ public class Amiyamod implements
 
     @Override
     public void receiveEditCards() {
-        //BaseMod.addDynamicVariable(new RealmMagicNumber());
-        //BaseMod.addDynamicVariable(new SecondRealmMagicNumber());
-        //BaseMod.addDynamicVariable(new SecondMagicNumber());
-
-        logger.debug("Amiyamod Cards started.");
         List<CustomCard> cards = new ArrayList<>();
-//加入卡牌
+    //加入卡牌
         cards.add(new AmiyaStrike());
+        cards.add(new AmiyaDefend());
+        //源石诅咒
+        cards.add(new Ytiruo());
+        cards.add(new Ymust());
+        cards.add(new Ysnake());
+        cards.add(new Yjianwang());
+        cards.add(new Ytiruo());
+        cards.add(new Ysex());
+        cards.add(new Yangry());
+        cards.add(new Ychengyin());
+        cards.add(new Ydead());
+        //慈悲愿景
+        cards.add(new BadZhufu());
+        cards.add(new BeautifulLife());
+        cards.add(new BForB());
+        cards.add(new BloodPotion());
+        cards.add(new BreakRing());
+        cards.add(new CNoC());
+        cards.add(new Echo());
+        cards.add(new HelBox());
+        cards.add(new HELP());
+        cards.add(new HerDo());
+        cards.add(new HerSee());
+        cards.add(new LifeMade());
+        cards.add(new LineBody());
+        cards.add(new LineDefender());
+        cards.add(new LittleTe());
+        cards.add(new Mercy());
+        cards.add(new NoFeng());
+        cards.add(new Open());
+        cards.add(new RollFood());
+        cards.add(new SadMind());
+        cards.add(new SoulDefend());
 
         for (CustomCard card : cards) {
+            logger.debug(card.cardID+" is loading");
             BaseMod.addCard(card);
             UnlockTracker.unlockCard(card.cardID);
         }
@@ -312,9 +328,7 @@ public class Amiyamod implements
     public void receiveEditRelics() {
         logger.debug("Amiyamod relic load start.");
         if(addonRelic){
-
-           BaseMod.addRelic(new TheTen(), RelicType.SHARED);
-
+            BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.Amiyathecolor);
         }
         logger.debug("Amiyamod relic load finish.");
     }

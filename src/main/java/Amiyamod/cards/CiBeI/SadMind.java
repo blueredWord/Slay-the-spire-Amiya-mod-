@@ -27,6 +27,7 @@ public class SadMind extends CustomCard {
     public SadMind() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.isInnate = true; //固有
+        this.exhaust = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

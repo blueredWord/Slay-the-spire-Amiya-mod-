@@ -2,23 +2,21 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-//  诸魂庇佑能力
-//  每次受到伤害获得层数丝线
-public class SoulDefendPower extends AbstractPower {
-    public static final String NAME = "SoulDefenderPower";
+//直到下个回合开始前，每受到1次伤害获得点丝线
+public class LineDefenderPower extends AbstractPower {
+    public static final String NAME = "LineDefenderPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public SoulDefendPower(AbstractCreature owner, int amount) {
+    public LineDefenderPower(AbstractCreature owner, int amount) {
         this.name = powerStrings.NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -45,5 +43,11 @@ public class SoulDefendPower extends AbstractPower {
             Amiyamod.LinePower(this.amount,this.owner);
         }
         return damageAmount;
+    }
+
+    // 能力在回合开始时移除
+    @Override
+    public void atStartOfTurnPostDraw() {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
 }

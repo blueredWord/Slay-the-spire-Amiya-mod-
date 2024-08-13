@@ -49,7 +49,6 @@ public class HerDoPower extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && damageAmount > 0) {
             this.flash();
-
             this.addToBot(new SFXAction("ATTACK_HEAVY"));
             this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
             this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
