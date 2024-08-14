@@ -39,9 +39,7 @@ public class BeautifulLifePower extends ABeautifulLifePower {
         this.amount = -1;
         this.type = PowerType.DEBUFF;
 
-        for(AbstractCard card : G){
-            CardGroup.add(card.uuid);
-        }
+        CardGroup.addAll(G);
 
         // 添加图标                         this.img = new Texture("img/Reimupowers/" + NAME + ".png");
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -52,14 +50,18 @@ public class BeautifulLifePower extends ABeautifulLifePower {
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
+        for(AbstractCard c : CardGroup){
+            this.description += this.description + c.name + DESCRIPTIONS[1];
+        }
+        this.description += DESCRIPTIONS[2];
     }
 
     // 效果 : 打出记录的卡后扣血
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        for(UUID uid : CardGroup){
-            if (uid == card.uuid){
+        for(AbstractCard uid : CardGroup){
+            if (uid.uuid == card.uuid){
                 AbstractDungeon.actionManager.addToTop(
                         new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, card.makeCopy().cost*2)
                 );

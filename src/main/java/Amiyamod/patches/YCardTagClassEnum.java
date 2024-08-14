@@ -5,5 +5,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class YCardTagClassEnum {
     @SpireEnum
-    public static AbstractCard.CardTags YCard;;
+    public static AbstractCard.CardTags YCard;
+    public static AbstractCard.CardTags YZuZhou;
 }

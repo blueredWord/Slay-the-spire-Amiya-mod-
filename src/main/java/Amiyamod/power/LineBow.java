@@ -1,4 +1,4 @@
-package Amiyamod.power;// 阿米亚状态 茧
+package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+// 阿米亚状态 茧
+//回合结束时获得等量丝线
 public class LineBow extends AbstractPower {
     public static final String NAME = "LineBowPower";
     // 能力的ID

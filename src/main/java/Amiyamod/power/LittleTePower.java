@@ -14,7 +14,8 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-
+//特蕾西亚的庇护
+//获得格挡时改为获得等量的 丝线。
         public class LittleTePower extends AbstractPower {
             public static final String NAME = "LittleTePower";
             public static final String ID1 = "AmiyaMod:"+NAME;

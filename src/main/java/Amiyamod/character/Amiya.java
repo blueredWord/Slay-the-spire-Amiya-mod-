@@ -1,6 +1,8 @@
 package Amiyamod.character;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.AmiyaDefend;
+import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
 import Amiyamod.patches.AbstractCardEnum;
 import Amiyamod.relics.TheTen;
@@ -32,9 +34,9 @@ import java.util.ArrayList;
 
 public class Amiya extends CustomPlayer {
     // 火堆的人物立绘（行动前）
-    private static final String MY_CHARACTER_SHOULDER_1 = "img/character/Amiya/AmiyaBG.png";
+    private static final String MY_CHARACTER_SHOULDER_1 = "img/character/Amiya/AmiyaFire.png";
     // 火堆的人物立绘（行动后）
-    private static final String MY_CHARACTER_SHOULDER_2 = "img/character/Amiya/AmiyaBG.png";
+    private static final String MY_CHARACTER_SHOULDER_2 = "img/character/Amiya/AmiyaFire2.png";
     // 人物死亡图像
     private static final String CORPSE_IMAGE = "img/character/Amiya/AmiyaBG.png";
     // 战斗界面左下角能量图标的每个图层
@@ -90,7 +92,10 @@ public class Amiya extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();   //创建初始卡组的列表
         for(int x = 0; x<5; x++) {                      //通过循环加入五张打击
             retVal.add(AmiyaStrike.ID);
+            retVal.add(AmiyaDefend.ID);
         }
+        retVal.add(AmiyaMagic.ID);
+        retVal.add(AmiyaMagic.ID);
         //retVal.add("ExampleMod:Strike");
         return retVal;
     }
@@ -106,8 +111,8 @@ public class Amiya extends CustomPlayer {
         String title;
         String flavor;
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT) {
-            title = "博丽灵梦";
-            flavor = "没什么用的老熟人。";
+            title = "阿米娅";
+            flavor = "芝士兔子。";
         }
         else {
             title = "The Shrine Maiden";

@@ -1,15 +1,16 @@
 {
-  "AmiyaMod:": {
-    "NAME": "",
+  "AmiyaMod:Yill": {
+    "NAME": "源石病",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "#b1 #y力量 、 #y敏捷 、 #y集中"
+      "再累计 #y",
+      " 点 源石感染 后， 感染阶段 将会加深。"
     ]
-  },"AmiyaMod:": {
-    "NAME": "",
+  },"AmiyaMod:TheTen": {
+    "NAME": "十戒",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      ""
+      "每场战斗开始时，可以从5张所有角色的随机卡牌中选择1张加入手牌。"
     ]
   }
 }

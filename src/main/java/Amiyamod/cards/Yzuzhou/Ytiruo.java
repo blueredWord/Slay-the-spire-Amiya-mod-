@@ -14,7 +14,8 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
-
+//身虚体弱
+//不可被打出 回合结束时若你打出了源石技艺牌，获得1层易伤。
 public class Ytiruo extends CustomCard {
     private static final String NAME = "Ytiruo";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

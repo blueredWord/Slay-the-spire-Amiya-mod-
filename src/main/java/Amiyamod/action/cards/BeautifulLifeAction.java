@@ -30,9 +30,8 @@ public class BeautifulLifeAction extends AbstractGameAction {
             }
             AbstractPlayer p = AbstractDungeon.player;
             if(p.hasPower(BeautifulLifePower.POWER_ID)){
-                for(AbstractCard card : DrawCardAction.drawnCards){
-                    ABeautifulLifePower.CardGroup.add(card.uuid);
-                }
+                ABeautifulLifePower.CardGroup.addAll(DrawCardAction.drawnCards);
+                p.getPower(BeautifulLifePower.POWER_ID).updateDescription();
             }else {
                 this.addToBot(new ApplyPowerAction(p,p,new BeautifulLifePower(p,DrawCardAction.drawnCards)));
             }

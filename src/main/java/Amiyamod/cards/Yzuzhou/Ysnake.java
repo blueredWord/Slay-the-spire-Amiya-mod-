@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import java.util.Iterator;
-
+//认知障碍
 //不可被打出 抽到时手牌中的技能牌和攻击牌耗能会随机变化。能力牌无法打出。
 public class Ysnake extends CustomCard {
     private static final String NAME = "Ysnake";//卡片名字

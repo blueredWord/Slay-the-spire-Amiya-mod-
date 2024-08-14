@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
+//见她所见
+//本回合每消耗1点能量 燃己2
 public class HerSeePower extends AbstractPower {
     public static final String NAME = "HerSeePower";
     public static final String POWERID = Amiyamod.makeID(NAME);

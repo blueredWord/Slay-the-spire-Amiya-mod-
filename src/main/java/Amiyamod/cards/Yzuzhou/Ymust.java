@@ -15,9 +15,10 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
 import java.util.UUID;
-
+// 偏执症
+// 不可被打出 抽到此牌时，选择一张手牌耗能+1，若你回合结束时没有将其打出，燃己4。
 public class Ymust extends CustomCard {
-    private static final String NAME = "Ysex";//卡片名字
+    private static final String NAME = "Ymust";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图

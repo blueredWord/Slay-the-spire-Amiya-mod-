@@ -44,7 +44,7 @@ public class AmiyaDefend extends CustomCard {
             this.upgradeBlock(3);
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

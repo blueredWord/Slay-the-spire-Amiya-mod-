@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+// 行她所行
+// 每次受到伤害对所有敌人造成6点真实伤害。
 public class HerDo extends CustomCard {
     private static final String NAME = "HerDo";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

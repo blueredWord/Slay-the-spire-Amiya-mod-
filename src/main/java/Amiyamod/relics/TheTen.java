@@ -11,7 +11,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
-
+//十戒
+//每场战斗开始时，可以从5张所有角色的随机卡牌中选择1张加入手牌。
 public class TheTen extends AbstractRelic {
     public static final String NAME = "TheTen";
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）

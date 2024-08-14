@@ -41,15 +41,12 @@ public class Ychengyin extends CustomCard {
 
     public void triggerOnEndOfPlayerTurn() {
         AbstractPlayer p = AbstractDungeon.player;
-        boolean var1 = false;
-        Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();
         //遍历本回合打出过的卡
-        while(var2.hasNext()) {
-            AbstractCard c = (AbstractCard)var2.next();
+        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             //如果打出过源石卡
             if (c.hasTag(YCardTagClassEnum.YCard)) {
                 //向玩家施加虚弱
-                var1 = true;
+                this.addToTop(new ApplyPowerAction(p, p, new WeakPower(p, 1, false), 1));
                 /* 暂时封印深度感染的效果
                 if(满足 && a){
                     Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
@@ -62,9 +59,6 @@ public class Ychengyin extends CustomCard {
                 */
                 break;
             }
-        }
-        if (var1){
-            this.addToTop(new ApplyPowerAction(p, p, new WeakPower(p, 1, false), 1));
         }
         super.triggerOnEndOfPlayerTurn();
     }

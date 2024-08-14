@@ -1,16 +1,89 @@
 {
-  "AmiyaMod:": {
-    "NAME": "",
+  "AmiyaMod:BeautifulLifePower": {
+    "NAME": "璀璨生命",
     "DESCRIPTIONS": [
-      "",
+      "当你打出耗能降为0的",
+      "，",
+      "后，失去等同于原本耗能的生命。"
+    ]
+  },
+  "AmiyaMod:HerDoPower": {
+    "NAME": "行她所行",
+    "DESCRIPTIONS": [
+      "失去生命后对所有敌人造成",
+      "点伤害。"
+    ]
+  },
+  "AmiyaMod:HerSeePower": {
+    "NAME": "见她所见",
+    "DESCRIPTIONS": [
+      "本回合每消耗1点能量后， 燃己 ",
+      "。",
       ""
     ]
   },
-  "AmiyaMod:": {
-    "NAME": "",
+  "AmiyaMod:LineBowPower": {
+    "NAME": "茧",
     "DESCRIPTIONS": [
-      "",
+      "回合结束时，获得",
+      "点 丝线 。",
+      "后，失去等同于原本耗能的生命。"
+    ]
+  },
+  "AmiyaMod:LineDefenderPower": {
+    "NAME": "护身丝线",
+    "DESCRIPTIONS": [
+      "直到下个回合开始前，每次失去生命获得",
+      "点 丝线 。",
       ""
     ]
-  }
+  },"AmiyaMod:MercyPower": {
+  "NAME": "慈悲愿景",
+  "DESCRIPTIONS": [
+    "本回合造成伤害时获得等同于伤害的丝线。",
+    "本回合造成伤害时获得",
+    "倍于伤害的丝线。"
+  ]
+},"AmiyaMod:LittleTePower": {
+  "NAME": "特蕾西亚的庇护",
+  "DESCRIPTIONS": [
+    "获得格挡时改为获得等量的 丝线。",
+    "，",
+    "后，失去等同于原本耗能的生命。"
+  ]
+},"AmiyaMod:NoFengPower": {
+  "NAME": "无锋",
+  "DESCRIPTIONS": [
+    "直到下个回合开始，每受到2次伤害，获得",
+    "层茧。",
+    "后，失去等同于原本耗能的生命。"
+  ]
+},"AmiyaMod:OpenPower": {
+  "NAME": "绽放",
+  "DESCRIPTIONS": [
+    "每次受到伤害，令一名随机敌人获得",
+    "层虚弱。",
+    "每次受到伤害，令你获得"
+  ]
+},"AmiyaMod:SoulDefenderPower": {
+  "NAME": "诸魂庇佑",
+  "DESCRIPTIONS": [
+    "每次受到伤害获得",
+    "点丝线。",
+    "后，失去等同于原本耗能的生命。"
+  ]
+},"AmiyaMod:": {
+  "NAME": "璀璨生命",
+  "DESCRIPTIONS": [
+    "当你打出耗能降为0的",
+    "，",
+    "后，失去等同于原本耗能的生命。"
+  ]
+},
+
+
+
+
+  ,
+
 }

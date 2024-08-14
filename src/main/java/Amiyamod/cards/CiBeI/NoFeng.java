@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //无锋
+//消耗 直到下个回合开始，每受到2次伤害，获得1层茧。
 public class NoFeng extends CustomCard {
     private static final String NAME = "NoFeng";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

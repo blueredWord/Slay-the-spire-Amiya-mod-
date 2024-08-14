@@ -4,7 +4,6 @@ import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.HelBoxAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -28,7 +27,7 @@ public class HelBox extends CustomCard {
 
     public HelBox() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 4;
+        this.baseMagicNumber = 6;
         this.magicNumber = this.baseMagicNumber;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -40,7 +39,7 @@ public class HelBox extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.upgradeMagicNumber(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

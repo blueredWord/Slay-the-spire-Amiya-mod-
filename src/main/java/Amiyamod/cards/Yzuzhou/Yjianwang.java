@@ -14,7 +14,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
-
+//健忘症
+//不可被打出 抽到此牌时令一张随机手牌获得虚无。
 public class Yjianwang extends CustomCard {
     private static final String NAME = "Yjianwang";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

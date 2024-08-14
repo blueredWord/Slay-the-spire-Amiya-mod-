@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 
+// 效果 : 被攻击后对所有敌人造成相当于层数的反伤
 public class HerDoPower extends AbstractPower {
     public static final String NAME = "HerDoPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
@@ -44,7 +45,17 @@ public class HerDoPower extends AbstractPower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
-    // 效果 : 被攻击后造成相当于层数的反伤
+    // 效果 :失去生命后造成相当于层数的反伤
+    public int onLoseHp(int damageAmount) {
+        if (damageAmount>0){
+            this.flash();
+            this.addToBot(new SFXAction("ATTACK_HEAVY"));
+            this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
+            this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
+        }
+        return damageAmount;
+    }
+    /*
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != null && info.owner != this.owner && damageAmount > 0) {
@@ -56,5 +67,5 @@ public class HerDoPower extends AbstractPower {
 
         return damageAmount;
     }
-
+    */
 }

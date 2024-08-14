@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-
+//慈悲愿景
 //本回合造成伤害时获得等同于伤害点丝线。
 public class MercyPower extends AbstractPower {
     public static final String NAME = "MercyPower";
@@ -36,9 +36,9 @@ public class MercyPower extends AbstractPower {
     // 能力在更新时如何修改描述
     public void updateDescription() {
         if (this.amount == 1){
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0];
         } else{
-
+            this.description = DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
         }
     }
 

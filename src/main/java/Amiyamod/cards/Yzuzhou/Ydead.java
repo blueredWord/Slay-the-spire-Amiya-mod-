@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+//亡陨
+//不可被打出 每次抽到此牌时，燃己3。
 public class Ydead extends CustomCard {
     private static final String NAME = "Ydead";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

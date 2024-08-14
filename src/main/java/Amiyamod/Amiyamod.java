@@ -1,32 +1,39 @@
 package Amiyamod;
 
 import Amiyamod.cards.AmiyaDefend;
+import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
 import Amiyamod.cards.CiBeI.*;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yill;
 import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.relics.TheTen;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -112,7 +119,7 @@ public class Amiyamod implements
         logger.info("========================= 初始化完成 =========================");
     }
     //  调动遗物记录源石感染的接口
-    public void addY(int n) {
+    public static void addY(int n) {
         AbstractPlayer p = AbstractDungeon.player;
         if (n>0 && !p.hasBlight(Yill.ID)){
             p.blights.add(new Yill().makeCopy());
@@ -120,6 +127,37 @@ public class Amiyamod implements
         if (n != 0){
             CYrelic Y = (CYrelic) p.getBlight(Yill.ID);
             Y.addC(n);
+        }
+    }
+    //急性感染接口
+    public static void HenJi(int number, AbstractCard c, AbstractMonster m){
+        if(!c.purgeOnUse) {
+            AbstractPlayer p = AbstractDungeon.player;
+            ArrayList<AbstractCard> G = new ArrayList<AbstractCard>();
+            for (AbstractCard card : p.hand.group) {
+                if (card.hasTag(YCardTagClassEnum.YZuZhou)) {
+                    G.add(card);
+                }
+            }
+            int i = 0;
+            for (; G.isEmpty() || i == number; i++) {
+                Collections.shuffle(G);
+                AbstractCard card = G.get(0);
+                p.hand.moveToDiscardPile(card);
+                G.remove(0);
+                AbstractCard tmp = c.makeSameInstanceOf();
+                AbstractDungeon.player.limbo.addToBottom(tmp);
+                tmp.current_x = card.current_x;
+                tmp.current_y = card.current_y;
+                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
+
+                if (m != null) {
+                    tmp.calculateCardDamage(m);
+                }
+                tmp.purgeOnUse = true;
+                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(c, m, c.energyOnUse, true, true), true);
+            }
         }
     }
     //获得丝线接口
@@ -141,8 +179,8 @@ public class Amiyamod implements
         } else {
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,number));
         }
-
     }
+
     public static void LinePower(int number){
         LinePower(number,AbstractDungeon.player);//获得丝线的默认对象为玩家
     }
@@ -276,6 +314,7 @@ public class Amiyamod implements
     //加入卡牌
         cards.add(new AmiyaStrike());
         cards.add(new AmiyaDefend());
+        cards.add(new AmiyaMagic());
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());

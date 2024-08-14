@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import javax.naming.Name;
@@ -19,8 +21,9 @@ public class Yill extends CYrelic implements CustomSavable<Integer> {
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = Amiyamod.makeID(NAME);
     public static boolean calledTransform = false;
+    public static RelicStrings DESC =  CardCrawlGame.languagePack.getRelicStrings(ID);
     public Yill() {
-        super(NAME, CardCrawlGame.languagePack.getRelicStrings(ID).DESCRIPTIONS[0], NAME,false);
+        super(ID,DESC.NAME, DESC.DESCRIPTIONS[0], NAME,false);
         // 图片路径
         this.img = ImageMaster.loadImage("img/relics/"+NAME+".png");
         this.outlineImg = ImageMaster.loadImage("img/relics/"+NAME+"outline.png");
@@ -53,8 +56,12 @@ public class Yill extends CYrelic implements CustomSavable<Integer> {
         }
     }
     // 获取遗物描述，但原版游戏只在初始化和获取遗物时调用，故该方法等于初始描述
-    public String getUpdatedDescription() {
-        return this.description;
+    public void updateDescription(AbstractPlayer.PlayerClass c) {
+        int n = MAXY - this.counter;
+        this.description = DESC.DESCRIPTIONS[0] + n + DESC.DESCRIPTIONS[1];
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        this.initializeTips();
     }
 
     public AbstractBlight makeCopy() {

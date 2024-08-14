@@ -2,6 +2,7 @@ package Amiyamod.cards;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -12,27 +13,29 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class AmiyaStrike extends CustomCard {
-    private static final String NAME = "AmiyaStrike";//卡片名字
+//基础伤害技艺
+//急性发作2  造成6（9）点伤害1次。 每次打出令下次造成伤害次数+1次。
+public class AmiyaMagic extends CustomCard {
+    private static final String NAME = "AmiyaMagic";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
-    private static final CardType TYPE = CardType.ATTACK;//卡片类型
-    private static final CardColor COLOR = CardColorEnum.Amiyathecolor;//卡牌颜色
-    private static final CardRarity RARITY = CardRarity.BASIC;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
+    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;//卡片类型
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiyathecolor;//卡牌颜色
+    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.BASIC;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;//是否指向敌人
 
-    public AmiyaStrike() {
+    public AmiyaMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
-        this.tags.add(CardTags.STARTER_STRIKE);
-        this.tags.add(CardTags.STRIKE);
-
+        this.tags.add(AbstractCard.CardTags.STARTER_STRIKE);
+        this.tags.add(AbstractCard.CardTags.STRIKE);
+        this.baseMagicNumber = this.magicNumber =1;
         //源石卡牌tag
-        //this.tags.add(YCardTagClassEnum.YCard);
+        this.tags.add(YCardTagClassEnum.YCard);
     }
 
     @Override
@@ -49,16 +52,22 @@ public class AmiyaStrike extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(
-                                p,
-                                damage,
-                                DamageInfo.DamageType.NORMAL
-                        )
-                )
-        );
+        for (int i = 0;i < this.magicNumber ; i++){
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAction(
+                            m,
+                            new DamageInfo(
+                                    p,
+                                    damage,
+                                    DamageInfo.DamageType.NORMAL
+                            )
+                    )
+            );
+        }
+        Amiyamod.HenJi(2,this,m);
+        this.magicNumber++;
+        this.isMagicNumberModified = true;
+        Amiyamod.addY(1);
     }
     public AbstractCard makeCopy() {return new AmiyaStrike();}
 }

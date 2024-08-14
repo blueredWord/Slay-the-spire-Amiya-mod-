@@ -21,7 +21,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
-
+//见她所见
+//消耗 （保留） 获得等于当前 丝线 层数的能量，本回合每消耗1点能量 燃己2。
 public class HerSee extends CustomCard {
     private static final String NAME = "HerSee";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

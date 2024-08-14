@@ -54,7 +54,7 @@ public class LineBody extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.upgradeMagicNumber(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

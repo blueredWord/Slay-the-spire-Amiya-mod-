@@ -45,6 +45,7 @@ public class Mercy extends CustomCard {
             this.exhaust = false;       //消耗
             this.selfRetain = true;     //保留
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

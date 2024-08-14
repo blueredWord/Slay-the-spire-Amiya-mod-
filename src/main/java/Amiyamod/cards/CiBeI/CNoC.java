@@ -35,7 +35,8 @@ public class CNoC extends CustomCard {
         this.misc = 2;
         this.isMultiDamage = true;
         this.magicNumber = this.baseMagicNumber = 1;
-
+        this.rawDescription = CARD_STRINGS.DESCRIPTION + this.misc +CARD_STRINGS.UPGRADE_DESCRIPTION;
+        this.initializeDescription();
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -51,7 +52,7 @@ public class CNoC extends CustomCard {
             this.upgradeDamage(1); // 将该卡牌的伤害提高。
             this.upgradeMagicNumber(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

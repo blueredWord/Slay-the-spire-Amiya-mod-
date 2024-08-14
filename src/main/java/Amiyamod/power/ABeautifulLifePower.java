@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public abstract class ABeautifulLifePower extends AbstractPower {
-    public static ArrayList<UUID> CardGroup= new ArrayList<UUID>();
+    public static ArrayList<AbstractCard> CardGroup= new ArrayList<AbstractCard>();
     public ABeautifulLifePower(AbstractCreature owner, ArrayList<AbstractCard> G) {
         super();
     }

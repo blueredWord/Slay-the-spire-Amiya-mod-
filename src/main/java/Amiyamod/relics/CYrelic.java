@@ -18,9 +18,9 @@ public abstract class CYrelic extends AbstractBlight implements CustomSavable<In
     public int value = 0;
     public static int level = 1;//初始感染水平
     public static final int MAXY = 10;
-    public CYrelic(String name,String des,String imgName,boolean unique) {
-        super(Amiyamod.makeID(name),name, des, imgName, unique);
-        this.blightID = Amiyamod.makeID(name);
+    public CYrelic(String ID,String name,String des,String imgName,boolean unique) {
+        super(ID,name, des, imgName, unique);
+        this.blightID = ID;
     }
 
     //提供外部调动源石数值的接口

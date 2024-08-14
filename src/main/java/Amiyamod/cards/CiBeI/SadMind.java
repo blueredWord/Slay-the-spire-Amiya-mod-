@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+// 哀恸共情
 //（保留）获得等于一名敌人攻击意图点丝线。
 public class SadMind extends CustomCard {
     private static final String NAME = "SadMind";//卡片名字

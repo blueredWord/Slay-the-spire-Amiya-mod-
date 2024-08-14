@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+//特蕾西亚的庇护
+//获得格挡时改为获得等量的 丝线。
 public class LittleTe extends CustomCard {
     private static final String NAME = "LittleTe";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

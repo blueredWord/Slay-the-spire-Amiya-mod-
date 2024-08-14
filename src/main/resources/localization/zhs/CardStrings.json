@@ -1,16 +1,146 @@
 {
-  "AmiyaMod:Strike": {
+  "AmiyaMod:AmiyaStrike": {
     "NAME": "基础法术打击",
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
-  "AmiyaMod:Defend": {
+  "AmiyaMod:AmiyaDefend": {
     "NAME": "基础法术防御击",
     "DESCRIPTION": "获得 !B! 点格挡。"
   },
+  "AmiyaMod:AmiyaMagic": {
+    "NAME": "基础法术防御击",
+    "DESCRIPTION": "急性发作 2，造成 !D! 点伤害 !M! 次。 NL 战斗中每次打出伤害次数+1"
+  },
   "AmiyaMod:BadZhufu": {
-    "NAME": "",
-    "DESCRIPTION": "",
+    "NAME": "禁忌祝福",
+    "DESCRIPTION": "获得 感染阶段 +1点 丝线 。每打出一次，这张牌在本局游戏中的 丝线 永久性增加 !M! NL 消耗 ",
     "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": ["",""]
+  },
+  "AmiyaMod:BeautifulLife": {
+    "NAME": "璀璨生命",
+    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 消耗 ",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "AmiyaMod:BForB": {
+    "NAME": "以血还血",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 燃己 !M! NL 消耗 ",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "AmiyaMod:BloodPotion": {
+    "NAME": "鲜血制剂",
+    "DESCRIPTION": "给予所有敌人 !M! 层 虚弱 和 易伤 。 NL 燃己 2",
+    "UPGRADE_DESCRIPTION": "给予所有敌人 !M! 层 虚弱 和 易伤 两次。 NL 燃己 2"
+  },
+  "AmiyaMod:LineBody": {
+    "NAME": "丝线予身",
+    "DESCRIPTION": "获得 !M! 层 茧 。加入一张 源石诅咒 到弃牌堆。"
+  },
+  "AmiyaMod:BreakRing": {
+    "NAME": "碎戒",
+    "DESCRIPTION": "将1张 源石诅咒 加入手牌，获得 [E][E] 。选择1张消耗牌堆的牌加入手牌。 燃己 !M! "
+  },
+  "AmiyaMod:CNoC": {
+    "NAME": "有刺无刺",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害",
+    "UPGRADE_DESCRIPTION": "次，本回合你每受到1次伤害额外攻击一次。燃己 !M! "
+  },
+  "AmiyaMod:Echo": {
+    "NAME": "沉默的回响",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害X次 NL 获得 !M! 点丝线X次 NL 燃己 X",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害X+1次 NL 获得 !M! 点丝线X+1次 NL 燃己 X"
+  },
+  "AmiyaMod:HelBox": {
+    "NAME": "随身医疗箱",
+    "DESCRIPTION": "消耗卡组中的1张牌，获得 !M! 点丝线。 燃己 1"
+  },
+  "AmiyaMod:HELP": {
+    "NAME": "紧急救援",
+    "DESCRIPTION": "从弃牌堆中选择 !M! 张牌放入你的手牌，受到与它们耗能相同的真实伤害。"
+  },
+  "AmiyaMod:HerDo": {
+    "NAME": "行她所行",
+    "DESCRIPTION": "每次受到伤害对所有敌人造成 !M! 点真实伤害"
+  },
+  "AmiyaMod:HerSee": {
+    "NAME": "见她所见",
+    "DESCRIPTION": "获得等于当前 丝线 数量的能量。 NL 本回合每消耗 [E] : 燃己 !M! NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "获得等于当前 丝线 数量的能量。NL 本回合每消耗 [E] : 燃己 !M! NL 保留 "
+  },
+  "AmiyaMod:LifeMade": {
+    "NAME": "生命固化",
+    "DESCRIPTION": "获得 !M! 点 丝线 。 NL 燃己 2。"
+  },
+  "AmiyaMod:LineDefender": {
+    "NAME": "护身丝线",
+    "DESCRIPTION": "直到下个回合开始前，每受到1次伤害获得 !M! 点 丝线 。"
+  },
+  "AmiyaMod:LittleTe": {
+    "NAME": "特蕾西亚的庇护",
+    "DESCRIPTION": "获得格挡时改为获得等量的 丝线 。"
+  },
+  "AmiyaMod:Mercy": {
+    "NAME": "慈悲愿景",
+    "DESCRIPTION": "本回合造成伤害时获得等同于伤害点 丝线 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "本回合造成伤害时获得等同于伤害点 丝线 。 NL 保留 。"
+  },
+  "AmiyaMod:NoFeng": {
+    "NAME": "无锋",
+    "DESCRIPTION": "直到下个回合开始，每受到2次伤害，获得 茧 消耗 "
+  },
+  "AmiyaMod:Open": {
+    "NAME": "绽放",
+    "DESCRIPTION": "每次受到伤害令一名随机敌人获得 !M! 层 虚弱 燃己 3",
+    "UPGRADE_DESCRIPTION": " 固有 每次受到伤害令一名随机敌人获得 !M! 层 虚弱 燃己 3"
+  },
+  "AmiyaMod:RollFood": {
+    "NAME": "涌动之餐",
+    "DESCRIPTION": "抽1张牌 NL 当你抽到 源石诅咒 时将此牌加入你的手牌 NL 燃己 !M! ",
+    "UPGRADE_DESCRIPTION": " 固有 抽1张牌 NL 当你抽到 源石诅咒 时将此牌加入你的手牌 NL 燃己 !M! "
+  },
+  "AmiyaMod:SadMind": {
+    "NAME": "哀恸共情",
+    "DESCRIPTION": "获得等于一名敌人攻击意图的 丝线 ",
+    "UPGRADE_DESCRIPTION": "获得等于一名敌人攻击意图的 丝线 NL 保留 "
+  },
+  "AmiyaMod:SoulDefend": {
+    "NAME": "诸魂庇佑",
+    "DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张复制加入手牌 NL 虚无 "
+  },
+  "AmiyaMod:Yangry": {
+    "NAME": "狂躁症",
+    "DESCRIPTION": " 不能被打出 。 NL 打出攻击牌时随机丢弃1张手牌。"
+  },
+  "AmiyaMod:Ychengyin": {
+    "NAME": "源石瘾",
+    "DESCRIPTION": " 不能被打出 。 NL 回合结束时若你没有打出 源石技艺 牌，获得 !M! 层 虚弱 "
+  },
+  "AmiyaMod:Ydead": {
+    "NAME": "亡陨",
+    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时, 燃己 !M! 。"
+  },
+  "AmiyaMod:Yjianwang": {
+    "NAME": "健忘症",
+    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时,令一张随机手牌获得 虚无 。"
+  },
+  "AmiyaMod:Yjiejin": {
+    "NAME": "体表结晶",
+    "DESCRIPTION": "不能被打出 。 NL 打出非 源石技艺 牌时，受到 !M! 点伤害。"
+  },
+  "AmiyaMod:Ymust": {
+    "NAME": "偏执症",
+    "DESCRIPTION": "不能被打出 。 NL 抽到这张牌时,令一张随机手牌耗能+1。 NL 若你回合结束时没有将其打出， 燃己 !M! 。"
+  },
+  "AmiyaMod:Ysex": {
+    "NAME": "活性化体质",
+    "DESCRIPTION": "不能被打出 。 NL 获得 丝线 时改为获得等量的格挡。"
+  },
+  "AmiyaMod:Ysnake": {
+    "NAME": "认知障碍",
+    "DESCRIPTION": "不能被打出 。 NL 抽到此牌时，令手牌中的技能牌和攻击牌耗能随机变化。能力牌 不能被打出 。"
+  },
+  "AmiyaMod:Ytiruo": {
+    "NAME": "身虚体弱",
+    "DESCRIPTION": "不能被打出 。 NL 回合结束时,若你打出过 源石技艺 牌，获得 !M! 层 易伤 "
   }
 }

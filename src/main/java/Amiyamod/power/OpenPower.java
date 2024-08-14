@@ -41,7 +41,7 @@ public class OpenPower extends AbstractPower {
         if(this.owner.isPlayer){
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
         }else{
-            this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[2] + this.amount + DESCRIPTIONS[1];
         }
     }
 

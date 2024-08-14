@@ -15,7 +15,8 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
-//鲜血制剂
+// 鲜血制剂
+// 给予所有敌人1层虚弱及1层易伤（两次）。燃己2
 public class BloodPotion extends CustomCard {
     private static final String NAME = "BloodPotion";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
