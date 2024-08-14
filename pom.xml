@@ -28,6 +28,13 @@
 
     <dependencies>
         <dependency>
+            <groupId>STSLIB</groupId>
+            <artifactId>STSLIB</artifactId>
+            <version>3.23.2</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.megacrit.cardcrawl</groupId>
             <artifactId>slaythespire</artifactId>
             <version>2020-11-30</version>

@@ -4,7 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.relics.Yill;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
