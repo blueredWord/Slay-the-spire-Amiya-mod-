@@ -4,8 +4,6 @@ import Amiyamod.Amiyamod;
 import Amiyamod.cards.AmiyaDefend;
 import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
-import Amiyamod.patches.AbstractCardEnum;
-import Amiyamod.relics.TheTen;
 
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
