@@ -9,7 +9,7 @@
   },
   "AmiyaMod:AmiyaMagic": {
     "NAME": "基础源石技艺",
-    "DESCRIPTION": "急性发作 2，造成 !D! 点伤害 !M! 次。 NL 战斗中每次打出伤害次数+1"
+    "DESCRIPTION": "急性发作 2 NL 造成 !D! 点伤害 !M! 次。 NL 战斗中每次打出伤害次数+1"
   },
   "AmiyaMod:BadZhufu": {
     "NAME": "禁忌祝福",
@@ -19,7 +19,7 @@
   },
   "AmiyaMod:BeautifulLife": {
     "NAME": "璀璨生命",
-    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 消耗 ",
+    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BForB": {
@@ -34,16 +34,16 @@
   },
   "AmiyaMod:LineBody": {
     "NAME": "丝线予身",
-    "DESCRIPTION": "获得 !M! 层 茧 。加入一张 源石诅咒 到弃牌堆。"
+    "DESCRIPTION": "获得 !M! 层 茧 。 NL 加入一张 源石诅咒 到弃牌堆。"
   },
   "AmiyaMod:BreakRing": {
     "NAME": "碎戒",
-    "DESCRIPTION": "将1张 源石诅咒 加入手牌，获得 [E][E] 。选择1张消耗牌堆的牌加入手牌。 燃己 !M! "
+    "DESCRIPTION": "将1张 源石诅咒 加入手牌，获得 [E][E] 。选择1张消耗牌堆的牌加入手牌。 NL 燃己 !M! "
   },
   "AmiyaMod:CNoC": {
     "NAME": "有刺无刺",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害",
-    "UPGRADE_DESCRIPTION": "次，本回合你每受到1次伤害额外攻击一次。燃己 !M! "
+    "UPGRADE_DESCRIPTION": "次，本回合你每受到1次伤害额外攻击一次。 NL 燃己 !M! "
   },
   "AmiyaMod:Echo": {
     "NAME": "沉默的回响",
@@ -52,15 +52,15 @@
   },
   "AmiyaMod:HelBox": {
     "NAME": "随身医疗箱",
-    "DESCRIPTION": "消耗卡组中的1张牌，获得 !M! 点丝线。 燃己 1"
+    "DESCRIPTION": "消耗卡组中的1张牌，获得 !M! 点丝线。 NL  燃己 1"
   },
   "AmiyaMod:HELP": {
     "NAME": "紧急救援",
-    "DESCRIPTION": "从弃牌堆中选择 !M! 张牌放入你的手牌，受到与它们耗能相同的真实伤害。"
+    "DESCRIPTION": "从弃牌堆中选择 !M! 张牌放入你的手牌，失去与它们耗能相同的生命。"
   },
   "AmiyaMod:HerDo": {
     "NAME": "行她所行",
-    "DESCRIPTION": "每次受到伤害对所有敌人造成 !M! 点真实伤害"
+    "DESCRIPTION": "每当你失去生命。 NL 使所有敌人失去 !M! 点生命。"
   },
   "AmiyaMod:HerSee": {
     "NAME": "见她所见",
@@ -73,7 +73,7 @@
   },
   "AmiyaMod:LineDefender": {
     "NAME": "护身丝线",
-    "DESCRIPTION": "直到下个回合开始前，每受到1次伤害获得 !M! 点 丝线 。"
+    "DESCRIPTION": "直到下个回合开始前，每失去1次生命获得 !M! 点 丝线 。"
   },
   "AmiyaMod:LittleTe": {
     "NAME": "特蕾西亚的庇护",
@@ -86,17 +86,17 @@
   },
   "AmiyaMod:NoFeng": {
     "NAME": "无锋",
-    "DESCRIPTION": "直到下个回合开始，每受到2次伤害，获得 茧 消耗 "
+    "DESCRIPTION": "直到下个回合开始，每受到2次伤害，获得 茧 。 NL 消耗 "
   },
   "AmiyaMod:Open": {
     "NAME": "绽放",
-    "DESCRIPTION": "每次受到伤害令一名随机敌人获得 !M! 层 虚弱 燃己 3",
-    "UPGRADE_DESCRIPTION": " 固有 每次受到伤害令一名随机敌人获得 !M! 层 虚弱 燃己 3"
+    "DESCRIPTION": "每次受到伤害令一名随机敌人获得 !M! 层 虚弱 。NL 燃己 3",
+    "UPGRADE_DESCRIPTION": " 固有 NL 每次受到伤害令一名随机敌人获得 !M! 层 虚弱 。NL 燃己 3"
   },
   "AmiyaMod:RollFood": {
     "NAME": "涌动之餐",
-    "DESCRIPTION": "抽1张牌 NL 当你抽到 源石诅咒 时将此牌加入你的手牌 NL 燃己 !M! ",
-    "UPGRADE_DESCRIPTION": " 固有 抽1张牌 NL 当你抽到 源石诅咒 时将此牌加入你的手牌 NL 燃己 !M! "
+    "DESCRIPTION": "抽1张牌 NL 当你抽到 源石诅咒 时将此牌加入你的手牌。 NL 燃己 !M! ",
+    "UPGRADE_DESCRIPTION": " 固有 抽1张牌 NL 当你抽到 源石诅咒 时将此牌加入你的手牌。 NL 燃己 !M! "
   },
   "AmiyaMod:SadMind": {
     "NAME": "哀恸共情",
