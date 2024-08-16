@@ -2,6 +2,7 @@ package Amiyamod.cards.Yzuzhou;
 
 
 import Amiyamod.Amiyamod;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,6 +27,7 @@ public class Ydead extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(YCardTagClassEnum.YZuZhou);
     }
 
     public void triggerWhenDrawn() {

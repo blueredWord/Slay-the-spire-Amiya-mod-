@@ -3,6 +3,8 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 //  诸魂庇佑能力
 //  每次受到伤害获得层数丝线
-public class SoulDefendPower extends AbstractPower {
+public class SoulDefendPower extends AbstractPower implements OnLoseTempHpPower {
     public static final String NAME = "SoulDefenderPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -32,14 +34,22 @@ public class SoulDefendPower extends AbstractPower {
         this.updateDescription();
     }
 
+
     // 能力在更新时如何修改描述
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     // 效果 : 每次受到伤害获得层数丝线
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
+    public int onLoseTempHp(DamageInfo info, int damageAmount){
+        int tem=(Integer) TempHPField.tempHp.get(this.owner);
+        if ( damageAmount > 0 && tem >= damageAmount){
+            this.flash();
+            Amiyamod.LinePower(this.amount,this.owner);
+        }
+        return damageAmount;
+    }
+    public int onLoseHp(int damageAmount) {
         if (damageAmount > 0) {
             this.flash();
             Amiyamod.LinePower(this.amount,this.owner);

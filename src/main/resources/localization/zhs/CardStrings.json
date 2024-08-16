@@ -4,17 +4,17 @@
     "DESCRIPTION": "造成 !D! 点伤害。"
   },
   "AmiyaMod:AmiyaDefend": {
-    "NAME": "基础法术防御击",
+    "NAME": "基础法术防御",
     "DESCRIPTION": "获得 !B! 点格挡。"
   },
   "AmiyaMod:AmiyaMagic": {
-    "NAME": "基础法术防御击",
+    "NAME": "基础源石技艺",
     "DESCRIPTION": "急性发作 2，造成 !D! 点伤害 !M! 次。 NL 战斗中每次打出伤害次数+1"
   },
   "AmiyaMod:BadZhufu": {
     "NAME": "禁忌祝福",
-    "DESCRIPTION": "获得 感染阶段 +1点 丝线 。每打出一次，这张牌在本局游戏中的 丝线 永久性增加 !M! NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "",
+    "DESCRIPTION": "获得 感染阶段 +",
+    "UPGRADE_DESCRIPTION": "点 丝线 。每打出一次，这张牌在本局游戏中的 丝线 永久性增加 !M! NL 消耗 ",
     "EXTENDED_DESCRIPTION": ["",""]
   },
   "AmiyaMod:BeautifulLife": {

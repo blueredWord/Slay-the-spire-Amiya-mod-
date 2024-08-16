@@ -92,6 +92,8 @@ public class Amiya extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();   //创建初始卡组的列表
         for(int x = 0; x<5; x++) {                      //通过循环加入五张打击
             retVal.add(AmiyaStrike.ID);
+        }
+        for(int x = 0; x<5; x++) {                      //通过循环加入五张打击
             retVal.add(AmiyaDefend.ID);
         }
         retVal.add(AmiyaMagic.ID);
@@ -103,7 +105,7 @@ public class Amiya extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(TheTen.ID);
+        //retVal.add(TheTen.ID);
         return retVal;
     }
 
@@ -136,13 +138,24 @@ public class Amiya extends CustomPlayer {
     // 人物名字（出现在游戏左上角）
     @Override
     public String getTitle(PlayerClass playerClass) {
+        String title;
+        if (Settings.language == Settings.GameLanguage.ZHS) {
+            title = "阿米娅";
+        } else if (Settings.language == Settings.GameLanguage.JPN) {
+            title = "\u6d44\u5854\u826f\u3044\u306e\u5deb\u5973";
+        } else if (Settings.language == Settings.GameLanguage.ZHT) {
+            title = "\u5805\u5b9a\u7684\u5deb\u5973";
+        }
+        else {
+            title = "The Shrine Maiden";
+        }
         return title;
     }
 
     // 你的卡牌颜色（这个枚举在最下方创建）
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return CardColorEnum.Amiyathecolor;
+        return CardColorEnum.Amiya;
         //return CardColorEnum.AmiyaCard;
     }
 
@@ -196,7 +209,15 @@ public class Amiya extends CustomPlayer {
     // 游戏中左上角显示在你的名字之后的人物名称
     @Override
     public String getLocalizedCharacterName() {
-        return title+"1111";
+        String char_name;
+        if ((Settings.language == Settings.GameLanguage.JPN) || (Settings.language
+                == Settings.GameLanguage.ZHS) || (Settings.language == Settings.GameLanguage.ZHT)) {
+            char_name = "\u535a\u9e97\u970a\u5922";
+        }
+        else {
+            char_name = "Reimu";
+        }
+        return char_name;
     }
 
     // 创建人物实例，照抄

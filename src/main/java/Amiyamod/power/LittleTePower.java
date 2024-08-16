@@ -42,7 +42,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
             // 效果 : 不获取格挡，改为获得等量的丝线
             @Override
-            public float modifyBlock(float blockAmount, AbstractCard card) {
+            public int onPlayerGainedBlock(int blockAmount) {
                 if (blockAmount > 0){
                     this.flash();
                     Amiyamod.LinePower((int)blockAmount,this.owner);

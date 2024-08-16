@@ -2,6 +2,8 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -13,15 +15,18 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
+import org.apache.logging.log4j.LogManager;
 
+//行她所行效果
 // 效果 : 被攻击后对所有敌人造成相当于层数的反伤
-public class HerDoPower extends AbstractPower {
+public class HerDoPower extends AbstractPower implements OnLoseTempHpPower {
     public static final String NAME = "HerDoPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -46,8 +51,24 @@ public class HerDoPower extends AbstractPower {
     }
 
     // 效果 :失去生命后造成相当于层数的反伤
+    public int onLoseTempHp(DamageInfo info, int damageAmount){
+        int tem=(Integer) TempHPField.tempHp.get(this.owner);
+        if ( damageAmount > 0 && tem >= damageAmount){
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "行她所行能力：触发受伤效果，来自onLoseTempHp"
+            );
+            this.flash();
+            this.addToBot(new SFXAction("ATTACK_HEAVY"));
+            this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
+            this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
+        }
+        return damageAmount;
+    }
     public int onLoseHp(int damageAmount) {
         if (damageAmount>0){
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "行她所行能力：触发受伤效果，来自onLoseHp"
+            );
             this.flash();
             this.addToBot(new SFXAction("ATTACK_HEAVY"));
             this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));

@@ -28,6 +28,7 @@ public class Yjianwang extends CustomCard {
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;//无法选择
     public Yjianwang() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.tags.add(YCardTagClassEnum.YZuZhou);
     }
 
     public void triggerWhenDrawn() {

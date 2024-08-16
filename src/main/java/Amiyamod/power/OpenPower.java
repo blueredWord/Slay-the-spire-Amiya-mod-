@@ -2,6 +2,8 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerToRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -17,7 +19,7 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 
 //来自绽放的能力
 //每次受到伤害令一名随机敌人获得1层虚弱。
-public class OpenPower extends AbstractPower {
+public class OpenPower extends AbstractPower implements OnLoseTempHpPower {
     public static final String NAME = "OpenPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -46,9 +48,24 @@ public class OpenPower extends AbstractPower {
     }
 
     // 效果 : 每次受到伤害对随机目标施加虚弱
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
+    public int onLoseTempHp(DamageInfo info, int damageAmount){
+        int tem=(Integer) TempHPField.tempHp.get(this.owner);
+        if ( damageAmount > 0 && tem >= damageAmount){
+            this.flash();
+            AbstractCreature m;
+            if(this.owner.isPlayer){
+                m = AbstractDungeon.getRandomMonster();
+            }else{
+                m = AbstractDungeon.player;
+            }
+            this.flash();
+            this.addToBot(new ApplyPowerAction(m,this.owner,new WeakPower(m,this.amount,this.owner.isPlayer)));
+        }
+        return damageAmount;
+    }
+    public int onLoseHp(int damageAmount) {
         if (damageAmount > 0) {
+            this.flash();
             AbstractCreature m;
             if(this.owner.isPlayer){
                 m = AbstractDungeon.getRandomMonster();

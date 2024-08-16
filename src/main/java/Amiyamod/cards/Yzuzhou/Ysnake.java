@@ -29,7 +29,9 @@ public class Ysnake extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.tags.add(YCardTagClassEnum.YZuZhou);
     }
+
 
     public void triggerWhenDrawn() {
         //源石诅咒被抽到时共通效果

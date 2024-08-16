@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import java.util.ArrayList;
 //十戒
 //每场战斗开始时，可以从5张所有角色的随机卡牌中选择1张加入手牌。
-public class TheTen extends AbstractRelic {
+public class TheTen extends CustomRelic {
     public static final String NAME = "TheTen";
     // 遗物ID（此处的ModHelper在“04 - 本地化”中提到）
     public static final String ID = Amiyamod.makeID(NAME);
@@ -21,7 +21,13 @@ public class TheTen extends AbstractRelic {
     private static final String IMG_PATH = "img/relics/"+NAME+".png";
     // 构造函数，初始化遗物
     public TheTen() {
-        super(ID, IMG_PATH, RelicTier.STARTER, LandingSound.HEAVY);
+        super(
+                ID,
+                ImageMaster.loadImage("img/relics/"+NAME+".png"),
+                ImageMaster.loadImage("img/relics/"+NAME+"_out.png"),
+                RelicTier.STARTER,
+                LandingSound.SOLID
+        );
     }
 
     // 返回遗物的描述

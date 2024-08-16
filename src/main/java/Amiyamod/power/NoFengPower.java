@@ -2,6 +2,8 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
@@ -17,7 +19,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 // 无锋状态
 // 直到下个回合开始，每受到2次伤害，获得层数层茧。
-public class NoFengPower extends AbstractPower {
+public class NoFengPower extends AbstractPower implements OnLoseTempHpPower {
     public static final String NAME = "NoFengPower";
     public static final String POWERID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
@@ -43,9 +45,20 @@ public class NoFengPower extends AbstractPower {
     }
 
     // 效果 : 每受到2次伤害，获得层数层茧。
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        if ( damageAmount > 0) {
+    public int onLoseTempHp(DamageInfo info, int damageAmount){
+        int tem=(Integer) TempHPField.tempHp.get(this.owner);
+        if ( damageAmount > 0 && tem >= damageAmount){
+            this.flash();
+            if (this.used){
+                this.addToBot(new ApplyPowerAction(this.owner,this.owner,new LineBow(this.owner,this.amount),this.amount));
+            }else {
+                this.used = true;
+            }
+        }
+        return damageAmount;
+    }
+    public int onLoseHp(int damageAmount) {
+        if (damageAmount > 0) {
             this.flash();
             if (this.used){
                 this.addToBot(new ApplyPowerAction(this.owner,this.owner,new LineBow(this.owner,this.amount),this.amount));

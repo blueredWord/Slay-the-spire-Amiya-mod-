@@ -8,30 +8,57 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import Amiyamod.patches.YCardTagClassEnum;
+import org.apache.logging.log4j.LogManager;
+
+import java.util.ArrayList;
+
 //源石遗物的抽象类
-public abstract class CYrelic extends AbstractBlight implements CustomSavable<Integer> {
-    //公用感染爆发最大值
-    public int value = 0;
+public abstract class CYrelic extends CustomRelic  implements CustomSavable<Integer> {
     public static int level = 1;//初始感染水平
-    public static final int MAXY = 10;
-    public CYrelic(String ID,String name,String des,String imgName,boolean unique) {
-        super(ID,name, des, imgName, unique);
-        this.blightID = ID;
+    public String name;
+    public static Boolean isBraeking = false;
+    public static final int MAXY = 10;//公用感染爆发最大值
+    public CYrelic(String id, Texture url, Texture out) {
+        super(  id,
+                url,
+                out,
+                RelicTier.SPECIAL,
+                LandingSound.SOLID);
+        this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME+level;
+
+    }
+
+    public void atTurnStart() {
+        if (isBraeking){
+            this.counter = 0;
+            isBraeking = false;
+        }
     }
 
     //提供外部调动源石数值的接口
     public void addC(int n) {
-        if (n != 0){
-            this.counter += n;
-            this.flash();
-            if (this.counter >= MAXY){
-                this.OnBreak();
+        if (isBraeking){
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "源石病：感染爆发中，拒绝增加感染进度"
+            );
+        }else {
+            if (n != 0){
+                this.counter += n;
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "源石病：感染进度增加"+n+",目前为"+this.counter
+                );
+                this.flash();
+                if (this.counter >= MAXY){
+                    this.OnBreak();
+                }
             }
         }
+
     }
 
     /*打出特定Tag卡牌增加计数 修改实现方法 封存
@@ -42,22 +69,28 @@ public abstract class CYrelic extends AbstractBlight implements CustomSavable<In
         }
     }
     */
+
     // 保存
     @Override
     public Integer onSave() {
-        return value;
+        return level;
     }
 
     // 读取
     @Override
     public void onLoad(Integer save) {
-        this.value = save;
+        level = save.intValue();
     }
+
+
 
     public void OnBreak() {
         this.flash();
+        isBraeking = true;
         level++;
-        this.name = CardCrawlGame.languagePack.getRelicStrings(this.blightID).NAME+level;
-        this.updateDescription();
+        this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME + level;
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "触发感染阶段加深，目前感染等级："+level
+        );
     }
 }

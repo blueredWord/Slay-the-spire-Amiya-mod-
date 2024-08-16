@@ -2,16 +2,25 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
+import org.apache.logging.log4j.LogManager;
 
 //直到下个回合开始前，每受到1次伤害获得点丝线
-public class LineDefenderPower extends AbstractPower {
+public class LineDefenderPower extends AbstractPower implements OnLoseTempHpPower {
     public static final String NAME = "LineDefenderPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -36,8 +45,15 @@ public class LineDefenderPower extends AbstractPower {
     }
 
     // 效果 : 每次受到伤害获得层数丝线
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
+    public int onLoseTempHp(DamageInfo info, int damageAmount){
+        int tem=(Integer) TempHPField.tempHp.get(this.owner);
+        if ( damageAmount > 0 && tem >= damageAmount){
+            this.flash();
+            Amiyamod.LinePower(this.amount,this.owner);
+        }
+        return damageAmount;
+    }
+    public int onLoseHp(int damageAmount) {
         if (damageAmount > 0) {
             this.flash();
             Amiyamod.LinePower(this.amount,this.owner);

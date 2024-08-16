@@ -15,18 +15,15 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.relics.TheTen;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -95,7 +92,7 @@ public class Amiyamod implements
         logger.debug("Constructor started.");
         BaseMod.subscribe(this);
         //CaseMod.subscribe(this);
-        BaseMod.addColor(CardColorEnum.Amiyathecolor,
+        BaseMod.addColor(CardColorEnum.Amiya,
                 Amiya_Color,  Amiya_Color, Amiya_Color,Amiya_Color, Amiya_Color, Amiya_Color,Amiya_Color,
                 "img/cardui/512/bg_attack_lime.png",
                 "img/cardui/512/bg_skill_lime.png",
@@ -121,17 +118,26 @@ public class Amiyamod implements
     //  调动遗物记录源石感染的接口
     public static void addY(int n) {
         AbstractPlayer p = AbstractDungeon.player;
-        if (n>0 && !p.hasBlight(Yill.ID)){
-            p.blights.add(new Yill().makeCopy());
-        }
-        if (n != 0){
-            CYrelic Y = (CYrelic) p.getBlight(Yill.ID);
-            Y.addC(n);
+        if (!p.hasRelic(Yill.ID)){
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：增加感染进度：检测到没有源石病，添加遗物ing"
+            );
+            //AbstractDungeon.getCurrRoom().spawnBlightAndObtain(300,300,new YuanIll(n));
+            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(300, 300, new Yill(n));
+        }else {
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：增加感染进度" + n
+            );
+            CYrelic a =  (CYrelic)p.getRelic(Yill.ID);
+            a.addC(n);
         }
     }
     //急性感染接口
     public static void HenJi(int number, AbstractCard c, AbstractMonster m){
         if(!c.purgeOnUse) {
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：触发来自"+c.name+":"+c.uuid+"的急性感染。"
+            );
             AbstractPlayer p = AbstractDungeon.player;
             ArrayList<AbstractCard> G = new ArrayList<AbstractCard>();
             for (AbstractCard card : p.hand.group) {
@@ -139,24 +145,30 @@ public class Amiyamod implements
                     G.add(card);
                 }
             }
-            int i = 0;
-            for (; G.isEmpty() || i == number; i++) {
+
+            for (int i = 0; !G.isEmpty() && i != number; i++) {
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "模组核心：触发来急性感染,丢弃第"+(i+1)+"张牌"
+                );
                 Collections.shuffle(G);
                 AbstractCard card = G.get(0);
                 p.hand.moveToDiscardPile(card);
                 G.remove(0);
                 AbstractCard tmp = c.makeSameInstanceOf();
                 AbstractDungeon.player.limbo.addToBottom(tmp);
+                /*
                 tmp.current_x = card.current_x;
                 tmp.current_y = card.current_y;
                 tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
                 tmp.target_y = (float) Settings.HEIGHT / 2.0F;
 
+                 */
+
                 if (m != null) {
                     tmp.calculateCardDamage(m);
                 }
                 tmp.purgeOnUse = true;
-                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(c, m, c.energyOnUse, true, true), true);
+                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m,tmp.energyOnUse, true, true), true);
             }
         }
     }
@@ -172,11 +184,20 @@ public class Amiyamod implements
                 }
             }
             if (sex){//有活性化诅咒的话改为获得格挡，否则直接获得丝线
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "模组核心：检测到活性化体制，获得丝线改为获得格挡。"
+                );
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p,number));
             }else{
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "模组核心：获得"+number+"点丝线"
+                );
                 AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,number));
             }
         } else {
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：啥？我没看错吧，怪物获得丝线了"
+            );
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,number));
         }
     }
@@ -187,6 +208,9 @@ public class Amiyamod implements
     //  获取随机的下一张诅咒的接口
     public static AbstractCard GetNextYcard(boolean isTemp) {
         if (Yzuzhou.isEmpty()){
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：源石诅咒给完一轮了，重新填装"
+            );
             Yzuzhou.add(new Ychengyin());
             Yzuzhou.add(new Yjiejin());
             Yzuzhou.add(new Yangry());
@@ -202,6 +226,9 @@ public class Amiyamod implements
         if (!isTemp){
             Yzuzhou.remove(0);
         }
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "模组核心：获取下一张随机源石诅咒："+c.name
+        );
         return c;
     }
     //  燃己的接口
@@ -366,9 +393,8 @@ public class Amiyamod implements
     @Override
     public void receiveEditRelics() {
         logger.debug("Amiyamod relic load start.");
-        if(addonRelic){
-            BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.Amiyathecolor);
-        }
+        BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.Amiya);
+        BaseMod.addRelic(new Yill(),RelicType.SHARED);
         logger.debug("Amiyamod relic load finish.");
     }
 

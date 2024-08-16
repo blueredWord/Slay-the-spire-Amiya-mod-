@@ -25,7 +25,7 @@ public class BadZhufu extends CustomCard {
     private static final int COST = 1;//卡片费用
 
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiyathecolor;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -34,6 +34,8 @@ public class BadZhufu extends CustomCard {
         //this.isInnate = true; //固有
         this.misc = 1;
         this.baseMagicNumber = this.magicNumber = 2 ;
+        this.exhaust = true;
+        this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -44,7 +46,7 @@ public class BadZhufu extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.upgradeMagicNumber(1);
-            //this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+            this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
             this.initializeDescription();
         }
     }

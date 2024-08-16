@@ -31,6 +31,7 @@ public class Ymust extends CustomCard {
     public Ymust() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = this.magicNumber = 4;
+        this.tags.add(YCardTagClassEnum.YZuZhou);
     }
 
     public void triggerWhenDrawn() {
