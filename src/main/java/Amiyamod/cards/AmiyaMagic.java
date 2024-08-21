@@ -31,8 +31,6 @@ public class AmiyaMagic extends CustomCard {
     public AmiyaMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
-        this.tags.add(AbstractCard.CardTags.STARTER_STRIKE);
-        this.tags.add(AbstractCard.CardTags.STRIKE);
         this.baseMagicNumber = this.magicNumber =1;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);

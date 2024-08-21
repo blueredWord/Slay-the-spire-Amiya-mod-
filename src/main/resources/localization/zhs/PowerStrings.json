@@ -72,12 +72,37 @@
     "点丝线。",
     "后，失去等同于原本耗能的生命。"
   ]
-},"AmiyaMod:": {
-  "NAME": "璀璨生命",
+},"AmiyaMod:SnakePower": {
+  "NAME": "临时混乱",
   "DESCRIPTIONS": [
-    "当你打出耗能降为0的",
-    "，",
-    "后，失去等同于原本耗能的生命。"
+    "你抽到的每一张牌，耗能都会随机变化。",
+    "个回合后结束本效果。",
+    "你抽到的每一张牌，耗能都会随机变化。回合结束时结束本效果。"
   ]
-}
+},
+"AmiyaMod:CRingPower": {
+"NAME": "荆与棘之环",
+"DESCRIPTIONS": [
+"每当你耗尽 丝线 时，获得",
+"层 荆棘 。"
+]
+},
+  "AmiyaMod:CardBackPower": {
+    "NAME": "返还",
+    "DESCRIPTIONS": [
+      "下回合开始时，位于抽牌堆或弃牌堆的特定卡牌将会返回手牌。"
+    ]
+  },
+  "AmiyaMod:RedSkyPower": {
+    "NAME": "出鞘",
+    "DESCRIPTIONS": [
+      "本回合内，每当你打出非 赤霄 的攻击牌，将一张 赤霄 加入你的手牌。"
+    ]
+  },
+  "AmiyaMod:AngryForeverPower": {
+    "NAME": "永燃怒火",
+    "DESCRIPTIONS": [
+      "回合开始时进入 出鞘 状态。"
+    ]
+  }
 }

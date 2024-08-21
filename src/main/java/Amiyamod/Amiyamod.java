@@ -3,25 +3,37 @@ package Amiyamod;
 import Amiyamod.cards.AmiyaDefend;
 import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
+import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.cards.CiBeI.*;
+import Amiyamod.cards.RedSky.ShadowOut;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.RedSkyPower;
+import Amiyamod.power.SnakePower;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yill;
+import basemod.abstracts.CustomSavableRaw;
 import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.relics.TheTen;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
+import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
@@ -33,11 +45,13 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.combat.EmptyStanceEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -54,13 +68,14 @@ public class Amiyamod implements
         EditRelicsSubscriber,
         EditKeywordsSubscriber,
         PotionGetSubscriber,
-        EditCharactersSubscriber{
+        EditCharactersSubscriber,OnPlayerTurnStartSubscriber{
     public static final Logger logger = LogManager.getLogger(Amiyamod.class.getSimpleName());
 
     public static String MOD_ID = "AmiyaMod";
     public static String makeID(String id) {
         return MOD_ID + ":" + id;
     }
+
 
     public static ArrayList<CustomCard> Yzuzhou = new ArrayList();
 
@@ -91,6 +106,7 @@ public class Amiyamod implements
     public Amiyamod(){
         logger.debug("Constructor started.");
         BaseMod.subscribe(this);
+        //BaseMod.addSaveField(makeID(MOD_ID+":save_field"), );
         //CaseMod.subscribe(this);
         BaseMod.addColor(CardColorEnum.Amiya,
                 Amiya_Color,  Amiya_Color, Amiya_Color,Amiya_Color, Amiya_Color, Amiya_Color,Amiya_Color,
@@ -112,9 +128,25 @@ public class Amiyamod implements
     public static void initialize() {
         logger.info("========================= 开始初始化 =========================");
         new Amiyamod();
-
         logger.info("========================= 初始化完成 =========================");
     }
+
+    //  回合开始接口
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "模组核心：成功触发回合开始 开始判定丝线减半"
+        );
+        int var = TempHPField.tempHp.get(AbstractDungeon.player);
+        TempHPField.tempHp.set(AbstractDungeon.player,var/2);
+        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!mo.isDead && !mo.isDying) {
+                var = TempHPField.tempHp.get(mo);
+                TempHPField.tempHp.set(mo,var/2);
+            }
+        }
+    }
+
     //  调动遗物记录源石感染的接口
     public static void addY(int n) {
         AbstractPlayer p = AbstractDungeon.player;
@@ -201,7 +233,7 @@ public class Amiyamod implements
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,number));
         }
     }
-
+    //  施加丝线的接口
     public static void LinePower(int number){
         LinePower(number,AbstractDungeon.player);//获得丝线的默认对象为玩家
     }
@@ -233,9 +265,21 @@ public class Amiyamod implements
     }
     //  燃己的接口
     public static void BurnSelf(int number) {
+        AbstractPlayer p =AbstractDungeon.player;
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "模组核心：准备进行"+number+"燃己"
+        );
+        for (AbstractCard c: AbstractDungeon.player.hand.group){
+            if(c instanceof Ysnake){
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "模组核心：认知偏差 要被烫出个很唐的效果了"
+                );
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SnakePower(p,1)));
+            }
+        }
         for(int i=0;i < number;i++){
             AbstractDungeon.actionManager.addToTop(
-                    new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, 1)
+                    new LoseHPAction(p, p, 1)
             );
         }
     }
@@ -254,6 +298,54 @@ public class Amiyamod implements
             }
         }
         p.hand.refreshHandLayout();
+    }
+
+    //出入鞘相关判定接口
+    public static void Sword(boolean isOut,ArrayList<AbstractGameAction> l) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if(isOut){
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：进入出鞘流程"
+            );
+            // if isOut  出鞘相关处理
+            if (AbstractDungeon.player.stance.ID.equals(Amiyamod.makeID("RedSkyPower"))) {
+                //如果已经处于赤霄
+                if (l != null && !l.isEmpty()){
+                    for (AbstractGameAction a :l){
+                        //逐个触发列表中的特殊效果
+                        AbstractDungeon.actionManager.addToBottom(a);
+                    }
+                }
+            } else {
+                //如果不处于赤霄状态，进入赤霄状态
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RedSkyPower()));
+            }
+        }else{
+            // ! if isOut  入鞘相关处理
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：进入入鞘流程"
+            );
+            if (AbstractDungeon.player.stance.ID.equals(Amiyamod.makeID("RedSkyPower"))) {
+                //如果已经处于赤霄，推出赤霄状态
+                AbstractDungeon.actionManager.addToBottom(new NotStanceCheckAction("Neutral", new VFXAction(new EmptyStanceEffect(p.hb.cX, p.hb.cY), 0.1F)));
+                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                //并逐个触发特殊效果
+                if (l != null && !l.isEmpty()){
+                    for (AbstractGameAction a :l){
+                        //逐个触发列表中的特殊效果
+                        AbstractDungeon.actionManager.addToBottom(a);
+                    }
+                }
+            } else {
+                //否则无事发生
+            }
+        }
+    }
+    //出入鞘相关判定接口的重构，只有一个行动
+    public static void Sword(boolean isOut,AbstractGameAction act) {
+        ArrayList<AbstractGameAction> l = new ArrayList<AbstractGameAction>();
+        l.add(act);
+        Sword(isOut,l);
     }
 
     public static void loadConfig() {
@@ -297,27 +389,6 @@ public class Amiyamod implements
     private static final String POTION_STRING_EN = "localization/eng/PotionStrings.json";
     private static final String KEYWORD_STRING_EN = "localization/eng/KeywordStrings.json";
     private static final String EVENT_PATH_EN = "localization/eng/EventStrings.json";
-
-    @Override
-    public void receivePostInitialize() {
-            /*
-        Texture badgeTexture = new Texture("img/badge.png");
-        ModPanel settingsPanel = new ModPanel();
-        BaseMod.registerModBadge(badgeTexture, MODNAME, AUTHOR, DESCRIPTION, settingsPanel);
-        ModLabeledToggleButton addonRelicSwitch = new ModLabeledToggleButton(CardCrawlGame.languagePack.getUIString(makeID("RelicFilter")).TEXT[0],400.0f, 720.0f, Settings.CREAM_COLOR, FontHelper.charDescFont,addonRelic, settingsPanel,
-                (label) -> {}, (button) -> {addonRelic = button.enabled;saveConfig();});
-
-        settingsPanel.addUIElement(addonRelicSwitch);
-
-
-
-        BaseMod.addPotion(ReserveRunePotion.class,DeathKnight_Color,RuneShadow_Color,Transparent_Color,WarlordEmblem.makeID("ReserveRunePotion"),AbstractPlayerEnum.DeathKnight);
-        BaseMod.addPotion(RuneExpandPotion.class,DeathKnight_Color,RuneShadow_Color,Transparent_Color,WarlordEmblem.makeID("RuneExpandPotion"),AbstractPlayerEnum.DeathKnight);
-        BaseMod.addPotion(RealmPotion.class,BloodRealm_Color,EvilRealm_Color,IceRealm_Color,WarlordEmblem.makeID("RealmPotion"),AbstractPlayerEnum.DeathKnight);
-        BaseMod.addPotion(DKPoisonPotion.class,BaseMod.getPotionLiquidColor("Poison Potion"),BaseMod.getPotionHybridColor("Poison Potion"),BaseMod.getPotionSpotsColor("Poison Potion"),WarlordEmblem.makeID("DKPoisonPotion"),AbstractPlayerEnum.DeathKnight);
-        */
-
-    }
 
 
     @Override
@@ -374,6 +445,10 @@ public class Amiyamod implements
         cards.add(new RollFood());
         cards.add(new SadMind());
         cards.add(new SoulDefend());
+        cards.add(new CRing());
+        //赤霄
+        cards.add(new RedSky(-2));
+        cards.add(new ShadowOut());
 
         for (CustomCard card : cards) {
             logger.debug(card.cardID+" is loading");
@@ -503,6 +578,28 @@ public class Amiyamod implements
         }
         logger.info("阿米娅MOD关键词读取完毕");
     }
+
+    // 为模组核心添加新的字段
+    public static boolean saveField;
+
+    @Override
+    public void receivePostInitialize() {
+        try {
+            // 设置默认值
+            Properties defaults = new Properties();
+            defaults.setProperty("save_field", "false");
+            // defaults.setProperty("save_field_2", "false");
+
+            // 第一个字符串输入你的modid
+            SpireConfig config = new SpireConfig(MOD_ID, MOD_ID+":save_field", defaults);
+            // 如果之前有数据，则读取本地保存的数据，没有就使用上面设置的默认数据
+            saveField = config.getBool("save_field");
+        } catch (IOException var2) {
+            var2.printStackTrace();
+        }
+    }
+
+
     class Keywords { Keyword[] keywords;}
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));

@@ -137,10 +137,29 @@
   },
   "AmiyaMod:Ysnake": {
     "NAME": "认知障碍",
-    "DESCRIPTION": "不能被打出 。 NL 抽到此牌时，令手牌中的技能牌和攻击牌耗能随机变化。能力牌 不能被打出 。"
+    "DESCRIPTION": "不能被打出 。 NL 每当你 燃己 获得一回合临时混乱。"
   },
   "AmiyaMod:Ytiruo": {
     "NAME": "身虚体弱",
     "DESCRIPTION": "不能被打出 。 NL 回合结束时,若你打出过 源石技艺 牌，获得 !M! 层 易伤 "
+  },
+  "AmiyaMod:CRing": {
+    "NAME": "荆与棘之环",
+    "DESCRIPTION": "获得2层 荆棘 ，每当你耗尽 丝线 时，获得 !M! 层 荆棘 。"
+  },
+  "AmiyaMod:RedSky": {
+    "NAME": "赤霄",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 虚无 ",
+    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","造成 #g4*2^X 点伤害。 NL 消耗 NL 虚无 "]
+  },
+  "AmiyaMod:ShadowOut": {
+    "NAME": "影霄*拔刀",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 出鞘 :下回合开始时将此牌加入手牌。"
+  },
+  "AmiyaMod:AngryForever": {
+    "NAME": "影霄*拔刀",
+    "DESCRIPTION": "进入 出鞘 状态。 NL 每回合开始时进入 出鞘 状态。",
+    "UPGRADE_DESCRIPTION": " 固有 NL 进入 出鞘 状态。 NL 每回合开始时进入 出鞘 状态。"
   }
+
 }

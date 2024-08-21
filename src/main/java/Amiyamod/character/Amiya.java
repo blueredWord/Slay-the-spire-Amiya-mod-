@@ -5,6 +5,7 @@ import Amiyamod.cards.AmiyaDefend;
 import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
 
+import Amiyamod.cards.RedSky.ShadowOut;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -95,7 +96,7 @@ public class Amiya extends CustomPlayer {
             retVal.add(AmiyaDefend.ID);
         }
         retVal.add(AmiyaMagic.ID);
-        retVal.add(AmiyaMagic.ID);
+        retVal.add(ShadowOut.ID);
         //retVal.add("ExampleMod:Strike");
         return retVal;
     }
@@ -210,10 +211,10 @@ public class Amiya extends CustomPlayer {
         String char_name;
         if ((Settings.language == Settings.GameLanguage.JPN) || (Settings.language
                 == Settings.GameLanguage.ZHS) || (Settings.language == Settings.GameLanguage.ZHT)) {
-            char_name = "\u535a\u9e97\u970a\u5922";
+            char_name = "阿米娅";
         }
         else {
-            char_name = "Reimu";
+            char_name = "Amiya";
         }
         return char_name;
     }

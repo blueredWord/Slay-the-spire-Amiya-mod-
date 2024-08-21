@@ -3,18 +3,23 @@ package Amiyamod.cards.Yzuzhou;
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
 //认知障碍
-//不可被打出 抽到时手牌中的技能牌和攻击牌耗能会随机变化。能力牌无法打出。
+//不可被打出 每当你 燃己 。获得 !M! 层临时混乱
 public class Ysnake extends CustomCard {
     private static final String NAME = "Ysnake";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -36,28 +41,10 @@ public class Ysnake extends CustomCard {
     public void triggerWhenDrawn() {
         //源石诅咒被抽到时共通效果
         Amiyamod.WhenYcardDrawn();
-
-        for(AbstractCard card : AbstractDungeon.player.hand.group){
-            //遍历手牌 如果是技能或者攻击
-            if(card.type == CardType.SKILL || card.type == CardType.ATTACK){
-                if (card.cost >= 0) {
-                    //随机费用
-                    int newCost = AbstractDungeon.cardRandomRng.random(3);
-                    if (card.cost != newCost) {
-                        card.cost = newCost;
-                        card.costForTurn = card.cost;
-                        card.isCostModified = true;
-                    }
-                    card.freeToPlayOnce = false;
-                }
-            }
-        }
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ysnake();}
-    public boolean canPlay(AbstractCard card){
-        return  !(card.type == CardType.POWER);
-    }
+
 }

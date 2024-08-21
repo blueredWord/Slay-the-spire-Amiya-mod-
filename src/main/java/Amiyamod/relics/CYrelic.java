@@ -73,13 +73,19 @@ public abstract class CYrelic extends CustomRelic  implements CustomSavable<Inte
     // 保存
     @Override
     public Integer onSave() {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "源石病：遗物保存"
+        );
         return level;
     }
 
     // 读取
     @Override
     public void onLoad(Integer save) {
-        level = save.intValue();
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "源石病：遗物读取"
+        );
+        level = (int)save;
     }
 
 
