@@ -3,14 +3,14 @@ package Amiyamod;
 import Amiyamod.cards.AmiyaDefend;
 import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
-import Amiyamod.cards.RedSky.RedSky;
+import Amiyamod.cards.RedSky.*;
 import Amiyamod.cards.CiBeI.*;
-import Amiyamod.cards.RedSky.ShadowOut;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.BigNotWorkPower;
 import Amiyamod.power.RedSkyPower;
 import Amiyamod.power.SnakePower;
 import Amiyamod.relics.CYrelic;
@@ -28,10 +28,7 @@ import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -283,6 +280,18 @@ public class Amiyamod implements
             );
         }
     }
+    //  获得赤霄的接口
+    public static void getRedSky(int number) {
+        int n = number;
+        AbstractPlayer p =AbstractDungeon.player;
+        if(p.hasPower(BigNotWorkPower.POWER_ID)){
+            if (p.getPower(BigNotWorkPower.POWER_ID).amount>BigNotWorkPower.cardsDoubledThisTurn){
+                BigNotWorkPower.cardsDoubledThisTurn++;
+                n++;
+            }
+        }
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(n)));
+    }
     //  抽到诅咒卡时的通用处理
     public static void WhenYcardDrawn() {
         AbstractPlayer p = AbstractDungeon.player;
@@ -308,7 +317,7 @@ public class Amiyamod implements
                     "模组核心：进入出鞘流程"
             );
             // if isOut  出鞘相关处理
-            if (AbstractDungeon.player.stance.ID.equals(Amiyamod.makeID("RedSkyPower"))) {
+            if (p.hasPower(RedSkyPower.POWER_ID)) {
                 //如果已经处于赤霄
                 if (l != null && !l.isEmpty()){
                     for (AbstractGameAction a :l){
@@ -325,10 +334,9 @@ public class Amiyamod implements
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "模组核心：进入入鞘流程"
             );
-            if (AbstractDungeon.player.stance.ID.equals(Amiyamod.makeID("RedSkyPower"))) {
+            if (p.hasPower(RedSkyPower.POWER_ID)) {
                 //如果已经处于赤霄，推出赤霄状态
-                AbstractDungeon.actionManager.addToBottom(new NotStanceCheckAction("Neutral", new VFXAction(new EmptyStanceEffect(p.hb.cX, p.hb.cY), 0.1F)));
-                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p,p,RedSkyPower.POWER_ID));
                 //并逐个触发特殊效果
                 if (l != null && !l.isEmpty()){
                     for (AbstractGameAction a :l){
@@ -449,6 +457,12 @@ public class Amiyamod implements
         //赤霄
         cards.add(new RedSky(-2));
         cards.add(new ShadowOut());
+        cards.add(new AngryForever());
+        cards.add(new FireAgain());
+        cards.add(new SoMuchSworld());
+        cards.add(new BigNotWork());
+        cards.add(new ShadowBack());
+        cards.add(new ShadowYangMei());
 
         for (CustomCard card : cards) {
             logger.debug(card.cardID+" is loading");

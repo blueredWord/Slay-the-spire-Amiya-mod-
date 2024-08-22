@@ -46,6 +46,7 @@ public class SnakePower extends AbstractPower{
 
     public void onCardDraw(AbstractCard card) {
         if (card.cost >= 0) {
+            this.flash();
             int newCost = AbstractDungeon.cardRandomRng.random(3);
             if (card.cost != newCost) {
                 card.cost = newCost;

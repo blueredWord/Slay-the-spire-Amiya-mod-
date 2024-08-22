@@ -104,5 +104,27 @@
     "DESCRIPTIONS": [
       "回合开始时进入 出鞘 状态。"
     ]
+  },
+  "AmiyaMod:FireAgainPower": {
+    "NAME": "星火重燃",
+    "DESCRIPTIONS": [
+      "每回合打出第一张不是卡组中的卡牌时，会额外获得1张复制",
+      "每回合打出前",
+      "张不是卡组中的卡牌时，会额外获得1张复制"
+    ]
+  },
+  "AmiyaMod:SoMuchSworldPower": {
+    "NAME": "无限剑制",
+    "DESCRIPTIONS": [
+      "回合开始时获得1张 赤霄 ，并将其升级",
+      "次。"
+    ]
+  },
+  "AmiyaMod:BigNotWorkPower": {
+    "NAME": "大巧不工",
+    "DESCRIPTIONS": [
+      "每回合获得的前",
+      "张 赤霄 ，会被额外升级一次。"
+    ]
   }
 }
