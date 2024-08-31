@@ -24,7 +24,7 @@ public class ShadowSkillAction extends AbstractGameAction {
     private AbstractPlayer p;
     private int energyOnUse;
     private int m;
-
+    private final int max=4;
     public ShadowSkillAction(AbstractCard c) {
         this.multiDamage = c.multiDamage;
         this.damageType = c.damageTypeForTurn;
@@ -38,7 +38,10 @@ public class ShadowSkillAction extends AbstractGameAction {
     }
 
     public void update() {
-        int effect = EnergyPanel.totalCount;
+        int effect = Math.min(EnergyPanel.totalCount,this.max) ;
+        if (effect > 0 && !this.freeToPlayOnce) {
+            this.p.energy.use(EnergyPanel.totalCount);
+        }
         if (this.energyOnUse != -1) {
             effect = this.energyOnUse;
         }
@@ -60,10 +63,6 @@ public class ShadowSkillAction extends AbstractGameAction {
 
                 }
                 Amiyamod.getRedSky(i,false);
-            }
-
-            if (!this.freeToPlayOnce) {
-                this.p.energy.use(EnergyPanel.totalCount);
             }
         }
 

@@ -62,7 +62,7 @@ public class ShadowOut extends CustomCard {
                         new DamageInfo(
                                 p,
                                 damage,
-                                DamageInfo.DamageType.NORMAL
+                                this.damageTypeForTurn
                         )
                 )
         );

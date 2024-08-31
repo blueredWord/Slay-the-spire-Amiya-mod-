@@ -4,6 +4,7 @@ import Amiyamod.action.relic.addYAction;
 import Amiyamod.cards.*;
 import Amiyamod.cards.RedSky.*;
 import Amiyamod.cards.CiBeI.*;
+import Amiyamod.cards.YCard.ChiMeRa;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
@@ -13,6 +14,7 @@ import Amiyamod.power.*;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
+import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.relics.TheTen;
 import basemod.helpers.RelicType;
@@ -27,12 +29,15 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
@@ -298,6 +303,8 @@ public class Amiyamod implements
                 n++;
             }
         }
+        int i = 0;
+
         if (isbot){
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(n)));
         }else{
@@ -417,6 +424,8 @@ public class Amiyamod implements
         cards.add(new MindEat());
         cards.add(new StoneSword());
         cards.add(new BurnMark());
+        cards.add(new Memory());
+        cards.add(new ChiMeRa());
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());

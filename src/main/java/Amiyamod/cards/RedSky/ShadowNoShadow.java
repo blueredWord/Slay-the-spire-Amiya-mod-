@@ -74,6 +74,7 @@ public class ShadowNoShadow extends CustomCard {
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "绝影：准备攻击{}", m1.name
             );
+            if (this.damageTypeForTurn == DamageInfo.DamageType.NORMAL){this.damageTypeForTurn = DamageInfo.DamageType.THORNS;}
             for (int i = 0 ; i<10 ; i++){
                 AbstractDungeon.actionManager.addToBottom(
                         new DamageAction(

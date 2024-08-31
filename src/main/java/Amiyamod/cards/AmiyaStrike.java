@@ -52,7 +52,7 @@ public class AmiyaStrike extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(
                         m,
-                        new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)
+                        new DamageInfo(p, damage,this.damageTypeForTurn)
                 )
         );
     }

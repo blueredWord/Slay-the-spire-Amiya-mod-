@@ -34,6 +34,7 @@ public class ShadowSkill extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.magicNumber = this.baseMagicNumber = 1;
+        this.exhaust = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

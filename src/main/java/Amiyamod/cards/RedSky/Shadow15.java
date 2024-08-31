@@ -40,7 +40,7 @@ public class Shadow15 extends CustomCard implements OnLoseTempHpPower {
         this.heal = 15;
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
-        //this.tags.add(YCardTagClassEnum.YCard);
+        this.tags.add(CardTags.HEALING);
     }
 
     //抽到时 燃己5

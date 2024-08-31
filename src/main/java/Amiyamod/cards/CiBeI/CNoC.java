@@ -37,7 +37,6 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
         this.damage = this.baseDamage = 3;
         //this.isMultiDamage = true;
         this.magicNumber = this.baseMagicNumber = 2;
-
     }
     public void tookDamage() {
         this.misc += 1;
@@ -61,7 +60,7 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
         for(int i = 0; i < this.magicNumber+this.misc; ++i) {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
-        //this.misc = 0;
+        this.misc = 0;
         //Amiyamod.BurnSelf(1);
         this.rawDescription = CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();

@@ -5,6 +5,7 @@ import Amiyamod.action.cards.ShadowSkillAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -59,7 +60,7 @@ public class ShadowCloudBreak extends CustomCard {
                 new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn))
         );
         AbstractDungeon.actionManager.addToBottom(
-                new MakeTempCardInHandAction(new CloudBreakIn())
+                new MakeTempCardInDrawPileAction(new CloudBreakIn(),1,true,true,false)
         );
     }
     public AbstractCard makeCopy() {return new ShadowCloudBreak();}

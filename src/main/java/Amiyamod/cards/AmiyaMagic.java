@@ -57,7 +57,7 @@ public class AmiyaMagic extends CustomCard {
                             new DamageInfo(
                                     p,
                                     damage,
-                                    DamageInfo.DamageType.NORMAL
+                                    this.damageTypeForTurn
                             )
                     )
             );

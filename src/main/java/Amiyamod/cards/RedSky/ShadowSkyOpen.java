@@ -74,7 +74,7 @@ public class ShadowSkyOpen extends CustomCard {
                         new DamageInfo(
                                 p,
                                 this.magicNumber * number,
-                                DamageInfo.DamageType.NORMAL
+                                this.damageTypeForTurn
                         )
                 )
         );

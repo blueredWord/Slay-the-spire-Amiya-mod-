@@ -32,7 +32,7 @@
   },
   "AmiyaMod:LineBody": {
     "NAME": "身上衣",
-    "DESCRIPTION": "你每打出过一次 源石技艺 牌，获得一层 茧 。 NL 降低感染进度1。 NL 消耗 。"
+    "DESCRIPTION": "本回合你每打出过一次 源石技艺 牌，获得一层 茧 。 NL 降低感染进度1。 NL 消耗 。"
   },
   "AmiyaMod:LineHand": {
     "NAME": "手中线",
@@ -189,8 +189,8 @@
   },
   "AmiyaMod:ShadowSkill": {
     "NAME": "影霄剑诀",
-    "DESCRIPTION": "将X张等级逐渐增加的 赤霄 加入手牌。",
-    "UPGRADE_DESCRIPTION": "将X+ !M! 张等级逐渐增加的 赤霄 加入手牌。"
+    "DESCRIPTION": "将X张等级逐渐增加的 赤霄 加入手牌。 NL 消耗 。 NL (至多消耗4点能量。)",
+    "UPGRADE_DESCRIPTION": "将X+ !M! 张等级逐渐增加的 赤霄 加入手牌。 NL 消耗 。 NL (至多消耗4点能量。)"
   },
   "AmiyaMod:ShadowCry": {
     "NAME": "影霄*泪锋",
@@ -248,8 +248,8 @@
   },
   "AmiyaMod:ShadowCloudBreak": {
     "NAME": "影霄*云裂",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 云裂*出 拿到手中。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 将 云裂*出 拿到手中。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 云裂*出 放入抽牌堆中。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 将 云裂*出 放入抽牌堆中。 NL 消耗 。"
   },
   "AmiyaMod:CloudBreakIn": {
     "NAME": "云裂*出",
@@ -284,5 +284,21 @@
   "AmiyaMod:MindEat": {
     "NAME": "情绪吸收",
     "DESCRIPTION": "每当你在一回合内打出3次攻击牌，抽 !M! 张牌。"
+  },
+  "AmiyaMod:Memory": {
+    "NAME": "高塔追忆",
+    "DESCRIPTION": "在你回合开始时，将 !M! 张来自任意角色的随机卡牌加入手中。 NL 加入手牌的卡将获得 消耗 与 虚无 。",
+    "UPGRADE_DESCRIPTION": "在你回合开始时，将 !M! 张来自任意角色的非普通卡牌加入手中。 NL 加入手牌的卡将获得 消耗 与 虚无 。",
+    "EXTENDED_DESCRIPTION": [
+      "追忆:",
+      "在你回合开始时，将",
+      "张来自",
+      "的随机卡牌加入手中。 NL 加入手牌的卡将获得 消耗 与 虚无 。",
+      "的非普通卡牌加入手中。 NL 加入手牌的卡将获得 消耗 与 虚无 。"
+    ]
+  },
+  "AmiyaMod:ChiMeRa": {
+    "NAME": "奇美拉",
+    "DESCRIPTION": "获得20点 丝线 。 NL !M!回合内造成的伤害增加一半并无视 格挡 。 NL 效果结束后你丢弃所有手牌并跳过一个回合。"
   }
 }

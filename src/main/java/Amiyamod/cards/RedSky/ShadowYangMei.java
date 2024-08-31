@@ -65,12 +65,9 @@ public class ShadowYangMei extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(
                 new GainBlockAction(p,p,this.block)
         );
-
         int i = this.magicNumber;
-        if (p.hasPower(RedSkyPower.POWER_ID)){
-            i = 99;
-            Amiyamod.Sword(true,new ArrayList<>());
-        }
+        if (p.hasPower(RedSkyPower.POWER_ID)){ i = 99;}
+        Amiyamod.Sword(true,new ArrayList<>());
         AbstractDungeon.actionManager.addToBottom(
                 new ShadowYangMeiAction(i)
         );
