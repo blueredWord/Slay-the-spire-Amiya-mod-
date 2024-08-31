@@ -40,9 +40,7 @@
   },"AmiyaMod:MercyPower": {
   "NAME": "慈悲愿景",
   "DESCRIPTIONS": [
-    "本回合造成伤害时获得等同于伤害的丝线。",
-    "本回合造成伤害时获得",
-    "倍于伤害的丝线。"
+    "本回合造成伤害时获得等同于伤害一半的丝线。"
   ]
 },"AmiyaMod:LittleTePower": {
   "NAME": "特蕾西亚的庇护",
@@ -125,6 +123,45 @@
     "DESCRIPTIONS": [
       "每回合获得的前",
       "张 赤霄 ，会被额外升级一次。"
+    ]
+  },
+  "AmiyaMod:ShadowBlueFirePower": {
+    "NAME": "青焰燎身",
+    "DESCRIPTIONS": [
+      "当你处于 出鞘 状态时，打出非攻击牌也将获得 赤霄 。"
+    ]
+  },
+  "AmiyaMod:ShadowDefendPower": {
+    "NAME": "守势",
+    "DESCRIPTIONS": [
+      "当你打出 赤霄 时，获得等同于伤害值的 格挡 。"
+    ]
+  },
+  "AmiyaMod:ShadowWaterMusicPower": {
+    "NAME": "水韵",
+    "DESCRIPTIONS": [
+      "当你打出 赤霄 时，对所有敌人造成伤害。"
+    ]
+  },
+  "AmiyaMod:LoseTempHpPower": {
+    "NAME": "丝命贵",
+    "DESCRIPTIONS": [
+      "当你失去 丝线 时，也能触发卡牌的当失去生命效果。"
+    ]
+  },
+  "AmiyaMod:YSayPower": {
+    "NAME": "感染爆发",
+    "DESCRIPTIONS": [
+      "本回合你的 感染程度 不会累积。而且即使手中没有 源石诅咒 ， 急性发作 也至少触发1次。"
+    ]
+  },
+  "AmiyaMod:MindEatPower": {
+    "NAME": "情绪吸收",
+    "DESCRIPTIONS": [
+      "你在这个回合内再打出 #b",
+      " 张攻击牌，就抽取 #b",
+      " 张牌。",
+      " 张攻击牌，就抽取 #b"
     ]
   }
 }

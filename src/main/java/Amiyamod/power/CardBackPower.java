@@ -1,6 +1,7 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.CardBackAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
@@ -43,31 +44,10 @@ public class CardBackPower extends AbstractPower{
         this.updateDescription();
     }
 
-    public void atStartOfTurn() {
-        AbstractPlayer p = AbstractDungeon.player;
-        ArrayList<AbstractCard> var = new ArrayList<AbstractCard>();
-        for(AbstractCard card : CardList){
-            //遍历抽牌堆
-            for(AbstractCard c : p.drawPile.group){
-                if (c.uuid == card.uuid){
-                    var.add(c);
-                }
-            }
-            for (AbstractCard c : var){
-                p.drawPile.addToHand(c);
-            }
-            var.clear();
-            //遍历弃牌堆
-            for (AbstractCard c : p.discardPile.group){
-                if (c.uuid == card.uuid){
-                    var.add(c);
-                }
-            }
-            for (AbstractCard c : var){
-                p.discardPile.addToHand(c);
-            }
-        }
-        var.clear();
+    public void atEndOfRound() {
+        this.flash();
+        this.addToBot(new CardBackAction(CardList));
+
         //退出此能力
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }

@@ -24,7 +24,7 @@ public class HELP extends CustomCard {
     private static final int COST = 0;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 

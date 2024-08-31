@@ -24,7 +24,7 @@ public class Ymust extends CustomCard {
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
     private static final int COST = -2;//卡片费用 -2为诅咒
     private static final CardType TYPE = CardType.CURSE;//卡片类型
-    private static final CardColor COLOR = CardColor.COLORLESS;//卡牌颜色
+    private static final CardColor COLOR = CardColor.CURSE;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.CURSE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.NONE;//无法选择
     private UUID Carduuid = null;

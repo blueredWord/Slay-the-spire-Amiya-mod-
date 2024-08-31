@@ -1,8 +1,7 @@
 package Amiyamod;
 
-import Amiyamod.cards.AmiyaDefend;
-import Amiyamod.cards.AmiyaMagic;
-import Amiyamod.cards.AmiyaStrike;
+import Amiyamod.action.relic.addYAction;
+import Amiyamod.cards.*;
 import Amiyamod.cards.RedSky.*;
 import Amiyamod.cards.CiBeI.*;
 import Amiyamod.cards.Yzuzhou.*;
@@ -10,30 +9,26 @@ import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
-import Amiyamod.power.BigNotWorkPower;
-import Amiyamod.power.RedSkyPower;
-import Amiyamod.power.SnakePower;
+import Amiyamod.power.*;
 import Amiyamod.relics.CYrelic;
+import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
-import basemod.abstracts.CustomSavableRaw;
 import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.relics.TheTen;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
-import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
-import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -42,13 +37,11 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
-import com.megacrit.cardcrawl.vfx.combat.EmptyStanceEffect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -58,7 +51,6 @@ import java.util.Properties;
 
 @SpireInitializer
 public class Amiyamod implements
-        PostInitializeSubscriber,
         EditCardsSubscriber,
         EditStringsSubscriber,
         AddAudioSubscriber,
@@ -74,28 +66,11 @@ public class Amiyamod implements
     }
 
 
-    public static ArrayList<CustomCard> Yzuzhou = new ArrayList();
-
-    public static final String MODNAME = "Amiya Mod";
-    public static final String AUTHOR = "A";
+    public static ArrayList<CustomCard> Yzuzhou = new ArrayList<>();
     public static final String DESCRIPTION = "Amiya Mod.";
     public static String Amiya_bgImg = "img/character/Amiya/AmiyaBG.png"; //选人界面？
 
     public static boolean addonRelic = true;    //是否读取mod遗物
-    /*
-    public static boolean ringRelic = true;
-    public static boolean mantleRelic = true;
-    public static boolean RuneCountDisplay = true;
-    public static boolean baseGameRelic2DK = true;
-
-
-    public static final Color BloodRealm_Color = new Color(0.835f,0.25f,0.187f,1.0f);
-    public static final Color IceRealm_Color = new Color(0.125F,0.219F,0.633F,1.0F);
-    public static final Color EvilRealm_Color = new Color(0.043F,0.875F,0.195F,1.0F);
-    public static final Color RuneShadow_Color = new Color(0.0F,0.3F,0.35F,0.8F);
-    public static final Color Transparent_Color = new Color(0.0F,0.0F,0.0F,0.0F);
-     */
-
 
     public static Properties AmiyaModDefaults = new Properties();
     public int value = 0;
@@ -105,7 +80,7 @@ public class Amiyamod implements
         BaseMod.subscribe(this);
         //BaseMod.addSaveField(makeID(MOD_ID+":save_field"), );
         //CaseMod.subscribe(this);
-        BaseMod.addColor(CardColorEnum.Amiya,
+        BaseMod.addColor(CardColorEnum.AMIYA,
                 Amiya_Color,  Amiya_Color, Amiya_Color,Amiya_Color, Amiya_Color, Amiya_Color,Amiya_Color,
                 "img/cardui/512/bg_attack_lime.png",
                 "img/cardui/512/bg_skill_lime.png",
@@ -117,8 +92,6 @@ public class Amiyamod implements
                 "img/cardui/1024/card_lime_orb.png",
                 "img/cardui/512/card_lime_small_orb.png"
         );
-
-        loadConfig();
         logger.debug("Constructor finished.");
     }
 
@@ -134,12 +107,24 @@ public class Amiyamod implements
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "模组核心：成功触发回合开始 开始判定丝线减半"
         );
-        int var = TempHPField.tempHp.get(AbstractDungeon.player);
-        TempHPField.tempHp.set(AbstractDungeon.player,var/2);
+        AbstractPlayer p =AbstractDungeon.player;
+        //触发荆棘环的效果
+        int var = TempHPField.tempHp.get(p);
+        if (var>0){
+            int t = var/2;
+            if (t== 0 && p.hasPower(CRingPower.POWER_ID)){
+                ((OnLoseTempHpPower)p.getPower(CRingPower.POWER_ID)).onLoseTempHp(new DamageInfo(p, 1,DamageInfo.DamageType.NORMAL),1);
+            }
+            TempHPField.tempHp.set(p,var/2);
+        }
+
+        //怪物的丝线
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!mo.isDead && !mo.isDying) {
                 var = TempHPField.tempHp.get(mo);
-                TempHPField.tempHp.set(mo,var/2);
+                if (var > 0 ){
+                    TempHPField.tempHp.set(mo,var/2);
+                }
             }
         }
     }
@@ -147,51 +132,60 @@ public class Amiyamod implements
     //  调动遗物记录源石感染的接口
     public static void addY(int n) {
         AbstractPlayer p = AbstractDungeon.player;
-        if (!p.hasRelic(Yill.ID)){
-            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "模组核心：增加感染进度：检测到没有源石病，添加遗物ing"
-            );
-            //AbstractDungeon.getCurrRoom().spawnBlightAndObtain(300,300,new YuanIll(n));
-            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(300, 300, new Yill(n));
-        }else {
+        if (p.hasRelic(Yill.ID)){
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "模组核心：增加感染进度" + n
             );
             CYrelic a =  (CYrelic)p.getRelic(Yill.ID);
             a.addC(n);
+        }else {
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：增加感染进度：检测到没有源石病，添加遗物ing"
+            );
+            AbstractDungeon.getCurrRoom().spawnRelicAndObtain(300, 300, new Yill());
+            AbstractDungeon.actionManager.addToBottom(new addYAction(n));
         }
     }
     //急性感染接口
     public static void HenJi(int number, AbstractCard c, AbstractMonster m){
         if(!c.purgeOnUse) {
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "模组核心：触发来自"+c.name+":"+c.uuid+"的急性感染。"
+                    "模组核心：触发来自{}:{}的急性感染。", c.name, c.uuid
             );
             AbstractPlayer p = AbstractDungeon.player;
-            ArrayList<AbstractCard> G = new ArrayList<AbstractCard>();
+            ArrayList<AbstractCard> G = new ArrayList<>();
             for (AbstractCard card : p.hand.group) {
                 if (card.hasTag(YCardTagClassEnum.YZuZhou)) {
                     G.add(card);
                 }
             }
-
+            //感染爆发时至少触发一次
+            if (G.isEmpty() && p.hasPower(YSayPower.POWER_ID)){
+                AbstractCard tmp = c.makeSameInstanceOf();
+                AbstractDungeon.player.limbo.addToBottom(tmp);
+                tmp.current_x = c.current_x;
+                tmp.current_y = c.current_y;
+                tmp.target_x = (float)Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+                tmp.target_y = (float)Settings.HEIGHT / 2.0F;
+                if (m != null) {
+                    tmp.calculateCardDamage(m);
+                }
+                tmp.purgeOnUse = true;
+                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m,tmp.energyOnUse, true, true), true);
+            }
+            //丢弃诅咒，每丢弃一张触发一次
             for (int i = 0; !G.isEmpty() && i != number; i++) {
-                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                        "模组核心：触发来急性感染,丢弃第"+(i+1)+"张牌"
-                );
+                logger.info("模组核心：触发来急性感染,丢弃第"+(i+1)+"张牌");
                 Collections.shuffle(G);
                 AbstractCard card = G.get(0);
                 p.hand.moveToDiscardPile(card);
                 G.remove(0);
                 AbstractCard tmp = c.makeSameInstanceOf();
                 AbstractDungeon.player.limbo.addToBottom(tmp);
-                /*
-                tmp.current_x = card.current_x;
-                tmp.current_y = card.current_y;
-                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
-
-                 */
+                tmp.current_x = c.current_x;
+                tmp.current_y = c.current_y;
+                tmp.target_x = (float)Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+                tmp.target_y = (float)Settings.HEIGHT / 2.0F;
 
                 if (m != null) {
                     tmp.calculateCardDamage(m);
@@ -199,6 +193,7 @@ public class Amiyamod implements
                 tmp.purgeOnUse = true;
                 AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m,tmp.energyOnUse, true, true), true);
             }
+
         }
     }
     //获得丝线接口
@@ -266,12 +261,21 @@ public class Amiyamod implements
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "模组核心：准备进行"+number+"燃己"
         );
-        for (AbstractCard c: AbstractDungeon.player.hand.group){
+        ArrayList<AbstractCard> list = new ArrayList<>();
+        list.addAll(p.hand.group);
+        for (AbstractCard c: list){
             if(c instanceof Ysnake){
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "模组核心：认知偏差 要被烫出个很唐的效果了"
                 );
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SnakePower(p,1)));
+            }else if(c instanceof BurnMark){
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "模组核心：灼痕效果触发"
+                );
+                p.hand.moveToExhaustPile(c);
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(c.makeStatEquivalentCopy(), 1));
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(c.makeStatEquivalentCopy(), 1, false, true));
             }
         }
         for(int i=0;i < number;i++){
@@ -282,35 +286,32 @@ public class Amiyamod implements
     }
     //  获得赤霄的接口
     public static void getRedSky(int number) {
+        getRedSky(number,true);
+    }
+    public static void getRedSky(int number,boolean isbot) {
         int n = number;
         AbstractPlayer p =AbstractDungeon.player;
         if(p.hasPower(BigNotWorkPower.POWER_ID)){
             if (p.getPower(BigNotWorkPower.POWER_ID).amount>BigNotWorkPower.cardsDoubledThisTurn){
+                p.getPower(BigNotWorkPower.POWER_ID).flash();
                 BigNotWorkPower.cardsDoubledThisTurn++;
                 n++;
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(n)));
+        if (isbot){
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(n)));
+        }else{
+            AbstractDungeon.actionManager.addToTop(new MakeTempCardInHandAction(new RedSky(n)));
+        }
+
     }
     //  抽到诅咒卡时的通用处理
     public static void WhenYcardDrawn() {
-        AbstractPlayer p = AbstractDungeon.player;
-        for (AbstractCard c : p.drawPile.group) {
-            if (c instanceof RollFood) {
-                p.drawPile.addToHand(c);
-            }
-        }
-        for (AbstractCard c : p.discardPile.group) {
-            if (c instanceof RollFood) {
-                p.discardPile.addToHand(c);
-                //AbstractDungeon.actionManager.addToTop(new DiscardToHandAction(c));
-            }
-        }
-        p.hand.refreshHandLayout();
+
     }
 
     //出入鞘相关判定接口
-    public static void Sword(boolean isOut,ArrayList<AbstractGameAction> l) {
+    public static void Sword(boolean isOut,ArrayList<AbstractGameAction> l,ArrayList<AbstractGameAction> l2) {
         AbstractPlayer p = AbstractDungeon.player;
         if(isOut){
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
@@ -321,13 +322,17 @@ public class Amiyamod implements
                 //如果已经处于赤霄
                 if (l != null && !l.isEmpty()){
                     for (AbstractGameAction a :l){
-                        //逐个触发列表中的特殊效果
+                        //逐个触发l1列表中的特殊效果
                         AbstractDungeon.actionManager.addToBottom(a);
                     }
                 }
             } else {
                 //如果不处于赤霄状态，进入赤霄状态
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RedSkyPower()));
+                for (AbstractGameAction a :l2){
+                    //逐个触发l2列表中的特殊效果
+                    AbstractDungeon.actionManager.addToBottom(a);
+                }
             }
         }else{
             // ! if isOut  入鞘相关处理
@@ -340,49 +345,27 @@ public class Amiyamod implements
                 //并逐个触发特殊效果
                 if (l != null && !l.isEmpty()){
                     for (AbstractGameAction a :l){
-                        //逐个触发列表中的特殊效果
+                        //逐个触发l1列表中的特殊效果
                         AbstractDungeon.actionManager.addToBottom(a);
                     }
                 }
-            } else {
-                //否则无事发生
+            }else{
+                for (AbstractGameAction a :l2){
+                    //逐个触发l2列表中的特殊效果
+                    AbstractDungeon.actionManager.addToBottom(a);
+                }
             }
         }
+    }
+    public static void Sword(boolean isOut,ArrayList<AbstractGameAction> l) {
+        ArrayList<AbstractGameAction> l2 = new ArrayList<AbstractGameAction>();
+        Sword(isOut,l,l2);
     }
     //出入鞘相关判定接口的重构，只有一个行动
     public static void Sword(boolean isOut,AbstractGameAction act) {
         ArrayList<AbstractGameAction> l = new ArrayList<AbstractGameAction>();
         l.add(act);
         Sword(isOut,l);
-    }
-
-    public static void loadConfig() {
-        logger.debug("===徽章读取设置======");
-        try {
-            SpireConfig config = new SpireConfig("AmiyaMod", "AmiyaModSaveData", AmiyaModDefaults);
-            config.load();
-            addonRelic = config.getBool("addonRelic");
-        } catch (Exception e) {
-            e.printStackTrace();
-            clearConfig();
-        }
-        logger.debug("===徽章读取设置完成======");
-    }
-
-    public static void saveConfig() {
-        logger.debug("===徽章存储设置======");
-        try {
-            SpireConfig config = new SpireConfig("AmiyaMod", "AmiyaModSaveData", AmiyaModDefaults);
-            config.setBool("addonRelic", addonRelic);
-            config.save();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        logger.debug("===徽章存储设置完成======");
-    }
-
-    public static void clearConfig() {
-        saveConfig();
     }
     private static final String CARD_STRING_ZH = "localization/zhs/CardStrings.json";
     private static final String RELIC_STRING_ZH = "localization/zhs/RelicStrings.json";
@@ -398,11 +381,17 @@ public class Amiyamod implements
     private static final String KEYWORD_STRING_EN = "localization/eng/KeywordStrings.json";
     private static final String EVENT_PATH_EN = "localization/eng/EventStrings.json";
 
-
+    //############################################################
+    // @ 设置自定义角色
+    //############################################################
     @Override
     public void receiveEditCharacters() {
         logger.info("========================= Amiya Start Loading =========================");
-        BaseMod.addCharacter(new Amiya("Amiya"),"img/character/Amiya/AmiyaButton.png",Amiya_bgImg,AmiyaClassEnum.Amiya);
+        BaseMod.addCharacter(
+                new Amiya("Amiya"),
+                "img/character/Amiya/AmiyaButton.png",
+                Amiya_bgImg,AmiyaClassEnum.AMIYA
+        );
     }
 
 
@@ -418,9 +407,16 @@ public class Amiyamod implements
     public void receiveEditCards() {
         List<CustomCard> cards = new ArrayList<>();
     //加入卡牌
+
         cards.add(new AmiyaStrike());
+
         cards.add(new AmiyaDefend());
         cards.add(new AmiyaMagic());
+
+        cards.add(new AmiyaPower());
+        cards.add(new MindEat());
+        cards.add(new StoneSword());
+        cards.add(new BurnMark());
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());
@@ -431,6 +427,7 @@ public class Amiyamod implements
         cards.add(new Yangry());
         cards.add(new Ychengyin());
         cards.add(new Ydead());
+
         //慈悲愿景
         cards.add(new BadZhufu());
         cards.add(new BeautifulLife());
@@ -448,12 +445,13 @@ public class Amiyamod implements
         cards.add(new LineDefender());
         cards.add(new LittleTe());
         cards.add(new Mercy());
-        cards.add(new NoFeng());
         cards.add(new Open());
-        cards.add(new RollFood());
+        cards.add(new BurnMark());
         cards.add(new SadMind());
         cards.add(new SoulDefend());
         cards.add(new CRing());
+        cards.add(new LineHand());
+
         //赤霄
         cards.add(new RedSky(-2));
         cards.add(new ShadowOut());
@@ -463,9 +461,25 @@ public class Amiyamod implements
         cards.add(new BigNotWork());
         cards.add(new ShadowBack());
         cards.add(new ShadowYangMei());
+        cards.add(new ShadowSkill());
+        cards.add(new ShadowCry());
+        cards.add(new ShadowUpgrade());
+        cards.add(new ShadowBlueFire());
+        cards.add(new ShadowDefend());
+        cards.add(new ShadowTwo());
+        cards.add(new ShadowWaterMusic());
+        cards.add(new ShadowChange());
+        cards.add(new ShadowBlood());
+        cards.add(new ShadowBackWindy());
+        cards.add(new ShadowNoShadow());
+        cards.add(new ShadowCloudBreak());
+        cards.add(new CloudBreakIn());
+        cards.add(new ShadowBreak());
+        cards.add(new Shadow15());
+        cards.add(new ShadowSkyOpen());
 
         for (CustomCard card : cards) {
-            logger.debug(card.cardID+" is loading");
+            logger.debug("{} is loading", card.cardID);
             BaseMod.addCard(card);
             UnlockTracker.unlockCard(card.cardID);
         }
@@ -482,7 +496,8 @@ public class Amiyamod implements
     @Override
     public void receiveEditRelics() {
         logger.debug("Amiyamod relic load start.");
-        BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.Amiya);
+        BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.AMIYA);
+        BaseMod.addRelicToCustomPool(new TenRelic(),CardColorEnum.AMIYA);
         BaseMod.addRelic(new Yill(),RelicType.SHARED);
         logger.debug("Amiyamod relic load finish.");
     }
@@ -499,16 +514,6 @@ public class Amiyamod implements
             default:
                 return Settings.GameLanguage.ENG;
         }
-    }
-
-    // 保存
-    public Integer onSave() {
-        return value;
-    }
-
-    // 读取
-    public void onLoad(Integer save) {
-        this.value = save;
     }
 
     @Override
@@ -587,34 +592,12 @@ public class Amiyamod implements
         Keywords keywords;
         keywords = gson.fromJson(loadJson(keywordsPath), Keywords.class);
         for (Keyword key : keywords.keywords) {
-            logger.info("阿米娅MOD读取关键词文件 : " + key.NAMES[0]);
+            logger.info("阿米娅MOD读取关键词文件 : {}", key.NAMES[0]);
             BaseMod.addKeyword(key.NAMES, key.DESCRIPTION);
         }
         logger.info("阿米娅MOD关键词读取完毕");
     }
-
-    // 为模组核心添加新的字段
-    public static boolean saveField;
-
-    @Override
-    public void receivePostInitialize() {
-        try {
-            // 设置默认值
-            Properties defaults = new Properties();
-            defaults.setProperty("save_field", "false");
-            // defaults.setProperty("save_field_2", "false");
-
-            // 第一个字符串输入你的modid
-            SpireConfig config = new SpireConfig(MOD_ID, MOD_ID+":save_field", defaults);
-            // 如果之前有数据，则读取本地保存的数据，没有就使用上面设置的默认数据
-            saveField = config.getBool("save_field");
-        } catch (IOException var2) {
-            var2.printStackTrace();
-        }
-    }
-
-
-    class Keywords { Keyword[] keywords;}
+    static class Keywords { Keyword[] keywords;}
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
     }

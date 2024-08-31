@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 public class AmiyaClassEnum {
 
     @SpireEnum
-    public static AbstractPlayer.PlayerClass Amiya;
+    public static AbstractPlayer.PlayerClass AMIYA;
 
 }
 

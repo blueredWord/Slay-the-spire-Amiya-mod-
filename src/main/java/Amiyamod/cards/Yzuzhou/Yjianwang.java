@@ -23,7 +23,7 @@ public class Yjianwang extends CustomCard {
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
     private static final int COST = -2;//卡片费用 -2为诅咒
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.CURSE;//卡片类型
-    private static final AbstractCard.CardColor COLOR = AbstractCard.CardColor.COLORLESS;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = AbstractCard.CardColor.CURSE;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.CURSE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;//无法选择
     public Yjianwang() {
@@ -47,7 +47,7 @@ public class Yjianwang extends CustomCard {
     public void triggerOnEndOfPlayerTurn() {
         //回合结束时 随机一张手牌变为虚无
         AbstractCard c =AbstractDungeon.player.hand.getRandomCard(true);
-        if(c!=null){
+        if(c!=null && !c.isEthereal){
             c.isEthereal = true;
             c.rawDescription += "  NL 虚无 。";
         }

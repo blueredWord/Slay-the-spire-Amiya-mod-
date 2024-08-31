@@ -18,10 +18,10 @@ public class BigNotWork extends CustomCard {
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
-    private static final int COST = 1;//卡片费用
+    private static final int COST = 2;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.POWER;//卡片类型
-    private static final CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -42,7 +42,7 @@ public class BigNotWork extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeBaseCost(0);
-            this.upgradeMagicNumber(98);
+            this.upgradeMagicNumber(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();

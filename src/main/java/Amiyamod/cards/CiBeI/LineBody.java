@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.cards.Yzuzhou.Ychengyin;
 import Amiyamod.cards.Yzuzhou.Yjiejin;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LineBow;
 import Amiyamod.power.LittleTePower;
 import basemod.abstracts.CustomCard;
@@ -25,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-// 丝线予身
-// 获得4（5）层 茧 ，向弃牌堆中加入一张“源石诅咒”。
+// 身上衣
+// 。
 public class LineBody extends CustomCard {
     private static final String NAME = "LineBody";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -36,14 +37,16 @@ public class LineBody extends CustomCard {
     private static final int COST = 1;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public LineBody() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 4;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.exhaust = true ;
+        //this.isEthereal = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -53,7 +56,9 @@ public class LineBody extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeMagicNumber(1);
+            //this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(0);
+            //this.isEthereal = false;
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -62,10 +67,16 @@ public class LineBody extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 获得4（5）层 茧
-        this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,this.magicNumber)));
+        int i = 0;
+        for(AbstractCard card : AbstractDungeon.actionManager.cardsPlayedThisTurn){
+            if(card.hasTag(YCardTagClassEnum.YCard)){
+                i++;
+            }
+        }
+        Amiyamod.addY(-this.magicNumber);
+        this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,i)));
+
         //向弃牌堆中加入一张“源石诅咒”。
-        AbstractCard c = Amiyamod.GetNextYcard(true);
-        this.addToBot(new MakeTempCardInDiscardAction( c, 1));
     }
 
     public AbstractCard makeCopy() {

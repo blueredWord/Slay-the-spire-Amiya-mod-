@@ -51,11 +51,12 @@ public class BeautifulLifePower extends ABeautifulLifePower {
     // 能力在更新时如何修改描述
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+        StringBuilder d = new StringBuilder(DESCRIPTIONS[0]);
         for(AbstractCard c : CardGroup){
-            this.description += c.name ;
-            this.description +=  DESCRIPTIONS[1];
+            d.append(c.name).append(DESCRIPTIONS[1]);
         }
-        this.description += DESCRIPTIONS[2];
+        d.append(DESCRIPTIONS[2]);
+        this.description = d.toString();
     }
 
     // 效果 : 打出记录的卡后扣血
@@ -63,8 +64,9 @@ public class BeautifulLifePower extends ABeautifulLifePower {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         for(AbstractCard uid : CardGroup){
             if (uid.uuid == card.uuid){
+                this.flash();
                 AbstractDungeon.actionManager.addToTop(
-                        new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, card.makeCopy().cost*2)
+                        new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, card.makeCopy().cost)
                 );
                 break;
             }

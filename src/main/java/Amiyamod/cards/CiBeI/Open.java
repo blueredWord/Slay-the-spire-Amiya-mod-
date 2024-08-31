@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //  绽放
-//  （固有）每次受到伤害令一名随机敌人获得1层虚弱。燃己3
+//  每次受到伤害令一名随机敌人获得1(2)层虚弱。
 public class Open extends CustomCard {
     private static final String NAME = "Open";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -26,7 +26,7 @@ public class Open extends CustomCard {
     private static final int COST = 1;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -46,10 +46,11 @@ public class Open extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.selfRetain = true;
             //this.exhaust = false;
-            this.isInnate = true;//固有
+            this.upgradeMagicNumber(1);
+            //this.isInnate = true;//固有
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -58,8 +59,6 @@ public class Open extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得能力：每当受伤随机施加虚弱
         this.addToBot(new ApplyPowerAction(p,p,new OpenPower(p,this.magicNumber)));
-        //燃己
-        Amiyamod.BurnSelf(3);
     }
     public AbstractCard makeCopy() {return new Open();}
 }

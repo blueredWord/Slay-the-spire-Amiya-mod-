@@ -25,7 +25,7 @@ public class CRing extends CustomCard {
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
 
     public CRing() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

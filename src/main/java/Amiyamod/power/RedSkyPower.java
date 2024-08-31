@@ -2,6 +2,7 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.RedSky.RedSky;
+import Amiyamod.cards.RedSky.ShadowCry;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -65,10 +66,16 @@ public class RedSkyPower extends AbstractPower {
 
     //打出攻击牌时给赤霄
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if( card.type == AbstractCard.CardType.ATTACK && !card.hasTag(YCardTagClassEnum.RedSky)){
-            if(card.cost == -2){
-                Amiyamod.getRedSky(card.costForTurn);
+        if(
+                (card.type == AbstractCard.CardType.ATTACK || AbstractDungeon.player.hasPower(ShadowBlueFirePower.POWER_ID))
+                 && (!card.hasTag(YCardTagClassEnum.RedSky))
+                && AbstractDungeon.player.hand.size()<10
+        ) {
+            if(card.cost == -1){
+                this.flash();
+                Amiyamod.getRedSky(card.energyOnUse);
             }else if (card.costForTurn >=0) {
+                this.flash();
                 Amiyamod.getRedSky(card.costForTurn);
             }
         }
@@ -82,6 +89,6 @@ public class RedSkyPower extends AbstractPower {
     }
     @Override
     public void updateDescription() {
-        this.description = CardCrawlGame.languagePack.getPowerStrings(this.ID).DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0];
     }
 }

@@ -36,7 +36,7 @@ public class ShadowBackAction extends AbstractGameAction {
         }
         if(!addlist.isEmpty()) {
             for (AbstractCard c : addlist) {
-               c.modifyCostForCombat(this.cost);
+                c.setCostForTurn(c.costForTurn+1);
             }
         }
         if (!list.isEmpty()){

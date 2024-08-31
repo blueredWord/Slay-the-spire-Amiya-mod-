@@ -23,13 +23,13 @@ public class BeautifulLife extends CustomCard {
 
     private static final int COST = 1;//卡片费用
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
+    private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public BeautifulLife() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
         //this.isInnate = true; //固有

@@ -41,10 +41,14 @@ public class HerSeePower extends AbstractPower {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
-    // 效果 : 本回合每消耗1点能量 燃己2
+    // 效果 : 本回合每消耗1点能量 燃己
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card.energyOnUse > 0){
+        if (card.costForTurn > 0){
+            this.flash();
+            Amiyamod.BurnSelf(card.costForTurn * this.amount);
+        }
+        else if (card.cost == -2 && card.energyOnUse > 0){
             this.flash();
             Amiyamod.BurnSelf(card.energyOnUse * this.amount);
         }

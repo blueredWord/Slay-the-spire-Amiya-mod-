@@ -1,7 +1,11 @@
 package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.AmiyaPower;
+import Amiyamod.power.YSayPower;
 import basemod.abstracts.CustomSavable;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -29,6 +33,7 @@ public class Yill extends CYrelic{
                 ImageMaster.loadImage("img/relics/"+NAME+".png"),
                 ImageMaster.loadImage("img/relics/"+NAME+"_out.png")
         );
+        this.counter = Math.max(0,this.counter);
     }
     public Yill(int number) {
         super(
@@ -36,7 +41,8 @@ public class Yill extends CYrelic{
                 ImageMaster.loadImage("img/relics/"+NAME+".png"),
                 ImageMaster.loadImage("img/relics/"+NAME+"_out.png")
         );
-        this.counter = number;
+        this.addC(number);
+        this.counter = Math.max(0,this.counter);
     }
 
     //感染计数到达上限的处理
@@ -44,10 +50,11 @@ public class Yill extends CYrelic{
         super.OnBreak(); //先调用超类
 
         AbstractCard card = Amiyamod.GetNextYcard(false); //随机获取下一张诅咒
-
-        for (AbstractRelic r : AbstractDungeon.player.relics) {
+        AbstractPlayer p = AbstractDungeon.player;
+        for (AbstractRelic r : p.relics) {
             r.onPreviewObtainCard(card);
         }//触发所有遗物的获取卡片效果 真的有获取诅咒时触发的吗？万一呢
+        this.addToBot(new ApplyPowerAction(p,p,new YSayPower()));
 
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         group.addToBottom(card);//建立一个列表用于传递

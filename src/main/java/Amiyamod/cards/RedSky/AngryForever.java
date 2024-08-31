@@ -29,7 +29,7 @@ public class AngryForever extends CustomCard {
     private static final int COST = 2;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -50,7 +50,7 @@ public class AngryForever extends CustomCard {
             //this.selfRetain = true;
             //this.exhaust = false;
             this.isInnate = true;
-            this.upgradeBaseCost(1);
+            //this.upgradeBaseCost(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();

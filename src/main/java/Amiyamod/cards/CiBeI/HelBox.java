@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import jdk.nashorn.internal.runtime.regexp.JoniRegExp;
 
 //随身医疗箱
 //消耗卡组中的1张牌，获得6点丝线。燃己1
@@ -21,7 +22,7 @@ public class HelBox extends CustomCard {
     private static final int COST = 1;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -30,6 +31,7 @@ public class HelBox extends CustomCard {
         this.baseMagicNumber = 6;
         this.magicNumber = this.baseMagicNumber;
         //源石卡牌tag
+        this.exhaust = true;
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -38,7 +40,9 @@ public class HelBox extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
+            //this.upgradeBaseCost(0);
+            this.exhaust = false;
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

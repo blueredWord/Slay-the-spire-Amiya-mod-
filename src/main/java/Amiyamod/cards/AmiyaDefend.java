@@ -26,7 +26,7 @@ public class AmiyaDefend extends CustomCard {
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.SKILL;//卡片类型
-    private static final CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.BASIC;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -44,7 +44,6 @@ public class AmiyaDefend extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeBlock(3);
-
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -58,12 +57,6 @@ public class AmiyaDefend extends CustomCard {
         } else {
             this.addToBot(new GainBlockAction(p, p, this.block));
         }
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(0).makeCopy()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(1).makeCopy()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(2).makeCopy()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(3).makeCopy()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(4).makeCopy()));
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(5).makeCopy()));
     }
     public AbstractCard makeCopy() {return new AmiyaDefend();}
 }

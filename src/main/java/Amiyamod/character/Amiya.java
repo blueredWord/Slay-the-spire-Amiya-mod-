@@ -6,6 +6,7 @@ import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
 
 import Amiyamod.cards.RedSky.ShadowOut;
+import Amiyamod.relics.TenRelic;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -57,7 +58,7 @@ public class Amiya extends CustomPlayer {
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
 
     public Amiya(String name) {
-        super(name, AmiyaClassEnum.Amiya,ORB_TEXTURES,"images/ui/topPanel/energyBlueVFX.png", LAYER_SPEED, null, null);
+        super(name, AmiyaClassEnum.AMIYA,ORB_TEXTURES,"images/ui/topPanel/energyBlueVFX.png", LAYER_SPEED, null, null);
 
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
@@ -67,7 +68,7 @@ public class Amiya extends CustomPlayer {
 
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
         this.initializeClass(
-                "img/character/Amiya/AmiyaBG.png", // 人物图片
+                "img/character/Amiya/amiya.png", // 人物图片
                 MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1,
                 CORPSE_IMAGE, // 人物死亡图像
                 this.getLoadout(),
@@ -89,10 +90,10 @@ public class Amiya extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();   //创建初始卡组的列表
-        for(int x = 0; x<5; x++) {                      //通过循环加入五张打击
+        for(int x = 0; x<4; x++) {                      //通过循环加入五张打击
             retVal.add(AmiyaStrike.ID);
         }
-        for(int x = 0; x<5; x++) {                      //通过循环加入五张打击
+        for(int x = 0; x<4; x++) {                      //通过循环加入五张打击
             retVal.add(AmiyaDefend.ID);
         }
         retVal.add(AmiyaMagic.ID);
@@ -104,7 +105,7 @@ public class Amiya extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        //retVal.add(TheTen.ID);
+        retVal.add(TenRelic.ID);
         return retVal;
     }
 
@@ -116,8 +117,8 @@ public class Amiya extends CustomPlayer {
             flavor = "芝士兔子。";
         }
         else {
-            title = "The Shrine Maiden";
-            flavor = "A freewheeling and haphazard shrine maiden. NL Calls upon the powers of myriads of gods.";
+            title = "Amiya";
+            flavor = "Cute Rabbit.";
         }
         return new CharSelectInfo(
                 title, // 人物名字
@@ -138,15 +139,10 @@ public class Amiya extends CustomPlayer {
     @Override
     public String getTitle(PlayerClass playerClass) {
         String title;
-        if (Settings.language == Settings.GameLanguage.ZHS) {
+        if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT) {
             title = "阿米娅";
-        } else if (Settings.language == Settings.GameLanguage.JPN) {
-            title = "\u6d44\u5854\u826f\u3044\u306e\u5deb\u5973";
-        } else if (Settings.language == Settings.GameLanguage.ZHT) {
-            title = "\u5805\u5b9a\u7684\u5deb\u5973";
-        }
-        else {
-            title = "The Shrine Maiden";
+        } else {
+            title = "Amiya";
         }
         return title;
     }
@@ -154,8 +150,8 @@ public class Amiya extends CustomPlayer {
     // 你的卡牌颜色（这个枚举在最下方创建）
     @Override
     public AbstractCard.CardColor getCardColor() {
-        return CardColorEnum.Amiya;
-        //return CardColorEnum.AmiyaCard;
+        return CardColorEnum.AMIYA;
+        //return CardColorEnum.AMIYACard;
     }
 
     // 翻牌事件出现的你的职业牌（一般设为打击）
@@ -262,4 +258,6 @@ public class Amiya extends CustomPlayer {
         super.applyStartOfCombatLogic();
     }
 
+
 }
+

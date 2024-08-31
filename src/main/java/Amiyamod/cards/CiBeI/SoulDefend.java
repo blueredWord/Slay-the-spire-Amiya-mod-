@@ -2,11 +2,9 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.power.NoFengPower;
 import Amiyamod.power.SoulDefendPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -26,7 +24,7 @@ public class SoulDefend extends CustomCard {
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
-    private static final AbstractCard.CardColor COLOR = CardColorEnum.Amiya;//卡牌颜色
+    private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
@@ -54,7 +52,10 @@ public class SoulDefend extends CustomCard {
         //获得状态：每次受到伤害获得丝线
         this.addToTop(new ApplyPowerAction(p, p, new SoulDefendPower(p, this.magicNumber), this.magicNumber));
         //复制一张自己到手里
-        this.addToBot(new MakeTempCardInHandAction(this.makeStatEquivalentCopy(), 1));
+        AbstractCard card = this.makeStatEquivalentCopy();
+        card.freeToPlayOnce = false;
+
+        this.addToBot(new MakeTempCardInHandAction( card, 1));
     }
     public AbstractCard makeCopy() {return new SoulDefend();}
 }

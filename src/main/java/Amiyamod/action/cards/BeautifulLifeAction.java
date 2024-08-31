@@ -25,7 +25,6 @@ public class BeautifulLifeAction extends AbstractGameAction {
                     c.cost = 0;
                     c.costForTurn = 0;
                     c.isCostModified = true;
-                    break;
                 }
             }
             AbstractPlayer p = AbstractDungeon.player;
