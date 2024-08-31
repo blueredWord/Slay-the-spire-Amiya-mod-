@@ -35,7 +35,7 @@ public class CloudBreakIn extends CustomCard {
         this.damage = this.baseDamage = 0;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.selfRetain = true;
+        //this.selfRetain = true;
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = 0;
 

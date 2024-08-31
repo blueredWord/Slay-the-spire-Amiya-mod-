@@ -253,7 +253,7 @@
   },
   "AmiyaMod:CloudBreakIn": {
     "NAME": "云裂*出",
-    "DESCRIPTION": "保留 。 NL 再次打出获得此牌后你打出过的 赤霄 。 NL 消耗 。",
+    "DESCRIPTION": "再次打出获得此牌后你打出过的 赤霄 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": " NL (已记录 !M! 张 赤霄 ，总计约 !D! 点伤害。)"
   },
   "AmiyaMod:ShadowBreak": {
