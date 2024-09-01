@@ -4,7 +4,7 @@ import Amiyamod.action.relic.addYAction;
 import Amiyamod.cards.*;
 import Amiyamod.cards.RedSky.*;
 import Amiyamod.cards.CiBeI.*;
-import Amiyamod.cards.YCard.ChiMeRa;
+import Amiyamod.cards.YCard.*;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
@@ -14,7 +14,6 @@ import Amiyamod.power.*;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
-import basemod.abstracts.CustomPlayer;
 import basemod.interfaces.EditKeywordsSubscriber;
 import Amiyamod.relics.TheTen;
 import basemod.helpers.RelicType;
@@ -29,15 +28,12 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
@@ -152,6 +148,12 @@ public class Amiyamod implements
         }
     }
     //急性感染接口
+    public static void HenJi(int number, AbstractCard c, AbstractMonster m,AbstractGameAction act){
+        if (!c.purgeOnUse){
+            HenJi(number,c,m);
+            AbstractDungeon.actionManager.addToBottom(act);
+        }
+    }
     public static void HenJi(int number, AbstractCard c, AbstractMonster m){
         if(!c.purgeOnUse) {
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
@@ -425,7 +427,14 @@ public class Amiyamod implements
         cards.add(new StoneSword());
         cards.add(new BurnMark());
         cards.add(new Memory());
+
+        //源石技艺
         cards.add(new ChiMeRa());
+        cards.add(new MindBreak());
+        cards.add(new ZuZhouMagic());
+        cards.add(new SuperYPotion());
+        cards.add(new StoneBlock());
+        cards.add(new PainMagic());
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());
@@ -438,6 +447,7 @@ public class Amiyamod implements
         cards.add(new Ydead());
 
         //慈悲愿景
+        cards.add(new MindBubble());
         cards.add(new BadZhufu());
         cards.add(new BeautifulLife());
         cards.add(new BForB());

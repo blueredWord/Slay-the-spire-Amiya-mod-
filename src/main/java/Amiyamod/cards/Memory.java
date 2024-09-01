@@ -19,6 +19,8 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import java.util.Objects;
+
 public class Memory extends CustomCard {
     private static final String NAME = "Memory";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -59,6 +61,10 @@ public class Memory extends CustomCard {
     public void use(AbstractPlayer pl, AbstractMonster m) {
         CardGroup G = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
         for (AbstractPlayer p  : CardCrawlGame.characterManager.getAllCharacters()){
+            //如果和玩家同类则跳过
+            if (Objects.equals(pl.getTitle(pl.chosenClass), p.getTitle(p.chosenClass))){
+                break;
+            }
             p.getTitle(p.chosenClass);
             p.getCardColor();
             String ID = this.cardID+p.getCardColor().name();

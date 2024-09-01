@@ -182,5 +182,20 @@
     "DESCRIPTIONS": [
       "回合内，你造成的伤害增加 #y100 %并无视 #b格挡 ，效果结束时你将丢弃所有手牌并跳过一个回合。"
     ]
+  },
+  "AmiyaMod:ZuZhouMagicPower": {
+    "NAME": "诅咒巫术",
+    "DESCRIPTIONS": [
+      "每当你失去生命，",
+      " #y",
+      " 、",
+      " 也会失去等量生命。"
+    ]
+  },
+  "AmiyaMod:MindBubblePower": {
+    "NAME": "泡泡",
+    "DESCRIPTIONS": [
+      "当你打出 #b攻击牌 后，失去所有 #y丝线 。"
+    ]
   }
 }

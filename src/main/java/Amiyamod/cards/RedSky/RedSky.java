@@ -110,6 +110,16 @@ public class RedSky extends CustomCard {
                     )
             );
         }
+        for (AbstractCard c : p.drawPile.group){
+            if (c instanceof CloudBreakIn){
+                c.triggerOnOtherCardPlayed(this);
+            }
+        }
+        for (AbstractCard c : p.discardPile.group){
+            if (c instanceof CloudBreakIn){
+                c.triggerOnOtherCardPlayed(this);
+            }
+        }
     }
     public AbstractCard makeCopy() { return new RedSky(this.timesUpgraded); }
 }

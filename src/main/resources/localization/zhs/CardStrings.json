@@ -107,7 +107,8 @@
   },
   "AmiyaMod:SoulDefend": {
     "NAME": "诸魂庇佑",
-    "DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张复制加入手牌 NL 虚无 "
+    "DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张 诸魂庇佑 加入手牌 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张 诸魂庇佑+ 加入手牌 NL 虚无 "
   },
   "AmiyaMod:Yangry": {
     "NAME": "狂躁症",
@@ -299,6 +300,31 @@
   },
   "AmiyaMod:ChiMeRa": {
     "NAME": "奇美拉",
-    "DESCRIPTION": "获得20点 丝线 。 NL !M!回合内造成的伤害增加一半并无视 格挡 。 NL 效果结束后你丢弃所有手牌并跳过一个回合。"
+    "DESCRIPTION": "获得20点 丝线 。 NL !M!回合内造成的伤害翻倍并无视 格挡 。 NL 效果结束后你丢弃所有手牌并跳过一个回合。"
+  },
+  "AmiyaMod:MindBreak": {
+    "NAME": "精神爆发",
+    "DESCRIPTION": "源石技艺 。 NL 手牌中存在 源石诅咒 时将自动打出。 随机造成 !D! 点伤害 !M! 次。 NL 结束你的回合。"
+  },
+  "AmiyaMod:SuperYPotion": {
+    "NAME": "强效源石爆发剂",
+    "DESCRIPTION": "将抽牌堆中所有的 源石诅咒 拿到手中。 NL 并获得等量能量与 感染进度 。 NL 保留 。 消耗 。"
+  },
+  "AmiyaMod:StoneBlock": {
+    "NAME": "结晶化盾",
+    "DESCRIPTION": "急性发作 1。 NL 源石技艺 。 燃己 1。 NL 获得 !B! 点 格挡 。"
+  },
+  "AmiyaMod:MindBubble": {
+    "NAME": "情感泡泡",
+    "DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，本回合你不能打出攻击牌。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，若你打出攻击牌则会失去所有 丝线 。 NL 虚无 。"
+  },
+  "AmiyaMod:PainMagic": {
+    "NAME": "苦难巫咒",
+    "DESCRIPTION": " 急性发作 。 源石技艺 。 NL 对所有敌人造成 !D! 点伤害。 NL 失去 !M! 次生命后此牌耗能减少 [R] 。"
+  },
+  "AmiyaMod:ZuZhouMagic": {
+    "NAME": "诅咒巫咒",
+    "DESCRIPTION": "源石技艺 。 NL 你失去生命时，目标敌人也将失去等量的生命。 NL 消耗 。"
   }
 }

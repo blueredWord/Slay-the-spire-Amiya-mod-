@@ -44,7 +44,7 @@ public class ShadowWaterMusic extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3);
+            this.upgradeDamage(2);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);

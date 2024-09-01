@@ -43,6 +43,7 @@ public class SoulDefend extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeMagicNumber(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -52,9 +53,7 @@ public class SoulDefend extends CustomCard {
         //获得状态：每次受到伤害获得丝线
         this.addToTop(new ApplyPowerAction(p, p, new SoulDefendPower(p, this.magicNumber), this.magicNumber));
         //复制一张自己到手里
-        AbstractCard card = this.makeStatEquivalentCopy();
-        card.freeToPlayOnce = false;
-
+        AbstractCard card = this.makeCopy();
         this.addToBot(new MakeTempCardInHandAction( card, 1));
     }
     public AbstractCard makeCopy() {return new SoulDefend();}

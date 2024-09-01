@@ -38,6 +38,7 @@ public class CardBackAction extends AbstractGameAction {
                 if(!var.isEmpty()){
                     for (AbstractCard c : var){
                         p.discardPile.moveToHand(c);
+                        c.triggerWhenDrawn();
                     }
                 }
                 var.clear();
@@ -50,6 +51,7 @@ public class CardBackAction extends AbstractGameAction {
                 if(!var.isEmpty()){
                     for (AbstractCard c : var){
                         p.drawPile.moveToHand(c);
+                        c.triggerWhenDrawn();
                     }
                 }
                 var.clear();
