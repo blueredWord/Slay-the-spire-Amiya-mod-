@@ -25,6 +25,13 @@ public abstract class CYrelic extends CustomRelic {
         this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME+this.cost;
         this.counter = 0;
     }
+    public void atTurnStart() {
+        if (this.counter >= MAXY){
+            this.counter = 0;
+            this.updateDescription(null);
+            this.flash();
+        }
+    }
 
     //在爆发状态下结束战斗则清零
     public void onVictory() {

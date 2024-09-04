@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 public class ChoseTempToHandAction extends AbstractGameAction {
-    private AbstractCard c;
+    private final AbstractCard  c;
     private static final float PADDING;
     private boolean isOtherCardInCenter;
     private boolean sameUUID;

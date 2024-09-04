@@ -38,7 +38,7 @@ public class Shadow15 extends CustomCard implements OnLoseTempHpPower {
         //this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
         this.heal = 15;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 3;
         //源石卡牌tag
         this.tags.add(CardTags.HEALING);
     }
@@ -68,7 +68,7 @@ public class Shadow15 extends CustomCard implements OnLoseTempHpPower {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //造成多次伤害
-        for(int i = 0 ; i < 5 ; i++){
+        for(int i = 0 ; i < this.magicNumber ; i++){
             this.addToBot(new DamageAction(m,new DamageInfo(p,this.damage,this.damageTypeForTurn)));
         }
         //入鞘：回血

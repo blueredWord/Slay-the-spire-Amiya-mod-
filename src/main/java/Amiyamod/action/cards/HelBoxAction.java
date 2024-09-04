@@ -46,7 +46,7 @@ public class HelBoxAction extends AbstractGameAction {
                 AbstractDungeon.player.hand.refreshHandLayout();
             }
 
-            this.tickDuration();
+            this.isDone = true;
         }
     }
 

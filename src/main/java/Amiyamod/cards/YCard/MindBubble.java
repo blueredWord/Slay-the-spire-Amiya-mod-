@@ -38,13 +38,15 @@ public class MindBubble extends CustomCard {
         this.magicNumber = this.baseMagicNumber = 12;
         //this.heal = 15;
         //this.misc = 20;
-        //this.tags.add(CardTags.STARTER_STRIKE);
-        //this.tags.add(CardTags.STRIKE);
+
         //this.exhaust = true;
         this.isEthereal = true;
         //this.selfRetain = true;
+
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
+        //this.tags.add(CardTags.STARTER_STRIKE);
+        //this.tags.add(CardTags.STRIKE);
     }
 
     @Override

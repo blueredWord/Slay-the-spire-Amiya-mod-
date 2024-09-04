@@ -78,7 +78,7 @@ public class ShadowYangMeiAction extends AbstractGameAction {
                 AbstractDungeon.player.hand.refreshHandLayout();
             }
 
-            this.tickDuration();
+            this.isDone = true;
         }
     }
 

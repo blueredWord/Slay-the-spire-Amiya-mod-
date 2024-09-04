@@ -1,27 +1,26 @@
-package Amiyamod.cards.CiBeI;
+package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.BreakRingAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.power.BreakRingPower;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-//碎戒
-//将1张“源石诅咒”加入手牌，获得2点能量，选择1张消耗牌堆的牌加入手牌。燃己2
 public class BreakRing extends CustomCard {
+    //=================================================================================================================
+    //@ 【极限施法】 增加 !M! 点 感染进度 。 NL 你本回合打出的下1张 急性发作 卡将额外触发一次效果。 NL 燃己 !M! 。 消耗 。
+    //=================================================================================================================
     private static final String NAME = "BreakRing";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
-
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
-
     private static final int COST = 0;//卡片费用
-
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
@@ -54,13 +53,7 @@ public class BreakRing extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Amiyamod.addY(this.magicNumber);
-        //一张随机诅咒
-        //this.addToBot(new MakeTempCardInHandAction(Amiyamod.GetNextYcard(true)));
-        //获得能量
-        //this.addToBot(new GainEnergyAction(1));
-        //获得一张消耗区的卡
-        this.addToBot(new BreakRingAction(1));
-        //燃己2
+        this.addToBot(new ApplyPowerAction(p,p,new BreakRingPower(1)));
         Amiyamod.BurnSelf(this.magicNumber);
     }
     public AbstractCard makeCopy() {return new BreakRing();}

@@ -7,9 +7,7 @@ import Amiyamod.cards.CiBeI.*;
 import Amiyamod.cards.YCard.*;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
-import Amiyamod.patches.AmiyaClassEnum;
-import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.patches.*;
 import Amiyamod.power.*;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.TenRelic;
@@ -28,15 +26,19 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -58,6 +60,7 @@ public class Amiyamod implements
         EditRelicsSubscriber,
         EditKeywordsSubscriber,
         PotionGetSubscriber,
+        OnStartBattleSubscriber,
         EditCharactersSubscriber,OnPlayerTurnStartSubscriber{
     public static final Logger logger = LogManager.getLogger(Amiyamod.class.getSimpleName());
 
@@ -66,13 +69,11 @@ public class Amiyamod implements
         return MOD_ID + ":" + id;
     }
 
-
     public static ArrayList<CustomCard> Yzuzhou = new ArrayList<>();
     public static final String DESCRIPTION = "Amiya Mod.";
     public static String Amiya_bgImg = "img/character/Amiya/AmiyaBG.png"; //选人界面？
 
     public static boolean addonRelic = true;    //是否读取mod遗物
-
     public static Properties AmiyaModDefaults = new Properties();
     public int value = 0;
     public static final Color Amiya_Color = new Color(0.171F,0.722F,0.722F,1.0F);
@@ -167,19 +168,22 @@ public class Amiyamod implements
                 }
             }
             //感染爆发时至少触发一次
-            if (G.isEmpty() && p.hasPower(YSayPower.POWER_ID)){
-                AbstractCard tmp = c.makeSameInstanceOf();
-                AbstractDungeon.player.limbo.addToBottom(tmp);
-                tmp.current_x = c.current_x;
-                tmp.current_y = c.current_y;
-                tmp.target_x = (float)Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-                tmp.target_y = (float)Settings.HEIGHT / 2.0F;
-                if (m != null) {
-                    tmp.calculateCardDamage(m);
+            if (G.isEmpty() ) {
+                if (p.hasPower(YSayPower.POWER_ID)){
+                    AbstractCard tmp = c.makeSameInstanceOf();
+                    AbstractDungeon.player.limbo.addToBottom(tmp);
+                    tmp.current_x = c.current_x;
+                    tmp.current_y = c.current_y;
+                    tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+                    tmp.target_y = (float) Settings.HEIGHT / 2.0F;
+                    if (m != null) {
+                        tmp.calculateCardDamage(m);
+                    }
+                    tmp.purgeOnUse = true;
+                    AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
                 }
-                tmp.purgeOnUse = true;
-                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m,tmp.energyOnUse, true, true), true);
             }
+
             //丢弃诅咒，每丢弃一张触发一次
             for (int i = 0; !G.isEmpty() && i != number; i++) {
                 logger.info("模组核心：触发来急性感染,丢弃第"+(i+1)+"张牌");
@@ -200,7 +204,27 @@ public class Amiyamod implements
                 tmp.purgeOnUse = true;
                 AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m,tmp.energyOnUse, true, true), true);
             }
-
+            //极限施法额外触发一次
+            if (p.hasPower(BreakRingPower.POWER_ID)) {
+                AbstractPower pow = p.getPower(BreakRingPower.POWER_ID);
+                pow.flash();
+                if (pow.amount < 1 ) {
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(pow.owner, pow.owner, pow.ID));
+                } else {
+                    AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(pow.owner, pow.owner,pow.ID, 1));
+                }
+                AbstractCard tmp = c.makeSameInstanceOf();
+                AbstractDungeon.player.limbo.addToBottom(tmp);
+                tmp.current_x = c.current_x;
+                tmp.current_y = c.current_y;
+                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
+                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
+                if (m != null) {
+                    tmp.calculateCardDamage(m);
+                }
+                tmp.purgeOnUse = true;
+                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
+            }
         }
     }
     //获得丝线接口
@@ -435,6 +459,13 @@ public class Amiyamod implements
         cards.add(new SuperYPotion());
         cards.add(new StoneBlock());
         cards.add(new PainMagic());
+
+        cards.add(new FastSing());
+        cards.add(new LoseWish());
+        cards.add(new OldDoki());
+        cards.add(new MagicBook());
+        cards.add(new SoulBurn());
+        cards.add(new WhoKnowOne());
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());
@@ -616,6 +647,16 @@ public class Amiyamod implements
         }
         logger.info("阿米娅MOD关键词读取完毕");
     }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom abstractRoom) {
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group){
+            if(c instanceof OnCombatStartInterface){
+                ((OnCombatStartInterface) c).OnCombatStartInterface();
+            }
+        }
+    }
+
     static class Keywords { Keyword[] keywords;}
     private static String loadJson(String jsonPath) {
         return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));

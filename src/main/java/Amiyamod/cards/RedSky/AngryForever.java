@@ -1,15 +1,11 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.cards.CiBeI.BreakRing;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.AngryForeverPower;
 import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.unique.ExhumeAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

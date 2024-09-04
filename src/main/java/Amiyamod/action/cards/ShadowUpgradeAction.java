@@ -80,7 +80,7 @@ public class ShadowUpgradeAction extends AbstractGameAction {
                 this.addToTop(new ApplyPowerAction(this.player,this.player,new CardBackPower(this.card)));
             }
             AbstractDungeon.gridSelectScreen.selectedCards.clear();
-            this.tickDuration();
+            this.isDone=true;
         }
     }
 

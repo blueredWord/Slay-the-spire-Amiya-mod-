@@ -27,7 +27,7 @@ public class ShadowTwoAction extends AbstractGameAction {
     public ShadowTwoAction(AbstractCard source) {
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, -1);
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.notchip = false;
+        this.notchip = true;
         this.number = source.magicNumber;
         //boolean upg = source.upgraded;
         this.p = AbstractDungeon.player;
@@ -76,7 +76,7 @@ public class ShadowTwoAction extends AbstractGameAction {
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             }
 
-            this.tickDuration();
+            this.isDone = true;
         }
     }
 

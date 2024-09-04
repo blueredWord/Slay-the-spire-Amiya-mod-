@@ -105,7 +105,7 @@ public class HELPAction extends AbstractGameAction {
                 AbstractDungeon.player.hand.refreshHandLayout();
             }
 
-            this.tickDuration();
+            this.isDone = true;
         }
     }
 

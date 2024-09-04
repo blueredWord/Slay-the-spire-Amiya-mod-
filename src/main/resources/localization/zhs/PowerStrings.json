@@ -197,5 +197,18 @@
     "DESCRIPTIONS": [
       "当你打出 #b攻击牌 后，失去所有 #y丝线 。"
     ]
+  },
+  "AmiyaMod:BreakRingPower": {
+    "NAME": "极限施法",
+    "DESCRIPTIONS": [
+      "你打出的下 #b",
+      " 张 #y急性发作 卡将额外触发 #b1 次效果。"
+    ]
+  },
+  "AmiyaMod:SoulBurnPower": {
+    "NAME": "魂灵熔炉",
+    "DESCRIPTIONS": [
+      "回合开始时获得 #b1 点能量。"
+    ]
   }
 }
