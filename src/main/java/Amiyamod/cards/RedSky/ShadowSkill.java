@@ -33,7 +33,7 @@ public class ShadowSkill extends CustomCard {
         //this.damage = this.baseDamage = 6;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.exhaust = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -46,6 +46,7 @@ public class ShadowSkill extends CustomCard {
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
+            this.exhaust = false;
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;

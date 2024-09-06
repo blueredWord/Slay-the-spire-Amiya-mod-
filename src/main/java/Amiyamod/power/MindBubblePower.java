@@ -19,12 +19,12 @@ public class MindBubblePower extends AbstractPower {
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public MindBubblePower() {
+    public MindBubblePower(int i) {
         this.name = powerStrings.NAME;
         this.ID = POWERID;
         this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = -1;
+        this.amount = i;
         this.type = PowerType.BUFF;
 
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -34,12 +34,13 @@ public class MindBubblePower extends AbstractPower {
     }
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
     }
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.ATTACK){
             this.flash();
-            TempHPField.tempHp.set(this.owner,0);
+            int i = Math.max(0,TempHPField.tempHp.get(this.owner)-this.amount);
+            TempHPField.tempHp.set(this.owner,i);
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }

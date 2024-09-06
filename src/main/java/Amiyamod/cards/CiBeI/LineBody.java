@@ -46,6 +46,7 @@ public class LineBody extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true ;
+        this.tags.add(CardTags.HEALING);
         //this.isEthereal = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -74,7 +75,10 @@ public class LineBody extends CustomCard {
             }
         }
         Amiyamod.addY(-this.magicNumber);
-        this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,i)));
+        if(i>0){
+            this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,i)));
+        }
+
 
         //向弃牌堆中加入一张“源石诅咒”。
     }

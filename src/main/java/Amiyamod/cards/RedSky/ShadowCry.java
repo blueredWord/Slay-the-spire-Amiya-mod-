@@ -56,9 +56,6 @@ public class ShadowCry extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(p.hasPower(RedSkyPower.POWER_ID)){
-            this.setCostForTurn(this.costForTurn+this.magicNumber);
-        }
         Amiyamod.Sword(true,new ArrayList<>());
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(m, new DamageInfo(p, this.damage,this.damageTypeForTurn)

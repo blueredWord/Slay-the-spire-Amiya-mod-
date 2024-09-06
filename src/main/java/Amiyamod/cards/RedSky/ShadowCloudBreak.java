@@ -60,7 +60,7 @@ public class ShadowCloudBreak extends CustomCard {
                 new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn))
         );
         AbstractDungeon.actionManager.addToBottom(
-                new MakeTempCardInDrawPileAction(new CloudBreakIn(),1,true,true,false)
+                new MakeTempCardInDrawPileAction(this.cardsToPreview.makeCopy(),1,true,true,false)
         );
     }
     public AbstractCard makeCopy() {return new ShadowCloudBreak();}

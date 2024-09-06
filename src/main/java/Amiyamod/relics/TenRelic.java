@@ -54,7 +54,7 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 	}
 
 	public  void onClick(){
-		if(AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !usedThisCombat && !AbstractDungeon.player.hasPower(YSayPower.POWER_ID) && this.canU){
+		if(AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !usedThisCombat && this.canU){
 			this.grayscale = true;
 			usedThisCombat = true;
 			this.pulse = false;

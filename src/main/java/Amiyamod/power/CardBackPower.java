@@ -47,9 +47,9 @@ public class CardBackPower extends AbstractPower{
     public void atEndOfRound() {
         this.flash();
         this.addToBot(new CardBackAction(CardList));
-
         //退出此能力
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        CardList.clear();
     }
 
     public void onRemove() {

@@ -24,7 +24,6 @@ public class ShadowSkillAction extends AbstractGameAction {
     private AbstractPlayer p;
     private int energyOnUse;
     private int m;
-    private final int max=4;
     public ShadowSkillAction(AbstractCard c) {
         this.multiDamage = c.multiDamage;
         this.damageType = c.damageTypeForTurn;
@@ -38,25 +37,22 @@ public class ShadowSkillAction extends AbstractGameAction {
     }
 
     public void update() {
-        int effect = Math.min(EnergyPanel.totalCount,this.max) ;
+        //设置花费不能超过magicnumber
+        int effect = Math.min(EnergyPanel.totalCount,this.m) ;
+        //花费能量
         if (effect > 0 && !this.freeToPlayOnce) {
-            this.p.energy.use(EnergyPanel.totalCount);
+            this.p.energy.use(effect);
         }
-        if (this.energyOnUse != -1) {
-            effect = this.energyOnUse;
-        }
-
+        effect++;
         //X药剂+2次
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
         }
-
-        //如果升级多触发一次
+        /*如果升级多触发一次
         if (this.up){
             effect += this.m;
         }
-
         if (effect > 0) {
             for(int i = 0; i < effect; ++i) {
                 if (i == 0) {
@@ -65,7 +61,8 @@ public class ShadowSkillAction extends AbstractGameAction {
                 Amiyamod.getRedSky(i,false);
             }
         }
-
+         */
+        Amiyamod.getRedSky(effect,false);
         this.isDone = true;
     }
 }

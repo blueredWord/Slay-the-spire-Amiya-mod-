@@ -35,7 +35,7 @@ public class WhoKnowOne extends CustomCard implements OnCombatStartInterface {
 
     public WhoKnowOne() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 24;
+        this.damage = this.baseDamage = 22;
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
@@ -53,8 +53,8 @@ public class WhoKnowOne extends CustomCard implements OnCombatStartInterface {
 
     @Override
     public void upgrade() {
-        this.upgradeDamage(7 + (this.timesUpgraded*2));
         ++this.timesUpgraded;
+        this.upgradeDamage(4 + (this.timesUpgraded*2));
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();

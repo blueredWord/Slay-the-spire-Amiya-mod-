@@ -17,6 +17,7 @@ public class DefendPatch {
         if(_int.target.hasPower(LittleTePower.ID1) && _int.amount>0){
             AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(_int.target, _int.source, _int.amount));
             _int.amount -= _int.amount;
+            _int.target.getPower(LittleTePower.ID1).flash();
         }
     }
 }

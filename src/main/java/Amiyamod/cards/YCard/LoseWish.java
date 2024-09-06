@@ -1,7 +1,6 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.BreakRingAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

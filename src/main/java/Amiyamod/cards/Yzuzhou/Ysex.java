@@ -2,6 +2,7 @@ package Amiyamod.cards.Yzuzhou;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -34,7 +35,12 @@ public class Ysex extends CustomCard {
         //源石诅咒被抽到时共通效果
         Amiyamod.WhenYcardDrawn();
     }
-
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (p.hasPower(FirstSayPower.POWER_ID)){
+            return true;
+        }
+        return super.canUse(p,m);
+    }
     public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ysex();}

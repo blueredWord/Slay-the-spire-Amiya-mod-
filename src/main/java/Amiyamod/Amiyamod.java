@@ -33,11 +33,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -72,7 +70,7 @@ public class Amiyamod implements
     public static ArrayList<CustomCard> Yzuzhou = new ArrayList<>();
     public static final String DESCRIPTION = "Amiya Mod.";
     public static String Amiya_bgImg = "img/character/Amiya/AmiyaBG.png"; //选人界面？
-
+    //public static CardGroup Ycard = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
     public static boolean addonRelic = true;    //是否读取mod遗物
     public static Properties AmiyaModDefaults = new Properties();
     public int value = 0;
@@ -204,27 +202,6 @@ public class Amiyamod implements
                 tmp.purgeOnUse = true;
                 AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m,tmp.energyOnUse, true, true), true);
             }
-            //极限施法额外触发一次
-            if (p.hasPower(BreakRingPower.POWER_ID)) {
-                AbstractPower pow = p.getPower(BreakRingPower.POWER_ID);
-                pow.flash();
-                if (pow.amount < 1 ) {
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(pow.owner, pow.owner, pow.ID));
-                } else {
-                    AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(pow.owner, pow.owner,pow.ID, 1));
-                }
-                AbstractCard tmp = c.makeSameInstanceOf();
-                AbstractDungeon.player.limbo.addToBottom(tmp);
-                tmp.current_x = c.current_x;
-                tmp.current_y = c.current_y;
-                tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-                tmp.target_y = (float) Settings.HEIGHT / 2.0F;
-                if (m != null) {
-                    tmp.calculateCardDamage(m);
-                }
-                tmp.purgeOnUse = true;
-                AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
-            }
         }
     }
     //获得丝线接口
@@ -282,7 +259,7 @@ public class Amiyamod implements
             Yzuzhou.remove(0);
         }
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                "模组核心：获取下一张随机源石诅咒："+c.name
+                "模组核心：获取下一张随机源石诅咒：{}", c.name
         );
         return c;
     }
@@ -459,13 +436,17 @@ public class Amiyamod implements
         cards.add(new SuperYPotion());
         cards.add(new StoneBlock());
         cards.add(new PainMagic());
-
         cards.add(new FastSing());
         cards.add(new LoseWish());
         cards.add(new OldDoki());
         cards.add(new MagicBook());
         cards.add(new SoulBurn());
         cards.add(new WhoKnowOne());
+        cards.add(new BadMagic());
+        cards.add(new TikaziMagic());
+        cards.add(new BreakHug());
+        cards.add(new FirstSay());
+
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());
@@ -478,6 +459,7 @@ public class Amiyamod implements
         cards.add(new Ydead());
 
         //慈悲愿景
+        cards.add(new Wish());
         cards.add(new MindBubble());
         cards.add(new BadZhufu());
         cards.add(new BeautifulLife());
@@ -503,10 +485,10 @@ public class Amiyamod implements
         cards.add(new LineHand());
 
         //赤霄
-        cards.add(new RedSky(-2));
+        //cards.add(new RedSky(-2));
         cards.add(new ShadowOut());
         cards.add(new AngryForever());
-        cards.add(new FireAgain());
+        //cards.add(new FireAgain());
         cards.add(new SoMuchSworld());
         cards.add(new BigNotWork());
         cards.add(new ShadowBack());
@@ -523,18 +505,100 @@ public class Amiyamod implements
         cards.add(new ShadowBackWindy());
         cards.add(new ShadowNoShadow());
         cards.add(new ShadowCloudBreak());
-        cards.add(new CloudBreakIn());
+        //cards.add(new CloudBreakIn());
         cards.add(new ShadowBreak());
         cards.add(new Shadow15());
         cards.add(new ShadowSkyOpen());
 
+        List<CustomCard> cYcard =new ArrayList<>();
         for (CustomCard card : cards) {
             logger.debug("{} is loading", card.cardID);
             BaseMod.addCard(card);
             UnlockTracker.unlockCard(card.cardID);
+            if(card.hasTag(YCardTagClassEnum.YCard)){
+                cYcard.add(card);
+                //Ycard.addToBottom(card);
+            }
         }
-
+        Number(cards,"阿米娅卡牌");
+        Number(cYcard,"其中的源石技艺牌");
         logger.debug("Amiyamod Cards finished.");
+    }
+
+    private void Number(List<CustomCard> list,String type){
+        int sn =0;
+        int an =0;
+        int pn =0;
+
+        int wn =0;
+        int bn =0;
+        int gn =0;
+
+        int pwn =0;
+        int pbn =0;
+        int pgn =0;
+
+        int swn =0;
+        int sbn =0;
+        int sgn =0;
+
+        int awn =0;
+        int abn =0;
+        int agn =0;
+        for (AbstractCard card : list){
+            if (card.type == AbstractCard.CardType.ATTACK){
+                an++;
+                if (card.rarity == AbstractCard.CardRarity.COMMON){
+                    awn++;
+                    wn++;
+                } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+                    abn++;
+                    bn++;
+                } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+                    agn++;
+                    gn++;
+                }
+            } else if (card.type == AbstractCard.CardType.SKILL){
+                sn++;
+                if (card.rarity == AbstractCard.CardRarity.COMMON){
+                    swn++;
+                    wn++;
+                } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+                    sbn++;
+                    bn++;
+                } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+                    sgn++;
+                    gn++;
+                }
+            } else if (card.type == AbstractCard.CardType.POWER) {
+                pn++;
+                if (card.rarity == AbstractCard.CardRarity.COMMON){
+                    pwn++;
+                    wn++;
+                } else if (card.rarity == AbstractCard.CardRarity.UNCOMMON) {
+                    pbn++;
+                    bn++;
+                } else if (card.rarity == AbstractCard.CardRarity.RARE) {
+                    pgn++;
+                    gn++;
+                }
+            }
+        }
+        logger.info(
+                "#已统计来自{}的卡牌共{}张:", type,list.size()
+        );
+        logger.info(
+                "   其中白卡{}张，蓝卡{}张，金卡{}张;攻击牌{}张，技能牌{}张，能力牌{}张", wn, bn, gn, an, sn, pn
+        );
+        logger.info(
+                "   攻击牌中白卡{}张，蓝卡{}张，金卡{}张", awn,abn,agn
+        );
+        logger.info(
+                "   技能牌中白卡{}张，蓝卡{}张，金卡{}张", swn,sbn,sgn
+        );
+        logger.info(
+                "   能力牌中白卡{}张，蓝卡{}张，金卡{}张", pwn,pbn,pgn
+        );
     }
 
     @Override

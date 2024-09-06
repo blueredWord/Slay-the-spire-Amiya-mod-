@@ -55,7 +55,8 @@
   },
   "AmiyaMod:HELP": {
     "NAME": "紧急救援",
-    "DESCRIPTION": "从弃牌堆中选择 !M! 张牌放入你的手牌，失去与它们耗能相同的生命。"
+    "DESCRIPTION": "从弃牌堆中选择 !M! 张牌放入你的手牌，失去与它们耗能相同的生命。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "从弃牌堆中选择 !M! 张牌放入你的手牌，失去与它们耗能相同的生命。"
   },
   "AmiyaMod:HerDo": {
     "NAME": "行她所行",
@@ -63,7 +64,7 @@
   },
   "AmiyaMod:HerSee": {
     "NAME": "见她所见",
-    "DESCRIPTION": "获得 [B] [B] [B] [B] 。 NL 本回合每消耗 [B] : 燃己 !M! NL 消耗 "
+    "DESCRIPTION": "获得 [B] [B] [B] 。 NL 本回合每消耗 [B] : 燃己 !M! NL 消耗 "
   },
   "AmiyaMod:LifeMade": {
     "NAME": "生命固化",
@@ -103,8 +104,8 @@
   },
   "AmiyaMod:SoulDefend": {
     "NAME": "诸魂庇佑",
-    "DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张 诸魂庇佑 加入手牌 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张 诸魂庇佑+ 加入手牌 NL 虚无 "
+    "DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张 *诸魂庇佑 加入手牌 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "每次受到伤害获得 !M! 丝线 NL 将一张 *诸魂庇佑 加入手牌 NL 虚无 。"
   },
   "AmiyaMod:Yangry": {
     "NAME": "狂躁症",
@@ -112,11 +113,11 @@
   },
   "AmiyaMod:Ychengyin": {
     "NAME": "源石瘾",
-    "DESCRIPTION": " 不能被打出 。 NL 回合结束时若你没有打出 源石技艺 牌，获得 !M! 层 虚弱 "
+    "DESCRIPTION": " 不能被打出 。 NL 回合结束时若你本回合没有打出 源石技艺 牌，获得 !M! 层 虚弱 。"
   },
   "AmiyaMod:Ydead": {
     "NAME": "亡陨",
-    "DESCRIPTION": "不能被打出 。 NL 回合结束时, 燃己 !M! 。"
+    "DESCRIPTION": "不能被打出 。 NL 回合结束时, 失去 !M! 点生命。"
   },
   "AmiyaMod:Yjianwang": {
     "NAME": "健忘症",
@@ -132,7 +133,7 @@
   },
   "AmiyaMod:Ysex": {
     "NAME": "活性化体质",
-    "DESCRIPTION": "不能被打出 。 NL 获得 丝线 时改为获得等量的格挡。"
+    "DESCRIPTION": "不能被打出 。 NL 获得 丝线 时改为获得等量的 格挡 。"
   },
   "AmiyaMod:Ysnake": {
     "NAME": "认知障碍",
@@ -140,7 +141,7 @@
   },
   "AmiyaMod:Ytiruo": {
     "NAME": "身虚体弱",
-    "DESCRIPTION": "不能被打出 。 NL 回合结束时,若你打出过 源石技艺 牌，获得 !M! 层 易伤 "
+    "DESCRIPTION": "不能被打出 。 NL 回合结束时,若你打出过 源石技艺 牌，获得 !M! 层 易伤 。"
   },
   "AmiyaMod:CRing": {
     "NAME": "荆与棘之环",
@@ -148,8 +149,8 @@
   },
   "AmiyaMod:RedSky": {
     "NAME": "赤霄",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 消耗 NL 虚无 ",
-    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","造成 #g4*2^X 点伤害。 NL 消耗 NL 虚无 "]
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 可以被多次 升级 。 NL 消耗 。 虚无 。",
+    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","造成 #g4*2^X 点伤害。 NL 消耗 。 NL 虚无 。"]
   },
   "AmiyaMod:ShadowOut": {
     "NAME": "影霄*拔刀",
@@ -186,8 +187,8 @@
   },
   "AmiyaMod:ShadowSkill": {
     "NAME": "影霄剑诀",
-    "DESCRIPTION": "将X张等级逐渐增加的 赤霄 加入手牌。 NL 消耗 。 NL (至多消耗4点能量。)",
-    "UPGRADE_DESCRIPTION": "将X+ !M! 张等级逐渐增加的 赤霄 加入手牌。 NL 消耗 。 NL (至多消耗4点能量。)"
+    "DESCRIPTION": "将一张 赤霄 加入手牌，并将其 升级 X+1次。 NL (至多消耗 !M! 点能量) NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将一张 赤霄 加入手牌，并将其 升级 X+1次。 NL (至多消耗 !M! 点能量)"
   },
   "AmiyaMod:ShadowCry": {
     "NAME": "影霄*泪锋",
@@ -195,8 +196,8 @@
   },
   "AmiyaMod:ShadowUpgrade": {
     "NAME": "影霄*淬火",
-    "DESCRIPTION": "消耗 NL 丢弃 !M! 张手牌并将其 升级 ，下回合开始时将其加入手牌。",
-    "UPGRADE_DESCRIPTION": "丢弃 !M! 张手牌并将其 升级 ，下回合开始时将其加入手牌。 NL 入鞘 :下回合开始时将此卡加入手牌。"
+    "DESCRIPTION": "消耗 NL 将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。",
+    "UPGRADE_DESCRIPTION": "将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。 NL 入鞘 :下回合开始时将此卡加入手牌。"
   },
   "AmiyaMod:ShadowSkyOpen": {
     "NAME": "影霄*天瞠",
@@ -240,13 +241,13 @@
   },
   "AmiyaMod:ShadowNoShadow": {
     "NAME": "影霄*绝影",
-    "DESCRIPTION": "对生命值最低的敌人造成 !D! 点伤害10次。 NL 入鞘 : 获得 !M! 层 无实体 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "对生命值最低的敌人造成 !D! 点伤害10次。 NL 入鞘 : 获得 !M! 层 无实体 。 NL 保留 。 消耗 。"
+    "DESCRIPTION": "优先对生命值最低的敌人造成 !D! 点伤害10次。 NL 入鞘 : 获得 !M! 层 无实体 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "优先对生命值最低的敌人造成 !D! 点伤害10次。 NL 入鞘 : 获得 !M! 层 无实体 。 NL 保留 。 消耗 。"
   },
   "AmiyaMod:ShadowCloudBreak": {
     "NAME": "影霄*云裂",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 云裂*出 放入抽牌堆中。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 将 云裂*出 放入抽牌堆中。 NL 消耗 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将 *云裂 ** *出 放入抽牌堆中。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 造成 !D! 点伤害。 NL 将 *云裂 ** *出 放入抽牌堆中。 NL 消耗 。"
   },
   "AmiyaMod:CloudBreakIn": {
     "NAME": "云裂*出",
@@ -300,20 +301,20 @@
   },
   "AmiyaMod:MindBreak": {
     "NAME": "精神爆发",
-    "DESCRIPTION": "源石技艺 。 NL 手牌中存在 源石诅咒 时将自动打出。 随机造成 !D! 点伤害 !M! 次。 NL 结束你的回合。"
+    "DESCRIPTION": "源石技艺 。 NL 随机造成 !D! 点伤害 !M! 次。 NL 将1张 *晕眩 放入你的抽牌堆中。"
   },
   "AmiyaMod:SuperYPotion": {
     "NAME": "强效源石爆发剂",
-    "DESCRIPTION": "将抽牌堆中所有的 源石诅咒 拿到手中。 NL 并获得等量能量与并进入 感染爆发 状态。 NL 消耗 。"
+    "DESCRIPTION": "将抽牌堆中所有的 源石诅咒 拿到手中。 NL 并获得等量 [E] 并进入 感染爆发 状态。 NL 消耗 。"
   },
   "AmiyaMod:StoneBlock": {
     "NAME": "结晶化盾",
-    "DESCRIPTION": "急性发作 1。 NL 源石技艺 。 燃己 1。 NL 获得 !B! 点 格挡 。"
+    "DESCRIPTION": "急性发作 !M! 。 NL 源石技艺 。 燃己 !M! 。 NL 获得 !B! 点 格挡 。"
   },
   "AmiyaMod:MindBubble": {
     "NAME": "情感泡泡",
-    "DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，本回合你不能打出攻击牌。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，若你打出攻击牌则会失去所有 丝线 。 NL 虚无 。"
+    "DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，若你打出攻击牌则会失去等量 丝线 。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，若你打出攻击牌则会失去等量 丝线 。 NL 虚无 。"
   },
   "AmiyaMod:PainMagic": {
     "NAME": "苦难巫咒",
@@ -321,15 +322,17 @@
   },
   "AmiyaMod:ZuZhouMagic": {
     "NAME": "诅咒巫咒",
-    "DESCRIPTION": "源石技艺 。 NL 你失去生命时，目标敌人也将失去等量的生命。 NL 消耗 。"
+    "DESCRIPTION": "源石技艺 。 NL 造成 !D! 点伤害。 当你失去生命时，目标敌人也将失去等量的生命。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": " 固有 。  源石技艺 。 NL 造成 !D! 点伤害。 当你失去生命时，目标敌人也将失去等量的生命。 NL 消耗 。"
   },
   "AmiyaMod:BadMagic": {
     "NAME": "遭谴巫咒",
-    "DESCRIPTION": " 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害2次。 NL 若目标意图攻击便给予 !M! 层 虚弱 ，否则给予 易伤 。"
+    "DESCRIPTION": " 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害。 NL 若目标意图攻击便给予 !M! 层 虚弱 ，否则给予 易伤 。"
   },
   "AmiyaMod:TikaziMagic": {
     "NAME": "提卡兹巫咒",
-    "DESCRIPTION": " 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害，抽 !M! 张牌。 NL 抽到 源石诅咒 或 源石技艺 时，获得 [E] 。"
+    "DESCRIPTION": " 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害2次，抽2张牌。",
+    "UPGRADE_DESCRIPTION": " 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害2次，抽2张牌。 NL 抽到 源石诅咒 或 源石技艺 时，获得 [E] 。"
   },
   "AmiyaMod:BreakHug": {
     "NAME": "破碎之拥",
@@ -342,7 +345,8 @@
   },
   "AmiyaMod:BreakRing": {
     "NAME": "极限施法",
-    "DESCRIPTION": "增加 !M! 点 感染进度 。 NL 你本回合打出的下1张 急性发作 卡将额外触发一次效果。 NL 燃己 !M! 。 消耗 。"
+    "DESCRIPTION": "增加 !M! 点 感染进度 。 NL 你本回合打出的下1张 源石技艺 卡将被额外打出一次。 NL 燃己 !M! 。 消耗 。",
+    "UPGRADE_DESCRIPTION": "你本回合打出的下1张 源石技艺 卡将被额外打出一次。 消耗 。"
   },
   "AmiyaMod:LoseWish": {
     "NAME": "枯竭期许",
@@ -355,7 +359,7 @@
   },
   "AmiyaMod:MagicBook": {
     "NAME": "巫术典籍",
-    "DESCRIPTION": "从 !M! 张随机 源石技艺 中选择一张拿到手中。这张牌在本回合耗能变为0。 消耗 。"
+    "DESCRIPTION": "从 !M! 张随机 源石技艺 中选择一张拿到手中。 NL 消耗 。"
   },
   "AmiyaMod:SoulBurn": {
     "NAME": "魂灵熔炉",
@@ -364,5 +368,14 @@
   "AmiyaMod:WhoKnowOne": {
     "NAME": "被预言的魔王",
     "DESCRIPTION": "对所有敌人造成!D!点伤害。 NL 战斗开始时，你卡组中每有一张 源石诅咒 升级 此卡 !M! 次。 NL 能被多次 升级 。"
+  },
+  "AmiyaMod:FirstSay": {
+    "NAME": "阿喃那",
+    "DESCRIPTION": "可以打出原本 不能被打出 的 源石诅咒 。 NL 回合开始时将 !M! 张 *本源呢喃 加入手牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 可以打出原本 不能被打出 的 源石诅咒 。 NL 回合开始时将 !M! 张随机 源石诅咒 加入手牌。"
+  },
+  "AmiyaMod:ASay": {
+    "NAME": "本源呢喃",
+    "DESCRIPTION": "源石诅咒 。 NL 随机施展一张 源石技艺 。 NL 虚无 。 NL 消耗 。"
   }
 }

@@ -1,14 +1,11 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.cards.TikaziMagicAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
-import Amiyamod.power.ZuZhouMagicPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,7 +18,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 public class BadMagic extends CustomCard {
     //=================================================================================================================
-    //@ 【强效源石爆发剂】 消耗  将抽牌堆中所有的 源石诅咒拿到手中 ，获得等量能量。 本回合不会增加感染进度。
+    //@ 【遭谴巫咒】 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害. NL 若目标意图攻击便给予 !M! 层 虚弱 ，否则给予 易伤 。
     //=================================================================================================================
     private static final String NAME = "BadMagic";// 【卡片名字】
 
@@ -37,7 +34,7 @@ public class BadMagic extends CustomCard {
 
     public BadMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 9;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
@@ -71,14 +68,13 @@ public class BadMagic extends CustomCard {
                         new DamageInfo(p, damage,this.damageTypeForTurn)
                 )
         );
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(p, damage,this.damageTypeForTurn)
-                )
-        );
 
-        this.addToBot(new DrawCardAction(this.magicNumber,new TikaziMagicAction()));
+        if (m.getIntentBaseDmg() > 0) {
+            this.addToBot(new ApplyPowerAction(m,p,new WeakPower(m,this.magicNumber,false)));
+        } else {
+            this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.magicNumber,false)));
+        }
+
         Amiyamod.HenJi(1,this,m);
         //感染进度
         Amiyamod.addY(1);

@@ -3,6 +3,7 @@ package Amiyamod.action.cards;
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.CiBeI.HELP;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -63,14 +64,14 @@ public class HELPAction extends AbstractGameAction {
                 } else {
                     if (this.numberOfCards == 1) {
                         if (this.optional) {
-                            AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, true, TEXT[0]);
+                            AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, true, TEXT[3]);
                         } else {
-                            AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, TEXT[0], false);
+                            AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, TEXT[3], false);
                         }
                     } else if (this.optional) {
-                        AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
+                        AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, true, TEXT[3]);
                     } else {
-                        AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
+                        AbstractDungeon.gridSelectScreen.open(this.list, this.numberOfCards, TEXT[3], false);
                     }
 
                     this.tickDuration();
@@ -99,7 +100,7 @@ public class HELPAction extends AbstractGameAction {
                     c.target_x = (float) CardGroup.DISCARD_PILE_X;
                 }
                 if (cost >0){
-                    Amiyamod.BurnSelf(cost);
+                    this.addToTop(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player,cost));
                 }
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 AbstractDungeon.player.hand.refreshHandLayout();
@@ -110,6 +111,6 @@ public class HELPAction extends AbstractGameAction {
     }
 
     static {
-        TEXT = CardCrawlGame.languagePack.getUIString("BetterToHandAction").TEXT;
+        TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }
 }

@@ -2,6 +2,7 @@ package Amiyamod.cards.Yzuzhou;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -30,7 +31,7 @@ public class Ychengyin extends CustomCard {
     private static final CardTarget TARGET = CardTarget.NONE;//无法选择
     public Ychengyin() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(YCardTagClassEnum.YZuZhou);
     }
@@ -43,11 +44,13 @@ public class Ychengyin extends CustomCard {
     public void triggerOnEndOfPlayerTurn() {
         AbstractPlayer p = AbstractDungeon.player;
         //遍历本回合打出过的卡
+        boolean i = true ;
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn) {
             //如果打出过源石卡
             if (c.hasTag(YCardTagClassEnum.YCard)) {
+                i = true;
+                break;
                 //向玩家施加虚弱
-                this.addToTop(new ApplyPowerAction(p, p, new WeakPower(p, 1, false), 1));
                 /* 暂时封印深度感染的效果
                 if(满足 && a){
                     Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
@@ -58,13 +61,20 @@ public class Ychengyin extends CustomCard {
                     }
                 }
                 */
-                break;
             }
+        }
+        if (i){
+            this.addToTop(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, true), this.magicNumber));
         }
         super.triggerOnEndOfPlayerTurn();
     }
 
-
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (p.hasPower(FirstSayPower.POWER_ID)){
+            return true;
+        }
+        return super.canUse(p,m);
+    }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}

@@ -33,13 +33,13 @@ public class StoneBlock extends CustomCard {
     public StoneBlock() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
-        this.baseBlock = this.block = 12;
+        this.baseBlock = this.block = 10;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
         //this.selfRetain = true;
         //this.heal = 15;
-        //this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
         //this.misc = 20;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
@@ -49,7 +49,7 @@ public class StoneBlock extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(6);
+            this.upgradeBlock(4);
             //this.upgradeDamage(4);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
@@ -63,10 +63,10 @@ public class StoneBlock extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GainBlockAction(p,this.block));
-        Amiyamod.BurnSelf(1);
+        Amiyamod.BurnSelf(this.magicNumber);
         //感染进度
         Amiyamod.addY(1);
-        Amiyamod.HenJi(1,this,m);
+        Amiyamod.HenJi(this.magicNumber,this,m);
     }
     public AbstractCard makeCopy() {return new StoneBlock();}
 }

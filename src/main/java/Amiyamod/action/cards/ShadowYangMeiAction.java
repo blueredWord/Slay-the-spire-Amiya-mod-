@@ -41,14 +41,14 @@ public class ShadowYangMeiAction extends AbstractGameAction {
                 } else {
                     if (this.numberOfCards == 1) {
                         if (this.optional) {
-                            AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, true, TEXT[0]);
+                            AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, true, TEXT[1]);
                         } else {
-                            AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, TEXT[0], false);
+                            AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, TEXT[1], false);
                         }
                     } else if (this.optional) {
-                        AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, true, TEXT[1] + this.numberOfCards + TEXT[2]);
+                        AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, true, TEXT[1]);
                     } else {
-                        AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, TEXT[1] + this.numberOfCards + TEXT[2], false);
+                        AbstractDungeon.gridSelectScreen.open(this.player.hand, this.numberOfCards, TEXT[1], false);
                     }
 
                     this.tickDuration();
@@ -83,6 +83,6 @@ public class ShadowYangMeiAction extends AbstractGameAction {
     }
 
     static {
-        TEXT = CardCrawlGame.languagePack.getUIString("BetterToHandAction").TEXT;
+        TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }
 }

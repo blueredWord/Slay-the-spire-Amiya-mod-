@@ -46,7 +46,7 @@ public class ChiMeRa extends CustomCard{
         this.magicNumber = this.baseMagicNumber = 2;
         this.misc = 20;
         //源石卡牌tag
-        this.tags.add(YCardTagClassEnum.YCard);
+        //this.tags.add(YCardTagClassEnum.YCard);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class ChiMeRa extends CustomCard{
         //造成多次伤害
         this.addToBot(new ApplyPowerAction(p,p,new ChiMeRaPower(this.magicNumber)));
         //感染进度
-        Amiyamod.addY(1);
+        //Amiyamod.addY(1);
     }
     public AbstractCard makeCopy() {return new ChiMeRa();}
 }

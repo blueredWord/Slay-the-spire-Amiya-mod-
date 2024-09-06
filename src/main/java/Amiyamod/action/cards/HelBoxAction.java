@@ -32,7 +32,7 @@ public class HelBoxAction extends AbstractGameAction {
 
                 temp.sortAlphabetically(true);
                 temp.sortByRarityPlusStatusCardType(false);
-                AbstractDungeon.gridSelectScreen.open(temp, 1, TEXT[0], false);
+                AbstractDungeon.gridSelectScreen.open(temp, 1, TEXT[4], false);
                 this.tickDuration();
             }
         } else {
@@ -51,7 +51,7 @@ public class HelBoxAction extends AbstractGameAction {
     }
 
     static {
-        TEXT = CardCrawlGame.languagePack.getUIString("WishAction").TEXT;
+        TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }
 }
 

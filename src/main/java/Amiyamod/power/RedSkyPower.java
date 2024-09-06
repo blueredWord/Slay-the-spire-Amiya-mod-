@@ -67,7 +67,7 @@ public class RedSkyPower extends AbstractPower {
     //打出攻击牌时给赤霄
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(
-                (card.type == AbstractCard.CardType.ATTACK || AbstractDungeon.player.hasPower(ShadowBlueFirePower.POWER_ID))
+                (card.type == AbstractCard.CardType.ATTACK)
                  && (!card.hasTag(YCardTagClassEnum.RedSky))
                 && AbstractDungeon.player.hand.size()<10
         ) {
@@ -75,8 +75,12 @@ public class RedSkyPower extends AbstractPower {
                 this.flash();
                 Amiyamod.getRedSky(card.energyOnUse);
             }else if (card.costForTurn >=0) {
+                int i = card.costForTurn;
+                if (card instanceof ShadowCry){
+                    i += card.magicNumber;
+                }
                 this.flash();
-                Amiyamod.getRedSky(card.costForTurn);
+                Amiyamod.getRedSky(i);
             }
         }
     }

@@ -42,6 +42,7 @@ public class HerSee extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;
+        this.misc = 3;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -59,7 +60,7 @@ public class HerSee extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToTop(new GainEnergyAction(4));
+        this.addToTop(new GainEnergyAction(this.misc));
         //获得等同于丝线层数的能量
         //if (AbstractDungeon.player.hasPower(LineBow.POWER_ID)){
         //this.addToTop(new GainEnergyAction(AbstractDungeon.player.getPower(LineBow.POWER_ID).amount));

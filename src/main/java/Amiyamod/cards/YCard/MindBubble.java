@@ -32,10 +32,10 @@ public class MindBubble extends CustomCard {
     private static final CardTarget TARGET = CardTarget.NONE;//【是否指向敌人】
 
     public MindBubble() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST,  CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 12;
+        this.magicNumber = this.baseMagicNumber = 8;
         //this.heal = 15;
         //this.misc = 20;
 
@@ -44,7 +44,7 @@ public class MindBubble extends CustomCard {
         //this.selfRetain = true;
 
         //源石卡牌tag
-        this.tags.add(YCardTagClassEnum.YCard);
+        //this.tags.add(YCardTagClassEnum.YCard);
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
     }
@@ -55,9 +55,10 @@ public class MindBubble extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            //this.upgradeMagicNumber(6);
+            this.upgradeMagicNumber(4);
             //this.selfRetain = true;
             //this.selfRetain = true;
+            //this.isInnate = true;
             //this.upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -67,11 +68,14 @@ public class MindBubble extends CustomCard {
     public void triggerWhenDrawn() {
         AbstractPlayer p = AbstractDungeon.player;
         Amiyamod.LinePower(this.magicNumber);
+        this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower(this.magicNumber),this.magicNumber));
+        /*
         if(this.upgraded) {
             this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower()));
         }else {
             this.addToBot(new ApplyPowerAction(p, p, new EntanglePower(p)));
         }
+         */
     }
 
     @Override

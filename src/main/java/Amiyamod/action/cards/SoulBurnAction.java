@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class SoulBurnAction extends AbstractGameAction {
     private AbstractPlayer p;
-    private static final UIStrings uiStrings;
     public static final String[] TEXT;
     private final boolean notchip;
     private final int number;
@@ -34,7 +33,7 @@ public class SoulBurnAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == 0.5F) {
-            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.number, true, TEXT[0]);
+            AbstractDungeon.gridSelectScreen.open(this.p.discardPile, this.number, true, TEXT[2]);
             this.addToBot(new WaitAction(0.25F));
             this.tickDuration();
         } else {
@@ -50,7 +49,6 @@ public class SoulBurnAction extends AbstractGameAction {
     }
 
     static {
-        uiStrings = CardCrawlGame.languagePack.getUIString("GamblingChipAction");
-        TEXT = uiStrings.TEXT;
+        TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }
 }

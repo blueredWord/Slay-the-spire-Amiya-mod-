@@ -1,4 +1,4 @@
-package Amiyamod.action;
+package Amiyamod.action.cards;
 
 import Amiyamod.patches.YCardTagClassEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class BreakRingAction extends AbstractGameAction {
+public class FastSingAction extends AbstractGameAction {
     public static final String[] TEXT;
     private final AbstractPlayer player = AbstractDungeon.player;
     private final int numberOfCards;
@@ -19,7 +19,7 @@ public class BreakRingAction extends AbstractGameAction {
     private int tag ;
 
 
-    public BreakRingAction(int numberOfCards) {
+    public FastSingAction(int numberOfCards) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.numberOfCards = numberOfCards;
@@ -42,7 +42,7 @@ public class BreakRingAction extends AbstractGameAction {
                     }
                     this.isDone = true;
                 } else {
-                    AbstractDungeon.gridSelectScreen.open( this.G , this.numberOfCards, this.anyNumber, TEXT[0]);
+                    AbstractDungeon.gridSelectScreen.open( this.G , this.numberOfCards, this.anyNumber, TEXT[5]);
                     this.tickDuration();
                 }
             } else {
@@ -53,15 +53,15 @@ public class BreakRingAction extends AbstractGameAction {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 //只要选到了东西
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards){
-                    c.costForTurn -= 1;
+                    if (c.costForTurn>0){c.costForTurn -= 1;}
                     AbstractDungeon.player.drawPile.moveToHand(c);
                 }
             }
-            this.tickDuration();
+            this.isDone = true;
         }
     }
 
     static {
-        TEXT = CardCrawlGame.languagePack.getUIString("BetterToHandAction").TEXT;
+        TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }
 }

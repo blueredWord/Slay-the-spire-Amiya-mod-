@@ -2,6 +2,7 @@ package Amiyamod.cards.Yzuzhou;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -39,6 +40,13 @@ public class Yangry extends CustomCard {
             //丢弃一张随即卡牌
             this.addToBot(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 1, true));
         }
+    }
+
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (p.hasPower(FirstSayPower.POWER_ID)){
+            return true;
+        }
+        return super.canUse(p,m);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {}

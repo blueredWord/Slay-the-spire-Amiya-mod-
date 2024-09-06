@@ -39,17 +39,4 @@ import com.megacrit.cardcrawl.powers.WeakPower;
             public void updateDescription() {
                 this.description = DESCRIPTIONS[0];
             }
-
-            // 效果 : 不获取格挡，改为获得等量的丝线
-            @Override
-            public int onPlayerGainedBlock(int blockAmount) {
-                if (blockAmount > 0){
-                    this.flash();
-                    Amiyamod.LinePower((int)blockAmount,this.owner);
-                    return 0;
-                }else{
-                    return blockAmount;
-                }
-            }
-
 }

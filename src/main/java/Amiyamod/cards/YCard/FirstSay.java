@@ -1,60 +1,56 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.CiBeI.SoulDefend;
+import Amiyamod.cards.Yzuzhou.ASay;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.LibraryTypeEnum;
-import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.GainStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
-public class OldDoki extends CustomCard {
+import static com.megacrit.cardcrawl.cards.AbstractCard.CardType.POWER;
+import static com.megacrit.cardcrawl.cards.AbstractCard.CardType.SKILL;
+
+public class FirstSay extends CustomCard {
     //=================================================================================================================
-    //@ 【亘古的脉动】 失去等同于你手牌数量的生命。 NL 抽 !M! 张牌。 NL 虚无 。
+    //@ 【本源呢喃】 （固有）可以打出原本 不能被打出 的 源石诅咒 。 NL 回合开始时将一张随机 源石诅咒 加入手牌。
     //=================================================================================================================
-    private static final String NAME = "OldDoki";// 【卡片名字】
+    private static final String NAME = "FirstSay";// 【卡片名字】
 
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 0;//【卡片费用】
-    private static final CardType TYPE = CardType.SKILL;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.COMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final int COST = 2;//【卡片费用】
+    private static final CardType TYPE = POWER;//【卡片类型】
+    private static final CardRarity RARITY = CardRarity.RARE;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
 
-    public OldDoki() {
+    public FirstSay() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.cardsToPreview = new ASay();
+        this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
         //this.misc = 20;
-
-        //this.exhaust = true;
-        this.isEthereal = true;
+        //this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -69,19 +65,20 @@ public class OldDoki extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(1);
+            //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
-            //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.isInnate = true;
+            //this.upgradeBaseCost(2);
+            //this.target = CardTarget.ALL_ENEMY;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new LoseHPAction(p,p,Math.max(0,p.hand.size()-1)));
-        this.addToBot(new DrawCardAction(this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p,p,new FirstSayPower(this.magicNumber)));
     }
-    public AbstractCard makeCopy() {return new OldDoki();}
+    public AbstractCard makeCopy() {return new FirstSay();}
 }

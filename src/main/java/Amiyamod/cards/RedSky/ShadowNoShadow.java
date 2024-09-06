@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+
 import Amiyamod.action.cards.ShadowNoShadowAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.CardBackPower;
@@ -58,37 +59,10 @@ public class ShadowNoShadow extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractMonster m1 = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                "绝影：随机选择{}", m1
-        );
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (!mo.isDead && !mo.isDying && mo.currentHealth < m1.currentHealth) {
-                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                        "绝影：找到了血更少的{}", mo.name
-                );
-                m1 = mo;
-            }
-        }
-        if (m1 != null && !m1.isDead && !m1.isDying){
-            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "绝影：准备攻击{}", m1.name
+        for (int i = 0 ; i<10 ; i++){
+            AbstractDungeon.actionManager.addToBottom(
+                    new ShadowNoShadowAction(this)
             );
-            if (this.damageTypeForTurn == DamageInfo.DamageType.NORMAL){this.damageTypeForTurn = DamageInfo.DamageType.THORNS;}
-            for (int i = 0 ; i<10 ; i++){
-                AbstractDungeon.actionManager.addToBottom(
-                        new DamageAction(
-                                m1,
-                                new DamageInfo(p, damage, this.damageTypeForTurn)
-                        )
-                );
-            }
-        }else {
-
-            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "绝影：目标不合法{}", m1
-            );
-
         }
 
         Amiyamod.Sword(false,new ApplyPowerAction(p,p,new IntangiblePlayerPower(p,this.magicNumber)));

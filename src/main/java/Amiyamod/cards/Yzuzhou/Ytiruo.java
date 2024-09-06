@@ -2,6 +2,7 @@ package Amiyamod.cards.Yzuzhou;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -28,7 +29,7 @@ public class Ytiruo extends CustomCard {
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;//无法选择
     public Ytiruo() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(YCardTagClassEnum.YZuZhou);
     }
@@ -37,7 +38,12 @@ public class Ytiruo extends CustomCard {
         //源石诅咒被抽到时共通效果
         Amiyamod.WhenYcardDrawn();
     }
-
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        if (p.hasPower(FirstSayPower.POWER_ID)){
+            return true;
+        }
+        return super.canUse(p,m);
+    }
     public void triggerOnEndOfPlayerTurn() {
         AbstractPlayer p = AbstractDungeon.player;
         Iterator var2 = AbstractDungeon.actionManager.cardsPlayedThisTurn.iterator();

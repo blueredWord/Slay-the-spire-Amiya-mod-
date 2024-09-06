@@ -1,4 +1,15 @@
 {
+  "AmiyaMod:UI": {
+    "NAME": "魂灵熔炉",
+    "DESCRIPTIONS": [
+      "请选择想要淬火的卡牌。",
+      "请选择想要保留的卡牌。",
+      "请选择想要当作灵魂熔炉之燃料的卡牌。",
+      "请选择想要救援的卡牌。",
+      "请选择想要治好的卡牌。",
+      "请选择想要准备的源石技艺。"
+    ]
+  },
   "AmiyaMod:BeautifulLifePower": {
     "NAME": "璀璨生命",
     "DESCRIPTIONS": [
@@ -195,7 +206,8 @@
   "AmiyaMod:MindBubblePower": {
     "NAME": "泡泡",
     "DESCRIPTIONS": [
-      "当你打出 #b攻击牌 后，失去所有 #y丝线 。"
+      "当你打出 #b攻击牌 后，失去 #b",
+      " 点 #y丝线 。"
     ]
   },
   "AmiyaMod:BreakRingPower": {
@@ -209,6 +221,13 @@
     "NAME": "魂灵熔炉",
     "DESCRIPTIONS": [
       "回合开始时获得 #b1 点能量。"
+    ]
+  },
+  "AmiyaMod:FirstSayPower": {
+    "NAME": "阿喃那",
+    "DESCRIPTIONS": [
+      "可以打出原本 #y不能被打出 的 #y源石诅咒 。 回合开始时将 #b",
+      " 张 #y本源呢喃 加入手牌。"
     ]
   }
 }

@@ -1,10 +1,10 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.TikaziMagicAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,12 +14,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
+
 
 public class TikaziMagic extends CustomCard {
     //=================================================================================================================
-    //@ 【提卡兹巫咒】  急性发作 。 源石技艺 。 急性发作 。 源石技艺 。 NL 造成 !D! 点伤害。 NL 若目标意图攻击便给予 !M! 层 虚弱 ，否则给予 易伤 。
+    //@ 【提卡兹巫咒】  急性发作 。 源石技艺 。 NL 造成 !D! 点伤害2次，抽2张牌。 NL 抽到 源石诅咒 或 源石技艺 时，获得 [E] 。
     //=================================================================================================================
     private static final String NAME = "TikaziMagic";// 【卡片名字】
 
@@ -35,13 +34,13 @@ public class TikaziMagic extends CustomCard {
 
     public TikaziMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 3;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
         //this.selfRetain = true;
         //this.heal = 15;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
         //this.misc = 20;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
@@ -52,27 +51,35 @@ public class TikaziMagic extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(1);
+            //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //造成伤害
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(
                         m,
                         new DamageInfo(p, damage,this.damageTypeForTurn)
                 )
         );
-        if (m.getIntentBaseDmg() > 0) {
-            this.addToBot(new ApplyPowerAction(p,p,new WeakPower(m,this.magicNumber,false)));
-        } else {
-            this.addToBot(new ApplyPowerAction(p,p,new VulnerablePower(m,this.magicNumber,false)));
+        AbstractDungeon.actionManager.addToBottom(
+                new DamageAction(
+                        m,
+                        new DamageInfo(p, damage,this.damageTypeForTurn)
+                )
+        );
+        //抽卡
+        if (this.upgraded){
+            this.addToBot(new DrawCardAction(this.magicNumber,new TikaziMagicAction()));
+        }else {
+            this.addToBot(new DrawCardAction(this.magicNumber));
         }
 
         Amiyamod.HenJi(1,this,m);

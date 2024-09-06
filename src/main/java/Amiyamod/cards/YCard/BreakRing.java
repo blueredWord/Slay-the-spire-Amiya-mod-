@@ -1,7 +1,6 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.BreakRingAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.BreakRingPower;
 import basemod.abstracts.CustomCard;
@@ -42,10 +41,10 @@ public class BreakRing extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.selfRetain = true;
             //this.exhaust = false;
-            this.upgradeMagicNumber(-1);
+            this.upgradeMagicNumber(-2);
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
