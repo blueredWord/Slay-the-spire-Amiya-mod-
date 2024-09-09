@@ -78,8 +78,6 @@ public class LineBody extends CustomCard {
         if(i>0){
             this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,i)));
         }
-
-
         //向弃牌堆中加入一张“源石诅咒”。
     }
 

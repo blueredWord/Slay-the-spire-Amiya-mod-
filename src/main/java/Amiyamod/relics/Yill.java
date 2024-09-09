@@ -2,10 +2,12 @@ package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.AmiyaPower;
+import Amiyamod.patches.YZCardInterface;
 import Amiyamod.power.YSayPower;
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -19,6 +21,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import javax.naming.Name;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Yill extends CYrelic{
     public static final String NAME = "Yill";
@@ -49,16 +52,21 @@ public class Yill extends CYrelic{
     public void OnBreak() {
         super.OnBreak(); //先调用超类
 
-        AbstractCard card = Amiyamod.GetNextYcard(false); //随机获取下一张诅咒
+        YZCardInterface card = (YZCardInterface)Amiyamod.GetNextYcard(false); //随机获取下一张诅咒
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractRelic r : p.relics) {
-            r.onPreviewObtainCard(card);
+            r.onPreviewObtainCard( (AbstractCard)card);
         }//触发所有遗物的获取卡片效果 真的有获取诅咒时触发的吗？万一呢
+        for (AbstractCard c : p.masterDeck.group){
+            if (Objects.equals(c.cardID,((AbstractCard)card).cardID)){
+                card.YZupgrade();
+                break;
+            }
+        }
         this.addToBot(new ApplyPowerAction(p,p,new YSayPower()));
 
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        group.addToBottom(card);//建立一个列表用于传递
-
+        group.addToBottom((AbstractCard)card);//建立一个列表用于传递
         AbstractDungeon.gridSelectScreen.openConfirmationGrid(group,"你的感染加深了");//给卡的action?不确定 需要测试
     }
 

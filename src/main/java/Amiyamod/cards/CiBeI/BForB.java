@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //以血还血
-//消耗 造成20（25）点伤害。燃己2
+//消耗 造成 D 点伤害。燃己2
 public class BForB extends CustomCard {
     private static final String NAME = "BForB";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -30,7 +30,7 @@ public class BForB extends CustomCard {
 
     public BForB() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 18;
+        this.damage = this.baseDamage = 22;
         this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
         //源石卡牌tag

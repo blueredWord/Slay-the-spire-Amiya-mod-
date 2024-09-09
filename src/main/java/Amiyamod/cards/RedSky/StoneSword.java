@@ -75,7 +75,7 @@ public class StoneSword extends CustomCard {
         l2.add(new MakeTempCardInHandAction(new RedSky(n)));
         Amiyamod.Sword(true,l1,l2);
         //燃己
-        Amiyamod.BurnSelf(1);
+        //Amiyamod.BurnSelf(2);
         //急性感染
         Amiyamod.HenJi(1,this,m);
     }

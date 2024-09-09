@@ -91,7 +91,7 @@ public class MindBreak extends CustomCard {
         //感染进度
         Amiyamod.addY(1);
         this.used = false;
-        //Amiyamod.HenJi(9,this,m,new PressEndTurnButtonAction());
+        Amiyamod.HenJi(2,this,m);
         this.addToBot(new MakeTempCardInDrawPileAction(new Dazed(),1, true, true));
         //this.addToBot(new PressEndTurnButtonAction());
         //结束回合

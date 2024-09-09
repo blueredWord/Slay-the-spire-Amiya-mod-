@@ -46,7 +46,7 @@ public class FirstSay extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.cardsToPreview = new ASay();
+        this.cardsToPreview = new FirstSayA();
         this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
         //this.misc = 20;

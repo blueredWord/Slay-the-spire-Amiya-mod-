@@ -2,6 +2,7 @@ package Amiyamod.action.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -37,20 +38,7 @@ public class ShadowBloodAction extends AbstractGameAction {
                 p.hand.moveToExhaustPile(c);
             }
             for (int n = 0;n<i;n++){
-                a.clear();
-                for (AbstractCard c : p.hand.group){
-                    if (c.canUpgrade()){
-                        a.addToTop(c);
-                    }
-                }
-                if (a.isEmpty()){
-                    break;
-                }else {
-                    AbstractCard c = a.getRandomCard(true);
-                    c.upgrade();
-                    c.superFlash();
-                    c.applyPowers();
-                }
+                this.addToTop(new UpgradeRandomCardAction());
             }
         }
         this.isDone = true;

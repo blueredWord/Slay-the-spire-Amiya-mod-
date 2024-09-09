@@ -26,7 +26,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -36,6 +35,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -68,9 +68,10 @@ public class Amiyamod implements
     }
 
     public static ArrayList<CustomCard> Yzuzhou = new ArrayList<>();
+    public static ArrayList<CustomCard> Yzuzhou2 = new ArrayList<>();
     public static final String DESCRIPTION = "Amiya Mod.";
     public static String Amiya_bgImg = "img/character/Amiya/AmiyaBG.png"; //选人界面？
-    //public static CardGroup Ycard = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+    public static ArrayList<AbstractCard> YZcard = new ArrayList<>();
     public static boolean addonRelic = true;    //是否读取mod遗物
     public static Properties AmiyaModDefaults = new Properties();
     public int value = 0;
@@ -108,22 +109,33 @@ public class Amiyamod implements
                 "模组核心：成功触发回合开始 开始判定丝线减半"
         );
         AbstractPlayer p =AbstractDungeon.player;
-        //触发荆棘环的效果
-        int var = TempHPField.tempHp.get(p);
-        if (var>0){
-            int t = var/2;
-            if (t== 0 && p.hasPower(CRingPower.POWER_ID)){
-                ((OnLoseTempHpPower)p.getPower(CRingPower.POWER_ID)).onLoseTempHp(new DamageInfo(p, 1,DamageInfo.DamageType.NORMAL),1);
+        //不减半
+        if (p.hasPower(SadMindPower.POWER_ID)){
+            AbstractPower po = p.getPower(SadMindPower.POWER_ID);
+            po.flash();
+            if (po.amount == 0) {
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(po.owner, po.owner, po.ID));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(po.owner, po.owner, po.ID, 1));
             }
-            TempHPField.tempHp.set(p,var/2);
-        }
+        } else{
+            int var = TempHPField.tempHp.get(p);
+            if (var>0){
+                int t = var/2;
+                if (t== 0 && p.hasPower(CRingPower.POWER_ID)){
+                    //触发荆棘环的效果
+                    ((OnLoseTempHpPower)p.getPower(CRingPower.POWER_ID)).onLoseTempHp(new DamageInfo(p, 1,DamageInfo.DamageType.NORMAL),1);
+                }
+                TempHPField.tempHp.set(p,var/2);
+            }
 
-        //怪物的丝线
-        for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (!mo.isDead && !mo.isDying) {
-                var = TempHPField.tempHp.get(mo);
-                if (var > 0 ){
-                    TempHPField.tempHp.set(mo,var/2);
+            //怪物的丝线
+            for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                if (!mo.isDead && !mo.isDying) {
+                    var = TempHPField.tempHp.get(mo);
+                    if (var > 0 ){
+                        TempHPField.tempHp.set(mo,var/2);
+                    }
                 }
             }
         }
@@ -207,19 +219,27 @@ public class Amiyamod implements
     //获得丝线接口
     public static void LinePower(int number,AbstractCreature p){
         boolean sex = false;
+        boolean sexup = false;
         if (p.isPlayer){
             for (AbstractCard c:AbstractDungeon.player.hand.group){
                 //如果是玩家要获得丝线，检查手里有没有活性化诅咒
-                if (c instanceof Ysex){
+                if (c instanceof Ymust){
                     sex = true;
-                    break;
+                    if (c.upgraded){
+                        sexup =true;
+                        number /= 2;
+                        break;
+                    }
+                    //break;
                 }
             }
             if (sex){//有活性化诅咒的话改为获得格挡，否则直接获得丝线
+                int i = number / 5;
+                i = Math.max(1,i*5);
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                        "模组核心：检测到活性化体制，获得丝线改为获得格挡。"
+                        "模组核心：检测到活性化体制，获得丝线改为获得{}格挡。",i
                 );
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p,number));
+                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p,i));
             }else{
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "模组核心：获得"+number+"点丝线"
@@ -239,29 +259,34 @@ public class Amiyamod implements
     }
     //  获取随机的下一张诅咒的接口
     public static AbstractCard GetNextYcard(boolean isTemp) {
-        if (Yzuzhou.isEmpty()){
-            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "模组核心：源石诅咒给完一轮了，重新填装"
-            );
-            Yzuzhou.add(new Ychengyin());
-            Yzuzhou.add(new Yjiejin());
-            Yzuzhou.add(new Yangry());
-            Yzuzhou.add(new Ydead());
-            Yzuzhou.add(new Yjianwang());
-            Yzuzhou.add(new Ysex());
-            Yzuzhou.add(new Ymust());
-            Yzuzhou.add(new Ysnake());
-            Yzuzhou.add(new Ytiruo());
-        }
-        Collections.shuffle(Yzuzhou);
-        AbstractCard c = Yzuzhou.get(0).makeCopy();
-        if (!isTemp){
+        if (isTemp){
+            while (true){
+                Collections.shuffle(Yzuzhou2);
+                return Yzuzhou2.get(0).makeCopy();
+            }
+        }else {
+            if (Yzuzhou.isEmpty()){
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                        "模组核心：源石诅咒给完一轮了，重新填装"
+                );
+                Yzuzhou.add(new Ychengyin());
+                Yzuzhou.add(new Yjiejin());
+                Yzuzhou.add(new Yangry());
+                Yzuzhou.add(new Ydead());
+                Yzuzhou.add(new Yjianwang());
+                Yzuzhou.add(new Ysex());
+                Yzuzhou.add(new Ymust());
+                Yzuzhou.add(new Ysnake());
+                Yzuzhou.add(new Ytiruo());
+            }
+            Collections.shuffle(Yzuzhou);
+            AbstractCard c = Yzuzhou.get(0).makeCopy();
             Yzuzhou.remove(0);
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：获取下一张随机源石诅咒：{}", c.name
+            );
+            return c.makeCopy();
         }
-        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                "模组核心：获取下一张随机源石诅咒：{}", c.name
-        );
-        return c;
     }
     //  燃己的接口
     public static void BurnSelf(int number) {
@@ -273,10 +298,13 @@ public class Amiyamod implements
         list.addAll(p.hand.group);
         for (AbstractCard c: list){
             if(c instanceof Ysnake){
+                /*
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "模组核心：认知偏差 要被烫出个很唐的效果了"
                 );
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new SnakePower(p,1)));
+
+                 */
             }else if(c instanceof BurnMark){
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "模组核心：灼痕效果触发"
@@ -299,14 +327,20 @@ public class Amiyamod implements
     public static void getRedSky(int number,boolean isbot) {
         int n = number;
         AbstractPlayer p =AbstractDungeon.player;
-        if(p.hasPower(BigNotWorkPower.POWER_ID)){
+        if(p.hasPower(ShadowSkyOpenPower.POWERID)){
+            /*
             if (p.getPower(BigNotWorkPower.POWER_ID).amount>BigNotWorkPower.cardsDoubledThisTurn){
                 p.getPower(BigNotWorkPower.POWER_ID).flash();
                 BigNotWorkPower.cardsDoubledThisTurn++;
                 n++;
             }
+             */
+            AbstractPower po = p.getPower(ShadowSkyOpenPower.POWERID);
+            if (po.amount > 0){
+                po.flash();
+                n += po.amount;
+            }
         }
-        int i = 0;
 
         if (isbot){
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new RedSky(n)));
@@ -423,11 +457,13 @@ public class Amiyamod implements
         cards.add(new AmiyaDefend());
         cards.add(new AmiyaMagic());
 
-        cards.add(new AmiyaPower());
+        //cards.add(new AmiyaPower());
         cards.add(new MindEat());
         cards.add(new StoneSword());
         cards.add(new BurnMark());
         cards.add(new Memory());
+
+        cards.add(new Solo());
 
         //源石技艺
         cards.add(new ChiMeRa());
@@ -447,12 +483,24 @@ public class Amiyamod implements
         cards.add(new BreakHug());
         cards.add(new FirstSay());
 
+        cards.add(new Ymagic());
+        //cards.add(new MagicYuJin());
+        cards.add(new DefendMagic());
+        cards.add(new SeeMe());
+        cards.add(new NotNow());
+        cards.add(new DrBlood());
+
+        cards.add(new YOpen());
+        cards.add(new Ghost());
+        cards.add(new KingSay());
+        cards.add(new YBBS());
+
         //源石诅咒
         cards.add(new Ytiruo());
         cards.add(new Ymust());
+        cards.add(new Yjiejin());
         cards.add(new Ysnake());
         cards.add(new Yjianwang());
-        cards.add(new Ytiruo());
         cards.add(new Ysex());
         cards.add(new Yangry());
         cards.add(new Ychengyin());
@@ -477,20 +525,20 @@ public class Amiyamod implements
         cards.add(new LineDefender());
         cards.add(new LittleTe());
         cards.add(new Mercy());
-        cards.add(new Open());
+        //cards.add(new Open());绽放
         cards.add(new BurnMark());
         cards.add(new SadMind());
         cards.add(new SoulDefend());
-        cards.add(new CRing());
+        //cards.add(new CRing()); 荆棘环
         cards.add(new LineHand());
 
         //赤霄
         //cards.add(new RedSky(-2));
         cards.add(new ShadowOut());
         cards.add(new AngryForever());
-        //cards.add(new FireAgain());
+        cards.add(new FireAgain());
         cards.add(new SoMuchSworld());
-        cards.add(new BigNotWork());
+        //cards.add(new BigNotWork());
         cards.add(new ShadowBack());
         cards.add(new ShadowYangMei());
         cards.add(new ShadowSkill());
@@ -502,13 +550,15 @@ public class Amiyamod implements
         cards.add(new ShadowWaterMusic());
         cards.add(new ShadowChange());
         cards.add(new ShadowBlood());
-        cards.add(new ShadowBackWindy());
+        //cards.add(new ShadowBackWindy()); 回风
         cards.add(new ShadowNoShadow());
         cards.add(new ShadowCloudBreak());
         //cards.add(new CloudBreakIn());
         cards.add(new ShadowBreak());
         cards.add(new Shadow15());
         cards.add(new ShadowSkyOpen());
+
+        cards.add(new NoName());
 
         List<CustomCard> cYcard =new ArrayList<>();
         for (CustomCard card : cards) {
@@ -517,9 +567,20 @@ public class Amiyamod implements
             UnlockTracker.unlockCard(card.cardID);
             if(card.hasTag(YCardTagClassEnum.YCard)){
                 cYcard.add(card);
-                //Ycard.addToBottom(card);
+                YZcard.add(card);
             }
         }
+
+        Yzuzhou2.add(new Ychengyin());
+        Yzuzhou2.add(new Yjiejin());
+        Yzuzhou2.add(new Yangry());
+        Yzuzhou2.add(new Ydead());
+        Yzuzhou2.add(new Yjianwang());
+        Yzuzhou2.add(new Ysex());
+        Yzuzhou2.add(new Ymust());
+        Yzuzhou2.add(new Ysnake());
+        Yzuzhou2.add(new Ytiruo());
+
         Number(cards,"阿米娅卡牌");
         Number(cYcard,"其中的源石技艺牌");
         logger.debug("Amiyamod Cards finished.");

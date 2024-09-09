@@ -32,6 +32,7 @@ public class BeautifulLifeAction extends AbstractGameAction {
                 ABeautifulLifePower.CardGroup.addAll(DrawCardAction.drawnCards);
                 p.getPower(BeautifulLifePower.POWER_ID).updateDescription();
             }else {
+                BeautifulLifePower.CardGroup.clear();
                 this.addToBot(new ApplyPowerAction(p,p,new BeautifulLifePower(p,DrawCardAction.drawnCards)));
             }
         }

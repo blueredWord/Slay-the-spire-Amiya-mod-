@@ -17,13 +17,25 @@ public class ShadowYangMeiAction extends AbstractGameAction {
     private int numberOfCards;
     private boolean optional = false;
 
-    public ShadowYangMeiAction(int numberOfCards) {
+    public ShadowYangMeiAction() {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.player = AbstractDungeon.player;
-        this.numberOfCards = numberOfCards;
+        //this.numberOfCards = numberOfCards;
     }
-
+    public void update() {
+        for (AbstractCard c : this.player.hand.group){
+            if (c.costForTurn == 0 || c.freeToPlay()){
+                if (c.canUpgrade()){
+                    c.upgrade();
+                    c.superFlash();
+                    c.applyPowers();
+                }
+            }
+        }
+        this.isDone = true;
+    }
+/*
     public void update() {
         if (this.duration == this.startDuration) {
             if (!this.player.hand.isEmpty() && this.numberOfCards > 0) {
@@ -81,6 +93,8 @@ public class ShadowYangMeiAction extends AbstractGameAction {
             this.isDone = true;
         }
     }
+
+ */
 
     static {
         TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;

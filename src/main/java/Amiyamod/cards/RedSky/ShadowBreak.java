@@ -58,7 +58,8 @@ public class ShadowBreak extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GainBlockAction(p,p,this.block));
         this.addToBot(new ApplyPowerAction(p,p,new WeakPower(p,this.magicNumber,false)));
-        Amiyamod.Sword(true,new GainEnergyAction(1));
+
+        Amiyamod.Sword(true,new DrawCardAction(1));
     }
     public AbstractCard makeCopy() {return new ShadowBreak();}
 }

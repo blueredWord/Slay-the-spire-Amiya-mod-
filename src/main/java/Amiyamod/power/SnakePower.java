@@ -65,6 +65,4 @@ public class SnakePower extends AbstractPower{
             this.description = DESCRIPTIONS[2];
         }
     }
-
-
 }

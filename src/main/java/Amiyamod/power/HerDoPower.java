@@ -58,8 +58,8 @@ public class HerDoPower extends AbstractPower implements OnLoseTempHpPower {
                     "行她所行能力：触发受伤效果，来自onLoseTempHp"
             );
             this.flash();
-            this.addToBot(new SFXAction("ATTACK_HEAVY"));
-            this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
+            //this.addToBot(new SFXAction("ATTACK_HEAVY"));
+            //this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
             this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
         }
         return damageAmount;
@@ -70,8 +70,8 @@ public class HerDoPower extends AbstractPower implements OnLoseTempHpPower {
                     "行她所行能力：触发受伤效果，来自onLoseHp"
             );
             this.flash();
-            this.addToBot(new SFXAction("ATTACK_HEAVY"));
-            this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
+            //this.addToBot(new SFXAction("ATTACK_HEAVY"));
+            //this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
             this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));
         }
         return damageAmount;

@@ -33,7 +33,7 @@ public class StoneBlock extends CustomCard {
     public StoneBlock() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
-        this.baseBlock = this.block = 10;
+        this.baseBlock = this.block = 9;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
@@ -63,7 +63,7 @@ public class StoneBlock extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new GainBlockAction(p,this.block));
-        Amiyamod.BurnSelf(this.magicNumber);
+        //Amiyamod.BurnSelf(this.magicNumber);
         //感染进度
         Amiyamod.addY(1);
         Amiyamod.HenJi(this.magicNumber,this,m);

@@ -2,6 +2,7 @@ package Amiyamod.cards.Yzuzhou;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.patches.YZCardInterface;
 import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -18,7 +19,7 @@ import java.util.Iterator;
 import java.util.UUID;
 // 偏执症
 // 不可被打出 抽到此牌时，选择一张手牌耗能+1，若你回合结束时没有将其打出，燃己4。
-public class Ymust extends CustomCard {
+public class Ymust extends CustomCard implements YZCardInterface {
     private static final String NAME = "Ymust";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -38,10 +39,11 @@ public class Ymust extends CustomCard {
     public void triggerWhenDrawn() {
         //源石诅咒被抽到时共通效果
         Amiyamod.WhenYcardDrawn();
+        /*
         //随机手牌费用加1
         CardGroup G = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);;
         for(AbstractCard card : AbstractDungeon.player.hand.group){
-            if (card.type != CardType.CURSE){
+            if (card.type != CardType.CURSE && card.canUse(AbstractDungeon.player,null)){
                 G.addToTop(card);
             }
         }
@@ -52,14 +54,17 @@ public class Ymust extends CustomCard {
         }
         if (!G.isEmpty()){
             AbstractCard card = G.getRandomCard(true);
-            card.costForTurn += 1;
+            card.setCostForTurn(card.costForTurn+1);
             card.isCostModifiedForTurn = true;
             card.isGlowing = true;
             this.Carduuid = card.uuid;
         }
+
+         */
     }
 
     public void triggerOnEndOfPlayerTurn() {
+        /*
         for(AbstractCard card : AbstractDungeon.player.hand.group){
             if (card.uuid == this.Carduuid){
                 Amiyamod.BurnSelf(this.magicNumber);
@@ -67,6 +72,8 @@ public class Ymust extends CustomCard {
                 break;
             }
         }
+
+         */
         super.triggerOnEndOfPlayerTurn();
     }
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
@@ -79,4 +86,12 @@ public class Ymust extends CustomCard {
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ymust();}
 
+    @Override
+    public void YZupgrade() {
+        if (!this.upgraded) {
+            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+    }
 }

@@ -39,7 +39,7 @@ public class SoulBurn extends CustomCard {
         //this.heal = 15;
         //this.misc = 20;
 
-        //this.exhaust = true;
+        this.exhaust = true;
         //this.isEthereal = true;
         //this.selfRetain = true;
 
@@ -56,10 +56,10 @@ public class SoulBurn extends CustomCard {
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
             //this.upgradeMagicNumber(2);
+            this.exhaust = false;
             //this.selfRetain = true;
-            //this.selfRetain = true;
-            this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.upgradeBaseCost(0);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

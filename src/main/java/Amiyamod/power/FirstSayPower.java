@@ -1,22 +1,32 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.RedSky.ShadowCry;
+import Amiyamod.cards.YCard.FirstSayA;
 import Amiyamod.cards.Yzuzhou.ASay;
+import Amiyamod.patches.LibraryTypeEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import org.apache.logging.log4j.LogManager;
+
+import java.util.ArrayList;
 
 public class FirstSayPower extends AbstractPower {
     public static final String NAME = "FirstSayPower";
@@ -37,7 +47,7 @@ public class FirstSayPower extends AbstractPower {
         // 首次添加能力更新描述
         this.updateDescription();
     }
-
+/*
     public void atStartOfTurn() {
         this.flash();
         for (int i = 0;i<this.amount;i++){
@@ -45,8 +55,53 @@ public class FirstSayPower extends AbstractPower {
         }
     }
 
+ */
+    /*
+//打出攻击牌时给赤霄
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if(card.hasTag(YCardTagClassEnum.YZuZhou)) {
+            this.flash();
+            this.us(card);
+        }
+    }
+
+     */
+    public void atEndOfTurn(boolean isPlayer) {
+        if (isPlayer) {
+            AbstractPlayer p = AbstractDungeon.player;
+            ArrayList<AbstractCard> list = new ArrayList<>();
+            for (AbstractCard C : p.hand.group){
+                if (!C.hasTag(YCardTagClassEnum.YZuZhou)){
+                    list.add(C);
+                }
+            }
+            int damage = 0;
+            int B = 0;
+            int M = 0;
+            int H = 0;
+            int D = 0;
+            int mis = 0;
+            if (!list.isEmpty()){
+                this.flash();
+                for (AbstractCard c : list){
+                    if (c.damage>0){damage += c.damage;}
+                    if (c.block>0){B += c.block;}
+                    if (c.magicNumber>0){M += c.magicNumber;}
+                    if (c.heal>0){H += c.heal;}
+                    if (c.draw>0){D += c.draw;}
+                    if (c.misc>0){mis += c.misc;}
+
+                    p.hand.moveToExhaustPile(c);
+                }
+            }
+            AbstractCard c = new FirstSayA(damage,B,M,H,D,mis);
+            this.addToBot(new MakeTempCardInHandAction(c));
+        }
+    }
+
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
+
 }

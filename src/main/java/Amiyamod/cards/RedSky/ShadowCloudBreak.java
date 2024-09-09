@@ -22,10 +22,10 @@ public class ShadowCloudBreak extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
     private static final int COST = 1;//卡片费用
-    private static final CardType TYPE = CardType.ATTACK;//卡片类型
+    private static final CardType TYPE = CardType.SKILL;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
+    private static final CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public ShadowCloudBreak() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -56,9 +56,6 @@ public class ShadowCloudBreak extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn))
-        );
         AbstractDungeon.actionManager.addToBottom(
                 new MakeTempCardInDrawPileAction(this.cardsToPreview.makeCopy(),1,true,true,false)
         );

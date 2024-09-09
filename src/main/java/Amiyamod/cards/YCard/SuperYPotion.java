@@ -3,6 +3,7 @@ package Amiyamod.cards.YCard;
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.BreakRingPower;
 import Amiyamod.power.ChiMeRaPower;
 import Amiyamod.power.YSayPower;
 import basemod.abstracts.CustomCard;
@@ -40,7 +41,7 @@ public class SuperYPotion extends CustomCard {
         this.exhaust = true;
         //this.selfRetain = true;
         //this.heal = 15;
-        //this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
         //this.misc = 20;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -73,8 +74,8 @@ public class SuperYPotion extends CustomCard {
         for(;i<n;i++){
             p.drawPile.moveToHand(list.get(i));
         }
-        this.addToBot(new GainEnergyAction(i));
-        this.addToBot(new ApplyPowerAction(p,p,new YSayPower()));
+        this.addToBot(new ApplyPowerAction(p,p,new BreakRingPower(this.magicNumber)));
+        //this.addToBot(new ApplyPowerAction(p,p,new YSayPower()));
         //感染进度
         //Amiyamod.addY(i);
     }

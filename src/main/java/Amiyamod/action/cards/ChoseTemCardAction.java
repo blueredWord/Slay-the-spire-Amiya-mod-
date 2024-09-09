@@ -50,9 +50,7 @@ public class ChoseTemCardAction extends AbstractGameAction {
         } else {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for (AbstractCard disCard :AbstractDungeon.gridSelectScreen.selectedCards){
-                    if (this.upgraded) {
-                        disCard.setCostForTurn(0);
-                    }
+                    disCard.setCostForTurn(0);
                     disCard.current_x = -1000.0F * Settings.xScale;
                     if (AbstractDungeon.player.hand.size() < 10) {
                         AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, (float) Settings.WIDTH / 2.0F, (float) Settings.HEIGHT / 2.0F));

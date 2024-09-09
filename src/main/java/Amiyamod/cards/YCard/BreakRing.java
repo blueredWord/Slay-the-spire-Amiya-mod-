@@ -27,10 +27,10 @@ public class BreakRing extends CustomCard {
 
     public BreakRing() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         //this.baseDraw = this.draw = 1;
-        this.exhaust = true;
+        //this.exhaust = false;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

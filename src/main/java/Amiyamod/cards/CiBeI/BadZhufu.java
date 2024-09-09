@@ -67,7 +67,7 @@ public class BadZhufu extends CustomCard {
 
         Amiyamod.LinePower(level);
 
-        Amiyamod.HenJi(2,this,m);
+        Amiyamod.HenJi(1,this,m);
 
     }
 

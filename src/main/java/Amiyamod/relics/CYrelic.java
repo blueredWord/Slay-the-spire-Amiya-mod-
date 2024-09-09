@@ -42,7 +42,7 @@ public abstract class CYrelic extends CustomRelic {
     }
     //提供外部调动源石数值的接口
     public void addC(int n) {
-        if (AbstractDungeon.player.hasPower(YSayPower.POWER_ID)){
+        if (AbstractDungeon.player.hasPower(YSayPower.POWER_ID) && n > 0){
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "源石病：感染爆发中，拒绝增加感染进度"
             );

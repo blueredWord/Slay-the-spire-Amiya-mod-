@@ -13,22 +13,22 @@
   "AmiyaMod:BeautifulLifePower": {
     "NAME": "璀璨生命",
     "DESCRIPTIONS": [
-      "当你打出耗能降为0的",
-      "，",
-      "后，失去等同于原本耗能的生命。"
+      "当你打出耗能降为 #b0 的 #y",
+      " ， #y",
+      " 后，失去等同于原本耗能的生命。"
     ]
   },
   "AmiyaMod:HerDoPower": {
     "NAME": "行她所行",
     "DESCRIPTIONS": [
-      "失去生命后对所有敌人造成",
-      "点伤害。"
+      "失去生命后对所有敌人造成 #b",
+      " 点伤害。"
     ]
   },
   "AmiyaMod:HerSeePower": {
     "NAME": "见她所见",
     "DESCRIPTIONS": [
-      "本回合每消耗1点能量后， 燃己 ",
+      "本回合每消耗 #b1 点能量后， #y燃己 ",
       "。",
       ""
     ]
@@ -37,7 +37,7 @@
     "NAME": "茧",
     "DESCRIPTIONS": [
       "回合结束时，获得",
-      "点 丝线 。",
+      "点 #y丝线 。",
       "后，失去等同于原本耗能的生命。"
     ]
   },
@@ -45,55 +45,55 @@
     "NAME": "护身丝线",
     "DESCRIPTIONS": [
       "直到下个回合开始前，每次失去生命获得",
-      "点 丝线 。",
+      "点 #y丝线 。",
       ""
     ]
   },"AmiyaMod:MercyPower": {
   "NAME": "慈悲愿景",
   "DESCRIPTIONS": [
-    "本回合造成伤害时获得等同于伤害一半的丝线。"
+    "本回合造成伤害时获得等同于伤害一半的 #y丝线 。"
   ]
 },"AmiyaMod:LittleTePower": {
   "NAME": "特蕾西亚的庇护",
   "DESCRIPTIONS": [
-    "获得格挡时改为获得等量的 丝线。",
+    "获得格挡时改为获得等量的 #y丝线 。",
     "，",
     "后，失去等同于原本耗能的生命。"
   ]
 },"AmiyaMod:NoFengPower": {
   "NAME": "无锋",
   "DESCRIPTIONS": [
-    "直到下个回合开始，每受到2次伤害，获得",
+    "直到下个回合开始，每受到 #b2 次伤害，获得",
     "层茧。",
     "后，失去等同于原本耗能的生命。"
   ]
 },"AmiyaMod:OpenPower": {
   "NAME": "绽放",
   "DESCRIPTIONS": [
-    "每次受到伤害，令一名随机敌人获得",
-    "层虚弱。",
+    "每次受到伤害，令 #b1 名随机敌人获得",
+    "层 #y虚弱 。",
     "每次受到伤害，令你获得"
   ]
 },"AmiyaMod:SoulDefenderPower": {
   "NAME": "诸魂庇佑",
   "DESCRIPTIONS": [
-    "每次受到伤害获得",
-    "点丝线。",
+    "每次受到伤害获得 #b",
+    " 点丝线。",
     "后，失去等同于原本耗能的生命。"
   ]
 },"AmiyaMod:SnakePower": {
   "NAME": "临时混乱",
   "DESCRIPTIONS": [
-    "你抽到的每一张牌，耗能都会随机变化。",
-    "个回合后结束本效果。",
+    "你抽到的每张牌，耗能都会随机变化。 #b",
+    " 个回合后结束本效果。",
     "你抽到的每一张牌，耗能都会随机变化。回合结束时结束本效果。"
   ]
 },
 "AmiyaMod:CRingPower": {
 "NAME": "荆与棘之环",
 "DESCRIPTIONS": [
-"每当你耗尽 丝线 时，获得",
-"层 荆棘 。"
+"每当你耗尽 #y丝线 时，获得 #b",
+" 层 #y荆棘 。"
 ]
 },
   "AmiyaMod:CardBackPower": {
@@ -105,13 +105,13 @@
   "AmiyaMod:RedSkyPower": {
     "NAME": "出鞘",
     "DESCRIPTIONS": [
-      "本回合内，每当你打出非 赤霄 的攻击牌，将一张 赤霄 加入你的手牌。"
+      "本回合内，每当你打出非 #y赤霄 的攻击牌，将一张 #y赤霄 加入你的手牌。"
     ]
   },
   "AmiyaMod:AngryForeverPower": {
     "NAME": "永燃怒火",
     "DESCRIPTIONS": [
-      "回合开始时进入 出鞘 状态。"
+      "回合开始时进入 #y出鞘 状态。"
     ]
   },
   "AmiyaMod:FireAgainPower": {
@@ -125,33 +125,34 @@
   "AmiyaMod:SoMuchSworldPower": {
     "NAME": "无限剑制",
     "DESCRIPTIONS": [
-      "回合开始时获得1张 赤霄 ，并将其升级",
-      "次。"
+      "回合开始时获得 #b1 张 #y赤霄 ，并将其 #y升级 #b",
+      " 次。"
     ]
   },
   "AmiyaMod:BigNotWorkPower": {
-    "NAME": "大巧不工",
+    "NAME": "苍穹怒目",
     "DESCRIPTIONS": [
-      "每回合获得的前",
-      "张 赤霄 ，会被额外升级一次。"
+      "每回合获得的前 #b",
+      " 张 #y赤霄 ，会被额外 #y升级 #b1 次。",
+      "你获得的下 #b"
     ]
   },
   "AmiyaMod:ShadowBlueFirePower": {
     "NAME": "青焰燎身",
     "DESCRIPTIONS": [
-      "当你处于 出鞘 状态时，打出非攻击牌也将获得 赤霄 。"
+      "当你处于 #y出鞘 状态时，打出非攻击牌也将获得 #y赤霄 。"
     ]
   },
   "AmiyaMod:ShadowDefendPower": {
     "NAME": "守势",
     "DESCRIPTIONS": [
-      "当你打出 赤霄 时，获得等同于伤害值的 格挡 。"
+      "当你打出 #y赤霄 时，获得等同于伤害值的 #y格挡 。"
     ]
   },
   "AmiyaMod:ShadowWaterMusicPower": {
     "NAME": "水韵",
     "DESCRIPTIONS": [
-      "当你打出 赤霄 时，对所有敌人造成伤害。"
+      "当你打出 #y赤霄 时，对所有敌人造成伤害。"
     ]
   },
   "AmiyaMod:LoseTempHpPower": {
@@ -163,7 +164,7 @@
   "AmiyaMod:YSayPower": {
     "NAME": "感染爆发",
     "DESCRIPTIONS": [
-      "本回合你的 感染程度 不会累积。而且即使手中没有 源石诅咒 ， 急性发作 也至少触发1次。"
+      "本回合你的 #y感染程度 不会累积。而且即使手中没有 #y源石诅咒 ， #y急性发作 也至少触发 #b1 次。"
     ]
   },
   "AmiyaMod:MindEatPower": {
@@ -191,7 +192,7 @@
   "AmiyaMod:ChiMeRaPower": {
     "NAME": "奇美拉",
     "DESCRIPTIONS": [
-      "回合内，你造成的伤害增加 #y100 %并无视 #b格挡 ，效果结束时你将丢弃所有手牌并跳过一个回合。"
+      "回合内，你造成的伤害增加 #b100 %并无视 #y格挡 ，效果结束时你将丢弃所有手牌并跳过一个回合。"
     ]
   },
   "AmiyaMod:ZuZhouMagicPower": {
@@ -226,8 +227,52 @@
   "AmiyaMod:FirstSayPower": {
     "NAME": "阿喃那",
     "DESCRIPTIONS": [
-      "可以打出原本 #y不能被打出 的 #y源石诅咒 。 回合开始时将 #b",
-      " 张 #y本源呢喃 加入手牌。"
+      "可以打出原本 #y不能被打出 的 #y源石诅咒 。 回合结束时将手中所有非 #y源石诅咒 的卡牌凝聚为1张 #y源石结晶 。",
+      "来将 #b1 张随机 #y源石技艺 牌拿到手中"
+    ]
+  },
+  "AmiyaMod:NoNamePower": {
+    "NAME": "无名怒火",
+    "DESCRIPTIONS": [
+      "下回合开始时，进入 #y出鞘 状态。"
+    ]
+  },
+  "AmiyaMod:SadMindPower": {
+    "NAME": "存续",
+    "DESCRIPTIONS": [
+      "在 #b",
+      " 个回合内，回合开始时不再减半你的 #y丝线 。"
+    ]
+  },
+  "AmiyaMod:KingSayPower": {
+    "NAME": "魔王律令",
+    "DESCRIPTIONS": [
+      "回合结束时 #y消耗 所有手牌。若 #y消耗 了至少 #b",
+      " 张卡牌，下个回合抽 #b",
+      " 张牌。"
+    ]
+  },
+  "AmiyaMod:SoloPower": {
+    "NAME": "小提琴的独奏",
+    "DESCRIPTIONS": [
+      "回合开始时，对所有敌人造成相当于你 #y丝线 数量的伤害。"
+    ]
+  },
+  "AmiyaMod:ShadowSkyOpenPower": {
+    "NAME": "苍穹怒目",
+    "DESCRIPTIONS": [
+      "再打出 #b",
+      " 张 #y赤霄 。你获得的下 #b",
+      "张 #y赤霄 将会被额外 #y升级 #b1 次。",
+      "你获得的 #y赤霄 将会被额外 #y升级 #b",
+      " 次。"
+    ]
+  },
+  "AmiyaMod:YBBSPower": {
+    "NAME": "源石祭坛",
+    "DESCRIPTIONS": [
+      "当你抽到 #y源石诅咒 时，将 #b",
+      " 张 随机 源石技艺 牌 拿到手中。"
     ]
   }
 }
