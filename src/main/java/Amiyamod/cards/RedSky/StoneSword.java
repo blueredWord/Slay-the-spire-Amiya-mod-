@@ -39,7 +39,7 @@ public class StoneSword extends CustomCard {
         this.baseMagicNumber = this.magicNumber = 1;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
     }

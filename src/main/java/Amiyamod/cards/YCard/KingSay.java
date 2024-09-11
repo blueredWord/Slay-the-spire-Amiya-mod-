@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 
 public class KingSay extends CustomCard {
     //=================================================================================================================
-    //@ 【巫咒余烬】 源石技艺 。 NL 随机(选择)消耗一张弃牌堆中的卡牌，优先选择 源石诅咒 。 NL 依据所消耗卡牌的稀有度造成至少 !D! 伤害。
+    //@ 【魔王律令】 抽到此卡时将2张随机 源石诅咒 拿入手中。 NL 回合结束时 消耗 所有手牌。 至少消耗3张时将 !M! 张 升级 过的 源石技艺 拿入手中。 NL 虚无 。
     //=================================================================================================================
     private static final String NAME = "KingSay";// 【卡片名字】
 
@@ -41,9 +41,9 @@ public class KingSay extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 8;
         //this.baseBlock = this.block = 12;
-            this.magicNumber = this.baseMagicNumber = 1;
+        this.baseDraw = this.draw =  this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
-        //this.misc = 20;
+        this.misc = 2;
         //this.exhaust = true;
         this.isEthereal = true;
         //this.selfRetain = true;
@@ -63,6 +63,8 @@ public class KingSay extends CustomCard {
             //this.isEthereal = false;
             //this.upgradeDamage(4);
             this.upgradeMagicNumber(1);
+            //this.baseDraw += 1;
+            //this.draw = this.baseDraw;
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -72,7 +74,10 @@ public class KingSay extends CustomCard {
         }
     }
     public void triggerWhenDrawn() {
-        for (int i =0 ;i<2;i++){
+        int i = AbstractDungeon.player.hand.size();
+        i = 10 - AbstractDungeon.player.hand.size();
+        i = Math.min(this.misc,i);
+        for (int n =0 ;n<i;n++){
             this.addToBot(new MakeTempCardInHandAction(Amiyamod.GetNextYcard(true)));
         }
     }

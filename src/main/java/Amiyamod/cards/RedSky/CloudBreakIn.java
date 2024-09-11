@@ -3,6 +3,7 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowBackAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LoseTempHpPower;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.OnCardUseSubscriber;
@@ -26,7 +27,7 @@ public class CloudBreakIn extends CustomCard {
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
-    private static final CardType TYPE = CardType.ATTACK;//卡片类型
+    private static final CardType TYPE = CardType.SKILL;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.SPECIAL;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
@@ -40,7 +41,7 @@ public class CloudBreakIn extends CustomCard {
         //this.selfRetain = true;
         this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = 0;
-
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

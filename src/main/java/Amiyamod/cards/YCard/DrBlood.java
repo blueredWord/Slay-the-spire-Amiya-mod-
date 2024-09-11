@@ -79,9 +79,9 @@ public class DrBlood extends CustomCard {
         //this.addToBot(new GainEnergyAction(1));
         this.addToBot(new ApplyPowerAction(p,p,new YSayPower()));
         if(this.upgraded){
-            Amiyamod.HenJi(9,this,m);
+            this.addToBot(new DrBloodAction());
         }
-        //this.addToBot(new DrBloodAction());
+
     }
 
     public AbstractCard makeCopy() {return new DrBlood();}

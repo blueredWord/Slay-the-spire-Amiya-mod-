@@ -21,7 +21,7 @@ public class HELP extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
 
-    private static final int COST = 1;//卡片费用
+    private static final int COST = 0;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -29,9 +29,11 @@ public class HELP extends CustomCard {
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public HELP() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.UPGRADE_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.misc = 2;
+        this.exhaust = true;
         //this.exhaust = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -41,7 +43,7 @@ public class HELP extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.exhaust = false;
+            //this.exhaust = false;
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.upgradeMagicNumber(1);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -52,7 +54,8 @@ public class HELP extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 从弃牌堆拿卡
-        this.addToBot(new HELPAction(this.magicNumber));
+        this.addToBot(new HELPAction(this));
+        Amiyamod.BurnSelf(this.misc);
     }
 
     public AbstractCard makeCopy() {

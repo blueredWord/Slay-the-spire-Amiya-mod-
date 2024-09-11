@@ -75,15 +75,32 @@ public class FirstSayPower extends AbstractPower {
                     list.add(C);
                 }
             }
+            int cost = 0;
             int damage = 0;
             int B = 0;
             int M = 0;
             int H = 0;
             int D = 0;
             int mis = 0;
+            int Y = 0;
             if (!list.isEmpty()){
                 this.flash();
                 for (AbstractCard c : list){
+                    if (c.hasTag(YCardTagClassEnum.YCard)){
+                        Y++;
+                        cost += 3;
+                    }
+                    if (4 > c.cost && c.cost > 0){
+                        cost += c.cost;
+                    } else if (c.cost > 4) {
+                        int x = Math.max((c.cost-c.costForTurn)/2,c.cost/3);
+                        cost += x;
+                    }
+                    if (c.rarity == AbstractCard.CardRarity.UNCOMMON){
+                        cost += 2;
+                    } else if (c.rarity == AbstractCard.CardRarity.RARE) {
+                        cost += 10;
+                    }
                     if (c.damage>0){damage += c.damage;}
                     if (c.block>0){B += c.block;}
                     if (c.magicNumber>0){M += c.magicNumber;}
@@ -93,9 +110,10 @@ public class FirstSayPower extends AbstractPower {
 
                     p.hand.moveToExhaustPile(c);
                 }
+                AbstractCard c = new FirstSayA(damage,B,M,H,D,mis,cost,Y);
+                this.addToBot(new MakeTempCardInHandAction(c));
             }
-            AbstractCard c = new FirstSayA(damage,B,M,H,D,mis);
-            this.addToBot(new MakeTempCardInHandAction(c));
+
         }
     }
 

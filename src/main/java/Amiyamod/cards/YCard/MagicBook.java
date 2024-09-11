@@ -41,7 +41,7 @@ public class MagicBook extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 3;
         //this.heal = 15;
         //this.misc = 20;
 
@@ -61,11 +61,11 @@ public class MagicBook extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(2);
+            //this.upgradeMagicNumber(2);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -78,7 +78,8 @@ public class MagicBook extends CustomCard {
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "巫术典籍：gg添加卡片{}", card
                 );
-                GG.add(card);
+
+                GG.add(card.makeCopy());
             }
         }
         boolean dupe = false;
@@ -104,7 +105,12 @@ public class MagicBook extends CustomCard {
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "巫术典籍：增加备选{}", card
                 );
-                chose.addToBottom(card.makeCopy());
+                //如果此卡升级，那么备选卡也升级
+                if (this.upgraded && card.canUpgrade()) {
+                    card.upgrade();
+                    card.applyPowers();
+                }
+                chose.addToBottom(card.makeSameInstanceOf());
             }
         }
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(

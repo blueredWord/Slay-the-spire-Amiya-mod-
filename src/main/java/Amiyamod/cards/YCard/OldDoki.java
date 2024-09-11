@@ -49,7 +49,8 @@ public class OldDoki extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.draw = this.baseDraw = 2;
+        this.baseMagicNumber = this.magicNumber =2;
         //this.heal = 15;
         //this.misc = 20;
 
@@ -81,7 +82,7 @@ public class OldDoki extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new LoseHPAction(p,p,Math.max(0,p.hand.size()-1)));
-        this.addToBot(new DrawCardAction(this.magicNumber));
+        this.addToBot(new DrawCardAction(this.draw));
     }
     public AbstractCard makeCopy() {return new OldDoki();}
 }

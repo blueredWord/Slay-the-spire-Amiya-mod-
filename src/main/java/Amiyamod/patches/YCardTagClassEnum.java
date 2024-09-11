@@ -9,5 +9,5 @@ public class YCardTagClassEnum {
     @SpireEnum
     public static AbstractCard.CardTags YZuZhou;
     @SpireEnum
-    public static AbstractCard.CardTags RedSky;
+    public static AbstractCard.CardTags RedSky1;
 }

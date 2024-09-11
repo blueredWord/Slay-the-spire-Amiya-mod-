@@ -33,6 +33,7 @@ public class AmiyaMagic extends CustomCard {
         this.damage = this.baseDamage = 6;
         this.baseMagicNumber = this.magicNumber =1;
         //源石卡牌tag
+        this.misc = 1;
         this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -62,7 +63,7 @@ public class AmiyaMagic extends CustomCard {
                     )
             );
         }
-        Amiyamod.HenJi(2,this,m);
+        Amiyamod.HenJi(this.misc,this,m);
         this.magicNumber++;
         this.baseMagicNumber = this.magicNumber;
 

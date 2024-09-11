@@ -31,7 +31,7 @@ public class EchoAction extends AbstractGameAction {
         this.actionType = ActionType.SPECIAL;
         this.energyOnUse = c.energyOnUse;
         this.line = c.magicNumber;
-        this.up = c.upgraded;
+        //this.up = c.upgraded;
     }
 
     public void update() {

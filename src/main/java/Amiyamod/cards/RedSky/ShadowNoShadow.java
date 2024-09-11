@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 
 import Amiyamod.action.cards.ShadowNoShadowAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.CardBackPower;
 import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
@@ -41,6 +42,7 @@ public class ShadowNoShadow extends CustomCard {
         //this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 

@@ -21,8 +21,7 @@ import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 public class SoMuchSworldPower extends AbstractPower {
     public static final String NAME = "SoMuchSworldPower";
-    protected float particleTimer;
-    protected float particleTimer2;
+private boolean yes = true;
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -39,11 +38,28 @@ public class SoMuchSworldPower extends AbstractPower {
         // 首次添加能力更新描述
         this.updateDescription();
     }
-
+/*
     //回合开始时 获得一张等级等于层数的赤霄
     public void atStartOfTurn() {
         Amiyamod.getRedSky(this.amount);
     }
+
+ */
+
+    @Override
+    public void triggerMarks(AbstractCard card) {
+        if (this.yes){
+            this.flash();
+            Amiyamod.getRedSky(this.amount);
+            this.yes=false;
+        }
+        super.triggerMarks(card);
+    }
+    public void atEndOfRound() {
+        this.yes = true;
+    }
+
+
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];

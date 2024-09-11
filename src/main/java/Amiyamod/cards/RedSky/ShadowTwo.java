@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowSkillAction;
 import Amiyamod.action.cards.ShadowTwoAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -29,6 +30,7 @@ public class ShadowTwo extends CustomCard {
         //this.damage = this.baseDamage = 6;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
+        this.tags.add(YCardTagClassEnum.RedSky1);
         this.magicNumber = this.baseMagicNumber = 2;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);

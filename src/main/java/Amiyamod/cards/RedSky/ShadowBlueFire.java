@@ -3,6 +3,7 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowUpgradeAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.ShadowBlueFirePower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -20,7 +21,7 @@ public class ShadowBlueFire extends CustomCard {
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
-    private static final int COST = 3;//卡片费用
+    private static final int COST = 2;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.POWER;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -33,6 +34,7 @@ public class ShadowBlueFire extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -45,7 +47,7 @@ public class ShadowBlueFire extends CustomCard {
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
-            this.upgradeBaseCost(2);
+            this.upgradeBaseCost(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();

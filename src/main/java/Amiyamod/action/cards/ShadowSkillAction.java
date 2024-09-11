@@ -43,7 +43,7 @@ public class ShadowSkillAction extends AbstractGameAction {
         if (effect > 0 && !this.freeToPlayOnce) {
             this.p.energy.use(effect);
         }
-        effect++;
+
         //X药剂+2次
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;

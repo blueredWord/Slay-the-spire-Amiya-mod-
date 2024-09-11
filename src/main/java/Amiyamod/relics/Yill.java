@@ -7,6 +7,7 @@ import Amiyamod.power.YSayPower;
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.ShowCardAction;
 import com.megacrit.cardcrawl.blights.AbstractBlight;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -51,7 +52,7 @@ public class Yill extends CYrelic{
     //感染计数到达上限的处理
     public void OnBreak() {
         super.OnBreak(); //先调用超类
-
+        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
         YZCardInterface card = (YZCardInterface)Amiyamod.GetNextYcard(false); //随机获取下一张诅咒
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractRelic r : p.relics) {
@@ -63,6 +64,7 @@ public class Yill extends CYrelic{
                 break;
             }
         }
+
         this.addToBot(new ApplyPowerAction(p,p,new YSayPower()));
 
         CardGroup group = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
@@ -79,7 +81,7 @@ public class Yill extends CYrelic{
     }
     public String getUpdatedDescription() {
         if (this.counter < MAXY){
-            int n = MAXY - this.counter;
+            int n = Math.min (MAXY - this.counter,MAXY);
             return (DESCRIPTIONS[0]+n+DESCRIPTIONS[1]);
         } else {
             return (DESCRIPTIONS[2]);

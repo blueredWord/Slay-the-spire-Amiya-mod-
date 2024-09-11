@@ -41,10 +41,11 @@ public class YBBSPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
+        //this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[2]+this.amount+DESCRIPTIONS[3]+this.amount*6+DESCRIPTIONS[4] ;
         //this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+(this.amount*6)+DESCRIPTIONS[2];
     }
-
+/*
     public void onCardDraw(AbstractCard card) {
         if (card.hasTag(YCardTagClassEnum.YZuZhou)){
             CardGroup GG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED) ;
@@ -57,9 +58,9 @@ public class YBBSPower extends AbstractPower {
             this.addToBot(new MakeTempCardInHandAction(c));
         }
     }
-
+ */
     //回合结束时退出
-    /*
+
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer){
             Amiyamod.addY(this.amount);
@@ -69,5 +70,4 @@ public class YBBSPower extends AbstractPower {
         }
     }
 
-     */
 }

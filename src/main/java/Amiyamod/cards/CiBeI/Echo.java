@@ -27,9 +27,9 @@ public class Echo extends CustomCard {
     public Echo() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.isMultiDamage = true;
-        this.baseMagicNumber = 4;
+        this.baseMagicNumber = 5;
         this.magicNumber = this.baseMagicNumber;
-        this.baseDamage = 4;
+        this.baseDamage = 5;
         //this.isInnate = true; //固有
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -40,9 +40,9 @@ public class Echo extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeDamage(1);
-            this.upgradeMagicNumber(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.upgradeDamage(2);
+            this.upgradeMagicNumber(2);
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

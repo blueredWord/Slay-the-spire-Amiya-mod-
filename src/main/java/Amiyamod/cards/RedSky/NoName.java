@@ -3,6 +3,7 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.YCard.LoseWish;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.NoNamePower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -48,6 +49,7 @@ public class NoName extends CustomCard {
         //this.heal = 15;
         //this.misc = 20;
         this.exhaust = true;
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.isEthereal = true;
         //this.selfRetain = true;
 

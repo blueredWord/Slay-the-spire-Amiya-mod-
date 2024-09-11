@@ -7,6 +7,7 @@ import Amiyamod.cards.AmiyaStrike;
 
 import Amiyamod.cards.RedSky.ShadowOut;
 import Amiyamod.relics.TenRelic;
+import Amiyamod.relics.YRing;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -38,7 +39,7 @@ public class Amiya extends CustomPlayer {
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "img/character/Amiya/AmiyaFire2.png";
     // 人物死亡图像
-    private static final String CORPSE_IMAGE = "img/character/Amiya/AmiyaBG.png";
+    private static final String CORPSE_IMAGE = "img/character/Amiya/amiyadie.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
             "images/ui/topPanel/blue/1.png",//4
@@ -105,6 +106,7 @@ public class Amiya extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
+        retVal.add(YRing.ID);
         retVal.add(TenRelic.ID);
         return retVal;
     }
@@ -224,7 +226,7 @@ public class Amiya extends CustomPlayer {
     // 第三章面对心脏说的话（例如战士是“你握紧了你的长刀……”之类的）
     @Override
     public String getSpireHeartText() {
-        return title+"我打心脏？";
+        return "你想起来一路走来的人们，和他们的情感……";
     }
 
     // 打心脏的颜色，不是很明显

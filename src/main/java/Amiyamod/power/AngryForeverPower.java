@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import java.util.ArrayList;
+
 public class AngryForeverPower extends AbstractPower {
     public static final String NAME = "AngryForeverPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
@@ -31,7 +33,9 @@ public class AngryForeverPower extends AbstractPower {
 
     public void atStartOfTurn() {
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RedSkyPower()));
+        ArrayList list = new ArrayList();
+        Amiyamod.Sword(true,list);
+        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RedSkyPower()));
     }
     // 能力在更新时如何修改描述
     public void updateDescription() {

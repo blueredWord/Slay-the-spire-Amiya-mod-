@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowSkillAction;
 import Amiyamod.action.cards.ShadowYangMeiAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -35,6 +36,8 @@ public class ShadowSkill extends CustomCard {
         //this.tags.add(CardTags.STRIKE);
         this.magicNumber = this.baseMagicNumber = 3;
         this.exhaust = true;
+        this.tags.add(YCardTagClassEnum.RedSky1);
+        this.cardsToPreview = new RedSky(true);
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

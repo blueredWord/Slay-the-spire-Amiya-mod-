@@ -34,7 +34,7 @@ public class LineBody extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
 
-    private static final int COST = 1;//卡片费用
+    private static final int COST = 0;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -46,6 +46,8 @@ public class LineBody extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true ;
+        this.selfRetain = true;
+        this.misc = 1;
         this.tags.add(CardTags.HEALING);
         //this.isEthereal = true;
         //源石卡牌tag
@@ -57,8 +59,8 @@ public class LineBody extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.upgradeMagicNumber(1);
-            this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
+            //this.upgradeBaseCost(0);
             //this.isEthereal = false;
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -76,7 +78,7 @@ public class LineBody extends CustomCard {
         }
         Amiyamod.addY(-this.magicNumber);
         if(i>0){
-            this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,i)));
+            this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,i*this.misc)));
         }
         //向弃牌堆中加入一张“源石诅咒”。
     }

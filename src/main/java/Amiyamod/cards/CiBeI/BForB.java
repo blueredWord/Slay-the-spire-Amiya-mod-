@@ -31,7 +31,7 @@ public class BForB extends CustomCard {
     public BForB() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 22;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);

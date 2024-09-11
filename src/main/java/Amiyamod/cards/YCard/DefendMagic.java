@@ -35,7 +35,7 @@ public class DefendMagic extends CustomCard {
     public DefendMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 9;
-        this.baseBlock = this.block =8;
+        this.baseBlock = this.block =9;
         //this.magicNumber = this.baseMagicNumber = 2;
         //this.heal = 15;
         //this.misc = 20;
@@ -55,22 +55,20 @@ public class DefendMagic extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.exhaust = false;
-            this.upgradeBlock(3);
+            this.upgradeBlock(4);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (this.upgraded){
-            this.addToBot(new RemoveSpecificPowerAction(p,p, VulnerablePower.POWER_ID));
-        }
-        this.addToBot(new RemoveSpecificPowerAction(p,p, FrailPower.POWER_ID));
+        this.addToBot(new RemoveSpecificPowerAction(p,p, VulnerablePower.POWER_ID));
+        //this.addToTop(new RemoveSpecificPowerAction(p,p, FrailPower.POWER_ID));
         this.addToBot(new GainBlockAction(p,p,this.block));
         Amiyamod.addY(1);
     }

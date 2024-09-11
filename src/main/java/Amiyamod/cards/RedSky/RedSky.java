@@ -29,6 +29,16 @@ public class RedSky extends CustomCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
 
+    public RedSky(boolean n) {
+        super(ID, CARD_STRINGS.NAME, IMG_PATH,0 ,CARD_STRINGS.EXTENDED_DESCRIPTION[6], TYPE, COLOR, RARITY, TARGET);
+        //this.misc = n;
+        this.timesUpgraded = 0;
+        //this.tags.add(YCardTagClassEnum.RedSky);
+        this.isEthereal = true;
+        this.exhaust = true;
+
+        this.initializeTitle();
+    }
     public RedSky(int n) {
         super(ID+n, CARD_STRINGS.NAME, IMG_PATH,0 ,CARD_STRINGS.DESCRIPTION , TYPE, COLOR, RARITY, TARGET);
         //this.misc = n;
@@ -37,7 +47,7 @@ public class RedSky extends CustomCard {
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "模组核心：尝试做成"+n+"级的赤霄。"
         );
-        this.tags.add(YCardTagClassEnum.RedSky);
+        this.tags.add(YCardTagClassEnum.RedSky1);
 
         this.isEthereal = true;
         this.exhaust = true;
@@ -59,15 +69,14 @@ public class RedSky extends CustomCard {
     public void upgrade() {
         this.timesUpgraded++;
         CardRarity ry = CardRarity.SPECIAL;
-        if(this.timesUpgraded>0){
+        if (this.timesUpgraded>3){
+            ry = CardRarity.RARE;
+        } else if (this.timesUpgraded>1) {
+            ry = CardRarity.UNCOMMON;
+        } else if (this.timesUpgraded>0) {
             ry = CardRarity.COMMON;
-            if(this.timesUpgraded>2){
-                ry = CardRarity.UNCOMMON;
-                if(this.timesUpgraded>4){
-                    ry = CardRarity.RARE;
-                }
-            }
         }
+
         this.rarity = ry;
 
         this.baseDamage = this.damage = (int)(4 * Math.pow(2,timesUpgraded));

@@ -2,24 +2,25 @@ package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.relic.TheTenAction;
-import Amiyamod.cards.AmiyaPower;
 import Amiyamod.power.YSayPower;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon.CurrentScreen;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
 import basemod.abstracts.CustomRelic;
+import org.apache.logging.log4j.LogManager;
 
-public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRelic> {
+public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRelic> , OnApplyPowerRelic {
 	public static final String NAME = "TenRelic";
 	public static final String ID = Amiyamod.makeID(NAME);
-	private static final String IMG_PATH = "img/relics/"+NAME+".png";
 	private boolean cardSelected = true;
 	public static RoomPhase phase;
 	private static boolean usedThisCombat = false;
@@ -38,32 +39,58 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 		this.setDuration(800).addRightClickActions(null, this::onClick);
 	}
 
+	public TenRelic(String id, Texture img, Texture imgout, RelicTier relicTier, LandingSound landingSound) {
+		super(id,img,imgout,relicTier,landingSound);
+		this.setDuration(800).addRightClickActions(null, this::onClick);
+	}
+
 	public void atPreBattle() {
 		usedThisCombat = false;
 		if (this.counter>0){
-			this.pulse = true;
-			this.beginPulse();
+			this.work(true);
 		}
 	}
 	public void atTurnStartPostDraw() {
 		this.canU = true;
+		AbstractPlayer p =AbstractDungeon.player;
+		this.work(!p.hasPower(YSayPower.POWER_ID));
 	}
 
 	public void onPlayerEndTurn() {
 		this.canU = false;
+		this.work(false);
 	}
 
-	public  void onClick(){
-		if(AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !usedThisCombat && this.canU){
+	public void work(boolean i){
+		if (this.counter>0){
+			this.grayscale = !i;
+			this.pulse = i;
+			if (i){
+				this.beginPulse();
+			}else {
+				this.stopPulse();
+			}
+		} else {
 			this.grayscale = true;
-			usedThisCombat = true;
 			this.pulse = false;
 			this.stopPulse();
-			if (this.counter>0){
+		}
+	}
+
+	public void onClick(){
+		if(AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !usedThisCombat && this.canU ){
+			//this.grayscale = true;
+			//usedThisCombat = true;
+			//this.pulse = false;
+			//this.stopPulse();
+			LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+					"检测： {}",!AbstractDungeon.player.hasPower(YSayPower.POWER_ID)
+			);
+			if (this.counter>0 && !AbstractDungeon.player.hasPower(YSayPower.POWER_ID)){
+				canU = false;
 				this.counter -=1;
 				this.flash();
 				this.addToBot(new TheTenAction());
-				this.addToBot(new MakeTempCardInHandAction(new AmiyaPower().makeCopy()));
 				if (this.counter == 0){
 					this.isDone = true;
 					this.counter = -1;
@@ -71,6 +98,7 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 			}
 		}
 	}
+
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0];
 	}
@@ -99,4 +127,11 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 	}
 
 
+	@Override
+	public boolean onApplyPower(AbstractPower abstractPower, AbstractCreature abstractCreature, AbstractCreature abstractCreature1) {
+		if (abstractPower instanceof YSayPower){
+			this.work(false);
+		}
+		return true;
+	}
 }

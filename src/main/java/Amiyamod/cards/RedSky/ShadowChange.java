@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
 import Amiyamod.power.ShadowBlueFirePower;
 import basemod.abstracts.CustomCard;
@@ -37,6 +38,7 @@ public class ShadowChange extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
+        this.tags.add(YCardTagClassEnum.RedSky1);
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);

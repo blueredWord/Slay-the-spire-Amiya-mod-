@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class SoulBurn extends CustomCard {
     //=================================================================================================================
-    //@ 【魂灵熔炉】 消耗至多 !M! 张弃牌堆中的卡牌。 NL 接下来的数个回合开始时获得 [B] ，每消耗1张卡牌便持续1回合。
+    //@ 【魂灵熔炉】 消耗至多 !M! 张弃牌堆中的卡牌。 NL 接下来的数个回合开始时获得 [E] ，每消耗1张卡牌便持续1回合。
     //=================================================================================================================
     private static final String NAME = "SoulBurn";// 【卡片名字】
 
@@ -55,11 +55,11 @@ public class SoulBurn extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            //this.upgradeMagicNumber(2);
-            this.exhaust = false;
+            this.upgradeMagicNumber(1);
+            //this.exhaust = false;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

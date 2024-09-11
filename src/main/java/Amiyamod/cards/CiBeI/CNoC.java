@@ -36,19 +36,15 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 3;
         //this.isMultiDamage = true;
+        this.exhaust = true;
         this.magicNumber = this.baseMagicNumber = 2;
     }
-    public void tookDamage() {
-        this.misc += 1;
-        this.rawDescription = CARD_STRINGS.DESCRIPTION+CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-        this.initializeDescription();
-    }
+
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(1); // 将该卡牌的伤害提高。
-
+            this.upgradeDamage(2); // 将该卡牌的伤害提高。
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -58,7 +54,7 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         for(int i = 0; i < this.magicNumber+this.misc; ++i) {
-            this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            this.addToBot(new AttackDamageRandomEnemyAction(this));
         }
         this.misc = 0;
         //Amiyamod.BurnSelf(1);
@@ -71,10 +67,16 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
     public int onLoseTempHp(DamageInfo damageInfo, int i) {
         int tem=(Integer) TempHPField.tempHp.get(AbstractDungeon.player);
         if ( i > 0 && tem >= i){
-            this.misc += 1;
-            this.rawDescription = CARD_STRINGS.DESCRIPTION+CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-            this.initializeDescription();
+            upg();
         }
         return i;
+    }
+    public void tookDamage() {
+        upg();
+    }
+    public void upg(){
+        this.misc += 1;
+        this.rawDescription = CARD_STRINGS.DESCRIPTION+CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+        this.initializeDescription();
     }
 }

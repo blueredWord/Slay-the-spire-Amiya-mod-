@@ -40,8 +40,9 @@ public class TikaziMagic extends CustomCard {
         //this.exhaust = true;
         //this.selfRetain = true;
         //this.heal = 15;
+        this.draw = this.baseDraw = 2;
         this.magicNumber = this.baseMagicNumber = 2;
-        //this.misc = 20;
+        this.misc = 1;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -63,28 +64,19 @@ public class TikaziMagic extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //造成伤害
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(p, damage,this.damageTypeForTurn)
-                )
-        );
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(p, damage,this.damageTypeForTurn)
-                )
-        );
+        for (int i = 0 ; i< this.magicNumber;i++){
+            this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
+        }
         //抽卡
         if (this.upgraded){
-            this.addToBot(new DrawCardAction(this.magicNumber,new TikaziMagicAction()));
+            this.addToBot(new DrawCardAction(this.draw ,new TikaziMagicAction()));
         }else {
-            this.addToBot(new DrawCardAction(this.magicNumber));
+            this.addToBot(new DrawCardAction(this.draw));
         }
 
-        Amiyamod.HenJi(1,this,m);
+        Amiyamod.HenJi(this.misc,this,m);
         //感染进度
-        Amiyamod.addY(1);
+        Amiyamod.addY(this.misc);
     }
     public AbstractCard makeCopy() {return new TikaziMagic();}
 }

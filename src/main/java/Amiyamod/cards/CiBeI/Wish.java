@@ -29,7 +29,7 @@ public class Wish extends CustomCard {
 
     public Wish() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 5;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -40,7 +40,7 @@ public class Wish extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeMagicNumber(3);
+            this.upgradeMagicNumber(2);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

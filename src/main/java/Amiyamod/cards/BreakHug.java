@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class BreakHug extends CustomCard {
     //=================================================================================================================
-    //@ 【破碎之拥】 急性发作 1。 NL  将抽牌堆最上方的一张 源石诅咒 加入手牌。 NL 获得 !B! 点 格挡 。
+    //@ 【破碎之拥】 急性发作 1。 NL  将抽牌堆最上方的一张 源石诅咒 加入手牌。 NL 获得 !B! 点 丝线 。
     //=================================================================================================================
     private static final String NAME = "BreakHug";// 【卡片名字】
 
@@ -36,10 +36,10 @@ public class BreakHug extends CustomCard {
     public BreakHug() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
-        this.baseBlock = this.block = 6;
-        this.magicNumber = this.baseMagicNumber = 1;
+        //this.baseBlock = this.block = 6;
+        this.magicNumber = this.baseMagicNumber = 6;
         //this.heal = 15;
-        //this.misc = 20;
+        this.misc = 2;
 
         //this.exhaust = true;
         //this.isEthereal = true;
@@ -55,9 +55,9 @@ public class BreakHug extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(2);
+            //this.upgradeBlock(2);
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(3);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -74,8 +74,9 @@ public class BreakHug extends CustomCard {
                 this.addToBot(new BreakHugAction(1));
             }
         }
-        this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.magicNumber,false)));
-        this.addToBot(new GainBlockAction(p,p,this.block));
+        this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.misc,false)));
+        Amiyamod.LinePower(this.magicNumber);
+        //this.addToBot(new GainBlockAction(p,p,this.block));
         Amiyamod.HenJi(1,this,m);
     }
     public AbstractCard makeCopy() {return new BreakHug();}

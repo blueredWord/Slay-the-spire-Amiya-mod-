@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.BigNotWorkPower;
 import Amiyamod.power.FireAgainPower;
 import basemod.abstracts.CustomCard;
@@ -31,7 +32,7 @@ public class BigNotWork extends CustomCard {
         this.baseMagicNumber = this.magicNumber =1;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowSkyOpenAction;
 import Amiyamod.action.cards.ShadowUpgradeAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
 import Amiyamod.power.ShadowSkyOpenPower;
 import basemod.abstracts.CustomCard;
@@ -44,7 +45,10 @@ public class ShadowSkyOpen extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
-        //this.magicNumber = this.baseMagicNumber = 5;
+        this.tags.add(YCardTagClassEnum.RedSky1);
+        this.isEthereal = true;
+        this.misc = 5;
+        this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -56,6 +60,7 @@ public class ShadowSkyOpen extends CustomCard {
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeMagicNumber(3);
             this.isInnate = true;
+            this.isEthereal = false;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
@@ -65,8 +70,8 @@ public class ShadowSkyOpen extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ShadowSkyOpenAction());
-        this.addToBot(new ApplyPowerAction(p,p,new ShadowSkyOpenPower(1)));
+        this.addToBot(new ShadowSkyOpenAction(this.misc));
+        this.addToBot(new ApplyPowerAction(p,p,new ShadowSkyOpenPower(this.magicNumber)));
     }
 
 

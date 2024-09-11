@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 // 灼痕
-//不能被打出 。 NL 当此牌在手中时，每当你 燃己 便获得 [B] ，并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。
+//不能被打出 。 NL 当此牌在手中时，每当你 燃己 便获得 [E] ，并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。
 public class BurnMark extends CustomCard {
     private static final String NAME = "BurnMark";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

@@ -3,6 +3,7 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowRunNightAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -36,8 +37,9 @@ public class ShadowRunNight extends CustomCard {
         this.damage = this.baseDamage = 7;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        //this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 2;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -45,7 +47,7 @@ public class ShadowRunNight extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(4);
+            this.upgradeDamage(3);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -57,8 +59,9 @@ public class ShadowRunNight extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        for(int i = 0;i<this.magicNumber;i++){
+            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
+        }
         Amiyamod.Sword(true,new ShadowRunNightAction(m));
     }
     public AbstractCard makeCopy() {return new ShadowRunNight();}

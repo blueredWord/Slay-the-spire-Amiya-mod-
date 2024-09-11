@@ -1,6 +1,7 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.cards.RedSky.ShadowCry;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.Gdx;
@@ -50,7 +51,7 @@ public class ShadowBlueFirePower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(
                 (card.type != AbstractCard.CardType.ATTACK)
-                        && (!card.hasTag(YCardTagClassEnum.RedSky))
+                        && ( !(card instanceof RedSky) )
                         && AbstractDungeon.player.hand.size()<10
         ) {
             if(card.cost == -1){

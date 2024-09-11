@@ -35,15 +35,15 @@ public class NotNow extends CustomCard {
 
     public NotNow() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 9;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 3;
         this.isMultiDamage = true;
-        this.baseDraw = this.draw = 1;
+        //this.baseDraw = this.draw = 1;
         //this.heal = 15;
         //this.misc = 20;
         //this.exhaust = true;
-        //this.isEthereal = true;
+        this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -56,10 +56,10 @@ public class NotNow extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.upgradeBlock(6);
+            this.upgradeBlock(2);
             //this.exhaust = false;
-            this.upgradeDamage(4);
-            //this.upgradeMagicNumber(1);
+            //this.upgradeDamage(4);
+            this.upgradeMagicNumber(3);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -69,6 +69,8 @@ public class NotNow extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int i = this.damage;
+        this.damage = this.damage + this.baseMagicNumber;
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
         );
@@ -78,6 +80,7 @@ public class NotNow extends CustomCard {
                 break;
             }
         }
+        this.damage = i ;
         Amiyamod.addY(1);
         Amiyamod.HenJi(this.magicNumber,this,m);
     }

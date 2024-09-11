@@ -1,9 +1,12 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.patches.LeechDamage;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yill;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.damagemods.AbstractDamageModifier;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.DamageModApplyingPower;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -20,7 +23,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ChiMeRaPower extends AbstractPower {
+import java.util.Collections;
+import java.util.List;
+
+public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPower {
     public static final String NAME = "ChiMeRaPower";
     public static final String POWERID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
@@ -42,17 +48,17 @@ public class ChiMeRaPower extends AbstractPower {
     public void updateDescription() {
         this.description = this.amount + DESCRIPTIONS[0];
     }
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+    @Override
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
         return (float) (damage*1.5);
     }
+
     @Override
     public void onRemove() {
         this.addToBot(new DiscardAction(this.owner, this.owner, AbstractDungeon.player.hand.size(), true));
         this.addToBot(new PressEndTurnButtonAction());
     }
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        card.damageTypeForTurn = DamageInfo.DamageType.HP_LOSS;
-    }
+
     @Override
     public void atStartOfTurnPostDraw() {
         this.flash();
@@ -61,5 +67,15 @@ public class ChiMeRaPower extends AbstractPower {
         } else {
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
+    }
+
+    @Override
+    public boolean shouldPushMods(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
+        return o instanceof AbstractCard && ((AbstractCard) o).type == AbstractCard.CardType.ATTACK && list.stream().noneMatch(mod -> mod instanceof LeechDamage);
+    }
+
+    @Override
+    public List<AbstractDamageModifier> modsToPush(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
+        return Collections.singletonList(new LeechDamage());
     }
 }

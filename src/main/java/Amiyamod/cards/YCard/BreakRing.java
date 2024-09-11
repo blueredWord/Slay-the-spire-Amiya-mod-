@@ -27,10 +27,10 @@ public class BreakRing extends CustomCard {
 
     public BreakRing() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
         //this.baseDraw = this.draw = 1;
-        //this.exhaust = false;
+        this.exhaust = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -51,7 +51,7 @@ public class BreakRing extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.addY(this.magicNumber);
+        //Amiyamod.addY(this.magicNumber);
         this.addToBot(new ApplyPowerAction(p,p,new BreakRingPower(1)));
         Amiyamod.BurnSelf(this.magicNumber);
     }

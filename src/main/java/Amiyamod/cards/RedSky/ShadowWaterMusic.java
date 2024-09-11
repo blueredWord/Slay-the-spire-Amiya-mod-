@@ -14,8 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-//影霄*奔夜
-//造成7（11）点伤害2次。 出鞘 :获得等同于目标伤害意图一半的格挡。
 public class ShadowWaterMusic extends CustomCard {
     private static final String NAME = "ShadowWaterMusic";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -35,6 +33,7 @@ public class ShadowWaterMusic extends CustomCard {
         this.isMultiDamage = true;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
+        this.misc = 2;
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -56,12 +55,11 @@ public class ShadowWaterMusic extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
-        );
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
-        );
+        for(int i = 0;i<this.misc;i++){
+            AbstractDungeon.actionManager.addToBottom(
+                    new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
+            );
+        }
         Amiyamod.Sword(true,new ApplyPowerAction(p,p,new ShadowWaterMusicPower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new ShadowWaterMusic();}

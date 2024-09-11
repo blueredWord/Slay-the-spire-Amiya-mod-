@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.actions.watcher.NotStanceCheckAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -63,12 +64,11 @@ public class RedSkyPower extends AbstractPower {
         }
     }
 
-
     //打出攻击牌时给赤霄
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(
                 (card.type == AbstractCard.CardType.ATTACK)
-                 && (!card.hasTag(YCardTagClassEnum.RedSky))
+                 && ( !(card instanceof RedSky) )
                 && AbstractDungeon.player.hand.size()<10
         ) {
             if(card.cost == -1){

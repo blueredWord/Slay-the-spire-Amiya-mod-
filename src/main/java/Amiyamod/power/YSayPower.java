@@ -2,6 +2,7 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.relics.CYrelic;
+import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -14,8 +15,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 public class YSayPower extends AbstractPower {
     public static final String NAME = "YSayPower";
-    protected float particleTimer;
-    protected float particleTimer2;
+
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;

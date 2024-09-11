@@ -43,7 +43,7 @@ public class ShadowNoShadowAction extends AbstractGameAction {
                     this.target = mo;
                 }
             }
-            if (this.card.damageTypeForTurn == DamageInfo.DamageType.NORMAL){this.card.damageTypeForTurn = DamageInfo.DamageType.THORNS;}
+            //if (this.card.damageTypeForTurn == DamageInfo.DamageType.NORMAL){this.card.damageTypeForTurn = DamageInfo.DamageType.THORNS;}
             this.card.calculateCardDamage((AbstractMonster)this.target);
             if (AbstractGameAction.AttackEffect.LIGHTNING == this.effect) {
                 this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, this.card.damage, this.card.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));

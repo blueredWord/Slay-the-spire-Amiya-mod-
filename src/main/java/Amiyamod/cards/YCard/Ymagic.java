@@ -34,7 +34,7 @@ public class Ymagic extends CustomCard {
 
     public Ymagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 12;
         //this.baseBlock = this.block = 12;
         //this.magicNumber = this.baseMagicNumber = 2;
         //this.heal = 15;
@@ -55,7 +55,7 @@ public class Ymagic extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.exhaust = false;
-            this.upgradeDamage(4);
+            this.upgradeDamage(6);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;

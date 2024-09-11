@@ -22,7 +22,7 @@ public abstract class CYrelic extends CustomRelic {
                 out,
                 RelicTier.SPECIAL,
                 LandingSound.SOLID);
-        this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME+this.cost;
+        this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME;
         this.counter = 0;
     }
     public void atTurnStart() {
@@ -53,7 +53,7 @@ public abstract class CYrelic extends CustomRelic {
                 }else {
                     this.counter = Math.max(0,this.counter+n);
                 }
-                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "源石病：感染进度增加"+n+",目前为"+this.counter
                 );
                 this.flash();
@@ -68,7 +68,7 @@ public abstract class CYrelic extends CustomRelic {
     public void OnBreak() {
         this.flash();
         this.cost++;
-        this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME + this.cost;
+        //this.name = CardCrawlGame.languagePack.getRelicStrings(this.relicId).NAME;
         this.updateDescription(null);
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "触发感染阶段加深，目前感染等级："+this.cost

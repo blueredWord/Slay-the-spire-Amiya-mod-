@@ -28,16 +28,29 @@ public class DrBloodAction extends AbstractGameAction {
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
         ArrayList<AbstractCard> l = new ArrayList<>();
-        if (!p.discardPile.isEmpty()){
-            for (AbstractCard c : p.discardPile.group){
+        ArrayList<AbstractCard> hl = new ArrayList<>();
+        if (!p.drawPile.isEmpty()){
+            for (AbstractCard c : p.drawPile.group){
                 if (c.hasTag(YCardTagClassEnum.YZuZhou)){
                     l.add(c);
                 }
             }
-            if (!l.isEmpty()){
-                for (AbstractCard c : l){
-                    p.discardPile.moveToExhaustPile(c);
+        }
+        if (!p.hand.isEmpty()){
+            for (AbstractCard c : p.hand.group){
+                if (c.hasTag(YCardTagClassEnum.YZuZhou)){
+                    hl.add(c);
                 }
+            }
+        }
+        if (!l.isEmpty()){
+            for (AbstractCard c : l){
+                p.drawPile.moveToExhaustPile(c);
+            }
+        }
+        if (!hl.isEmpty()){
+            for (AbstractCard c : hl){
+                p.hand.moveToExhaustPile(c);
             }
         }
         this.isDone = true;

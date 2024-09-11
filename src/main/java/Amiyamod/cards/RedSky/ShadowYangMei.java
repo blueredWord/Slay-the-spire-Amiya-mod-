@@ -3,6 +3,7 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowYangMeiAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.CardBackPower;
 import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
@@ -36,9 +37,10 @@ public class ShadowYangMei extends CustomCard {
     public ShadowYangMei() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.UPGRADE_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 6;
-        this.baseBlock = this.block = 8;
+        this.baseBlock = this.block = 7;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
+        this.tags.add(YCardTagClassEnum.RedSky1);
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);

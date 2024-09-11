@@ -1,71 +1,65 @@
-package Amiyamod.cards;
+package Amiyamod.cards.Memory;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.WhitemithAction;
+import Amiyamod.cards.badY;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.power.SoloPower;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.vfx.GainPennyEffect;
+import org.apache.logging.log4j.LogManager;
 
-public class Solo extends CustomCard {
+public class Whitemith extends CustomCard {
     //=================================================================================================================
-    //@ 【独奏】 获得 !M! 点 丝线 。 NL 下回合开始时对所有敌人造成等同于你 丝线 数量的伤害。
+    //@ 【】
     //=================================================================================================================
-    private static final String NAME = "Solo";// 【卡片名字】
+    private static final String NAME = "Whitemith";// 【卡片名字】
 
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 2;//【卡片费用】
+    private static final int COST = -1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardRarity RARITY = CardRarity.SPECIAL;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
 
-    public Solo() {
+    public Whitemith() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 16;
-        //this.heal = 15;
-        //this.misc = 20;
-
-        //this.exhaust = true;
-        //this.isEthereal = true;
-        //this.selfRetain = true;
-
-        //源石卡牌tag
-        //this.tags.add(YCardTagClassEnum.YCard);
-        //this.tags.add(CardTags.STARTER_STRIKE);
-        //this.tags.add(CardTags.STRIKE);
+        this.exhaust = true;
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
-            this.upgradeName();
-            //this.upgradeBlock(6);
-            //this.upgradeDamage(4);
-            this.upgradeMagicNumber(8);
-            //this.selfRetain = true;
+            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            //this.upgradeDamage(6);
+            //this.upgradeMagicNumber(2);
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.LinePower(this.magicNumber);
-        this.addToBot(new ApplyPowerAction(p,p,new SoloPower(1)));
+        this.addToBot(new WhitemithAction(this));
     }
-    public AbstractCard makeCopy() {return new Solo();}
+
+    public AbstractCard makeCopy() {return new Whitemith();}
 }

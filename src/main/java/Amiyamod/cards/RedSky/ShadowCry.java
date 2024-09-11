@@ -33,19 +33,20 @@ public class ShadowCry extends CustomCard {
 
     public ShadowCry() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 12;
+        this.damage = this.baseDamage = 8;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
-        this.tags.add(YCardTagClassEnum.YCard);
+        this.tags.add(YCardTagClassEnum.RedSky1);
+        //this.tags.add(YCardTagClassEnum.YCard);
     }
 
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(6);
+            this.upgradeDamage(4);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);

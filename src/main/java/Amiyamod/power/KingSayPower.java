@@ -3,10 +3,9 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,6 +22,7 @@ public class KingSayPower extends AbstractPower {
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public boolean yes;
     private int min = 0;
     public KingSayPower(int n) {
         this.name = powerStrings.NAME;
@@ -59,11 +59,31 @@ public class KingSayPower extends AbstractPower {
                     //this.addToBot(new ApplyPowerAction(p, p, new EnergizedBluePower(p, i/2*this.amount)));
                     //this.addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, i/2*this.amount)));
                 }
-                if (i >= this.min){
-                    this.addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p,this.amount)));
+                this.yes = (i >= this.min);
+                if (yes){
+                    this.flash();
+                    //this.addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p,this.amount)));
                 }
             }
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
+    }
+    public void atStartOfTurn() {
+        this.flash();
+        if (yes){
+            for (int i = 0;i<this.amount;i++){
+                CardGroup GG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED) ;
+                for (AbstractCard ca : Amiyamod.YZcard) {
+                    if (!ca.hasTag(AbstractCard.CardTags.HEALING)) {
+                        GG.addToBottom(ca);
+                    }
+                }
+                AbstractCard c = GG.getRandomCard(true).makeCopy();
+                if (c.canUpgrade()){
+                    c.upgrade();
+                }
+                this.addToBot(new MakeTempCardInHandAction(c));
+            }
+        }
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
     }
 }

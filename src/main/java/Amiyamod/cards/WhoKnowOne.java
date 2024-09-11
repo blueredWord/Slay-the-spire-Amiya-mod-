@@ -42,7 +42,7 @@ public class WhoKnowOne extends CustomCard implements OnCombatStartInterface {
         //this.misc = 20;
         //this.isInnate = true;
         //this.exhaust = true;
-        //this.isEthereal = true;
+        this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -53,8 +53,9 @@ public class WhoKnowOne extends CustomCard implements OnCombatStartInterface {
 
     @Override
     public void upgrade() {
+
+        this.upgradeDamage(4 + this.timesUpgraded);
         ++this.timesUpgraded;
-        this.upgradeDamage(2 + (this.timesUpgraded*2));
         this.upgraded = true;
         this.name = CARD_STRINGS.NAME + "+" + this.timesUpgraded;
         this.initializeTitle();

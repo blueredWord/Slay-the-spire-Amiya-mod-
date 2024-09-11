@@ -1,10 +1,9 @@
-package Amiyamod.cards;
+package Amiyamod.cards.Memory;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.cards.CiBeI.LineBody;
+import Amiyamod.character.Amiya;
+import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.YCardTagClassEnum;
-import Amiyamod.power.LineBow;
 import Amiyamod.power.MemoryPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -13,8 +12,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -27,7 +24,7 @@ public class Memory extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
 
-    private static final int COST = 2;//卡片费用
+    private static final int COST = 1;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -62,18 +59,28 @@ public class Memory extends CustomCard {
         CardGroup G = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
         for (AbstractPlayer p  : CardCrawlGame.characterManager.getAllCharacters()){
             //如果和玩家同类则跳过
-            if (Objects.equals(pl.getTitle(pl.chosenClass), p.getTitle(p.chosenClass))){
+            if (Objects.equals(pl.getTitle(pl.chosenClass), p.getTitle(p.chosenClass)) && !(p instanceof Amiya)){
                 break;
             }
             p.getTitle(p.chosenClass);
             p.getCardColor();
             String ID = this.cardID+p.getCardColor().name();
             String Des =CARD_STRINGS.EXTENDED_DESCRIPTION[1]+this.magicNumber+CARD_STRINGS.EXTENDED_DESCRIPTION[2]+p.getTitle(p.chosenClass);
-            if (this.upgraded){
-                Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[4];
+
+            if (p instanceof Amiya){
+                if (this.upgraded){
+                    Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[6];
+                }else {
+                    Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[5];
+                }
             }else {
-                Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[3];
+                if (this.upgraded){
+                    Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[4];
+                }else {
+                    Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[3];
+                }
             }
+
             int COST = -2;
             AbstractPower pow = new MemoryPower(p.getCardColor(),this.magicNumber,this.upgraded,p.getTitle(p.chosenClass));
             CustomCard card = new CustomCard(ID,CARD_STRINGS.EXTENDED_DESCRIPTION[0]+p.getTitle(p.chosenClass),IMG_PATH, COST,Des, CardType.POWER, p.getCardColor(), AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.NONE) {

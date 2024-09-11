@@ -1,8 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.cards.DrBloodAction;
-import Amiyamod.cards.YCard.DrBlood;
+
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
@@ -40,7 +39,7 @@ public class Ghost extends CustomCard {
 
         this.exhaust = true;
         //this.isEthereal = true;
-        //this.selfRetain = true;
+        this.selfRetain = true;
 
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);

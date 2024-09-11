@@ -3,7 +3,7 @@ package Amiyamod.action.cards;
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.CiBeI.HELP;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -23,12 +23,11 @@ public class HELPAction extends AbstractGameAction {
     private int numberOfCards;
     private boolean optional = false;
     private CardGroup list = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
-
-    public HELPAction(int numberOfCards) {
+    public HELPAction(AbstractCard ca) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.player = AbstractDungeon.player;
-        this.numberOfCards = numberOfCards;
+        this.numberOfCards = ca.magicNumber;
         for (AbstractCard c : AbstractDungeon.player.discardPile.group){
             if (!(c instanceof HELP)){
                 this.list.addToBottom(c);
@@ -99,9 +98,7 @@ public class HELPAction extends AbstractGameAction {
                     c.unhover();
                     c.target_x = (float) CardGroup.DISCARD_PILE_X;
                 }
-                if (cost >0){
-                    this.addToTop(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player,cost));
-                }
+
                 AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 AbstractDungeon.player.hand.refreshHandLayout();
             }

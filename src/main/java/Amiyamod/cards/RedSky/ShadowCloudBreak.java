@@ -3,10 +3,9 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowSkillAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,13 +26,17 @@ public class ShadowCloudBreak extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
+
+    //造成 !D! 点伤害 。将 *云裂 ** *出 放入抽牌堆中。 NL 入鞘 : 获得 !B! 点 格挡 。 NL 消耗 。
     public ShadowCloudBreak() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 1;
+        //this.damage = this.baseDamage = 1;
+        //this.baseBlock = this.block = 18;
         this.cardsToPreview = new CloudBreakIn();
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.exhaust = true;
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -44,6 +47,7 @@ public class ShadowCloudBreak extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
+            //this.upgradeBlock(6);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -56,9 +60,20 @@ public class ShadowCloudBreak extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new MakeTempCardInDrawPileAction(this.cardsToPreview.makeCopy(),1,true,true,false)
-        );
+        //this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
+
+        if (this.upgraded) {
+            this.addToBot(
+                    new MakeTempCardInDiscardAction(this.cardsToPreview.makeCopy(),1)
+            );
+        }else {
+            this.addToBot(
+                    new MakeTempCardInDrawPileAction(this.cardsToPreview.makeCopy(),1,true,true,false)
+            );
+        }
+
+        //Amiyamod.Sword(this.upgraded,new GainBlockAction(p,p,this.block));
+
     }
     public AbstractCard makeCopy() {return new ShadowCloudBreak();}
 }

@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.CardBackPower;
 import Amiyamod.power.FireAgainPower;
 import basemod.abstracts.CustomCard;
@@ -36,7 +37,7 @@ public class FireAgain extends CustomCard {
         this.baseMagicNumber = this.magicNumber = 1;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -46,10 +47,10 @@ public class FireAgain extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-            //this.upgradeBaseCost(0);
-            this.isInnate = true;
+            this.upgradeBaseCost(1);
+            //this.isInnate = true;
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

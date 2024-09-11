@@ -3,12 +3,14 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowBloodAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.ShadowWaterMusicPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,6 +18,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
 
 public class ShadowBlood extends CustomCard {
     private static final String NAME = "ShadowBlood";//卡片名字
@@ -32,20 +36,21 @@ public class ShadowBlood extends CustomCard {
 
     public ShadowBlood() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 14;
+        this.damage = this.baseDamage = 16;
         //this.isMultiDamage = true;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.tags.add(YCardTagClassEnum.RedSky1);
+        this.magicNumber = this.baseMagicNumber = 2;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
-
+//造成 !D! 点伤害。 NL 出鞘 : 失去 !M! 点生命，再造成一次伤害。
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(5);
+            this.upgradeDamage(6);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -57,14 +62,13 @@ public class ShadowBlood extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(p, damage, this.damageTypeForTurn
-                        )
-                )
+        this.addToBot(
+                new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn))
         );
-        Amiyamod.Sword(true,new ShadowBloodAction(this.magicNumber));
+        ArrayList<AbstractGameAction> list =new ArrayList<>();
+        list.add(new LoseHPAction(p,p,this.magicNumber));
+        list.add(new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn)));
+        Amiyamod.Sword(true,list);
     }
     public AbstractCard makeCopy() {return new ShadowBlood();}
 }

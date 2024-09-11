@@ -3,6 +3,7 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.AmiyaStrike;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.CardBackPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,9 +34,10 @@ public class ShadowOut extends CustomCard {
     public ShadowOut() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 4;
+        this.cardsToPreview = new RedSky(true);
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-
+        //this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

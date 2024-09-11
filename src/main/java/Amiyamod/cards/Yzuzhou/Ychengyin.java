@@ -46,14 +46,18 @@ public class Ychengyin extends CustomCard  implements YZCardInterface {
     }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
-        this.misc++;
-        if (this.misc<2){
-            this.rawDescription = CARD_STRINGS.DESCRIPTION+CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-            this.initializeDescription();
-        }else{
-            AbstractPlayer p = AbstractDungeon.player;
-            this.addToTop(new ApplyPowerAction(p,p,new VulnerablePower(p,this.magicNumber,false)));
+        if(c.hasTag(YCardTagClassEnum.YCard)){
             this.reset();
+        }else {
+            this.misc++;
+            if (this.misc<2){
+                this.rawDescription = CARD_STRINGS.DESCRIPTION+CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+                this.initializeDescription();
+            }else{
+                AbstractPlayer p = AbstractDungeon.player;
+                this.addToTop(new ApplyPowerAction(p,p,new VulnerablePower(p,this.magicNumber,true)));
+                this.reset();
+            }
         }
     }
 

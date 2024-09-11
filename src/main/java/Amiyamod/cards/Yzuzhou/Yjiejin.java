@@ -5,6 +5,7 @@ import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.patches.YZCardInterface;
 import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -41,7 +42,8 @@ public class Yjiejin extends CustomCard implements YZCardInterface {
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         //如果打出非源石牌 扣血
         if (!c.hasTag(YCardTagClassEnum.YCard)){
-            this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber));
+            this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+            //this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber));
             //this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber));
         }
     }
