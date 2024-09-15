@@ -1,10 +1,12 @@
 package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -56,5 +58,15 @@ public class RhodesSword extends CustomRelic {
     // 返回当前遗物的副本
     public AbstractRelic makeCopy() {
         return new RhodesSword();
+    }
+
+    public boolean canSpawn() {
+        int i =0;
+        for (AbstractCard c :AbstractDungeon.player.masterDeck.group){
+            if (c.hasTag(YCardTagClassEnum.RedSky1)){
+                i++;
+            }
+        }
+        return  i > 2;
     }
 }

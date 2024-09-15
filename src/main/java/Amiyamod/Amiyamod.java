@@ -28,6 +28,7 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
@@ -100,6 +101,29 @@ public class Amiyamod implements
         logger.info("========================= 开始初始化 =========================");
         new Amiyamod();
         logger.info("========================= 初始化完成 =========================");
+    }
+
+    public static AbstractCard MakeMemoryCard(AbstractCard A){
+        String NAME = "MemoryPower";
+        String POWER_ID = Amiyamod.makeID(NAME);
+        PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+        String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+        if (!A.isEthereal && !A.exhaust){
+            A.rawDescription = A.rawDescription+ DESCRIPTIONS[2];
+        } else if (!A.exhaust) {
+            //原本只虚无
+            A.rawDescription = A.rawDescription+ DESCRIPTIONS[4];
+        } else {
+            A.rawDescription = A.rawDescription+ DESCRIPTIONS[3];
+        }
+        //添加虚无和消耗
+        A.exhaust = true;
+        A.isEthereal = true;
+        //A.purgeOnUse = true;
+        A.name = DESCRIPTIONS[1]+A.name;
+        A.initializeDescription();
+
+        return A;
     }
 
     //  回合开始接口
@@ -496,7 +520,7 @@ public class Amiyamod implements
         //源石技艺
         cards.add(new ChiMeRa());
         cards.add(new MindBreak());
-        cards.add(new ZuZhouMagic());
+        //cards.add(new ZuZhouMagic());
         cards.add(new SuperYPotion());
         cards.add(new StoneBlock());
         cards.add(new PainMagic());
@@ -542,8 +566,9 @@ public class Amiyamod implements
         cards.add(new BadZhufu());
         cards.add(new BeautifulLife());
         cards.add(new BForB());
-        //cards.add(new BloodPotion());
+        cards.add(new BloodPotion());
         cards.add(new BreakRing());
+        cards.add(new KingSee());
         cards.add(new CNoC());
         cards.add(new Echo());
         cards.add(new HelBox());
@@ -551,7 +576,7 @@ public class Amiyamod implements
         cards.add(new HerDo());
         cards.add(new HerSee());
         cards.add(new LifeMade());
-        cards.add(new LineBody());
+        //cards.add(new LineBody()); 身上衣
         cards.add(new LineDefender());
         cards.add(new LittleTe());
         cards.add(new Mercy());
@@ -560,7 +585,7 @@ public class Amiyamod implements
         cards.add(new SadMind());
         cards.add(new SoulDefend());
         //cards.add(new CRing()); 荆棘环
-        cards.add(new LineHand());
+        //cards.add(new LineHand()); //手中线
 
         //赤霄
         //cards.add(new RedSky(-2));
@@ -591,6 +616,7 @@ public class Amiyamod implements
         cards.add(new Shadow15());
         cards.add(new ShadowSkyOpen());
         cards.add(new NoName());
+        cards.add(new SwordHeard());
 
         //追忆卡
         Mcard.add(new ACE());

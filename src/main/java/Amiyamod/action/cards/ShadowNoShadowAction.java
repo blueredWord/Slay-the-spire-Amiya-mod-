@@ -36,7 +36,7 @@ public class ShadowNoShadowAction extends AbstractGameAction {
         this.target = AbstractDungeon.getMonsters().getRandomMonster((AbstractMonster)null, true, AbstractDungeon.cardRandomRng);
         if (this.target != null) {
             for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (!mo.isDead && !mo.isDying && mo.currentHealth < this.target.currentHealth) {
+                if (mo.currentHealth > 0 && mo.currentHealth < this.target.currentHealth) {
                     LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                             "绝影：找到了血更少的{}", mo.name
                     );

@@ -15,8 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.Iterator;
-//禁忌祝福
-//消耗获得感染阶段+1点丝线。每打出一次，这张牌在本局游戏中的丝线永久性增加2（3）。  燃己2
+
 public class BadZhufu extends CustomCard {
     private static final String NAME = "BadZhufu";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -29,7 +28,9 @@ public class BadZhufu extends CustomCard {
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
-
+    //=================================================================================================================
+    //@ 【禁忌祝福】 燃己 1 。 NL 出鞘 : 升级 !M! 张 赤霄 ，失去等同于它 升级 次数的生命 。
+    //=================================================================================================================
     public BadZhufu() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.isInnate = true; //固有

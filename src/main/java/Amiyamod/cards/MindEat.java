@@ -13,8 +13,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-//情绪吸收
-//每当你在一回合内打出2次攻击牌，抽 !M! 张牌。
 public class MindEat extends CustomCard {
     private static final String NAME = "MindEat";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

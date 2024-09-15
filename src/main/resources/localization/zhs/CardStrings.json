@@ -17,7 +17,7 @@
   },
   "AmiyaMod:BeautifulLife": {
     "NAME": "璀璨生命",
-    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 NL 消耗 ",
+    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BForB": {
@@ -50,7 +50,7 @@
   },
   "AmiyaMod:HelBox": {
     "NAME": "随身医疗箱",
-    "DESCRIPTION": " 燃己 1。 NL 消耗抽牌堆中的1张牌，获得 !M! 点 丝线 。",
+    "DESCRIPTION": " 消耗 抽牌堆中的 !M! 张牌，获得点7丝线 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": " 燃己 1。 NL 消耗抽牌堆中的1张牌，获得 !M! 点 丝线 。"
   },
   "AmiyaMod:HELP": {
@@ -176,16 +176,7 @@
     "NAME": "大巧不工",
     "DESCRIPTION": "每回合获得的前 !M! 张 赤霄 会额外 升级 一次。"
   },
-  "AmiyaMod:ShadowBack": {
-    "NAME": "影霄*溯洄",
-    "DESCRIPTION": "丢弃手牌中所有的非攻击牌，并按照丢弃的数量随机 升级 手中的攻击牌。 NL 出鞘 :获得 !B! 点 格挡 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 丢弃手牌中所有的非攻击牌，并按照丢弃的数量随机 升级 手中的攻击牌。 NL 出鞘 :获得 !B! 点 格挡 。 NL 消耗 。"
-  },
-  "AmiyaMod:ShadowYangMei": {
-    "NAME": "影霄*扬眉",
-    "DESCRIPTION": "造成 !D! 点伤害，使 !M! 张手牌获得 保留 。 NL 入鞘 : 保留 所有手牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 入鞘 : 升级手中耗能为0的牌。"
-  },
+
   "AmiyaMod:ShadowSkill": {
     "NAME": "影霄剑诀",
     "DESCRIPTION": "将一张 赤霄 加入手牌，并将其 升级 X次。 NL (至多消耗 !M! 点能量) NL 消耗 。",
@@ -370,17 +361,14 @@
   },
   "AmiyaMod:Ghost": {
     "NAME": "幽影重重",
-    "DESCRIPTION": "保留 。将你当前的 丝线 翻倍。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "将你当前的 丝线 翻倍。"
+    "DESCRIPTION": "将你当前的 丝线 翻倍。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。将你当前的 丝线 翻倍。 NL 消耗 。"
   },
   "AmiyaMod:SadMind": {
     "NAME": "哀恸共情",
     "DESCRIPTION": " 源石技艺 。 急性发作 1 NL 获得 !M! 点 丝线 ，下回合开始时 丝线 不会减半。"
   },
-  "AmiyaMod:YOpen": {
-    "NAME": "结晶绽放",
-    "DESCRIPTION": "源石技艺 。 NL 急性发作 !M! 。 NL 造成 !D! 点伤害。获得相当于你 感染进度 !M! 倍的 格挡 。"
-  },
+
   "AmiyaMod:MagicBook": {
     "NAME": "巫术典籍",
     "DESCRIPTION": "从 !M! 张随机 源石技艺 中选择一张拿到手中。 它在本回合的耗能变为0。 NL 消耗 。",
@@ -553,5 +541,31 @@
   "AmiyaMod:BreakBone": {
     "NAME": "“碎骨”",
     "DESCRIPTION": "保留 。 NL 给予所有敌人 !M! 层 易伤 。 NL 获得5点 丝线 ，当你失去所有 丝线 时将另一张 *“碎骨” 拿入手中。 NL 消耗 。"
+  },
+
+  "AmiyaMod:KingSee": {
+    "NAME": "魔王幻景",
+    "DESCRIPTION": "获得 [E] [E] 。给予8点 丝线 。其回合开始时若保有 丝线 ，则给予 !M! 层 虚弱 并将 !M! 张 升级 过的 追忆 拿到手中。 NL 虚无 。"
+  },
+  "AmiyaMod:SwordHeard": {
+    "NAME": "以剑交心",
+    "DESCRIPTION": "造成 !D! 点伤害。获得1层 易伤 并给予1层 易伤 。 NL 出鞘 : 从 !M! 张随机 追忆 中选择1张加入你的手牌。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。获得1层 易伤 并给予1层 易伤 。 NL 出鞘 : 从 !M! 张 升级 过的 追忆 中选择1张加入你的手牌。 NL 虚无 。"
+  },
+  "AmiyaMod:YOpen": {
+    "NAME": "结晶绽放",
+    "DESCRIPTION": "源石技艺 。 急性发作 2。 NL 获得 [E] 。 获得相当于你 感染进度 的 格挡 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "源石技艺 。 急性发作 2。 NL 获得 [E] 。 获得相当于你 感染进度 的 格挡 。"
+  },
+  "AmiyaMod:ShadowBack": {
+    "NAME": "影霄*溯洄",
+    "DESCRIPTION": "丢弃手牌中所有的非攻击牌，获得 [E] 。 NL 出鞘 :随机 升级 手牌 !M! 次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 丢弃手牌中所有的非攻击牌，获得 [E] 。 NL 出鞘 :获得 !B! 点 格挡 。 NL 消耗 。"
+  },
+
+  "AmiyaMod:ShadowYangMei": {
+    "NAME": "影霄*扬眉",
+    "DESCRIPTION": "造成 !D! 点伤害，使 !M! 张手牌获得 保留 。 NL 出鞘 : 保留 所有手牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 出鞘 : 升级手中耗能为0的牌。"
   }
 }

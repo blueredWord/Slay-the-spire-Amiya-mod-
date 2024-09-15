@@ -1,9 +1,11 @@
-package Amiyamod.action.cards;
+package Amiyamod.action;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.ChoseTemCardAction;
+import Amiyamod.action.cards.ChoseTempToHandAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,66 +13,39 @@ import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
-import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
-public class ChoseTemCardAction extends AbstractGameAction {
+public class KingSeeAction extends AbstractGameAction {
     public static final String[] TEXT;
-    private final boolean upgraded;
-    private CardGroup list = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
     private boolean retrieveCard = false;
-    private int n = 1;
-    private int i1 ;
-    private int i2 ;
-    public ChoseTemCardAction(CardGroup List, int number, boolean costbocome0) {
+    private boolean upgraded;
+    private int I ;
+
+    public KingSeeAction(int n,boolean upgraded) {
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.upgraded = costbocome0;
-        this.list = List;
-        this.n = number;
-    }
-    public ChoseTemCardAction(CardGroup List, int number) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.upgraded = false;
-        this.list = List;
-        this.n = number;
-    }
-    public ChoseTemCardAction(CardGroup List) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.upgraded = false;
-        this.list = List;
-    }
-    public ChoseTemCardAction(int n,int n2,boolean b) {
-        this.actionType = ActionType.CARD_MANIPULATION;
-        this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
-        this.upgraded = b;
-        this.i1=n;
-        this.i2=n2;
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.upgraded = upgraded;
+        this.I = n;
     }
 
     public void update() {
         ArrayList<AbstractCard> list = this.generateCardChoices();
         if (list.isEmpty()){
             this.isDone = true;
-        }else if (list.size() <= this.i2){
-            for (AbstractCard c : list){
-                this.addToTop(new ChoseTempToHandAction(c));
-            }
+        }else if (list.size() == 1){
+            this.addToTop(new ChoseTempToHandAction(list.get(0)));
             this.isDone = true;
         }else {
             if (this.duration == Settings.ACTION_DUR_FAST) {
-                AbstractDungeon.cardRewardScreen.customCombatOpen(this.generateCardChoices(), TEXT[6], true);
+                AbstractDungeon.cardRewardScreen.customCombatOpen(this.generateCardChoices(), TEXT[7], true);
                 this.tickDuration();
             } else {
                 if (!this.retrieveCard) {
                     if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                         AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
-                        disCard.setCostForTurn(0);
                         disCard.current_x = -1000.0F * Settings.xScale;
                         if (AbstractDungeon.player.hand.size() < 10) {
                             AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
@@ -89,18 +64,30 @@ public class ChoseTemCardAction extends AbstractGameAction {
         }
     }
 
-
-
     private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList<AbstractCard> derp = new ArrayList<>();
 
-        while(derp.size() != this.i1) {
+        while(derp.size() != this.I) {
             boolean dupe = false;
+            int roll = AbstractDungeon.cardRandomRng.random(99);
+            AbstractCard.CardRarity cardRarity;
+            if (roll < 40) {
+                cardRarity = AbstractCard.CardRarity.COMMON;
+            } else if (roll < 70) {
+                cardRarity = AbstractCard.CardRarity.UNCOMMON;
+            } else if (roll < 90){
+                cardRarity = AbstractCard.CardRarity.RARE;
+            } else {
+                cardRarity = AbstractCard.CardRarity.SPECIAL;
+            }
 
             AbstractCard tmp ;;
             Iterator var6 = derp.iterator();
-
-            tmp = Amiyamod.YZcard.get(new Random().nextInt(Amiyamod.YZcard.size())).makeCopy();
+            if (cardRarity != AbstractCard.CardRarity.SPECIAL){
+                tmp = CardLibrary.getAnyColorCard(cardRarity);
+            } else {
+                tmp = Amiyamod.Mcard.get(new Random().nextInt(Amiyamod.Mcard.size()));
+            }
 
             while(var6.hasNext()) {
                 AbstractCard c = (AbstractCard)var6.next();
@@ -116,14 +103,12 @@ public class ChoseTemCardAction extends AbstractGameAction {
                     tmp.upgrade();
                     tmp.applyPowers();
                 }
-                derp.add(tmp);
+                derp.add(Amiyamod.MakeMemoryCard(tmp));
             }
         }
 
         return derp;
     }
-
-
     static {
         TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }

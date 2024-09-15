@@ -1,31 +1,26 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.cards.ChoseTemCardAction;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.LibraryTypeEnum;
-import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.KingSayPower;
+import Amiyamod.power.KingSeePower;
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import org.apache.logging.log4j.LogManager;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class MagicBook extends CustomCard {
+public class KingSee extends CustomCard {
     //=================================================================================================================
-    //@ 【亘古的脉动】 失去等同于你手牌数量的生命。 NL 抽 !M! 张牌。 NL 虚无 。
+    //@ 【魔王幻景】 获得 [E] [E] 。给予 !M! 点 丝线 。 NL 回合结束时若其仍有剩余的丝线则获得1层虚弱并将一张随机 追忆 拿到手中。 NL 虚无 。
     //=================================================================================================================
-    private static final String NAME = "MagicBook";// 【卡片名字】
+    private static final String NAME = "KingSee";// 【卡片名字】
 
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -34,19 +29,18 @@ public class MagicBook extends CustomCard {
 
     private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.COMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
 
-    public MagicBook() {
+    public KingSee() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        //this.damage = this.baseDamage = 15;
+        //this.damage = this.baseDamage = 8;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 3;
-        //this.heal = 15;
-        //this.misc = 20;
-
-        this.exhaust = true;
-        //this.isEthereal = true;
+        this.magicNumber = this.baseMagicNumber = 1;
+        this.baseDraw = this.draw = 1;
+        this.misc = 2;
+        //this.exhaust = true;
+        this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -60,20 +54,22 @@ public class MagicBook extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             //this.upgradeBlock(6);
+            //this.exhaust = true;
+            //this.isEthereal = false;
             //this.upgradeDamage(4);
-            //this.upgradeMagicNumber(2);
-            //this.selfRetain = true;
-            //this.selfRetain = true;
-            //this.upgradeBaseCost(0);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }
 
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ChoseTemCardAction(this.magicNumber,1,this.upgraded));
-        //this.addToBot(new DrawCardAction(this.magicNumber));
+        this.addToBot(new GainEnergyAction(this.misc));
+        this.addToBot(new AddTemporaryHPAction(m,p,8));
+        this.addToBot(new ApplyPowerAction(m,p,new KingSeePower(this.magicNumber,m,true)));
+        //this.addToBot(new ApplyPowerAction(p,p,new KingSayPower(this.magicNumber)));
     }
-    public AbstractCard makeCopy() {return new MagicBook();}
+
+    public AbstractCard makeCopy() {return new KingSee();}
 }

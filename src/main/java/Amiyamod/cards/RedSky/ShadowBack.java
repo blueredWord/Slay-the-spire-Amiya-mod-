@@ -6,6 +6,7 @@ import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.CardBackPower;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,6 +15,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.ArrayList;
 
 //影霄*溯洄
 //丢弃手牌中所有的非攻击牌，获得与它们耗能相等的能量，并令手牌中的攻击牌本回合耗能+1。
@@ -37,7 +40,7 @@ public class ShadowBack extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.baseBlock = this.block = 5;
-        //this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.exhaust = true;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.RedSky1);
@@ -51,18 +54,25 @@ public class ShadowBack extends CustomCard {
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeBlock(5);
             //this.upgradeBaseCost(0);
+            this.upgradeMagicNumber(1);
             //this.exhaust = false;
-            this.selfRetain = true;
+            //this.selfRetain = true;
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ShadowBackAction());
-        Amiyamod.Sword(true,new GainBlockAction(p,p,this.block));
+        //this.addToBot(new GainBlockAction(p,p,this.block));
+        this.addToBot(new GainEnergyAction(1));
+        this.addToBot(new ShadowBackAction(this));
+        ArrayList<AbstractGameAction> list = new ArrayList<>();
+        for(int i = 0; i< this.magicNumber;i++){
+            list.add(new UpgradeRandomCardAction());
+        }
+        Amiyamod.Sword(true,list);
         //Amiyamod.Sword(true,new GainEnergyAction(this.magicNumber));
     }
     public AbstractCard makeCopy() {return new ShadowBack();}

@@ -1,6 +1,7 @@
 package Amiyamod.action.cards;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.RedSky.RedSky;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
@@ -15,9 +16,11 @@ import java.util.ArrayList;
 
 
 public class ShadowBackAction extends AbstractGameAction {
-    public ShadowBackAction() {
+    AbstractCard c ;
+    public ShadowBackAction(AbstractCard cc) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
+        this.c = cc;
     }
 
     public void update() {
@@ -51,7 +54,11 @@ public class ShadowBackAction extends AbstractGameAction {
             for (AbstractCard ca : list){
                 p.hand.moveToDiscardPile(ca);
             }
-            for (int i = list.size();i>0;i--){
+            //for (int i = list.size();i>0;i--){this.addToTop(new UpgradeRandomCardAction());}
+        }
+
+        if (AbstractDungeon.player.hasPower(RedSky.ID)){
+            for (int i = this.c.magicNumber;i>0;i--){
                 this.addToTop(new UpgradeRandomCardAction());
             }
         }

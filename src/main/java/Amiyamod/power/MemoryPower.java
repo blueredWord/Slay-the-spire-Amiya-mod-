@@ -72,21 +72,8 @@ public class MemoryPower extends AbstractPower {
                     A.applyPowers();
 
                 }
-                if (!A.isEthereal && !A.exhaust){
-                    A.rawDescription = A.rawDescription+ DESCRIPTIONS[2];
-                } else if (!A.exhaust) {
-                    //原本只虚无
-                    A.rawDescription = A.rawDescription+ DESCRIPTIONS[4];
-                } else {
-                    A.rawDescription = A.rawDescription+ DESCRIPTIONS[3];
-                }
-                //添加虚无和消耗
-                A.exhaust = true;
-                A.isEthereal = true;
-                //A.purgeOnUse = true;
-                A.name = DESCRIPTIONS[1]+A.name;
-                A.initializeDescription();
-                this.addToBot(new ChoseTempToHandAction(A));
+
+                this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(A)));
             }
         } else {
             if (this.N || this.U || this.R){
@@ -148,21 +135,7 @@ public class MemoryPower extends AbstractPower {
 
                     }
 
-                    if (!A.isEthereal && !A.exhaust){
-                        A.rawDescription = A.rawDescription+ DESCRIPTIONS[2];
-                    } else if (!A.exhaust) {
-                        //原本只虚无
-                        A.rawDescription = A.rawDescription+ DESCRIPTIONS[4];
-                    } else {
-                        A.rawDescription = A.rawDescription+ DESCRIPTIONS[3];
-                    }
-                    //添加虚无和消耗
-                    A.exhaust = true;
-                    A.isEthereal = true;
-                    //A.purgeOnUse = true;
-                    A.name = DESCRIPTIONS[1]+A.name;
-                    A.initializeDescription();
-                    this.addToBot(new ChoseTempToHandAction(A));
+                    this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(A)));
                     //GG.addToBottom(A);
                 }
                 //选卡

@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //璀璨生命
-//消耗 抽2（3）张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的真实伤害。
+//抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 NL 消耗
 public class BeautifulLife extends CustomCard {
     private static final String NAME = "BeautifulLife";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID

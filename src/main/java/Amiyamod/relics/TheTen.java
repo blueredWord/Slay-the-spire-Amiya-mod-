@@ -2,6 +2,7 @@ package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.AmiyaPower;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.YSayPower;
 import basemod.abstracts.CustomRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
@@ -48,6 +49,17 @@ public class TheTen extends CustomRelic implements OnApplyPowerRelic {
     }
 
     public boolean canSpawn() {
-        return ((AbstractDungeon.player.hasRelic(TenRelic.ID)) && AbstractDungeon.player.getRelic(TenRelic.ID).counter<10);
+        int i =0;
+        for (AbstractCard c :AbstractDungeon.player.masterDeck.group){
+            if (c.hasTag(YCardTagClassEnum.YCard)){
+                i+=2;
+            } if (c.hasTag(YCardTagClassEnum.YZuZhou)){
+                i+=6;
+            }
+        }
+        if (AbstractDungeon.player.hasRelic(TenRelic.ID)){
+            i += AbstractDungeon.player.getRelic(TenRelic.ID).counter;
+        }
+        return AbstractDungeon.player.hasRelic(TenRelic.ID) && i > 9;
     }
 }

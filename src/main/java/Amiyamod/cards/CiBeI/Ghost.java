@@ -24,7 +24,7 @@ public class Ghost extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 2;//【卡片费用】
+    private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
@@ -39,7 +39,7 @@ public class Ghost extends CustomCard {
 
         this.exhaust = true;
         //this.isEthereal = true;
-        this.selfRetain = true;
+        //this.selfRetain = true;
 
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -52,8 +52,9 @@ public class Ghost extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             //this.exhaust = false;
-            this.upgradeBaseCost(1);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.selfRetain = true;
+            //this.upgradeBaseCost(1);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

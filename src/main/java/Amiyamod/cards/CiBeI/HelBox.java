@@ -28,8 +28,9 @@ public class HelBox extends CustomCard {
 
     public HelBox() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 6;
+        this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.baseHeal = this.heal = 7;
         //源石卡牌tag
         this.exhaust = true;
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -39,10 +40,10 @@ public class HelBox extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeMagicNumber(2);
+            //加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
+            this.upgradeMagicNumber(1);
             //this.upgradeBaseCost(0);
-            this.exhaust = false;
+            //this.exhaust = false;
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -51,11 +52,11 @@ public class HelBox extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 从抽牌堆消耗一张卡
-        this.addToBot(new HelBoxAction(1));
+        this.addToBot(new HelBoxAction(this.magicNumber));
         // 获得6点丝线
-        Amiyamod.LinePower(this.magicNumber);
+        Amiyamod.LinePower(this.heal);
         //燃己1
-        Amiyamod.BurnSelf(1);
+        //Amiyamod.BurnSelf(1);
     }
 
     public AbstractCard makeCopy() {
