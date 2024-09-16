@@ -99,8 +99,9 @@ public class ChoseTemCardAction extends AbstractGameAction {
 
             AbstractCard tmp ;;
             Iterator var6 = derp.iterator();
-
-            tmp = Amiyamod.YZcard.get(new Random().nextInt(Amiyamod.YZcard.size())).makeCopy();
+            CardGroup G = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            G.group.addAll(Amiyamod.YZcard);
+            tmp = G.getRandomCard(true).makeCopy();
 
             while(var6.hasNext()) {
                 AbstractCard c = (AbstractCard)var6.next();

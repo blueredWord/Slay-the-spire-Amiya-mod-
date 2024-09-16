@@ -80,9 +80,7 @@ public class ASay extends CustomCard {
         CardGroup GG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED) ;
         for (AbstractCard card : CardLibrary.getCardList(LibraryTypeEnum.AMIYA)) {
             if (!card.hasTag(AbstractCard.CardTags.HEALING)&& card.hasTag(YCardTagClassEnum.YCard)) {
-                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                        "巫术典籍：gg添加卡片{}", card
-                );
+
                 GG.addToBottom(card);
             }
         }

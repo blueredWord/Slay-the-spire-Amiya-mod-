@@ -4,10 +4,13 @@ import Amiyamod.Amiyamod;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,7 +22,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.Objects;
 
-public class EatZuzhouPower extends AbstractPower {
+public class EatZuzhouPower extends AbstractPower implements OnLoseTempHpPower {
     public static final String NAME = "EatZuzhouPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -67,10 +70,13 @@ public class EatZuzhouPower extends AbstractPower {
 
     }
     public void wasHPLost(DamageInfo info, int damageAmount) {
-        if (this.C instanceof Yangry && damageAmount>=8){
-            this.flash();
-            LogManager.getLogger(Amiyamod.class.getSimpleName()).info("// 狂躁效果 易伤{}", damageAmount);
-            this.addToBot(new ApplyPowerAction(this.owner,this.owner,new VulnerablePower(this.owner,this.amount,false)));
+        if (damageAmount> 0){
+            if (this.C instanceof Yangry && damageAmount>=8){
+                this.flash();
+                LogManager.getLogger(Amiyamod.class.getSimpleName()).info("// 狂躁效果 易伤{}", damageAmount);
+                this.addToBot(new ApplyPowerAction(this.owner,this.owner,new VulnerablePower(this.owner,this.amount,false)));
+
+            }
         }
     }
 
@@ -106,7 +112,6 @@ public class EatZuzhouPower extends AbstractPower {
 
 
     public void atStartOfTurn() {
-        boolean first = true;
         if (this.C instanceof Ysnake){
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "螯合诅咒：{} = {}让玩家多抽一张卡",this.C, this.owner
@@ -114,18 +119,20 @@ public class EatZuzhouPower extends AbstractPower {
             this.flash();
             this.addToBot(new DrawCardAction(this.owner, this.amount));
         } else if (this.C instanceof Yjianwang){
+            int roll = AbstractDungeon.cardRandomRng.random(1);
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "// Yjianwang  获得能量"
+                    "// Yjianwang  随机数为：{}",roll
             );
-            int roll = AbstractDungeon.cardRandomRng.random(99);
-            if (roll <50){
+            if (roll == 1){
                 this.flash();
                 this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedBluePower(AbstractDungeon.player, this.amount)));
             }
-        }  else if (this.C instanceof Ymust){
+        } else if (this.C instanceof Ymust){
+            boolean first = true;
             for (int i = 0 ;i< this.amount;i++){
                 if ((this.owner.currentHealth % 10 != 0) && first ){
                     first = false;
+                    //this.owner.currentHealth = this.owner.currentHealth - (this.owner.currentHealth % 5);
                     this.addToBot(new LoseHPAction(this.owner,this.owner,this.owner.currentHealth % 10));
                 } else {
                     this.addToBot(new LoseHPAction(this.owner,this.owner,10));
@@ -149,5 +156,14 @@ public class EatZuzhouPower extends AbstractPower {
                 this.addToTop( new RemoveAllBlockAction(this.owner,this.owner));
             }
         }
+    }
+
+    @Override
+    public int onLoseTempHp(DamageInfo damageInfo, int damageAmount) {
+        int tem=(Integer) TempHPField.tempHp.get(this.owner);
+        if ( damageAmount > 0 && tem >= damageAmount){
+            this.wasHPLost(damageInfo,damageAmount);
+        }
+        return damageAmount;
     }
 }

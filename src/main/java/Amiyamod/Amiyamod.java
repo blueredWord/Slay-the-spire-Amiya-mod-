@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -168,9 +169,9 @@ public class Amiyamod implements
     //  调动遗物记录源石感染的接口
     public static void addY(int n) {
         AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasRelic(YRing.ID) && p.getRelic(YRing.ID).counter>0){
+        if (n > 0 && p.hasRelic(YRing.ID) && p.getRelic(YRing.ID).counter>0){
             p.getRelic(YRing.ID).onTrigger();
-        } else if  (p.hasRelic(YRing2.ID) && p.getRelic(YRing2.ID).counter>0) {
+        } else if (n > 0 && p.hasRelic(YRing2.ID) && p.getRelic(YRing2.ID).counter>0) {
             p.getRelic(YRing2.ID).onTrigger();
         } else {
             if  (p.hasRelic(BurnSkirt.ID)){
@@ -205,11 +206,14 @@ public class Amiyamod implements
             );
             AbstractPlayer p = AbstractDungeon.player;
             ArrayList<AbstractCard> G = new ArrayList<>();
-            for (AbstractCard card : p.hand.group) {
-                if (card.hasTag(YCardTagClassEnum.YZuZhou)) {
-                    G.add(card);
+            if ( !p.hand.isEmpty()){
+                for (AbstractCard card : p.hand.group) {
+                    if (card.hasTag(YCardTagClassEnum.YZuZhou)) {
+                        G.add(card);
+                    }
                 }
             }
+
             //感染爆发时至少触发一次
             if (G.isEmpty() ) {
                 if (p.hasPower(YSayPower.POWER_ID)){
@@ -230,10 +234,11 @@ public class Amiyamod implements
             //丢弃诅咒，每丢弃一张触发一次
             for (int i = 0; !G.isEmpty() && i != number; i++) {
                 logger.info("模组核心：触发来急性感染,丢弃第"+(i+1)+"张牌");
-                Collections.shuffle(G);
-                AbstractCard card = G.get(0);
+
+                int aa = AbstractDungeon.cardRng.random(G.size() - 1);
+                AbstractCard card = G.get(aa);
                 p.hand.moveToDiscardPile(card);
-                G.remove(0);
+                G.remove(aa);
                 AbstractCard tmp;
                 if (c instanceof FirstSayA){
                     tmp = new FirstSayA(c.baseDamage,c.baseBlock,c.baseMagicNumber,c.baseDraw,c.baseHeal,0,0,0);
@@ -299,10 +304,10 @@ public class Amiyamod implements
     //  获取随机的下一张诅咒的接口
     public static AbstractCard GetNextYcard(boolean isTemp) {
         if (isTemp){
-            while (true){
-                Collections.shuffle(Yzuzhou2);
-                return Yzuzhou2.get(0).makeCopy();
-            }
+            CardGroup G = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            G.group.addAll(Yzuzhou2);
+            //Collections.shuffle(Yzuzhou2);
+            return G.getRandomCard(true).makeCopy();
         }else {
             if (Yzuzhou.isEmpty()){
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
@@ -318,9 +323,9 @@ public class Amiyamod implements
                 Yzuzhou.add(new Ysnake());
                 Yzuzhou.add(new Ytiruo());
             }
-            Collections.shuffle(Yzuzhou);
-            AbstractCard c = Yzuzhou.get(0).makeCopy();
-            Yzuzhou.remove(0);
+            int i = AbstractDungeon.cardRng.random(Yzuzhou.size() - 1);
+            AbstractCard c = Yzuzhou.get(i).makeCopy();
+            Yzuzhou.remove(i);
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "模组核心：获取下一张随机源石诅咒：{}", c.name
             );

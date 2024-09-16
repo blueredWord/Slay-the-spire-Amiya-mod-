@@ -70,7 +70,6 @@ public class MemoryPower extends AbstractPower {
                 if (this.UP && A.canUpgrade()){
                     A.upgrade();
                     A.applyPowers();
-
                 }
 
                 this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(A)));

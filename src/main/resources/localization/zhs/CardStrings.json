@@ -187,9 +187,9 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 出鞘 :此牌产生的 赤霄 将被额外 升级 !M! 次。"
   },
   "AmiyaMod:ShadowUpgrade": {
-    "NAME": "影霄*淬火",
-    "DESCRIPTION": "消耗 NL 将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。",
-    "UPGRADE_DESCRIPTION": "将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。 NL 入鞘 :下回合开始时将此卡加入手牌。"
+    "NAME": "淬火",
+    "DESCRIPTION": "将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。"
   },
   "AmiyaMod:ShadowDefend": {
     "NAME": "影霄*守式",
@@ -425,13 +425,18 @@
       "每当你打出 源石技艺 ，失去所有 格挡 。",
       "回合开始时，使你额外抽取1张牌。",
       "每当你打出 源石技艺 ，获得1层 虚弱 。",
-      "回合开始时，若生命值不为整数则下修为整数。 NL 否则失去10点生命。"
+      "回合开始时时，失去生命直到个位为0。 NL (若个位为0则失去10点生命。)"
     ]
   },
   "AmiyaMod:KingSay": {
     "NAME": "魔王律令",
-    "DESCRIPTION": "抽到此卡时将2张随机 源石诅咒 拿入手中。 NL 回合结束时 消耗 所有手牌。 至少消耗3张时将 !M! 张 升级 过的 源石技艺 拿入手中。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": "抽到此卡时将2张随机 源石诅咒 拿入手中。 NL 回合结束时 消耗 所有手牌。 至少消耗3张时将 !M! 张 升级 过的 源石技艺 拿入手中。 NL 虚无 。"
+    "DESCRIPTION": "不能被打出 。 NL 抽到此卡时将1张随机 源石技艺 拿到手中， 若本回合未将其打出则 消耗 所有手牌。",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 抽到此卡时将1张 升级 过的随机 源石技艺 拿到手中， 若本回合未将其打出则 消耗 所有手牌。",
+    "EXTENDED_DESCRIPTION": [" NL (任务: 在本回合内施展 ",
+      " 、 ",
+      " 。)",
+      " NL (任务: 已完成) "
+    ]
   },
   "AmiyaMod:ShadowCloudBreak": {
     "NAME": "影霄*云裂",
@@ -447,7 +452,7 @@
     "NAME": "饲血",
     "DESCRIPTION": "燃己 1 。 NL 出鞘 : 升级 !M! 张 赤霄 ，失去等同于它 升级 次数的生命 。",
     "UPGRADE_DESCRIPTION": "出鞘 : 升级 !M! 张 赤霄 ，失去等同于它 升级 次数的生命 。",
-    "EXTENDED_DESCRIPTION": [" NL (造成","点伤害）"]
+    "EXTENDED_DESCRIPTION": [" NL (造成","点伤害)"]
   },
   "AmiyaMod:ShadowBackWindy": {
     "NAME": "影霄*回风",

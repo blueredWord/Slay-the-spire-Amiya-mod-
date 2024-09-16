@@ -61,7 +61,7 @@ public class ShadowUpgrade extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new ShadowUpgradeAction(this,p.hasPower(RedSkyPower.POWER_ID)));
-        if (this.upgraded){ Amiyamod.Sword(false,new ArrayList<>()); }
+        //if (this.upgraded){ Amiyamod.Sword(false,new ArrayList<>()); }
     }
     public AbstractCard makeCopy() {return new ShadowUpgrade();}
 }

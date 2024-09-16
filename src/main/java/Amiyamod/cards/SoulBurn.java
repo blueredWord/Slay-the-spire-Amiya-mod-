@@ -39,7 +39,7 @@ public class SoulBurn extends CustomCard {
         //this.heal = 15;
         //this.misc = 20;
 
-        this.exhaust = true;
+        //this.exhaust = true;
         //this.isEthereal = true;
         //this.selfRetain = true;
 

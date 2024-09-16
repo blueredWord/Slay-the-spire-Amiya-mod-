@@ -6,6 +6,7 @@ import Amiyamod.action.cards.ChoseTempToHandAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -86,7 +87,9 @@ public class KingSeeAction extends AbstractGameAction {
             if (cardRarity != AbstractCard.CardRarity.SPECIAL){
                 tmp = CardLibrary.getAnyColorCard(cardRarity);
             } else {
-                tmp = Amiyamod.Mcard.get(new Random().nextInt(Amiyamod.Mcard.size()));
+                CardGroup CG = new  CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                CG.group.addAll(Amiyamod.Mcard);
+                tmp = CG.getRandomCard(true).makeCopy();
             }
 
             while(var6.hasNext()) {

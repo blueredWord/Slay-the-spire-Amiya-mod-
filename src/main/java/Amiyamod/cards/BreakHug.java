@@ -72,6 +72,7 @@ public class BreakHug extends CustomCard {
         for (AbstractCard card : p.drawPile.group){
             if (card.hasTag(YCardTagClassEnum.YZuZhou)){
                 this.addToBot(new BreakHugAction(1));
+                break;
             }
         }
         this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.misc,false)));
