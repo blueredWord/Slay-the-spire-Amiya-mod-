@@ -30,7 +30,7 @@ public class HelBox extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
-        this.baseHeal = this.heal = 7;
+        this.misc = 7;
         //源石卡牌tag
         this.exhaust = true;
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -54,7 +54,7 @@ public class HelBox extends CustomCard {
         // 从抽牌堆消耗一张卡
         this.addToBot(new HelBoxAction(this.magicNumber));
         // 获得6点丝线
-        Amiyamod.LinePower(this.heal);
+        Amiyamod.LinePower(this.misc);
         //燃己1
         //Amiyamod.BurnSelf(1);
     }

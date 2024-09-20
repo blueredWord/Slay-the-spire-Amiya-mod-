@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //亡陨
 //不可被打出 回合结束时 燃己5。
-public class Ydead extends CustomCard implements YZCardInterface {
+public class Ydead extends YCard implements YZCardInterface {
     private static final String NAME = "Ydead";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -28,15 +28,9 @@ public class Ydead extends CustomCard implements YZCardInterface {
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;//无法选择
     public Ydead() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 6;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(YCardTagClassEnum.YZuZhou);
-    }
-
-    public void triggerWhenDrawn() {
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
-        //Amiyamod.BurnSelf(this.magicNumber);
     }
 
     public void triggerOnEndOfPlayerTurn() {
@@ -45,14 +39,11 @@ public class Ydead extends CustomCard implements YZCardInterface {
         //Amiyamod.BurnSelf();
         super.triggerOnEndOfPlayerTurn();
     }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    //public void use(AbstractPlayer p, AbstractMonster m) {}
+
     public void upgrade() {}
+
     public AbstractCard makeCopy() {return new Ydead();}
 
     @Override

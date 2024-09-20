@@ -33,6 +33,7 @@ public class LittleTe extends CustomCard {
     public LittleTe() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //源石卡牌tag
+        this.baseMagicNumber = this.magicNumber = 1;
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -40,8 +41,10 @@ public class LittleTe extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeBaseCost(1);
+            this.isInnate = true;
+            //this.upgradeBaseCost(1);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -49,7 +52,7 @@ public class LittleTe extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得状态:获得格挡时改为获得等量的丝线
-        this.addToTop(new ApplyPowerAction(p, p, new LittleTePower(p)));
+        this.addToTop(new ApplyPowerAction(p, p, new LittleTePower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new LittleTe();}
 }

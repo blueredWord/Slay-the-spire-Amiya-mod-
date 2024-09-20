@@ -15,7 +15,7 @@ public class LittleLeOrb extends CustomOrb {
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public LittleLeOrb() {
-        super(POWER_ID,powerStrings.NAME,3, 6,powerStrings.DESCRIPTIONS[0], powerStrings.DESCRIPTIONS[1],
+        super(POWER_ID,powerStrings.NAME,2, 6,powerStrings.DESCRIPTIONS[0], powerStrings.DESCRIPTIONS[1],
                 "img/powers/Herpower.png");
         this.updateDescription();
     }

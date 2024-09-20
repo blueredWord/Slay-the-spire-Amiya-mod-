@@ -66,7 +66,8 @@ public class FirstSayPower extends AbstractPower {
     }
 
      */
-    public void atEndOfTurn(boolean isPlayer) {
+
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
         if (isPlayer) {
             AbstractPlayer p = AbstractDungeon.player;
             ArrayList<AbstractCard> list = new ArrayList<>();

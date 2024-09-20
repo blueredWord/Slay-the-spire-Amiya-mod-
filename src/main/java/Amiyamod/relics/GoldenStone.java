@@ -51,7 +51,7 @@ public class GoldenStone extends CustomRelic {
         return DESCRIPTIONS[0];
     }
     public void atPreBattle() {
-        this.addToBot(new MakeTempCardInHandAction(new badY().makeCopy()));
+        this.addToBot(new MakeTempCardInHandAction(new badY().makeCopy(),2));
     }
     // 返回当前遗物的副本
     public AbstractRelic makeCopy() {

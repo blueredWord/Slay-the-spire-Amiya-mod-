@@ -7,36 +7,33 @@
     "NAME": "基础法术防御",
     "DESCRIPTION": "获得 !B! 点格挡。"
   },
-  "AmiyaMod:AmiyaMagic": {
-    "NAME": "基础源石技艺",
-    "DESCRIPTION": "急性发作 1。 NL 造成 !D! 点伤害 !M! 次。 NL 战斗中每次打出伤害次数+1。 NL 源石技艺 。"
-  },
+
   "AmiyaMod:BadZhufu": {
     "NAME": "禁忌祝福",
     "DESCRIPTION": "急性发作 1。 NL 获得 !M! 点 丝线 ，卡组中每有一张 源石诅咒 额外获得 !M! 点丝线。 NL 消耗 。"
   },
   "AmiyaMod:BeautifulLife": {
-    "NAME": "璀璨生命",
-    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会受到等同于耗能的伤害。 NL 消耗 。",
+    "NAME": "黎明曙光",
+    "DESCRIPTION": "抽 !M! 张牌，在本场战斗将它们的耗能降为0，但在打出时会失去等同于耗能的生命。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BForB": {
     "NAME": "以血还血",
-    "DESCRIPTION": "燃己 !M! 。 NL 造成 !D! 点伤害。 NL 消耗 。",
+    "DESCRIPTION": "失去1点生命 !M! 次。 NL 造成 !D! 点伤害。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BloodPotion": {
-    "NAME": "鲜血制剂",
-    "DESCRIPTION": " 燃己 2。 NL 给予所有敌人 !M! 层 虚弱 和 易伤 。",
-    "UPGRADE_DESCRIPTION": " 燃己 2。 NL 给予所有敌人 !M! 层 虚弱 和 易伤 两次。"
+    "NAME": "战争祭坛",
+    "DESCRIPTION": "失去1点生命2次。 NL 给予所有敌人 !M! 层 虚弱 和 易伤 。",
+    "UPGRADE_DESCRIPTION": "失去1点生命2次。 NL 给予所有敌人 !M! 层 虚弱 和 易伤 两次。"
   },
   "AmiyaMod:LineBody": {
     "NAME": "身上衣",
     "DESCRIPTION": " 保留 。 NL 本回合你每打出过一次 源石技艺 牌，获得1层 茧 。降低 !M! 点 感染进度 。 NL 消耗 。"
   },
   "AmiyaMod:LineHand": {
-    "NAME": "手中线",
-    "DESCRIPTION": "源石技艺 。 NL 获得 !M! 点丝线，本回合每打出一张同名卡额外获得4点 丝线 。将抽牌堆中的同名卡拿到手中。 NL 虚无 。"
+    "NAME": "诸魂庇佑",
+    "DESCRIPTION": "获得 !M! 点丝线。 本回合每打出过 1 张 虚无 牌，获得量提高2。 NL 将抽牌堆中的 *诸魂庇佑 拿到手中。 NL 虚无 。"
   },
   "AmiyaMod:CNoC": {
     "NAME": "有刺无刺",
@@ -45,18 +42,18 @@
   },
   "AmiyaMod:Echo": {
     "NAME": "沉默的回响",
-    "DESCRIPTION": " 燃己 X。 NL 对所有敌人造成 !D! 点伤害X次 NL 获得 !M! 点 丝线 X次。",
-    "UPGRADE_DESCRIPTION": " 燃己 X。 NL 对所有敌人造成 !D! 点伤害X+1次 NL 获得 !M! 点 丝线 X+1次。"
+    "DESCRIPTION": " 失去1点生命 X 次。 NL 对所有敌人造成 !D! 点伤害X次 NL 获得 !M! 点 丝线 X次。",
+    "UPGRADE_DESCRIPTION": " 失去1点生命 X 次。 NL 对所有敌人造成 !D! 点伤害X+1次 NL 获得 !M! 点 丝线 X+1次。"
   },
   "AmiyaMod:HelBox": {
     "NAME": "随身医疗箱",
     "DESCRIPTION": " 消耗 抽牌堆中的 !M! 张牌，获得点7丝线 。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": " 燃己 1。 NL 消耗抽牌堆中的1张牌，获得 !M! 点 丝线 。"
+    "UPGRADE_DESCRIPTION": " 失去1点生命 1。 NL 消耗抽牌堆中的1张牌，获得 !M! 点 丝线 。"
   },
   "AmiyaMod:HELP": {
     "NAME": "紧急救援",
-    "DESCRIPTION": "燃己 2 。 NL 从弃牌堆中选择 !M! 张牌放入你的手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "燃己 2 。 NL 从弃牌堆中选择 !M! 张牌放入你的手牌，失去与它们耗能相同的生命。"
+    "DESCRIPTION": "失去1点生命 2 次。 NL 从弃牌堆中选择 !M! 张牌放入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "失去1点生命 2 次。 NL 从弃牌堆中选择 !M! 张牌放入你的手牌，失去与它们耗能相同的生命。"
   },
   "AmiyaMod:HerDo": {
     "NAME": "行她所行",
@@ -64,20 +61,13 @@
   },
   "AmiyaMod:HerSee": {
     "NAME": "见她所见",
-    "DESCRIPTION": "获得 [E] [E] [E] 。 NL 本回合每消耗 [E] : 燃己 !M! NL 消耗 "
+    "DESCRIPTION": "获得 [E] [E] [E] 。 NL 之后本回合每消耗 [E] 便失去 1 点生命。"
   },
   "AmiyaMod:LifeMade": {
     "NAME": "生命固化",
-    "DESCRIPTION": "燃己 2。 NL 获得 !M! 点 丝线 。"
+    "DESCRIPTION": "失去1点生命 2 次。 NL 获得 !M! 点 丝线 。"
   },
-  "AmiyaMod:LineDefender": {
-    "NAME": "护身丝线",
-    "DESCRIPTION": "直到下个回合开始前，每失去1次生命获得 !M! 点 丝线 。"
-  },
-  "AmiyaMod:LittleTe": {
-    "NAME": "特蕾西亚的庇护",
-    "DESCRIPTION": "获得格挡时改为获得等量的 丝线 。"
-  },
+
   "AmiyaMod:Mercy": {
     "NAME": "慈悲愿景",
     "DESCRIPTION": "本回合造成伤害时获得等同于伤害一半的 丝线 。 NL 消耗 。",
@@ -92,20 +82,16 @@
     "DESCRIPTION": "每次受到伤害令一名随机敌人获得 !M! 层 虚弱 。",
     "UPGRADE_DESCRIPTION": "每次受到伤害令一名随机敌人获得 !M! 层 虚弱 。"
   },
-  "AmiyaMod:BurnMark": {
-    "NAME": "灼痕",
-    "DESCRIPTION": " 不能被打出 。 NL 当你 燃己 时 消耗 ，获得 [R] 。并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你 燃己 时 消耗 ，获得 [R] [R] 。并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。"
-  },
+
   "AmiyaMod:SoulDefend": {
-    "NAME": "诸魂庇佑",
-    "DESCRIPTION": "每当你失去生命时获得 !M! 点 丝线 。 NL 将一张 *诸魂庇佑 加入手牌 。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": "每当你失去生命时获得 !M! 点 丝线 。 NL 将一张 *诸魂庇佑 加入手牌 。 NL 虚无 。"
+    "NAME": "幽影闪烁",
+    "DESCRIPTION": "每当你失去生命时获得 !M! 点 丝线 。 NL 将一张 *幽影闪烁 加入手牌 。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "每当你失去生命时获得 !M! 点 丝线 。 NL 将一张 *幽影闪烁 加入手牌 。 NL 虚无 。"
   },
   "AmiyaMod:Yangry": {
     "NAME": "狂躁症",
     "DESCRIPTION": " 不能被打出 。 NL 当你打出攻击牌时，随机丢弃 !M! 张手牌。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你打出攻击牌时，随机丢弃 !M! 张手牌，并 燃己 1 。"
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你打出攻击牌时，随机丢弃 !M! 张手牌，并 失去1点生命。"
   },
   "AmiyaMod:Ychengyin": {
     "NAME": "源石瘾",
@@ -150,7 +136,7 @@
   "AmiyaMod:RedSky": {
     "NAME": "赤霄",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 可以被多次 升级 。 NL 消耗 。 虚无 。",
-    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","可以被多次 升级 。 NL 按照升级次数造成 *4*2^X 点伤害。 NL 消耗 。 NL 虚无 。"]
+    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","可以被多次 升级 。 NL 按照升级次数造成 NL *4 ** *2 *^ *X 点伤害。 NL 消耗 。 NL 虚无 。"]
   },
   "AmiyaMod:ShadowOut": {
     "NAME": "影霄*拔刀",
@@ -158,7 +144,7 @@
     "UPGRADE_DESCRIPTION": " 固有 。 保留 。 NL 造成 !D! 点伤害。 NL 出鞘 :下回合开始时将此牌加入手牌。"
   },
   "AmiyaMod:AngryForever": {
-    "NAME": "永燃怒火",
+    "NAME": "无名怒火",
     "DESCRIPTION": "每回合开始时进入 出鞘 状态。",
     "UPGRADE_DESCRIPTION": "进入 出鞘 状态。 NL 每回合开始时进入 出鞘 状态。"
   },
@@ -191,11 +177,6 @@
     "DESCRIPTION": "将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "将手牌中的 !M! 张牌 升级 并放到你的抽牌堆顶部。"
   },
-  "AmiyaMod:ShadowDefend": {
-    "NAME": "影霄*守式",
-    "DESCRIPTION": "本回合打出的下一张 赤霄 将获得等同于伤害的 格挡 。  NL 入鞘 : 获得一张 赤霄 。",
-    "UPGRADE_DESCRIPTION": "本回合打出的下一张 赤霄 将获得等同于伤害的 格挡 。  NL 入鞘 : 获得一张 赤霄 。并将其 升级 !M! 次。"
-  },
   "AmiyaMod:ShadowBlueFire": {
     "NAME": "青焰环身",
     "DESCRIPTION": "处于 出鞘 状态时，打出非攻击牌也能获得 赤霄 。"
@@ -204,10 +185,7 @@
     "NAME": "影霄*两仪",
     "DESCRIPTION": "丢弃至多 !M! 张牌，抽相同数量的牌。 NL 入鞘 : 将你丢弃的攻击牌拿回手牌。"
   },
-  "AmiyaMod:ShadowRunNight": {
-    "NAME": "影霄*奔夜",
-    "DESCRIPTION": "造成 !D! 点伤害两次。 出鞘 :获得等同于目标伤害意图一半的 格挡 。"
-  },
+
   "AmiyaMod:ShadowWaterMusic": {
     "NAME": "影霄*水韵",
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害2次。 NL 出鞘 :本回合打出的下 !M! 张 赤霄 会对所有敌人造成伤害。"
@@ -228,15 +206,7 @@
     "DESCRIPTION": "获得 !B! 点 格挡 和 !M! 层 虚弱 。 NL 出鞘 : 抽1张牌。",
     "UPGRADE_DESCRIPTION": "保留 。 NL 获得 !B! 点 格挡 和 !M! 层 虚弱 。 NL 出鞘 : 抽1张牌。"
   },
-  "AmiyaMod:Shadow15": {
-    "NAME": "剑十五",
-    "DESCRIPTION": "抽到此牌时 燃己 5。 NL 造成 !D! 点伤害 !M! 次。 NL 你每在战斗中失去生命一次，这张牌的耗能就减少 [E] 。 NL 入鞘 :回复15点生命。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 抽到此牌时 燃己 5。 NL 造成 !D! 点伤害 !M! 次。 NL 你每在战斗中失去生命一次，这张牌的耗能就减少 [E] 。 NL 入鞘 :回复15点生命。 NL 消耗 。"
-  },
-  "AmiyaMod:StoneSword": {
-    "NAME": "结晶化剑",
-    "DESCRIPTION": "源石技艺 。 急性发作 1。 NL 获得1张 赤霄 ,将其 升级 !M! 次。 NL 出鞘 :额外 升级 1次。"
-  },
+
   "AmiyaMod:AmiyaPower": {
     "NAME": "不稳定的力量",
     "DESCRIPTION": " 急性发作 !M! 。 NL 抽 !M! 张牌，并获得 [E] NL 消耗 。 NL 虚无 。",
@@ -266,11 +236,12 @@
   },
   "AmiyaMod:StoneBlock": {
     "NAME": "结晶化盾",
-    "DESCRIPTION": "源石技艺 。 NL 急性发作 1。 NL 获得 !B! 点 格挡 。"
+    "DESCRIPTION": "源石技艺 。 NL 获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "源石技艺 。 NL 急性发作 1。 NL 获得 !B! 点 格挡 。"
   },
   "AmiyaMod:MindBubble": {
     "NAME": "情感泡泡",
-    "DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得 !M! 点 丝线 ，若你打出攻击牌则会失去等量 丝线 。 NL 虚无 。",
+    "DESCRIPTION": "抽到此卡时，获得 !M! 点 丝线 ，本回合若你打出攻击牌则会失去等量 丝线 。 NL 虚无 。",
     "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 抽到此牌时获得!M!点 丝线 ，若你打出攻击牌则会失去等量 丝线 。 NL 虚无 。"
   },
   "AmiyaMod:PainMagic": {
@@ -297,8 +268,8 @@
   },
   "AmiyaMod:BreakRing": {
     "NAME": "极限施法",
-    "DESCRIPTION": "燃己 !M! 。 NL 你本回合打出的下1张 源石技艺 卡将被额外打出一次。",
-    "UPGRADE_DESCRIPTION": "你本回合打出的下1张 源石技艺 卡将被额外打出一次。"
+    "DESCRIPTION": "本回合当你打出 源石技艺 时，失去等同于其原本耗能的生命 ， 将其额外打出1次。 NL 消耗 。 ",
+    "UPGRADE_DESCRIPTION": "本回合当你打出 源石技艺 时，失去等同于其原本耗能的生命 ， 将其额外打出1次。"
   },
   "AmiyaMod:LoseWish": {
     "NAME": "枯竭期许",
@@ -318,11 +289,7 @@
     "NAME": "被预言的魔王",
     "DESCRIPTION": "对所有敌人造成!D!点伤害。 战斗开始时，按照卡组中 源石诅咒 的数量 升级 此卡。 NL 能被多次 升级 。 NL 虚无 。"
   },
-  "AmiyaMod:FirstSay": {
-    "NAME": "阿喃那",
-    "DESCRIPTION": "可以打出原本 不能被打出 的 源石诅咒 。 NL 每当回合结束时，将你手中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 可以打出原本 不能被打出 的 源石诅咒 。 NL 每当回合结束时，将你手中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 。"
-  },
+
   "AmiyaMod:ASay": {
     "NAME": "源石结晶",
     "DESCRIPTION": "源石诅咒 。 NL 随机施展一张 源石技艺 。 NL 虚无 。 消耗 。"
@@ -339,7 +306,7 @@
   "AmiyaMod:DefendMagic": {
     "NAME": "防护巫咒",
     "DESCRIPTION": "源石技艺 。 NL 去除你的 易伤 效果。 NL 获得 !B! 点格挡。",
-    "UPGRADE_DESCRIPTION": "源石技艺 。 NL 去除你的 脆弱 与 易伤 效果。 NL 获得 !B! 点格挡。"
+    "UPGRADE_DESCRIPTION": "源石技艺 。 NL 去除你的 易伤 效果。 获得1层 人工制品 。 NL 获得 !B! 点格挡。"
   },
   "AmiyaMod:SeeMe": {
     "NAME": "见我",
@@ -350,10 +317,7 @@
     "NAME": "终局未至",
     "DESCRIPTION": "源石技艺 。 急性发作 1。 NL 对所有敌人造成 !D! 点伤害，造成相当于你 感染进度 的额外伤害。 NL 虚无 。"
   },
-  "AmiyaMod:NoName": {
-    "NAME": "无名怒火",
-    "DESCRIPTION": "急性发作 1。 NL 造成 !D! 点伤害。 NL 出鞘 : 下回合开始时 出鞘 。 NL 消耗 。"
-  },
+
   "AmiyaMod:DrBlood": {
     "NAME": "造物主之血",
     "DESCRIPTION": "降低 !M! 点 感染进度 。 NL 进入 感染爆发 状态。 NL 消耗 。",
@@ -362,11 +326,7 @@
   "AmiyaMod:Ghost": {
     "NAME": "幽影重重",
     "DESCRIPTION": "将你当前的 丝线 翻倍。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。将你当前的 丝线 翻倍。 NL 消耗 。"
-  },
-  "AmiyaMod:SadMind": {
-    "NAME": "哀恸共情",
-    "DESCRIPTION": " 源石技艺 。 急性发作 1 NL 获得 !M! 点 丝线 ，下回合开始时 丝线 不会减半。"
+    "UPGRADE_DESCRIPTION": "保留 。 NL 将你当前的 丝线 翻倍。 NL 消耗 。"
   },
 
   "AmiyaMod:MagicBook": {
@@ -379,12 +339,6 @@
     "DESCRIPTION": "获得 !M! 点 丝线 。 NL 下回合开始时对所有敌人造成等同于你 丝线 数量的伤害。",
     "UPGRADE_DESCRIPTION": "  "
   },
-  "AmiyaMod:BreakHug": {
-    "NAME": "破碎之拥",
-    "DESCRIPTION": "急性发作 1。 NL  将抽牌堆最上方的一张 源石诅咒 加入手牌。 NL 给予2层 易伤 。获得 !M! 点 丝线 。",
-    "UPGRADE_DESCRIPTION": "去除一名敌人的所有 格挡 值。并给予 !M! 层 易伤 。 NL 保留 。"
-  },
-
 
   "AmiyaMod:FirstSayA": {
     "NAME": "源石结晶",
@@ -414,34 +368,32 @@
   },
   "AmiyaMod:EatZuzhou": {
     "NAME": "螯合诅咒",
-    "DESCRIPTION": "固有 。 源石技艺 。 NL 选择你卡组中的 源石诅咒 牌 !M! 次。在战斗中将它们 消耗 并对敌人施加相应异常状态。 NL 消耗 。",
+    "DESCRIPTION": "源石技艺 。 NL 选择你卡组中的 源石诅咒 牌 !M! 次。在战斗中将它们 消耗 并对敌人施加相应异常状态。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "要使用这个法术...我还对源石诅咒痛苦的了解还不足够。",
     "EXTENDED_DESCRIPTION": [
       "每回合有50%几率给予你 [E] 。",
-      "回合结束时,受到12点伤害。",
+      "回合结束时,失去6点生命。",
       "造成的伤害减少2点。",
       "受到的伤害增加2点。",
       "若一次失去至少8点生命，目标获得1层 易伤 。",
       "每当你打出 源石技艺 ，失去所有 格挡 。",
       "回合开始时，使你额外抽取1张牌。",
       "每当你打出 源石技艺 ，获得1层 虚弱 。",
-      "回合开始时时，失去生命直到个位为0。 NL (若个位为0则失去10点生命。)"
+      "回合开始时时，失去生命直到个位为0。 NL (若个位为0则失去10点生命。)",
+      "",
+      ""
     ]
   },
-  "AmiyaMod:KingSay": {
-    "NAME": "魔王律令",
-    "DESCRIPTION": "不能被打出 。 NL 抽到此卡时将1张随机 源石技艺 拿到手中， 若本回合未将其打出则 消耗 所有手牌。",
-    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 抽到此卡时将1张 升级 过的随机 源石技艺 拿到手中， 若本回合未将其打出则 消耗 所有手牌。",
-    "EXTENDED_DESCRIPTION": [" NL (任务: 在本回合内施展 ",
-      " 、 ",
-      " 。)",
-      " NL (任务: 已完成) "
-    ]
-  },
+
   "AmiyaMod:ShadowCloudBreak": {
     "NAME": "影霄*云裂",
     "DESCRIPTION": "将一张 *云裂 ** *出 放入抽牌堆中。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 将一张 *云裂 ** *出 放入弃牌堆中。 NL 消耗 。"
+    "UPGRADE_DESCRIPTION": "入鞘:选择 !M! 张已 消耗 的 赤霄 ，将其放入你的手牌。"
+  },
+  "AmiyaMod:ShadowCloudBreak2": {
+    "NAME": "影霄*云裂",
+    "DESCRIPTION": "出鞘 :选择 !M! 张已 消耗 的 赤霄 ，将其放入你的手牌。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "进入 出鞘 状态 。 NL 选择 !M! 张已 消耗 的 赤霄 ，将其放入你的手牌。 NL 虚无 。"
   },
   "AmiyaMod:CloudBreakIn": {
     "NAME": "云裂*出",
@@ -450,8 +402,8 @@
   },
   "AmiyaMod:BloodSword": {
     "NAME": "饲血",
-    "DESCRIPTION": "燃己 1 。 NL 出鞘 : 升级 !M! 张 赤霄 ，失去等同于它 升级 次数的生命 。",
-    "UPGRADE_DESCRIPTION": "出鞘 : 升级 !M! 张 赤霄 ，失去等同于它 升级 次数的生命 。",
+    "DESCRIPTION": "失去1点生命。 NL 出鞘 : 升级 !M! 张 赤霄 。 失去等同于它 升级 次数的生命。",
+    "UPGRADE_DESCRIPTION": "出鞘 : 升级 !M! 张 赤霄 。 失去等同于它 升级 次数的生命",
     "EXTENDED_DESCRIPTION": [" NL (造成","点伤害)"]
   },
   "AmiyaMod:ShadowBackWindy": {
@@ -465,8 +417,9 @@
   },
   "AmiyaMod:BloodNo": {
     "NAME": "青色怒火",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 入鞘 : 本回合打出的下一张 赤霄 无视 格挡 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 出鞘 : 本回合打出的下一张 赤霄 无视 格挡 。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 额外造成本场战斗中打出 虚无 牌次数的伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 额外造成本场战斗中打出 虚无 牌次数 2 倍的伤害。",
+    "EXTENDED_DESCRIPTION": [" NL (造成","点额外伤害）"]
   },
   "AmiyaMod:ShadowSkyOpen": {
     "NAME": "影霄*天瞠",
@@ -488,10 +441,7 @@
       "的特殊 追忆 加入手中并 升级 。"
     ]
   },
-  "AmiyaMod:badY": {
-    "NAME": "污染碎片",
-    "DESCRIPTION": " 保留 。 NL 获得 198 金币 。 NL 每当这张牌被 保留 时，增加 !M! 感染进度 。 NL 源石诅咒 。"
-  },
+
   "AmiyaMod:Whitemith": {
     "NAME": "“Whitemith”",
     "DESCRIPTION": "抽X张牌，它们本回合的耗能变为0。 NL 消耗 。",
@@ -550,12 +500,12 @@
 
   "AmiyaMod:KingSee": {
     "NAME": "魔王幻景",
-    "DESCRIPTION": "获得 [E] [E] 。给予8点 丝线 。其回合开始时若保有 丝线 ，则给予 !M! 层 虚弱 并将 !M! 张 升级 过的 追忆 拿到手中。 NL 虚无 。"
+    "DESCRIPTION": "给予 8 点 丝线 。若目标回合开始时保有 丝线 ，则给予 !M! 层 虚弱 并将 !M! 张 升级 过的 追忆 拿到手中。"
   },
   "AmiyaMod:SwordHeard": {
     "NAME": "以剑交心",
-    "DESCRIPTION": "造成 !D! 点伤害。获得1层 易伤 并给予1层 易伤 。 NL 出鞘 : 从 !M! 张随机 追忆 中选择1张加入你的手牌。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。获得1层 易伤 并给予1层 易伤 。 NL 出鞘 : 从 !M! 张 升级 过的 追忆 中选择1张加入你的手牌。 NL 虚无 。"
+    "DESCRIPTION": "造成 !D! 点伤害。获得1层 易伤 并给予1层 易伤 。 NL 出鞘 : 将 !M! 张随机 追忆 加入你的手牌。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。获得1层 易伤 并给予1层 易伤 。 NL 出鞘 : 从 !M! 张随机 追忆 中选择1张加入你的手牌。 NL 虚无 。"
   },
   "AmiyaMod:YOpen": {
     "NAME": "结晶绽放",
@@ -564,13 +514,120 @@
   },
   "AmiyaMod:ShadowBack": {
     "NAME": "影霄*溯洄",
-    "DESCRIPTION": "丢弃手牌中所有的非攻击牌，获得 [E] 。 NL 出鞘 :随机 升级 手牌 !M! 次。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 丢弃手牌中所有的非攻击牌，获得 [E] 。 NL 出鞘 :获得 !B! 点 格挡 。 NL 消耗 。"
+    "DESCRIPTION": "丢弃手牌中所有的非攻击牌。 NL 出鞘 :随机 升级 手牌 !M! 次。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 丢弃手牌中所有的非攻击牌。 NL 出鞘 :获得 !B! 点 格挡 。 NL 消耗 。"
   },
 
   "AmiyaMod:ShadowYangMei": {
     "NAME": "影霄*扬眉",
     "DESCRIPTION": "造成 !D! 点伤害，使 !M! 张手牌获得 保留 。 NL 出鞘 : 保留 所有手牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 出鞘 : 升级手中耗能为0的牌。"
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 出鞘 : 升级手中 虚无 的牌。"
+  },
+
+  "AmiyaMod:BlackKing": {
+    "NAME": "黑冠圣贤",
+    "DESCRIPTION": "每当回合开始时，可以选择 !M! 张手牌 消耗 。 NL 每当非 追忆 牌被 消耗 ，将 !M! 张 追忆 加入手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当回合开始时，可以选择 !M! 张手牌 消耗 。 NL 每当非 追忆 牌被 消耗 ，将 !M! 张 追忆 加入手牌。"
+  },
+  "AmiyaMod:SoulMilk": {
+    "NAME": "魂灵涡流",
+    "DESCRIPTION": "从3张随机 追忆 中选择1张加入手牌。 NL 如果 *魂灵涡流 被 消耗 ，获得2层 再生 。",
+    "UPGRADE_DESCRIPTION": "从3张 升级 过的 追忆 中选择1张追忆 加入手牌。 NL 如果 *魂灵涡流 被 消耗 ，获得2层 再生 。"
+  },
+  "AmiyaMod:MakeLine": {
+    "NAME": "编织茧笼",
+    "DESCRIPTION": "每当你打出不存在于卡组的卡牌时，获得 !M! 点 丝线 。"
+  },
+  "AmiyaMod:MindRoll": {
+    "NAME": "意志震荡",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害，将1张 随机 追忆 拿入手中。 NL 消耗牌堆中每有 !M! 张卡额外造成 1 点伤害 。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害，将1张 升级 过的 追忆 拿入手中。 NL 消耗牌堆中每有 !M! 张卡额外造成 1 点伤害 。 NL 虚无 。"
+  },
+  "AmiyaMod:CopyMagic": {
+    "NAME": "仿身巫咒",
+    "DESCRIPTION": "源石技艺 。 NL 失去1点生命。 NL 查看抽牌堆顶端的 !M! 张牌，选择1张将其复制加入手牌。",
+    "UPGRADE_DESCRIPTION":"源石技艺 。 NL 失去1点生命。 NL 查看抽牌堆顶端的 !M! 张牌，选择1张将其复制加入手牌。"
+  },
+
+  "AmiyaMod:BreakHug": {
+    "NAME": "浇灌新生",
+    "DESCRIPTION": "获得 !M! 点 丝线 。下回合开始时你的 丝线 不会减半。"
+  },
+  "AmiyaMod:SadMind": {
+    "NAME": "哀恸共情",
+    "DESCRIPTION": "获得等同于目标原始伤害意图的 丝线 。",
+    "UPGRADE_DESCRIPTION":"保留 。 NL 获得等同于目标原始伤害意图的 丝线 。"
+  },
+  "AmiyaMod:ShadowDefend": {
+    "NAME": "影霄*守式",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 入鞘 : 本回合打出的下 !M! 张 赤霄 将获得等同于伤害的 格挡 。",
+    "UPGRADE_DESCRIPTION":"保留 。 NL 造成 !D! 点伤害。 NL 入鞘 : 本回合打出的下 !M! 张 赤霄 将获得等同于伤害的 格挡 。"
+  },
+  "AmiyaMod:BurnMark": {
+    "NAME": "灼痕",
+    "DESCRIPTION": "失去1点生命。 NL 造成 !D! 点伤害。 此卡被 消耗 时，在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你 失去1点生命 时 消耗 ，获得 [R] [R] 。并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。"
+  },
+  "AmiyaMod:StoneSword": {
+    "NAME": "结晶化剑",
+    "DESCRIPTION": "源石技艺 。 NL 获得1张 赤霄 ,将其 升级 !M! 次。 NL 出鞘 :额外 升级 1次。",
+    "UPGRADE_DESCRIPTION": "源石技艺 。 急性发作 1。 NL 获得1张 赤霄 ,将其 升级 !M! 次。 NL 出鞘 :额外 升级 1次。"
+  },
+  "AmiyaMod:ShadowRunNight": {
+    "NAME": "影霄*奔夜",
+    "DESCRIPTION": "造成 !D! 点伤害两次。 出鞘 : 本回合每当你打出 赤霄 获得 !M! 点 格挡。"
+  },
+  "AmiyaMod:LineDefender": {
+    "NAME": "护身丝线",
+    "DESCRIPTION": "直到下个回合开始前，每失去1次生命获得 !M! 点 丝线 。"
+  },
+  "AmiyaMod:Shadow15": {
+    "NAME": "剑十五",
+    "DESCRIPTION": "抽到此牌时 失去1点生命 5 次。 NL 造成 !D! 点伤害 !M! 次。 NL 你每在战斗中失去生命一次，这张牌的耗能就减少 [E] 。 NL 入鞘 :回复15点生命。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 抽到此牌时 失去1点生命 5 次。 NL 造成 !D! 点伤害 !M! 次。 NL 你每在战斗中失去生命一次，这张牌的耗能就减少 [E] 。 NL 入鞘 :回复15点生命。 NL 消耗 。"
+  },
+
+  "AmiyaMod:KingSay": {
+    "NAME": "魔王传承",
+    "DESCRIPTION": "不能被打出 。 NL 抽到时将1张随机 源石技艺 和3张 源石诅咒 加入手牌。 NL 若你打出拿到的 源石技艺 ，再获得另1张。",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 抽到时将1张 升级 过的 源石技艺 和3张 源石诅咒 加入手牌。 NL 若你打出拿到的 源石技艺 ，再获得另1张。",
+    "EXTENDED_DESCRIPTION": [" NL (律令: ",
+      " 、 ",
+      " 。)",
+      " NL (已打出) "
+    ]
+  },
+
+
+  "AmiyaMod:NoName": {
+    "NAME": "愠怒",
+    "DESCRIPTION": "处于 出鞘 时才能打出。 NL 造成 !D! 点伤害 。 NL 下回合开始时 出鞘 。 NL 虚无 。",
+    "EXTENDED_DESCRIPTION": [
+      "不要...不要惹恼我。",
+      "这把剑渴望着报复...我不能放纵它。"]
+  },
+  "AmiyaMod:AmiyaMagic": {
+    "NAME": "基础源石技艺",
+    "DESCRIPTION": "急性发作 1。 NL 造成 !D! 点伤害。 NL 源石技艺 。"
+  },
+  "AmiyaMod:LittleTe": {
+    "NAME": "期冀之汇",
+    "DESCRIPTION": "可以失去1点生命并打出 不能被打出 的 源石诅咒 来将它们 消耗 。 NL 每当你 消耗 或因 急性发作 丢弃 源石诅咒 ， 获得 [E] 。",
+    "UPGRADE_DESCRIPTION":"固有 。 NL 可以失去1点生命并打出 不能被打出 的 源石诅咒 来将它们 消耗 。 NL 每当你 消耗 或因 急性发作 丢弃 源石诅咒 ， 获得 [E] 。"
+  },
+  "AmiyaMod:badY": {
+    "NAME": "污染碎片",
+    "DESCRIPTION": " 保留 。 NL 若本场战斗你打出过另一张 *污染碎片 ，获得 60 金币。 NL 每当这张牌被 保留 时，增加 !M! 感染进度 。 NL 源石诅咒 。"
+  },
+  "AmiyaMod:FirstSay": {
+    "NAME": "阿喃那",
+    "DESCRIPTION": "每当回合结束时，将你手中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每当回合结束时，将你手中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 。"
+  },
+
+  "AmiyaMod:Hate": {
+    "NAME": "恨火蔓延",
+    "DESCRIPTION": "本轮当你受到攻击时 给予攻击者 !M! 层 易伤 。 NL 当此卡被 消耗 时，抽 !M! 张牌。 NL 虚无 。"
   }
 }
+

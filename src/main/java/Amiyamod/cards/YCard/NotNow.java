@@ -3,6 +3,7 @@ package Amiyamod.cards.YCard;
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.relics.Yill;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -56,10 +57,10 @@ public class NotNow extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(2);
+            //this.upgradeBlock(2);
             //this.exhaust = false;
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(3);
+            //this.upgradeMagicNumber(3);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -70,7 +71,13 @@ public class NotNow extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int i = this.damage;
-        this.damage = this.damage + this.baseMagicNumber;
+        if (p.hasRelic(Yill.ID)){
+            this.baseMagicNumber = p.getRelic(Yill.ID).cost;
+        } else {
+            this.baseMagicNumber = 0;
+        }
+        this.damage = this.baseDamage + this.baseMagicNumber;
+        this.applyPowers();
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
         );

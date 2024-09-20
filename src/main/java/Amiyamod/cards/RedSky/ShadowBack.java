@@ -66,7 +66,7 @@ public class ShadowBack extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new GainEnergyAction(1));
+        //this.addToBot(new GainEnergyAction(1));
         this.addToBot(new ShadowBackAction(this));
         ArrayList<AbstractGameAction> list = new ArrayList<>();
         for(int i = 0; i< this.magicNumber;i++){

@@ -32,7 +32,7 @@ public class HelBoxAction extends AbstractGameAction {
 
                 temp.sortAlphabetically(true);
                 temp.sortByRarityPlusStatusCardType(false);
-                AbstractDungeon.gridSelectScreen.open(temp, 1, TEXT[4], false);
+                AbstractDungeon.gridSelectScreen.open(temp, this.playAmt, TEXT[4], false);
                 this.tickDuration();
             }
         } else {

@@ -5,6 +5,7 @@ import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.MindBubblePower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -23,7 +24,7 @@ public class MindBubble extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = -2;//【卡片费用】
+    private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.NONE;//【是否指向敌人】
@@ -32,9 +33,9 @@ public class MindBubble extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST,  CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 8;
+        this.magicNumber = this.baseMagicNumber = 7;
         //this.heal = 15;
-        //this.misc = 20;
+        this.misc = 1;
 
         //this.exhaust = true;
         this.isEthereal = true;
@@ -64,8 +65,9 @@ public class MindBubble extends CustomCard {
 
     public void triggerWhenDrawn() {
         AbstractPlayer p = AbstractDungeon.player;
+        //this.addToBot(new GainEnergyAction(this.misc));
         Amiyamod.LinePower(this.magicNumber);
-        this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower(this.magicNumber),this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower(this.magicNumber)));
         /*
         if(this.upgraded) {
             this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower()));
@@ -77,9 +79,6 @@ public class MindBubble extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {}
+
     public AbstractCard makeCopy() {return new MindBubble();}
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        return  false;
-    }
 }

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -33,10 +34,10 @@ public class BloodNo extends CustomCard {
 
     public BloodNo() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 0;
         this.damage = this.baseDamage = 27;
         this.misc = 1;
-        this.heal = 3;
+        //this.heal = 3;
         this.tags.add(YCardTagClassEnum.RedSky1);
         //this.exhaust = true;
         //this.isEthereal = true;
@@ -53,7 +54,8 @@ public class BloodNo extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.upgradeMagicNumber(2);
+            this.misc += 1;
+            //this.upgradeMagicNumber(1);
             //this.upgradeBlock(6);
             //this.exhaust = false;
             //this.upgradeDamage(10);
@@ -62,15 +64,45 @@ public class BloodNo extends CustomCard {
             this.initializeDescription();
         }
     }
+    public void applyPowers() {
+        int realBaseDamage = this.baseDamage;
 
+        this.baseMagicNumber = 0;
+        for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
+            if (c.isEthereal){
+                this.baseMagicNumber += this.misc;
+            }
+        }
+
+        this.baseDamage += this.baseMagicNumber;
+        super.applyPowers();
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+        this.baseMagicNumber = 0;
+        for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
+            if (c.isEthereal){
+                this.baseMagicNumber += this.misc;
+            }
+        }
+        int realBaseDamage = this.baseDamage;
+        this.baseDamage += this.baseMagicNumber;
+        super.calculateCardDamage(mo);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
+    }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //Amiyamod.BurnSelf(1);
+        this.damage += this.magicNumber;
+        this.calculateCardDamage(m);
         this.addToBot(
                 new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn))
         );
         //Amiyamod.BurnSelf(this.magicNumber);
-        Amiyamod.Sword(this.upgraded,new ApplyPowerAction(p,p,new BloodNoPower(this.magicNumber)));
+        //Amiyamod.Sword(this.upgraded,new ApplyPowerAction(p,p,new BloodNoPower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new BloodNo();}
 }

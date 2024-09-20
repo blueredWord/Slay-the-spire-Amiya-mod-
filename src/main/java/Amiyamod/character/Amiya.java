@@ -5,16 +5,27 @@ import Amiyamod.cards.AmiyaDefend;
 import Amiyamod.cards.AmiyaMagic;
 import Amiyamod.cards.AmiyaStrike;
 
+import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.cards.RedSky.ShadowOut;
+import Amiyamod.cards.RedSky.ShadowSkyOpen;
+import Amiyamod.power.ChiMeRaPower;
+import Amiyamod.power.RedSkyPower;
+import Amiyamod.power.ShadowSkyOpenPower;
+import Amiyamod.power.YSayPower;
 import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.YRing;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.AnimationStateData;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
@@ -61,15 +72,12 @@ public class Amiya extends CustomPlayer {
     public Amiya(String name) {
         super(name, AmiyaClassEnum.AMIYA,ORB_TEXTURES,"images/ui/topPanel/energyBlueVFX.png", LAYER_SPEED, null, null);
 
-
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
         this.dialogY = (this.drawY + 150.0F * Settings.scale);
-
-
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
         this.initializeClass(
-                "img/character/Amiya/amiya.png", // 人物图片
+                null, // 人物图片
                 MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1,
                 CORPSE_IMAGE, // 人物死亡图像
                 this.getLoadout(),
@@ -78,14 +86,26 @@ public class Amiya extends CustomPlayer {
                 new EnergyManager(3) // 初始每回合的能量
         );
 
-
+//"img/character/Amiya/amiya.png"
         // 如果你的人物没有动画，那么这些不需要写
-        // this.loadAnimation("ExampleModResources/img/char/character.atlas", "ExampleModResources/img/char/character.json", 1.8F);
-        // AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-        // e.setTime(e.getEndTime() * MathUtils.random());
-        // e.setTimeScale(1.2F);
-
-
+         this.loadAnimation("img/character/Amiya/char_002_amiya.atlas", "img/character/Amiya/char_002_amiya37.json", 1.8F);
+         AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+         e.setTime(e.getEndTime() * MathUtils.random());
+         e.setTimeScale(1.2F);
+    }
+    public void ChangeA(boolean def){
+        if (def){
+            this.loadAnimation("img/character/Amiya/char_002_amiya.atlas", "img/character/Amiya/char_002_amiya37.json", 1.8F);
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+            e.setTime(e.getEndTime() * MathUtils.random());
+            e.setTimeScale(1.2F);
+        } else {
+            this.loadAnimation("img/character/Amiya/char_1001_amiya2.atlas", "img/character/Amiya/char_1001_amiya237.json", 1.8F);
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "Start", false);
+            //this.state.addAnimation(0,"Idle",true,0.0F);
+            e.setTime(e.getEndTime() * MathUtils.random());
+            e.setTimeScale(1.2F);
+        }
     }
 
     // 初始卡组的ID，可直接写或引用变量
@@ -159,7 +179,7 @@ public class Amiya extends CustomPlayer {
     // 翻牌事件出现的你的职业牌（一般设为打击）
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new AmiyaStrike();
+        return new ShadowOut();
     }
 
     // 卡牌轨迹颜色
@@ -183,8 +203,40 @@ public class Amiya extends CustomPlayer {
     // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
     @Override
     public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.playA("Amiya_SELECT", MathUtils.random(-0.1F, 0.1F));
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
+//受伤
+    public void damage(DamageInfo info) {
+        super.damage(info);
+    }
+    public void useFastAttackAnimation() {
+        if (!this.hasPower(YSayPower.POWER_ID) && !this.hasPower(ChiMeRaPower.POWERID)){
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "Attack", false);
+            if (this.hasPower(ShadowSkyOpenPower.POWERID)&& this.hasPower(RedSkyPower.POWER_ID)){
+                this.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
+            } else {
+                this.state.addAnimation(0, "Idle", true, 0.0F);
+            }
+            e.setTimeScale(1.5F);
+        }
+        //super.useFastAttackAnimation();
+    }
+
+    public void useSlowAttackAnimation() {
+        if (!this.hasPower(YSayPower.POWER_ID) && !this.hasPower(ChiMeRaPower.POWERID)){
+            AnimationState.TrackEntry e = this.state.setAnimation(0, "Attack", false);
+            if (this.hasPower(ShadowSkyOpenPower.POWERID)&& this.hasPower(RedSkyPower.POWER_ID)){
+                this.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
+            } else {
+                this.state.addAnimation(0, "Idle", true, 0.0F);
+            }
+            //e.setTimeScale(1.25F);
+        }
+        //super.useSlowAttackAnimation();
+    }
+
+
 
     // 碎心图片
     @Override
@@ -256,7 +308,9 @@ public class Amiya extends CustomPlayer {
     //战斗开始的处理
     @Override
     public void applyStartOfCombatLogic() {
-
+        this.ChangeA(true);
+        this.state.setAnimation(0, "Start", false);
+        this.state.addAnimation(0, "Idle", true,0.0F);
         super.applyStartOfCombatLogic();
     }
 

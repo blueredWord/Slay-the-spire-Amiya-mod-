@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.UUID;
 // 偏执症
 // 不可被打出 抽到此牌时，选择一张手牌耗能+1，若你回合结束时没有将其打出，燃己4。
-public class Ymust extends CustomCard implements YZCardInterface {
+public class Ymust extends YCard implements YZCardInterface {
     private static final String NAME = "Ymust";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -76,13 +76,8 @@ public class Ymust extends CustomCard implements YZCardInterface {
          */
         super.triggerOnEndOfPlayerTurn();
     }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    //public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ymust();}
 

@@ -32,7 +32,7 @@ public class badY extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 3;//【卡片费用】
+    private static final int COST = 2;//【卡片费用】
     private static final CardType TYPE = CardType.POWER;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.CURSE;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.NONE;//【是否指向敌人】
@@ -41,9 +41,9 @@ public class badY extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 5;
+        this.magicNumber = this.baseMagicNumber = 2;
         //this.heal = 15;
-        this.misc = 198;
+        this.misc = 60;
         this.selfRetain = true;
         //this.selfRetain = true;
 
@@ -54,22 +54,32 @@ public class badY extends CustomCard {
     }
 
     @Override
-    public void upgrade() {
+    public void upgrade() {}
+    public boolean canUpgrade() {
+        return false;
     }
+
     public void onRetained() {
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "onRetained触发"
         );
         Amiyamod.addY(this.magicNumber);
     }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        CardCrawlGame.sound.play("GOLD_GAIN");
-        //AbstractDungeon.player.gainGold(198);
-        for(int i = 0; i < this.misc; ++i) {
-            AbstractDungeon.effectList.add(new GainPennyEffect(p, (float) Settings.WIDTH / 2.0F,(float) Settings.HEIGHT / 2.0F,p.hb.cX, p.hb.cY, true));
-        }
+        for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
+            if (c instanceof badY && c.uuid != this.uuid){
 
+                CardCrawlGame.sound.play("GOLD_GAIN");
+                for(int i = 0; i < this.misc; ++i) {
+                    AbstractDungeon.effectList.add(new GainPennyEffect(p, (float) Settings.WIDTH / 2.0F,(float) Settings.HEIGHT / 2.0F,p.hb.cX, p.hb.cY, true));
+                }
+                AbstractDungeon.player.gainGold(this.misc);
+
+                break;
+            }
+        }
     }
 
     public AbstractCard makeCopy() {return new badY();}

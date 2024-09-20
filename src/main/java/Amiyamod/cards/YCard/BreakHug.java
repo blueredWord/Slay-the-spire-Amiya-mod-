@@ -1,15 +1,12 @@
-package Amiyamod.cards;
+package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.BreakHugAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.SadMindPower;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
-import com.megacrit.cardcrawl.actions.unique.DeckToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -19,7 +16,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 public class BreakHug extends CustomCard {
     //=================================================================================================================
-    //@ 【破碎之拥】 急性发作 1。 NL  将抽牌堆最上方的一张 源石诅咒 加入手牌。 NL 获得 !B! 点 丝线 。
+    //@ 【破碎之拥】 获得 !M! 点丝线。下回合开始时你的 丝线 不会减半。
     //=================================================================================================================
     private static final String NAME = "BreakHug";// 【卡片名字】
 
@@ -30,16 +27,16 @@ public class BreakHug extends CustomCard {
 
     private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
+    private static final CardRarity RARITY = CardRarity.COMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
 
     public BreakHug() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 6;
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 5;
         //this.heal = 15;
-        this.misc = 2;
+        this.misc = 1;
 
         //this.exhaust = true;
         //this.isEthereal = true;
@@ -68,17 +65,10 @@ public class BreakHug extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //this.addToBot(new RemoveAllBlockAction(m, p));
-        for (AbstractCard card : p.drawPile.group){
-            if (card.hasTag(YCardTagClassEnum.YZuZhou)){
-                this.addToBot(new BreakHugAction(1));
-                break;
-            }
-        }
-        this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.misc,false)));
         Amiyamod.LinePower(this.magicNumber);
+        this.addToBot(new ApplyPowerAction(p,p,new SadMindPower(this.misc)));
         //this.addToBot(new GainBlockAction(p,p,this.block));
-        Amiyamod.HenJi(1,this,m);
+        //Amiyamod.HenJi(1,this,m);
     }
     public AbstractCard makeCopy() {return new BreakHug();}
 

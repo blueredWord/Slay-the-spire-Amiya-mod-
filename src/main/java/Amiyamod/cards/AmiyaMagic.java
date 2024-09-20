@@ -30,7 +30,7 @@ public class AmiyaMagic extends CustomCard {
 
     public AmiyaMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 10;
         this.baseMagicNumber = this.magicNumber =1;
         //源石卡牌tag
         this.misc = 1;
@@ -41,7 +41,7 @@ public class AmiyaMagic extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(4); // 将该卡牌的伤害提高3点。
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -52,7 +52,7 @@ public class AmiyaMagic extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0;i < this.magicNumber ; i++){
-            AbstractDungeon.actionManager.addToBottom(
+            this.addToBot(
                     new DamageAction(
                             m,
                             new DamageInfo(
@@ -64,11 +64,10 @@ public class AmiyaMagic extends CustomCard {
             );
         }
         Amiyamod.HenJi(this.misc,this,m);
-        this.magicNumber++;
-        this.baseMagicNumber = this.magicNumber;
-
-                //this.isMagicNumberModified = true;
-        Amiyamod.addY(1);
+        //this.magicNumber++;
+        //this.baseMagicNumber = this.magicNumber;
+        //this.isMagicNumberModified = true;
+        Amiyamod.addY(this.misc);
     }
     public AbstractCard makeCopy() {return new AmiyaMagic();}
 }

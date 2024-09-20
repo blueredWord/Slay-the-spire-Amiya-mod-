@@ -2,6 +2,7 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.RedSky.RedSky;
+import Amiyamod.character.Amiya;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -32,6 +33,14 @@ public class ShadowSkyOpenPower extends AbstractPower {
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_128.png"),0,0,128,128);
 
         this.updateDescription();
+    }
+
+    public void onInitialApplication() {
+        if (this.owner.isPlayer && this.owner instanceof Amiya && this.owner.hasPower(RedSkyPower.POWER_ID)){
+
+            this.owner.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
+
+        }
     }
 
     // 能力在更新时如何修改描述

@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import java.util.Iterator;
 //健忘症
 //不可被打出 抽到此牌时令一张随机手牌获得虚无。
-public class Yjianwang extends CustomCard implements YZCardInterface {
+public class Yjianwang extends YCard implements YZCardInterface {
     private static final String NAME = "Yjianwang";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -56,15 +56,6 @@ public class Yjianwang extends CustomCard implements YZCardInterface {
     }
     @Override
     public void triggerWhenDrawn() {
-        /*
-        AbstractCard c =AbstractDungeon.player.hand.getRandomCard(true);
-        if(c!=null){
-            c.isEthereal = true;
-            c.rawDescription += "  NL 虚无 。";
-        }
-         */
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
         this.reset();
         super.triggerWhenDrawn();
     }
@@ -85,14 +76,8 @@ public class Yjianwang extends CustomCard implements YZCardInterface {
         this.reset();
         super.triggerOnEndOfPlayerTurn();
     }
-    @Override
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    //public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Yjianwang();}
 

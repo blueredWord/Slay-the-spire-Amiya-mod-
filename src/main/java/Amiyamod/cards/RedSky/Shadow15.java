@@ -86,7 +86,7 @@ public class Shadow15 extends CustomCard implements OnLoseTempHpPower {
         );
         int tem=(Integer) TempHPField.tempHp.get(AbstractDungeon.player);
         if ( damageAmount > 0 && tem >= damageAmount){
-            this.updateCost(-1);
+            this.tookDamage();
         }
         return damageAmount;
     }

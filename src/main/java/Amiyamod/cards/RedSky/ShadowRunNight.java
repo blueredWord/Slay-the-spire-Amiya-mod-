@@ -4,8 +4,10 @@ import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ShadowRunNightAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.ShadowBackWindyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,6 +16,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.LoseDexterityPower;
 
 import java.util.ArrayList;
 
@@ -37,7 +41,8 @@ public class ShadowRunNight extends CustomCard {
         this.damage = this.baseDamage = 7;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 5;
+        this.misc = 2;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -59,10 +64,13 @@ public class ShadowRunNight extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for(int i = 0;i<this.magicNumber;i++){
+        for(int i = 0;i<this.misc;i++){
             this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         }
-        Amiyamod.Sword(true,new ShadowRunNightAction(m));
+        ArrayList<AbstractGameAction> list =new ArrayList<>();
+        list.add(new ApplyPowerAction(p, p, new ShadowBackWindyPower(this.magicNumber)));
+        //list.add(new ApplyPowerAction(p, p, new LoseDexterityPower(p, this.magicNumber)));
+        Amiyamod.Sword(true,list);
     }
     public AbstractCard makeCopy() {return new ShadowRunNight();}
 }

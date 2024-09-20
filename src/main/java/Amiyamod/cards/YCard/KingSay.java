@@ -2,15 +2,18 @@ package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ChoseTempToHandAction;
+import Amiyamod.action.cards.KingSayAction;
 import Amiyamod.action.cards.MagicYuJinAction;
 import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.KingDamage;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.FirstSayPower;
 import Amiyamod.power.KingSayPower;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.mod.stslib.damagemods.DamageModifierManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
@@ -39,14 +42,14 @@ public class KingSay extends CustomCard {
 
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
     private static final int COST = -2;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
-    private ArrayList<AbstractCard> list = new ArrayList<>();
+    private static final CardRarity RARITY = CardRarity.RARE;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardTarget TARGET = CardTarget.NONE;//【是否指向敌人】
+    public ArrayList<AbstractCard> list = new ArrayList<>();
 
     public KingSay() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -55,6 +58,7 @@ public class KingSay extends CustomCard {
         this.baseDraw = this.draw =  this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
         this.misc = 1;
+        //DamageModifierManager.addModifier(this, new KingDamage());
         //this.exhaust = true;
         //this.isEthereal = true;
         //this.selfRetain = true;
@@ -85,31 +89,7 @@ public class KingSay extends CustomCard {
         }
     }
     public void triggerWhenDrawn() {
-        CardGroup CG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-        CG.group.addAll(Amiyamod.YZcard);
-        int i = 10 - AbstractDungeon.player.hand.size();
-        i = Math.min(this.misc,i);
-        this.reset();
-        if (i>0){
-            this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-            for (int n = 0 ;n<i;n++){
-                this.rawDescription += "*";
-                AbstractCard card = CG.getRandomCard(true).makeCopy();
-                if (this.upgraded && card.canUpgrade()){
-                    card.upgrade();
-                    card.applyPowers();
-                }
-                this.list.add(card);
-                this.cardsToPreview = card.makeSameInstanceOf();
-                this.rawDescription += card.name;
-                if ( i-n != 1){
-                    this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-                }
-                this.addToBot(new ChoseTempToHandAction(card));
-            }
-            this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[2];
-            this.initializeDescription();
-        }
+        this.addToBot(new KingSayAction(this,true));
     }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
@@ -121,9 +101,13 @@ public class KingSay extends CustomCard {
                 }
             }
             if (this.list.isEmpty()){
-                this.rawDescription = this.upgraded? CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION;
-                this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[3];
-                this.initializeDescription();
+                if (AbstractDungeon.player.hand.size()<10){
+                    this.addToBot(new KingSayAction(this,false));
+                } else {
+                    this.rawDescription = this.upgraded ? CARD_STRINGS.UPGRADE_DESCRIPTION : CARD_STRINGS.DESCRIPTION;
+                    this.rawDescription += CARD_STRINGS.EXTENDED_DESCRIPTION[3];
+                    this.initializeDescription();
+                }
             } else {
                 for (AbstractCard ca : this.list){
                     this.cardsToPreview = ca.makeSameInstanceOf();
@@ -131,7 +115,7 @@ public class KingSay extends CustomCard {
             }
         }
     }
-
+/*
     public void triggerOnEndOfTurnForPlayingCard() {
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "魔王律令：triggerOnEndOfTurnForPlayingCard"
@@ -153,6 +137,11 @@ public class KingSay extends CustomCard {
         }
     }
 
+ */
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        return  false;
+    }
     @Override
     public void triggerOnExhaust() {
         this.reset();
@@ -172,7 +161,7 @@ public class KingSay extends CustomCard {
         }
         super.renderCardPreview(sb);
     }
-    private void reset(){
+    public void reset(){
         this.list.clear();
         this.cardsToPreview = null;
         this.rawDescription = this.upgraded ? CARD_STRINGS.UPGRADE_DESCRIPTION:CARD_STRINGS.DESCRIPTION;
@@ -180,10 +169,13 @@ public class KingSay extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        /*
         if(this.dontTriggerOnUseCard){
             this.addToBot(new ExhaustAction(p.hand.size(),true,false,false));
             this.reset();
         }
+
+         */
         //this.addToBot(new ApplyPowerAction(p,p,new KingSayPower(this.magicNumber)));
     }
 

@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import java.util.Iterator;
 //认知障碍
 //不可被打出 每当你 燃己 。获得 !M! 层临时混乱
-public class Ysnake extends CustomCard implements YZCardInterface {
+public class Ysnake extends YCard implements YZCardInterface {
     private static final String NAME = "Ysnake";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -46,15 +46,8 @@ public class Ysnake extends CustomCard implements YZCardInterface {
         this.initializeDescription();
     }
     public void triggerWhenDrawn() {
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
         this.reset();
-    }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
+        super.triggerWhenDrawn();
     }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
@@ -93,7 +86,6 @@ public class Ysnake extends CustomCard implements YZCardInterface {
         }
     }
 
-    public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ysnake();}
 

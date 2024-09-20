@@ -51,7 +51,7 @@ public class Her extends CustomCard {
         Amiyamod.HenJi(this.misc,this,m);
         Amiyamod.addY(this.misc);
         if (AbstractDungeon.player.maxOrbs < this.magicNumber){
-            this.addToBot(new IncreaseMaxOrbAction(3-AbstractDungeon.player.maxOrbs));
+            this.addToBot(new IncreaseMaxOrbAction(this.magicNumber-AbstractDungeon.player.maxOrbs));
         }
         for(int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new ChannelAction(new LittleLeOrb()));

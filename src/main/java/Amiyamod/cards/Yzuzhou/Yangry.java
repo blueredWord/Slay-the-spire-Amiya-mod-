@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 //狂躁症
 //不可被打出 打出攻击牌时随机丢弃1张手牌
-public class Yangry extends CustomCard implements YZCardInterface {
+public class Yangry extends YCard implements YZCardInterface {
     private static final String NAME = "Yangry";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -31,10 +31,6 @@ public class Yangry extends CustomCard implements YZCardInterface {
         this.baseMagicNumber = this.magicNumber = 1;
     }
 
-    public void triggerWhenDrawn() {
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
-    }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         //如果打出攻击牌
@@ -46,15 +42,6 @@ public class Yangry extends CustomCard implements YZCardInterface {
             }
         }
     }
-
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-
-    public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {
     }
 

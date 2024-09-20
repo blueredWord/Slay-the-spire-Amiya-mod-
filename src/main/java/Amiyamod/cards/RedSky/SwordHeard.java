@@ -38,7 +38,7 @@ public class SwordHeard extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 4;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 3;
+        this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
         //this.misc = 20;
         //this.exhaust = true;
@@ -58,7 +58,7 @@ public class SwordHeard extends CustomCard {
             //this.upgradeBlock(6);
             //this.exhaust = false;
             //this.upgradeDamage(4);
-            //this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -72,7 +72,7 @@ public class SwordHeard extends CustomCard {
         this.addToBot(new ApplyPowerAction(p,p,new VulnerablePower(p,1,false)));
         this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,1,false)));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
-        Amiyamod.Sword(true,new KingSeeAction(this.magicNumber,this.upgraded));
+        Amiyamod.Sword(true,new KingSeeAction(this.cardID,this.magicNumber,false));
     }
     public AbstractCard makeCopy() {return new SwordHeard();}
 }

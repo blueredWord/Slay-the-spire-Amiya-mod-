@@ -3,6 +3,7 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -27,7 +28,7 @@ public class BreakRingPower extends AbstractPower {
         this.ID = POWER_ID;
         this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = am;
+        this.amount = -1;
         this.type = PowerType.BUFF;
         // 添加图标
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -45,11 +46,14 @@ public class BreakRingPower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.hasTag(YCardTagClassEnum.YCard)) {
             this.flash();
+            /*
             if (this.amount < 1 ) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
             } else {
                 AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner,this.ID, 1));
             }
+
+             */
             AbstractCard tmp = card.makeSameInstanceOf();
             AbstractDungeon.player.limbo.addToBottom(tmp);
             tmp.current_x = card.current_x;
@@ -61,6 +65,13 @@ public class BreakRingPower extends AbstractPower {
                 tmp.calculateCardDamage((AbstractMonster)action.target);
                 m = (AbstractMonster) action.target;
             }
+            int i ;
+            if (tmp.cost == -1){
+                i = tmp.energyOnUse;
+            } else {
+                i = tmp.costForTurn;
+            }
+            this.addToBot(new LoseHPAction(this.owner,this.owner,i*this.amount));
             tmp.purgeOnUse = true;
             AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
         }

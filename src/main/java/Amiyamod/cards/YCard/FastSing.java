@@ -50,10 +50,10 @@ public class FastSing extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            //this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
-            this.upgradeBaseCost(0);
+            //this.upgradeBaseCost(0);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

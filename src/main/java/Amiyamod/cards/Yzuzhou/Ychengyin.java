@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 
 import java.util.Iterator;
 
-public class Ychengyin extends CustomCard  implements YZCardInterface {
+public class Ychengyin extends YCard implements YZCardInterface {
     private static final String NAME = "Ychengyin";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -61,13 +61,6 @@ public class Ychengyin extends CustomCard  implements YZCardInterface {
         }
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-
     @Override
     public void triggerWhenDrawn() {
         /*
@@ -99,7 +92,7 @@ public class Ychengyin extends CustomCard  implements YZCardInterface {
         this.reset();
         super.triggerOnEndOfPlayerTurn();
     }
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+    //public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ychengyin();}
 

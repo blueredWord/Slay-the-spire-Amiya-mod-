@@ -1,6 +1,7 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.character.Amiya;
 import Amiyamod.patches.LeechDamage;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yill;
@@ -55,23 +56,53 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
 
     @Override
     public void onRemove() {
-        this.addToBot(new DiscardAction(this.owner, this.owner, AbstractDungeon.player.hand.size(), true));
-        this.addToBot(new PressEndTurnButtonAction());
+        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
+            //this.owner.state.setAnimation(0, "Skill2_End", false);
+            if (this.owner.hasPower(YSayPower.POWER_ID)){
+                this.owner.state.setAnimation(0, "Skill_Begin", false);
+                this.owner.state.addAnimation(0, "Skill", true,0.0F);
+            } else if (this.owner.hasPower(ShadowSkyOpenPower.POWERID) && this.owner.hasPower(RedSkyPower.POWER_ID)) {
+                this.owner.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
+            } else {
+                this.owner.state.setAnimation(0, "Idle", true);
+            }
+        }
+    }
+    public void onInitialApplication() {
+        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
+            if (!this.owner.hasPower(RedSkyPower.POWER_ID)){
+                this.owner.state.setAnimation(0, "Skill_2_Begin", false);
+                this.owner.state.addAnimation(0, "Skill_2", true,0.0F);
+            }
+        }
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
         this.flash();
         if (this.amount == 0) {
+
+            if (!this.owner.hasPower(RedSkyPower.POWER_ID)){
+                this.owner.state.setAnimation(0, "Skill_2_End", false);
+                this.owner.state.addAnimation(0, "Stun", true,0.0F);
+            } else {
+                this.owner.state.setAnimation(0, "Stun", true);
+            }
+
+            this.addToBot(new DiscardAction(this.owner, this.owner, AbstractDungeon.player.hand.size(), true));
+            this.addToBot(new PressEndTurnButtonAction());
+            this.amount = -1;
+        } else if (this.amount == -1) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {
-            this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+            this.amount -= 1;
+            //this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
     }
 
     @Override
     public boolean shouldPushMods(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
-        return o instanceof AbstractCard && ((AbstractCard) o).type == AbstractCard.CardType.ATTACK && list.stream().noneMatch(mod -> mod instanceof LeechDamage);
+        return o instanceof AbstractCard && this.amount != -1 && list.stream().noneMatch(mod -> mod instanceof LeechDamage);
     }
 
     @Override

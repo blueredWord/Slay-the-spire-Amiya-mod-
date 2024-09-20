@@ -67,19 +67,13 @@ public class Memory extends CustomCard {
             String ID = this.cardID+p.getCardColor().name();
             String Des =CARD_STRINGS.EXTENDED_DESCRIPTION[1]+this.magicNumber+CARD_STRINGS.EXTENDED_DESCRIPTION[2]+p.getTitle(p.chosenClass);
 
-            if (p instanceof Amiya){
-                if (this.upgraded){
-                    Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[6];
-                }else {
-                    Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[5];
-                }
-            }else {
+
                 if (this.upgraded){
                     Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[4];
                 }else {
                     Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[3];
                 }
-            }
+
 
             int COST = -2;
             AbstractPower pow = new MemoryPower(p.getCardColor(),this.magicNumber,this.upgraded,p.getTitle(p.chosenClass));

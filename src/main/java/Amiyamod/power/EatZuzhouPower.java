@@ -48,7 +48,7 @@ public class EatZuzhouPower extends AbstractPower implements OnLoseTempHpPower {
         if (this.C instanceof Yjianwang){
             this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1] ;
         } else if (this.C instanceof Ydead) {
-            this.description = DESCRIPTIONS[2]+(this.amount*this.C.magicNumber*2)+DESCRIPTIONS[3];
+            this.description = DESCRIPTIONS[2]+(this.amount*6)+DESCRIPTIONS[3];
         } else if (this.C instanceof Ytiruo) {
             this.description = DESCRIPTIONS[4]+(this.amount*2)+DESCRIPTIONS[5];
         } else if (this.C instanceof Yjiejin) {
@@ -88,7 +88,7 @@ public class EatZuzhouPower extends AbstractPower implements OnLoseTempHpPower {
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                     "螯合诅咒：{} = {}在回合结束时受到伤害",this.C, this.owner
             );
-            this.addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, this.amount*this.C.magicNumber*2, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+            this.addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, this.amount*6, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.FIRE));
         }
     }
 

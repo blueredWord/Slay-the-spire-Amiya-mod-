@@ -34,10 +34,11 @@ public class LineHand extends CustomCard {
 
     public LineHand() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber=8;
+        this.magicNumber = this.baseMagicNumber = 5 ;
         this.isEthereal = true;
+        this.misc = 2;
         //源石卡牌tag
-        this.tags.add(YCardTagClassEnum.YCard);
+        //this.tags.add(YCardTagClassEnum.YCard);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class LineHand extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeMagicNumber(5);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeMagicNumber(4);
+            this.upgradeMagicNumber(3);
             this.initializeDescription();
         }
     }
@@ -54,19 +55,18 @@ public class LineHand extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //感染1
-        Amiyamod.addY(1);
+        //Amiyamod.addY(1);
         //获得丝线
-        int i = this.magicNumber;
+        int i = this.magicNumber-this.misc;
         ArrayList<AbstractCard> list = new ArrayList<AbstractCard>();
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn){
-            if (c instanceof LineHand){
-                i+=4;
+            if (c.isEthereal){
+                i+=this.misc;
             }
         }
-        i -= 4;
         Amiyamod.LinePower(i);
         this.addToBot(new LineHandAction(this.cardID));
-
     }
+
     public AbstractCard makeCopy() {return new LineHand();}
 }

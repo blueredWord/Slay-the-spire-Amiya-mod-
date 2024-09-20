@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Random;
 
 public class KingSeeAction extends AbstractGameAction {
@@ -24,12 +25,22 @@ public class KingSeeAction extends AbstractGameAction {
     private boolean retrieveCard = false;
     private boolean upgraded;
     private int I ;
-
-    public KingSeeAction(int n,boolean upgraded) {
+    private final String ID;
+    private int COST = 0;
+    public KingSeeAction(String cardid,int n,boolean upgraded) {
+        this.ID = cardid;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
         this.upgraded = upgraded;
         this.I = n;
+    }
+    public KingSeeAction(int n,boolean upgraded,int c) {
+        this.ID ="";
+        this.actionType = ActionType.CARD_MANIPULATION;
+        this.duration = Settings.ACTION_DUR_FAST;
+        this.upgraded = upgraded;
+        this.I = n;
+        this.COST = c;
     }
 
     public void update() {
@@ -46,7 +57,7 @@ public class KingSeeAction extends AbstractGameAction {
             } else {
                 if (!this.retrieveCard) {
                     if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
-                        AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
+                        AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard;
                         disCard.current_x = -1000.0F * Settings.xScale;
                         if (AbstractDungeon.player.hand.size() < 10) {
                             AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
@@ -72,11 +83,11 @@ public class KingSeeAction extends AbstractGameAction {
             boolean dupe = false;
             int roll = AbstractDungeon.cardRandomRng.random(99);
             AbstractCard.CardRarity cardRarity;
-            if (roll < 40) {
+            if (roll < 44) {
                 cardRarity = AbstractCard.CardRarity.COMMON;
-            } else if (roll < 70) {
+            } else if (roll < 84) {
                 cardRarity = AbstractCard.CardRarity.UNCOMMON;
-            } else if (roll < 90){
+            } else if (roll < 94){
                 cardRarity = AbstractCard.CardRarity.RARE;
             } else {
                 cardRarity = AbstractCard.CardRarity.SPECIAL;
@@ -92,11 +103,13 @@ public class KingSeeAction extends AbstractGameAction {
                 tmp = CG.getRandomCard(true).makeCopy();
             }
 
-            while(var6.hasNext()) {
-                AbstractCard c = (AbstractCard)var6.next();
-                if (c.cardID.equals(tmp.cardID)) {
-                    dupe = true;
-                    break;
+            if (!tmp.hasTag(AbstractCard.CardTags.HEALING) && !Objects.equals(tmp.cardID, this.ID)){
+                while(var6.hasNext()) {
+                    AbstractCard c = (AbstractCard)var6.next();
+                    if (c.cardID.equals(tmp.cardID)) {
+                        dupe = true;
+                        break;
+                    }
                 }
             }
 
@@ -105,6 +118,9 @@ public class KingSeeAction extends AbstractGameAction {
                 if (this.upgraded && tmp.canUpgrade()){
                     tmp.upgrade();
                     tmp.applyPowers();
+                }
+                if (this.COST != 0){
+                    tmp.setCostForTurn(tmp.costForTurn + this.COST);
                 }
                 derp.add(Amiyamod.MakeMemoryCard(tmp));
             }

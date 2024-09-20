@@ -1,6 +1,7 @@
 package Amiyamod.action.cards;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.power.RedSkyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -22,10 +23,15 @@ import org.apache.logging.log4j.LogManager;
 public class ShadowNoShadowAction extends AbstractGameAction {
     private AbstractCard card;
     private AbstractGameAction.AttackEffect effect;
-
+    private boolean la = false;
     public ShadowNoShadowAction(AbstractCard card, AbstractGameAction.AttackEffect effect) {
         this.card = card;
         this.effect = effect;
+    }
+    public ShadowNoShadowAction(AbstractCard card,boolean last) {
+        this.card = card;
+        this.effect = AbstractGameAction.AttackEffect.NONE;
+        this.la = last;
     }
 
     public ShadowNoShadowAction(AbstractCard card) {
@@ -53,7 +59,6 @@ public class ShadowNoShadowAction extends AbstractGameAction {
                 this.addToTop(new DamageAction(this.target, new DamageInfo(AbstractDungeon.player, this.card.damage, this.card.damageTypeForTurn), this.effect));
             }
         }
-
         this.isDone = true;
     }
 }

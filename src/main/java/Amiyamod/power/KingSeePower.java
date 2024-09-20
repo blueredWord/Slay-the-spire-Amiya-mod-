@@ -2,6 +2,7 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.cards.YCard.KingSee;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -56,7 +57,7 @@ public class KingSeePower extends AbstractPower {
         if (var>0){
             this.addToBot(new ApplyPowerAction(this.owner,null,new WeakPower(this.owner,this.amount,false)));
             for (int i = 0;i<this.amount;i++){
-                this.addToBot(new KingSeeAction(1,this.up));
+                this.addToBot(new KingSeeAction("",1,this.up));
             }
         } else {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));

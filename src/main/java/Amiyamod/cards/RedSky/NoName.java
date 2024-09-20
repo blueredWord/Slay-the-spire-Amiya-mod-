@@ -1,10 +1,12 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.NoNameAction;
 import Amiyamod.cards.YCard.LoseWish;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.NoNamePower;
+import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
@@ -24,6 +26,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 import java.util.Iterator;
+import java.util.Random;
 
 public class NoName extends CustomCard {
     //=================================================================================================================
@@ -36,21 +39,21 @@ public class NoName extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 1;//【卡片费用】
+    private static final int COST = 0;//【卡片费用】
     private static final CardType TYPE = CardType.ATTACK;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
 
     public NoName() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 4;
         //this.baseBlock = this.block = 12;
         //this.magicNumber = this.baseMagicNumber = 5;
         //this.heal = 15;
         //this.misc = 20;
-        this.exhaust = true;
+        //this.exhaust = true;
         this.tags.add(YCardTagClassEnum.RedSky1);
-        //this.isEthereal = true;
+        this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -65,7 +68,7 @@ public class NoName extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.exhaust = false;
-            this.upgradeDamage(8);
+            this.upgradeDamage(3);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
@@ -73,17 +76,30 @@ public class NoName extends CustomCard {
             this.initializeDescription();
         }
     }
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        boolean canUse = super.canUse(p, m);
+        if (!canUse) {
+            return false;
+        } else {
+            if (p.hasPower(RedSkyPower.POWER_ID)) {
+                return  true ;
+            }
+            if (new Random().nextBoolean()){
+                this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+            } else {
+                this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+            }
+            return false;
+        }
+    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(p, damage,this.damageTypeForTurn)
-                )
-        );
+        //this.addToBot(new NoNameAction());
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
         Amiyamod.Sword(true,new ApplyPowerAction(p,p,new NoNamePower()));
-        Amiyamod.HenJi(1,this,m);
+        //Amiyamod.HenJi(1,this,m);
     }
     public AbstractCard makeCopy() {return new NoName();}
 }

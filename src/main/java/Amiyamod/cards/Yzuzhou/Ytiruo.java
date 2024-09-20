@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import java.util.Iterator;
 //身虚体弱
 //不可被打出 当你打出耗能至少为2的卡牌后，获得 !M! 层 虚弱 。
-public class Ytiruo extends CustomCard implements YZCardInterface {
+public class Ytiruo extends YCard implements YZCardInterface {
     private static final String NAME = "Ytiruo";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -36,17 +36,6 @@ public class Ytiruo extends CustomCard implements YZCardInterface {
         this.misc = 2;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(YCardTagClassEnum.YZuZhou);
-    }
-
-    public void triggerWhenDrawn() {
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
-    }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
     }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
@@ -86,9 +75,6 @@ public class Ytiruo extends CustomCard implements YZCardInterface {
     }
     */
 
-
-
-    public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ytiruo();}
 

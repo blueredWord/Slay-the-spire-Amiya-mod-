@@ -22,7 +22,7 @@ public class CountryLover2 extends CustomCard {
     private static final String NAME = "CountryLover2";// 【卡片名字】
 
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
-    private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
+    private static final CardColor COLOR = CardColor.COLORLESS;//卡牌颜色
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 

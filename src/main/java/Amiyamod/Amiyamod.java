@@ -22,6 +22,7 @@ import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -45,7 +46,6 @@ import com.badlogic.gdx.graphics.Color;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Properties;
 
@@ -109,6 +109,7 @@ public class Amiyamod implements
         String POWER_ID = Amiyamod.makeID(NAME);
         PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
         String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
         if (!A.isEthereal && !A.exhaust){
             A.rawDescription = A.rawDescription+ DESCRIPTIONS[2];
         } else if (!A.exhaust) {
@@ -120,6 +121,11 @@ public class Amiyamod implements
         //添加虚无和消耗
         A.exhaust = true;
         A.isEthereal = true;
+        //A.purgeOnUse = true;
+
+        A.tags.add(YCardTagClassEnum.MEMORY);
+        A.keywords.add("Memory");
+
         //A.purgeOnUse = true;
         A.name = DESCRIPTIONS[1]+A.name;
         A.initializeDescription();
@@ -226,6 +232,7 @@ public class Amiyamod implements
                     if (m != null) {
                         tmp.calculateCardDamage(m);
                     }
+                    tmp.freeToPlayOnce = true;
                     tmp.purgeOnUse = true;
                     AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, tmp.energyOnUse, true, true), true);
                 }
@@ -238,6 +245,11 @@ public class Amiyamod implements
                 int aa = AbstractDungeon.cardRng.random(G.size() - 1);
                 AbstractCard card = G.get(aa);
                 p.hand.moveToDiscardPile(card);
+
+                if (p.hasPower(LittleTePower.ID1)){
+                    p.getPower(LittleTePower.ID1).onExhaust(card);
+                }
+
                 G.remove(aa);
                 AbstractCard tmp;
                 if (c instanceof FirstSayA){
@@ -517,10 +529,10 @@ public class Amiyamod implements
         //cards.add(new AmiyaPower());
         cards.add(new MindEat());
         cards.add(new StoneSword());
-        //cards.add(new BurnMark());灼痕
+        cards.add(new BurnMark());//灼痕
         cards.add(new Memory());
+        cards.add(new Hate());
 
-        cards.add(new Solo());
 
         //源石技艺
         cards.add(new ChiMeRa());
@@ -546,12 +558,12 @@ public class Amiyamod implements
         //cards.add(new MagicYuJin());
         cards.add(new DefendMagic());
         cards.add(new SeeMe());
-        cards.add(new NotNow());
+        //cards.add(new NotNow());
         cards.add(new DrBlood());
-
-        cards.add(new YOpen());
+        cards.add(new CopyMagic());
+        //cards.add(new YOpen());//结晶绽放
         cards.add(new Ghost());
-        cards.add(new KingSay());
+        cards.add(new KingSay());//魔王律令
         //cards.add(new YBBS());
 
         //源石诅咒
@@ -570,9 +582,10 @@ public class Amiyamod implements
         cards.add(new MindBubble());
         cards.add(new BadZhufu());
         cards.add(new BeautifulLife());
-        cards.add(new BForB());
+        //cards.add(new BForB());
+        cards.add(new Solo());
         cards.add(new BloodPotion());
-        cards.add(new BreakRing());
+        //cards.add(new BreakRing());//极限施法
         cards.add(new KingSee());
         cards.add(new CNoC());
         cards.add(new Echo());
@@ -590,10 +603,15 @@ public class Amiyamod implements
         cards.add(new SadMind());
         cards.add(new SoulDefend());
         //cards.add(new CRing()); 荆棘环
-        //cards.add(new LineHand()); //手中线
+        cards.add(new LineHand()); //手中线
+
+        cards.add(new MindRoll());
+        cards.add(new MakeLine());
+        cards.add(new SoulMilk());
+        cards.add(new BlackKing());
 
         //赤霄
-        //cards.add(new RedSky(-2));
+        cards.add(new RedSky(true));
         cards.add(new BloodNo());
         cards.add(new ShadowOut());
         cards.add(new BloodSword());
@@ -611,14 +629,14 @@ public class Amiyamod implements
         cards.add(new ShadowDefend());
         cards.add(new ShadowTwo());
         cards.add(new ShadowWaterMusic());
-        cards.add(new ShadowChange());
+        //cards.add(new ShadowChange());//变式费
         cards.add(new ShadowBlood());
-        cards.add(new ShadowBackWindy()); //回风
+        //cards.add(new ShadowBackWindy()); //回风
         cards.add(new ShadowNoShadow());
-        cards.add(new ShadowCloudBreak());
+        cards.add(new ShadowCloudBreak2());
         //cards.add(new CloudBreakIn());
-        cards.add(new ShadowBreak());
-        cards.add(new Shadow15());
+        //cards.add(new ShadowBreak());//断剑
+        //cards.add(new Shadow15());//剑15
         cards.add(new ShadowSkyOpen());
         cards.add(new NoName());
         cards.add(new SwordHeard());

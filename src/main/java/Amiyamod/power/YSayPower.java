@@ -1,10 +1,12 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.character.Amiya;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -40,6 +42,28 @@ public class YSayPower extends AbstractPower {
         }
     }
 
+    public void onInitialApplication() {
+        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
+            this.owner.state.setAnimation(0, "Skill_Begin", false);
+            this.owner.state.addAnimation(0, "Skill", true,0.0F);
+        }
+    }
+    public void onRemove() {
+        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
+            if (this.owner.hasPower(ChiMeRaPower.POWERID)){
+                if (this.owner.getPower(ChiMeRaPower.POWERID).amount != 0){
+                    this.owner.state.setAnimation(0, "Skill_2_Begin", false);
+                    this.owner.state.addAnimation(0, "Skill_2", true,0.0F);
+                }else {
+                    this.owner.state.setAnimation(0, "Skill_2_End", false);
+                    this.owner.state.addAnimation(0, "Stun", true,0.0F);
+                }
+            }else {
+                this.owner.state.setAnimation(0, "Skill_End", false);
+                this.owner.state.addAnimation(0, "Idle", true,0.0F);
+            }
+        }
+    }
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];

@@ -47,7 +47,6 @@ public class EatZuzhou extends CustomCard {
         this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
         this.misc = 1;
-        this.isInnate = true;
         this.exhaust = true;
         //this.isEthereal = true;
         //this.selfRetain = true;

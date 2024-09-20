@@ -40,21 +40,18 @@ public class MemoryPower extends AbstractPower {
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_128.png"),0,0,128,128);
 
         this.UP = up;
+
+        for (AbstractCard card : CardLibrary.getAllCards()){
+            //(card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) &&
+            if (card.color == color && !card.hasTag(AbstractCard.CardTags.HEALING)){
+                this.G.addToBottom(card.makeCopy());
+                if (card.rarity == AbstractCard.CardRarity.COMMON){this.N = true;}
+                if (card.rarity == AbstractCard.CardRarity.UNCOMMON){this.U = true;}
+                if (card.rarity == AbstractCard.CardRarity.RARE){this.R = true;}
+            }
+        }
         if ( color == CardColorEnum.AMIYA){
             this.A = true;
-            for (AbstractCard card : Amiyamod.Mcard){
-                this.G.addToBottom(card);
-            }
-        } else {
-            for (AbstractCard card : CardLibrary.getAllCards()){
-                //(card.type == AbstractCard.CardType.SKILL || card.type == AbstractCard.CardType.ATTACK) &&
-                if (card.color == color && !card.hasTag(AbstractCard.CardTags.HEALING)){
-                    this.G.addToBottom(card);
-                    if (card.rarity == AbstractCard.CardRarity.COMMON){this.N = true;}
-                    if (card.rarity == AbstractCard.CardRarity.UNCOMMON){this.U = true;}
-                    if (card.rarity == AbstractCard.CardRarity.RARE){this.R = true;}
-                }
-            }
         }
 
         // 首次添加能力更新描述
@@ -65,8 +62,62 @@ public class MemoryPower extends AbstractPower {
     public void atStartOfTurn() {
         if (this.A){
             this.flash();
+            AbstractCard.CardRarity cardRarity;
             for (int n = 0 ;n<this.amount;n++){
-                AbstractCard A = this.G.getRandomCard(true).makeCopy();
+                //生成3次卡片
+                int roll = AbstractDungeon.cardRandomRng.random(99);
+                //稀有度匹配
+                if (this.N){
+                    cardRarity = AbstractCard.CardRarity.COMMON;
+                } else if (this.U){
+                    cardRarity = AbstractCard.CardRarity.UNCOMMON;
+                } else {
+                    cardRarity = AbstractCard.CardRarity.RARE;
+                }
+                if (roll > 40 && this.U) {
+                    cardRarity = AbstractCard.CardRarity.UNCOMMON;
+                } else if (roll > 80 && this.R) {
+                    cardRarity = AbstractCard.CardRarity.RARE;
+                } else if (roll >90){
+                    cardRarity = AbstractCard.CardRarity.SPECIAL;
+                }
+                /*
+                    if (this.UP){
+                        if (this.U){
+                            cardRarity = AbstractCard.CardRarity.UNCOMMON;
+                        } else {
+                            cardRarity = AbstractCard.CardRarity.RARE;
+                        }
+                        if (roll < 33 && this.R) {
+                            cardRarity = AbstractCard.CardRarity.RARE;
+                        }
+                    } else {
+                        if (this.N){
+                            cardRarity = AbstractCard.CardRarity.COMMON;
+                        } else if (this.U){
+                            cardRarity = AbstractCard.CardRarity.UNCOMMON;
+                        } else {
+                            cardRarity = AbstractCard.CardRarity.RARE;
+                        }
+                        if (roll < 65 && this.N) {
+                            cardRarity = AbstractCard.CardRarity.COMMON;
+                        } else if (roll < 95 && this.U) {
+                            cardRarity = AbstractCard.CardRarity.UNCOMMON;
+                        } else if (this.R) {
+                            cardRarity = AbstractCard.CardRarity.RARE;
+                        }
+                    }
+
+                 */
+                AbstractCard A ;
+                if (cardRarity != AbstractCard.CardRarity.SPECIAL){
+                    A = this.G.getRandomCard(AbstractDungeon.cardRng,cardRarity).makeCopy();
+                } else {
+                    CardGroup CG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                    CG.group.addAll(Amiyamod.Mcard);
+                    A = CG.getRandomCard(true);
+                }
+
                 if (this.UP && A.canUpgrade()){
                     A.upgrade();
                     A.applyPowers();
@@ -77,11 +128,8 @@ public class MemoryPower extends AbstractPower {
         } else {
             if (this.N || this.U || this.R){
                 this.flash();
-                //CardGroup GG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
                 AbstractCard.CardRarity cardRarity;
                 for (int n = 0 ;n<this.amount;n++){
-                    //重复执行层数次
-                    //for (int i = 0;i<3;i++){
                     //生成3次卡片
                     int roll = AbstractDungeon.cardRandomRng.random(99);
                     //稀有度匹配
@@ -125,22 +173,14 @@ public class MemoryPower extends AbstractPower {
                     }
 
                  */
-
                     AbstractCard A = this.G.getRandomCard(AbstractDungeon.cardRng,cardRarity).makeCopy();
 
                     if (this.UP && A.canUpgrade()){
                         A.upgrade();
                         A.applyPowers();
-
                     }
-
                     this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(A)));
-                    //GG.addToBottom(A);
                 }
-                //选卡
-                //this.addToBot(new ChoseTempToHandActiob(GG,1,true));
-                //GG.clear();
-                //}
             }
         }
 

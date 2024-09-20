@@ -17,7 +17,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 //体表结晶
 //不可被打出 打出非源石牌时，受到1点伤害。
-public class Yjiejin extends CustomCard implements YZCardInterface {
+public class Yjiejin extends YCard implements YZCardInterface {
     private static final String NAME = "Yjiejin";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,11 +34,6 @@ public class Yjiejin extends CustomCard implements YZCardInterface {
         this.tags.add(YCardTagClassEnum.YZuZhou);
     }
 
-    public void triggerWhenDrawn() {
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
-    }
-
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         //如果打出非源石牌 扣血
         if (!c.hasTag(YCardTagClassEnum.YCard)){
@@ -47,13 +42,8 @@ public class Yjiejin extends CustomCard implements YZCardInterface {
             //this.addToTop(new LoseHPAction(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber));
         }
     }
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    //public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Yjiejin();}
 

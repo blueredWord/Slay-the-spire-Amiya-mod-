@@ -40,8 +40,8 @@ public class BreakRing extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.selfRetain = true;
-            //this.exhaust = false;
-            this.upgradeMagicNumber(-2);
+            this.exhaust = false;
+            //this.upgradeMagicNumber(-2);
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -53,7 +53,7 @@ public class BreakRing extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //Amiyamod.addY(this.magicNumber);
         this.addToBot(new ApplyPowerAction(p,p,new BreakRingPower(1)));
-        Amiyamod.BurnSelf(this.magicNumber);
+        //Amiyamod.BurnSelf(this.magicNumber);
     }
     public AbstractCard makeCopy() {return new BreakRing();}
 }

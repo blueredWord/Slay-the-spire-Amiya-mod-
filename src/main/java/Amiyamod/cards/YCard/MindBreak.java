@@ -1,18 +1,30 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+
+import Amiyamod.Effect.BeamEffect;
+import Amiyamod.Effect.OrbEffect;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.status.Dazed;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.LineTestEffect;
+import com.megacrit.cardcrawl.vfx.combat.BloodShotEffect;
+import com.megacrit.cardcrawl.vfx.combat.LaserBeamEffect;
+import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 
 public class MindBreak extends CustomCard {
     //=================================================================================================================
@@ -33,7 +45,7 @@ public class MindBreak extends CustomCard {
     public MindBreak() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 3;
-        this.magicNumber = this.baseMagicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 7;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
@@ -86,7 +98,10 @@ public class MindBreak extends CustomCard {
 
         //造成多次伤害
         for(int i = 0; i < this.magicNumber; ++i) {
-            this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster(true);
+            this.addToBot(new VFXAction(new BloodShotEffect(p.hb.cX, p.hb.cY, randomMonster.hb.cX, randomMonster.hb.cY, 1), 0.02F));
+            this.addToBot(new DamageAction(randomMonster, new DamageInfo(p, damage, this.damageTypeForTurn)));
+            //this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         //感染进度
         Amiyamod.addY(1);

@@ -27,7 +27,7 @@ public class KingSee extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 1;//【卡片费用】
+    private static final int COST = 0;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
@@ -38,9 +38,9 @@ public class KingSee extends CustomCard {
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 1;
         this.baseDraw = this.draw = 1;
-        this.misc = 2;
+        this.misc = 8;
         //this.exhaust = true;
-        this.isEthereal = true;
+        //this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -65,8 +65,8 @@ public class KingSee extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainEnergyAction(this.misc));
-        this.addToBot(new AddTemporaryHPAction(m,p,8));
+        //this.addToBot(new GainEnergyAction(this.misc));
+        this.addToBot(new AddTemporaryHPAction(m,p,this.misc));
         this.addToBot(new ApplyPowerAction(m,p,new KingSeePower(this.magicNumber,m,true)));
         //this.addToBot(new ApplyPowerAction(p,p,new KingSayPower(this.magicNumber)));
     }

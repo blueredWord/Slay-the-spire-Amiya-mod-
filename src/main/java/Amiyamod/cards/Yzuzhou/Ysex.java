@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import java.util.Iterator;
 //活性化体质
 //不可被打出 不因此诅咒的效果获得丝线时改为获得等量的格挡（本身无效果，由获得丝线接口检测）
-public class Ysex extends CustomCard implements YZCardInterface {
+public class Ysex extends YCard implements YZCardInterface {
     private static final String NAME = "Ysex";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -34,10 +34,6 @@ public class Ysex extends CustomCard implements YZCardInterface {
         this.baseMagicNumber = this.magicNumber = 1;
     }
 
-    public void triggerWhenDrawn() {
-        //源石诅咒被抽到时共通效果
-        Amiyamod.WhenYcardDrawn();
-    }
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         //如果打出非源石牌 扣血
@@ -46,13 +42,8 @@ public class Ysex extends CustomCard implements YZCardInterface {
         }
     }
 
-    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        if (p.hasPower(FirstSayPower.POWER_ID)){
-            return true;
-        }
-        return super.canUse(p,m);
-    }
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+
+    //public void use(AbstractPlayer p, AbstractMonster m) {}
     public void upgrade() {}
     public AbstractCard makeCopy() {return new Ysex();}
 

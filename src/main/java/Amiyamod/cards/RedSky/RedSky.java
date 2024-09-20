@@ -25,7 +25,7 @@ public class RedSky extends CustomCard {
 
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.ATTACK;//卡片类型
-    private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
+    private static final CardColor COLOR = CardColor.COLORLESS;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.SPECIAL;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
 
@@ -68,16 +68,6 @@ public class RedSky extends CustomCard {
     @Override
     public void upgrade() {
         this.timesUpgraded++;
-        CardRarity ry = CardRarity.SPECIAL;
-        if (this.timesUpgraded>3){
-            ry = CardRarity.RARE;
-        } else if (this.timesUpgraded>1) {
-            ry = CardRarity.UNCOMMON;
-        } else if (this.timesUpgraded>0) {
-            ry = CardRarity.COMMON;
-        }
-
-        this.rarity = ry;
 
         this.baseDamage = this.damage = (int)(4 * Math.pow(2,timesUpgraded));
         this.upgradedDamage = true;

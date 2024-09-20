@@ -49,13 +49,13 @@ public class StoneBlock extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(4);
+            //this.upgradeBlock(4);
             //this.upgradeDamage(4);
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -66,7 +66,10 @@ public class StoneBlock extends CustomCard {
         //Amiyamod.BurnSelf(this.magicNumber);
         //感染进度
         Amiyamod.addY(1);
-        Amiyamod.HenJi(this.magicNumber,this,m);
+
+        if (this.upgraded){
+            Amiyamod.HenJi(this.magicNumber,this,m);
+        }
     }
     public AbstractCard makeCopy() {return new StoneBlock();}
 }

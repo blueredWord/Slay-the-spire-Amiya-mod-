@@ -8,6 +8,7 @@ import com.evacipated.cardcrawl.mod.stslib.relics.OnLoseTempHpRelic;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -32,12 +33,23 @@ public class HealCard extends CustomRelic implements OnLoseTempHpRelic {
     }
 
     public void onTrigger() {
-        this.flash();
-        this.counter++;
-        if (this.counter >= time){
+        int i = 0;
+        boolean ok =false;
+        if (!AbstractDungeon.player.hand.isEmpty()){
+            for (AbstractCard c : AbstractDungeon.player.hand.group){
+                if(c.canUpgrade()){
+                    ok = true;
+                    break;
+                }
+            }
+        }
+        if (this.counter >= time && ok){
+            this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new UpgradeRandomCardAction());
             this.counter = 0;
+        } else if (this.counter < time) {
+            this.counter++;
         }
     }
 
@@ -52,7 +64,7 @@ public class HealCard extends CustomRelic implements OnLoseTempHpRelic {
     }
 
     public void onLoseHp(int damageAmount) {
-        if (damageAmount>0 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT){
+        if (damageAmount>0 && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT ){
             this.onTrigger();
         }
     }
