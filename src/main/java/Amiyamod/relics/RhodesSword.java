@@ -25,6 +25,7 @@ public class RhodesSword extends CustomRelic {
                 RelicTier.RARE,
                 LandingSound.SOLID
         );
+
     }
 
     public void atPreBattle() {

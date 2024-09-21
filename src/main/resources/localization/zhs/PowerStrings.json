@@ -56,12 +56,6 @@
   "DESCRIPTIONS": [
     "本回合造成伤害时获得等同于伤害一半的 #y丝线 。"
   ]
-},"AmiyaMod:LittleTePower": {
-  "NAME": "特蕾西亚的庇护",
-  "DESCRIPTIONS": [
-    "可以失去 #b1 点生命打出 #y不能被打出 的 #y源石诅咒 来将它们 #y消耗 。 每当你 #y消耗 或因 #y急性发作 丢弃 #y源石诅咒 ， 获得 #b",
-    " 点 #y能量 。"
-  ]
 },"AmiyaMod:NoFengPower": {
   "NAME": "无锋",
   "DESCRIPTIONS": [
@@ -378,10 +372,16 @@
   },
 
   "AmiyaMod:HatePower": {
-    "NAME": "苦果",
+    "NAME": "恨火蔓延",
     "DESCRIPTIONS": [
-      "本轮内当你受到攻击时，给予攻击者 #b",
-      " 层 #y易伤 。"
+      "本回合结束时你不会退出 #y出鞘 状态。"
     ]
-  }
+  },
+  "AmiyaMod:LittleTePower": {
+  "NAME": "特蕾西亚的庇护",
+  "DESCRIPTIONS": [
+    "本回合结束时，手牌中每剩余一张卡牌获得 #b",
+    " 点 #y丝线 。"
+  ]
+}
 }

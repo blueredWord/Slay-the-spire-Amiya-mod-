@@ -9,6 +9,9 @@ import Amiyamod.cards.YCard.*;
 import Amiyamod.cards.Yzuzhou.*;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.*;
+import Amiyamod.potions.AngryPotion;
+import Amiyamod.potions.LovePotion;
+import Amiyamod.potions.YPotion;
 import Amiyamod.power.*;
 import Amiyamod.relics.*;
 import basemod.interfaces.EditKeywordsSubscriber;
@@ -66,7 +69,7 @@ public class Amiyamod implements
     public static String makeID(String id) {
         return MOD_ID + ":" + id;
     }
-
+    public static final Color ColorOut = new Color(0x89643fff);
     public static ArrayList<CustomCard> Yzuzhou = new ArrayList<>();
     public static ArrayList<CustomCard> Yzuzhou2 = new ArrayList<>();
     public static final String DESCRIPTION = "Amiya Mod.";
@@ -77,7 +80,7 @@ public class Amiyamod implements
     public int value = 0;
     public static ArrayList<CustomCard> Rcard = new ArrayList<>();
     public static ArrayList<CustomCard> Mcard = new ArrayList<>();
-    public static final Color Amiya_Color = new Color(0.171F,0.722F,0.722F,1.0F);
+    public static final Color Amiya_Color = new Color(0x89643fff);
     public Amiyamod(){
         logger.debug("Constructor started.");
         BaseMod.subscribe(this);
@@ -246,9 +249,8 @@ public class Amiyamod implements
                 AbstractCard card = G.get(aa);
                 p.hand.moveToDiscardPile(card);
 
-                if (p.hasPower(LittleTePower.ID1)){
-                    p.getPower(LittleTePower.ID1).onExhaust(card);
-                }
+                //if (p.hasPower(LittleTePower.ID1)){p.getPower(LittleTePower.ID1).onExhaust(card);}
+                if (p.hasRelic(BurnSkirt.ID)){p.getRelic(BurnSkirt.ID).onExhaust(card);}
 
                 G.remove(aa);
                 AbstractCard tmp;
@@ -537,6 +539,7 @@ public class Amiyamod implements
         //源石技艺
         cards.add(new ChiMeRa());
         cards.add(new MindBreak());
+        cards.add(new MindLink());
         //cards.add(new ZuZhouMagic());
         cards.add(new SuperYPotion());
         cards.add(new StoneBlock());
@@ -638,7 +641,7 @@ public class Amiyamod implements
         //cards.add(new ShadowBreak());//断剑
         //cards.add(new Shadow15());//剑15
         cards.add(new ShadowSkyOpen());
-        cards.add(new NoName());
+        //cards.add(new NoName());
         cards.add(new SwordHeard());
 
         //追忆卡
@@ -761,6 +764,7 @@ public class Amiyamod implements
 
     @Override
     public void receivePotionGet(AbstractPotion abstractPotion) {
+
         //    BaseMod.addPotion(ReserveRunePotion.class,DeathKnight_Color,DeathKnight_Color,DeathKnight_Color,WarlordEmblem.makeID("ReserveRunePotion"),AbstractPlayerEnum.DeathKnight);
     }
 
@@ -769,6 +773,7 @@ public class Amiyamod implements
     public void receiveEditRelics() {
         logger.debug("Amiyamod relic load start.");
         BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.AMIYA);
+        BaseMod.addRelicToCustomPool(new TenRelic2(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new YRing(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new YRing2(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new Violin(),CardColorEnum.AMIYA);
@@ -778,8 +783,40 @@ public class Amiyamod implements
         BaseMod.addRelicToCustomPool(new BurnSkirt(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new TenRelic(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new Crystal(),CardColorEnum.AMIYA);
+        //BaseMod.addRelicToCustomPool(new BottedIce(),CardColorEnum.AMIYA);
+        BaseMod.addRelic(new BottedIce(),RelicType.SHARED);
+        BaseMod.addRelicToCustomPool(new BreakBuilding(),CardColorEnum.AMIYA);
+        BaseMod.addRelicToCustomPool(new UnEndStory(),CardColorEnum.AMIYA);
         BaseMod.addRelic(new Yill(),RelicType.SHARED);
         logger.debug("Amiyamod relic load finish.");
+        logger.info(
+                "尝试加入药水"
+        );
+        BaseMod.addPotion(
+                YPotion.class,
+                Color.ORANGE.cpy(),
+                Color.RED.cpy(),
+                Color.WHITE.cpy(),
+                YPotion.ID,
+                AmiyaClassEnum.AMIYA
+        );
+        BaseMod.addPotion(
+                LovePotion.class,
+                Color.WHITE.cpy(),
+                Color.PINK.cpy(),
+                Color.CYAN.cpy(),
+                LovePotion.ID,
+                AmiyaClassEnum.AMIYA
+        );
+
+        BaseMod.addPotion(
+                AngryPotion.class,
+                Color.BLACK.cpy(),
+                Color.RED.cpy(),
+                Color.BLUE.cpy(),
+                AngryPotion.ID,
+                AmiyaClassEnum.AMIYA
+        );
     }
 
 

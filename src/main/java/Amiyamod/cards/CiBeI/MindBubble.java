@@ -33,9 +33,9 @@ public class MindBubble extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST,  CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 7;
+        this.magicNumber = this.baseMagicNumber = 9;
         //this.heal = 15;
-        this.misc = 1;
+        //this.misc = 1;
 
         //this.exhaust = true;
         this.isEthereal = true;

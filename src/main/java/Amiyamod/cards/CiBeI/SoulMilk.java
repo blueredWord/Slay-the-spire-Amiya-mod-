@@ -37,7 +37,8 @@ public class SoulMilk extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseHeal = this.heal = 2;
         //this.isEthereal = true;
-        this.draw = 3;
+        //this.draw = 3;
+        this.baseMagicNumber = this.magicNumber = 3;
         this.misc = 1;
         //源石卡牌tag
         this.tags.add(CardTags.HEALING);
@@ -65,7 +66,7 @@ public class SoulMilk extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new KingSeeAction(this.cardID,this.draw,this.upgraded));
+        this.addToBot(new KingSeeAction(this.cardID, this.magicNumber ,this.upgraded));
     }
 
     public AbstractCard makeCopy() {

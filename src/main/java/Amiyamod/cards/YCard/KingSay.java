@@ -55,7 +55,8 @@ public class KingSay extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 8;
         //this.baseBlock = this.block = 12;
-        this.baseDraw = this.draw =  this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
+        this.baseDraw = this.draw =1;
         //this.heal = 15;
         this.misc = 1;
         //DamageModifierManager.addModifier(this, new KingDamage());

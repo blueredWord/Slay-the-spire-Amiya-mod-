@@ -26,12 +26,12 @@ public class HatePower extends AbstractPower {
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public HatePower(int amount) {
+    public HatePower() {
         this.name = powerStrings.NAME;
         this.ID = POWER_ID;
         this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = amount;
+        this.amount = -1;
         this.type = PowerType.BUFF;
         // 添加图标                         this.img = new Texture("img/Reimupowers/" + NAME + ".png");
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -42,20 +42,7 @@ public class HatePower extends AbstractPower {
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] ;
     }
 
-    @Override
-    public int onAttacked(DamageInfo info, int damageAmount) {
-        if (info.type == DamageInfo.DamageType.NORMAL && info.owner != null && info.owner != this.owner && damageAmount > 0) {
-            this.flash();
-            this.addToBot(new ApplyPowerAction(info.owner,this.owner,new VulnerablePower(info.owner,this.amount,true)));
-        }
-        return damageAmount;
-    }
-
-    @Override
-    public void atStartOfTurnPostDraw() {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-    }
 }

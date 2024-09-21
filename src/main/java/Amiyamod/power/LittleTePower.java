@@ -39,10 +39,11 @@ public class LittleTePower extends AbstractPower {
         // 首次添加能力更新描述
         this.updateDescription();
     }
-
-    public void onExhaust(AbstractCard card) {
-        if(card.hasTag(YCardTagClassEnum.YZuZhou)) {
-            this.addToBot(new GainEnergyAction(this.amount));
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        if(isPlayer){
+            int i  = AbstractDungeon.player.hand.size();
+            Amiyamod.LinePower(i*this.amount);
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }
 

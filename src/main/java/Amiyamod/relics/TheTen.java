@@ -22,7 +22,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import java.util.ArrayList;
 
 public class TheTen extends CustomRelic implements OnApplyPowerRelic {
-    public AbstractRelic makeCopy() { return new TheTen(); }
+
     public static final String NAME = "TheTen";
     public static final String ID = Amiyamod.makeID(NAME);
     public TheTen() {
@@ -47,7 +47,7 @@ public class TheTen extends CustomRelic implements OnApplyPowerRelic {
         }
         return true;
     }
-
+    public AbstractRelic makeCopy() { return new TheTen(); }
     public boolean canSpawn() {
         int i =0;
         for (AbstractCard c :AbstractDungeon.player.masterDeck.group){
@@ -60,6 +60,6 @@ public class TheTen extends CustomRelic implements OnApplyPowerRelic {
         if (AbstractDungeon.player.hasRelic(TenRelic.ID)){
             i += AbstractDungeon.player.getRelic(TenRelic.ID).counter;
         }
-        return AbstractDungeon.player.hasRelic(TenRelic.ID) && i > 9;
+        return AbstractDungeon.player.hasRelic(TenRelic.ID) && i > 5;
     }
 }

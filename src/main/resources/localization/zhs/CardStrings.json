@@ -423,8 +423,8 @@
   },
   "AmiyaMod:ShadowSkyOpen": {
     "NAME": "影霄*天瞠",
-    "DESCRIPTION": "从抽牌堆中丢弃直到剩余至多5张牌， 消耗 弃牌堆中 不能被打出 的牌 。 NL 你获得 赤霄 时将会额外 升级 !M! 次。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 从抽牌堆中丢弃直到剩余至多5张牌， 消耗 弃牌堆中 不能被打出 的牌 。 NL 你获得 赤霄 时将会额外 升级 !M! 次。",
+    "DESCRIPTION": "从抽牌堆中丢弃直到剩余至多5张牌， 消耗 弃牌堆中 不能被打出 的牌 。 NL 你获得 赤霄 时将其额外 升级 !M! 次。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 从抽牌堆中丢弃直到剩余至多5张牌， 消耗 弃牌堆中 不能被打出 的牌 。 NL 你获得 赤霄 时将其额外 升级 !M! 次。",
     "EXTENDED_DESCRIPTION": [" NL (造成","点伤害）"]
   },
   "AmiyaMod:Memory": {
@@ -509,7 +509,7 @@
   },
   "AmiyaMod:YOpen": {
     "NAME": "结晶绽放",
-    "DESCRIPTION": "源石技艺 。 急性发作 2。 NL 获得 [E] 。 获得相当于你 感染进度 的 格挡 。 NL 消耗 。",
+    "DESCRIPTION": "源石技艺 。 急性发作 2。 NL  若你本回合打出过其他 源石技艺 ，获得 [E] 。",
     "UPGRADE_DESCRIPTION": "源石技艺 。 急性发作 2。 NL 获得 [E] 。 获得相当于你 感染进度 的 格挡 。"
   },
   "AmiyaMod:ShadowBack": {
@@ -526,13 +526,13 @@
 
   "AmiyaMod:BlackKing": {
     "NAME": "黑冠圣贤",
-    "DESCRIPTION": "每当回合开始时，可以选择 !M! 张手牌 消耗 。 NL 每当非 追忆 牌被 消耗 ，将 !M! 张 追忆 加入手牌。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每当回合开始时，可以选择 !M! 张手牌 消耗 。 NL 每当非 追忆 牌被 消耗 ，将 !M! 张 追忆 加入手牌。"
+    "DESCRIPTION": "每回合开始时，可以选择 !M! 张手牌 消耗 。 NL 每当非 追忆 牌被 消耗 ，将 !M! 张 追忆 加入手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每回合开始时，可以选择 !M! 张手牌 消耗 。 NL 每当非 追忆 牌被 消耗 ，将 !M! 张 追忆 加入手牌。"
   },
   "AmiyaMod:SoulMilk": {
     "NAME": "魂灵涡流",
-    "DESCRIPTION": "从3张随机 追忆 中选择1张加入手牌。 NL 如果 *魂灵涡流 被 消耗 ，获得2层 再生 。",
-    "UPGRADE_DESCRIPTION": "从3张 升级 过的 追忆 中选择1张追忆 加入手牌。 NL 如果 *魂灵涡流 被 消耗 ，获得2层 再生 。"
+    "DESCRIPTION": "从 !M! 张随机 追忆 中选择1张加入手牌。 NL 如果 *魂灵涡流 被 消耗 ，获得2层 再生 。",
+    "UPGRADE_DESCRIPTION": "从 !M! 张 升级 过的 追忆 中选择1张追忆 加入手牌。 NL 如果 *魂灵涡流 被 消耗 ，获得2层 再生 。"
   },
   "AmiyaMod:MakeLine": {
     "NAME": "编织茧笼",
@@ -589,8 +589,8 @@
 
   "AmiyaMod:KingSay": {
     "NAME": "魔王传承",
-    "DESCRIPTION": "不能被打出 。 NL 抽到时将1张随机 源石技艺 和3张 源石诅咒 加入手牌。 NL 若你打出拿到的 源石技艺 ，再获得另1张。",
-    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 抽到时将1张 升级 过的 源石技艺 和3张 源石诅咒 加入手牌。 NL 若你打出拿到的 源石技艺 ，再获得另1张。",
+    "DESCRIPTION": "不能被打出 。 NL 抽到时将1张随机 源石技艺 和 !M! 张 源石诅咒 加入手牌。 NL 若你打出拿到的 源石技艺 ，再获得另1张。",
+    "UPGRADE_DESCRIPTION": "不能被打出 。 NL 抽到时将1张 升级 过的 源石技艺 和 !M! 张 源石诅咒 加入手牌。 NL 若你打出拿到的 源石技艺 ，再获得另1张。",
     "EXTENDED_DESCRIPTION": [" NL (律令: ",
       " 、 ",
       " 。)",
@@ -600,8 +600,8 @@
 
 
   "AmiyaMod:NoName": {
-    "NAME": "愠怒",
-    "DESCRIPTION": "处于 出鞘 时才能打出。 NL 造成 !D! 点伤害 。 NL 下回合开始时 出鞘 。 NL 虚无 。",
+    "NAME": "恨火蔓延",
+    "DESCRIPTION": "处于 出鞘 时才能打出。 NL 造成 !D! 点伤害 。 下回合开始时 出鞘 。 NL 此牌被 消耗 时，抽1张牌 。 NL 虚无 。",
     "EXTENDED_DESCRIPTION": [
       "不要...不要惹恼我。",
       "这把剑渴望着报复...我不能放纵它。"]
@@ -612,8 +612,8 @@
   },
   "AmiyaMod:LittleTe": {
     "NAME": "期冀之汇",
-    "DESCRIPTION": "可以失去1点生命并打出 不能被打出 的 源石诅咒 来将它们 消耗 。 NL 每当你 消耗 或因 急性发作 丢弃 源石诅咒 ， 获得 [E] 。",
-    "UPGRADE_DESCRIPTION":"固有 。 NL 可以失去1点生命并打出 不能被打出 的 源石诅咒 来将它们 消耗 。 NL 每当你 消耗 或因 急性发作 丢弃 源石诅咒 ， 获得 [E] 。"
+    "DESCRIPTION": "获得随机 追忆 直到手牌上限。 NL 回合结束时，每剩余一张手牌获得 !M! 点 丝线 。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION":"获得随机 追忆 直到手牌上限。 NL 回合结束时，每剩余一张手牌获得 !M! 点 丝线 。"
   },
   "AmiyaMod:badY": {
     "NAME": "污染碎片",
@@ -627,7 +627,16 @@
 
   "AmiyaMod:Hate": {
     "NAME": "恨火蔓延",
-    "DESCRIPTION": "本轮当你受到攻击时 给予攻击者 !M! 层 易伤 。 NL 当此卡被 消耗 时，抽 !M! 张牌。 NL 虚无 。"
+    "DESCRIPTION": "处于 出鞘 时才能打出。 NL 本回合结束时 出鞘 不会结束。 NL 此牌被 消耗 时，抽 !M! 张牌 。 NL 虚无 。",
+    "EXTENDED_DESCRIPTION": [
+      "不要...不要惹恼我。",
+      "这把剑渴望着报复...我不能放纵它。"]
+  },
+
+  "AmiyaMod:MindLink": {
+    "NAME": "情绪联结",
+    "DESCRIPTION": "源石技艺 。 急性发作 1。 NL  造成 !D! 点伤害 ，若你本回合打出过其他 源石技艺 ，获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "源石技艺 。 急性发作 1。 NL  造成 !D! 点伤害 ，若你本回合打出过其他 源石技艺 ，获得 [E] 。"
   }
 }
 

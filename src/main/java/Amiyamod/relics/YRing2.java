@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -25,12 +26,19 @@ public class YRing2 extends YRing {
                 RelicTier.BOSS,
                 LandingSound.SOLID
         );
+        this.cost = 1;
     }
 
     public void atTurnStart() {
         this.work(true);
     }
-
+    public void onTrigger() {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "特殊抑制器2触发"
+        );
+        super.onTrigger();
+        this.addToBot(new DrawCardAction(this.cost));
+    }
     // 返回当前遗物的副本
     public AbstractRelic makeCopy() {
         return new YRing2();
@@ -60,7 +68,7 @@ public class YRing2 extends YRing {
                 i++;
             }
         }
-        if (i > 1){
+        if (i > 2){
             ok = false;
         }
         return (

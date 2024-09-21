@@ -23,11 +23,13 @@ public class KingSayAction extends AbstractGameAction {
     private final boolean OK;
     private final static CardStrings CARD_STRINGS ;
     private final AbstractCard c;
+    private final int N;
     public KingSayAction(AbstractCard card,boolean addZ) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
         this.OK = addZ;
         this.c = card;
+        this.N = card.magicNumber;
     }
 
 
@@ -53,7 +55,7 @@ public class KingSayAction extends AbstractGameAction {
             this.c.initializeDescription();
         }
         if(this.OK){
-            i = Math.min(3,i-1);
+            i = Math.min(this.N,i-1);
             for (int n = 0;n<i;n++){
                 this.addToTop(new MakeTempCardInHandAction(Amiyamod.GetNextYcard(true)));
             }

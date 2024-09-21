@@ -5,6 +5,7 @@ import Amiyamod.action.relic.TheTenAction;
 import Amiyamod.power.YSayPower;
 import com.badlogic.gdx.graphics.Texture;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
@@ -87,15 +88,20 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 					"检测： {}",!AbstractDungeon.player.hasPower(YSayPower.POWER_ID)
 			);
 			if (this.counter>0 && !AbstractDungeon.player.hasPower(YSayPower.POWER_ID)){
-				canU = false;
-				this.counter -=1;
-				this.flash();
-				this.addToBot(new TheTenAction());
-				if (this.counter == 0){
-					this.isDone = true;
-					this.counter = -1;
-				}
+				this.onTrigger();
 			}
+		}
+	}
+	public void onTrigger() {
+		super.onTrigger();
+		canU = false;
+		this.counter -=1;
+
+		this.flash();
+		this.addToBot(new TheTenAction());
+		if (this.counter == 0){
+			this.isDone = true;
+			this.counter = -1;
 		}
 	}
 

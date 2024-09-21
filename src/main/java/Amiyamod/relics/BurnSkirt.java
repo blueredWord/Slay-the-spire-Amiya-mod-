@@ -1,11 +1,13 @@
 package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -24,8 +26,15 @@ public class BurnSkirt extends CustomRelic {
                 RelicTier.BOSS,
                 LandingSound.SOLID
         );
+        this.cost = 1;
     }
 
+    public void onExhaust(AbstractCard card) {
+        if(card.hasTag(YCardTagClassEnum.YZuZhou)) {
+            this.addToBot(new GainEnergyAction(this.cost));
+        }
+    }
+/*
     //在爆发状态下结束战斗则清零
     public void onVictory() {
         this.grayscale = false;
@@ -51,10 +60,7 @@ public class BurnSkirt extends CustomRelic {
         );
         work(false);
     }
-    // 返回遗物的描述
-    public String getUpdatedDescription() {
-        return this.DESCRIPTIONS[0];
-    }
+
     public void work(boolean f) {
         this.pulse = f;
         this.isDone = !f;
@@ -66,10 +72,7 @@ public class BurnSkirt extends CustomRelic {
         }
     }
 
-    // 返回当前遗物的副本
-    public AbstractRelic makeCopy() {
-        return new BurnSkirt();
-    }
+
 
     public boolean canSpawn() {
         boolean n= true;
@@ -82,5 +85,15 @@ public class BurnSkirt extends CustomRelic {
             n = false;
         }
         return n;
+    }
+
+ */
+// 返回遗物的描述
+    public String getUpdatedDescription() {
+        return this.DESCRIPTIONS[1];
+    }
+    // 返回当前遗物的副本
+    public AbstractRelic makeCopy() {
+        return new BurnSkirt();
     }
 }

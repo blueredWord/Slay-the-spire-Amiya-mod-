@@ -121,7 +121,12 @@ public class RedSkyPower extends AbstractPower {
     //回合结束时退出
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer){
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            if (this.owner.hasPower(HatePower.POWER_ID)){
+                this.owner.getPower(HatePower.POWER_ID).flash();
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, HatePower.POWER_ID));
+            }else {
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            }
         }
     }
     @Override
