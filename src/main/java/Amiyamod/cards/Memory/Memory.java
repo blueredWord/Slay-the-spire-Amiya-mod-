@@ -5,7 +5,11 @@ import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.MemoryPower;
+import basemod.BaseMod;
+import basemod.devcommands.history.History;
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.BranchingUpgradesCard;
+import com.evacipated.cardcrawl.mod.stslib.variables.RefundVariable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.ChooseOneAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -35,6 +39,8 @@ public class Memory extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.misc = 1;
+        RefundVariable.setBaseValue(this,1);
         //this.exhaust = true ;
         //this.isEthereal = true;
         //源石卡牌tag
@@ -46,26 +52,30 @@ public class Memory extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(1);
             //this.upgradeBaseCost(0);
             //this.isEthereal = false;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
+
     @Override
     public void use(AbstractPlayer pl, AbstractMonster m) {
-        CardGroup G = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
-        for (AbstractPlayer p  : CardCrawlGame.characterManager.getAllCharacters()){
-            //如果和玩家同类则跳过
-            if (Objects.equals(pl.getTitle(pl.chosenClass), p.getTitle(p.chosenClass)) && !(p instanceof Amiya)){
-                break;
-            }
-            p.getTitle(p.chosenClass);
-            p.getCardColor();
-            String ID = this.cardID+p.getCardColor().name();
-            String Des =CARD_STRINGS.EXTENDED_DESCRIPTION[1]+this.magicNumber+CARD_STRINGS.EXTENDED_DESCRIPTION[2]+p.getTitle(p.chosenClass);
+
+        for(int i = 0 ; i < this.magicNumber ;i++){
+            CardGroup G = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
+            for (AbstractPlayer p  : CardCrawlGame.characterManager.getAllCharacters()){
+                //如果和玩家同类则跳过
+                if (Objects.equals(pl.getTitle(pl.chosenClass), p.getTitle(p.chosenClass))){
+                    break;
+                }
+
+                p.getTitle(p.chosenClass);
+                p.getCardColor();
+                String ID = this.cardID+p.getCardColor().name();
+                String Des =CARD_STRINGS.EXTENDED_DESCRIPTION[1]+"1"+CARD_STRINGS.EXTENDED_DESCRIPTION[2]+p.getTitle(p.chosenClass);
 
 
                 if (this.upgraded){
@@ -74,28 +84,28 @@ public class Memory extends CustomCard {
                     Des+= CARD_STRINGS.EXTENDED_DESCRIPTION[3];
                 }
 
+                int COST = -2;
+                AbstractPower pow = new MemoryPower(p.getCardColor(),this.misc,true,p.getTitle(p.chosenClass));
+                CustomCard card = new CustomCard(ID,CARD_STRINGS.EXTENDED_DESCRIPTION[0]+p.getTitle(p.chosenClass),IMG_PATH, COST,Des, CardType.POWER, p.getCardColor(), CardRarity.SPECIAL, CardTarget.NONE) {
+                    @Override
+                    public void upgrade() {}
+                    @Override
+                    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {}
+                    @Override
+                    public void onChoseThisOption() {
+                        this.addToBot(new ApplyPowerAction(pl,pl,pow));
+                    }
+                    @Override
+                    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+                        return false;
+                    }
+                };
 
-            int COST = -2;
-            AbstractPower pow = new MemoryPower(p.getCardColor(),this.magicNumber,this.upgraded,p.getTitle(p.chosenClass));
-            CustomCard card = new CustomCard(ID,CARD_STRINGS.EXTENDED_DESCRIPTION[0]+p.getTitle(p.chosenClass),IMG_PATH, COST,Des, CardType.POWER, p.getCardColor(), AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.NONE) {
-                @Override
-                public void upgrade() {}
-                @Override
-                public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {}
-                @Override
-                public void onChoseThisOption() {
-                    this.addToBot(new ApplyPowerAction(pl,pl,pow));
-                }
-                @Override
-                public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-                    return  false;
-                }
-            };
-
-            if (this.upgraded) {card.upgrade();}
-            G.addToBottom(card);
+                if (this.upgraded) {card.upgrade();}
+                G.addToBottom(card);
+            }
+            this.addToBot(new ChooseOneAction(G.group));
         }
-        this.addToBot(new ChooseOneAction(G.group));
     }
 
     public AbstractCard makeCopy() {

@@ -1,14 +1,8 @@
 package Amiyamod.patches;
 
-import Amiyamod.power.LittleTePower;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 @SpirePatch(clz = com.megacrit.cardcrawl.actions.common.GainBlockAction.class, method = "update")
 public class DefendPatch {
    @SpirePrefixPatch

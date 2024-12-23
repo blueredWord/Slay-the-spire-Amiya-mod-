@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import org.apache.logging.log4j.LogManager;
 
 //  有刺无刺
 //  对所有敌人造成2次3（4）点伤害，本回合你每受到1次伤害，攻击次数+1。燃己1（2）
@@ -36,7 +37,7 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 3;
         //this.isMultiDamage = true;
-        this.exhaust = true;
+
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -52,10 +53,9 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        for(int i = 0; i < this.magicNumber+this.misc; ++i) {
+        for(this.misc += this.magicNumber; this.misc > 0; this.misc--) {
             this.addToBot(new AttackDamageRandomEnemyAction(this));
         }
-        this.misc = 0;
         //Amiyamod.BurnSelf(1);
         this.rawDescription = CARD_STRINGS.DESCRIPTION;
         this.initializeDescription();
@@ -64,16 +64,10 @@ public class CNoC extends CustomCard implements OnLoseTempHpPower {
 
     @Override
     public int onLoseTempHp(DamageInfo damageInfo, int i) {
-        int tem=(Integer) TempHPField.tempHp.get(AbstractDungeon.player);
-        if ( i > 0 && tem >= i){
-            upg();
-        }
+        this.tookDamage();
         return i;
     }
     public void tookDamage() {
-        upg();
-    }
-    public void upg(){
         this.misc += 1;
         this.rawDescription = CARD_STRINGS.DESCRIPTION+CARD_STRINGS.EXTENDED_DESCRIPTION[0]+this.misc+CARD_STRINGS.EXTENDED_DESCRIPTION[1];
         this.initializeDescription();

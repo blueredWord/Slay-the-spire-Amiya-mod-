@@ -39,8 +39,8 @@ public class ShadowBack extends CustomCard {
         //this.damage = this.baseDamage = 4;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.baseBlock = this.block = 5;
-        this.magicNumber = this.baseMagicNumber = 1;
+        //this.baseBlock = this.block = 5;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.RedSky1);
@@ -54,11 +54,11 @@ public class ShadowBack extends CustomCard {
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeBlock(5);
             //this.upgradeBaseCost(0);
-            this.upgradeMagicNumber(1);
-            //this.exhaust = false;
+            //this.upgradeMagicNumber(1);
+            this.exhaust = false;
             //this.selfRetain = true;
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -68,11 +68,11 @@ public class ShadowBack extends CustomCard {
         //this.addToBot(new GainBlockAction(p,p,this.block));
         //this.addToBot(new GainEnergyAction(1));
         this.addToBot(new ShadowBackAction(this));
-        ArrayList<AbstractGameAction> list = new ArrayList<>();
+
         for(int i = 0; i< this.magicNumber;i++){
-            list.add(new UpgradeRandomCardAction());
+            this.addToBot(new UpgradeRandomCardAction());
         }
-        Amiyamod.Sword(true,list);
+        //Amiyamod.Sword(true,list);
         //Amiyamod.Sword(true,new GainEnergyAction(this.magicNumber));
     }
     public AbstractCard makeCopy() {return new ShadowBack();}

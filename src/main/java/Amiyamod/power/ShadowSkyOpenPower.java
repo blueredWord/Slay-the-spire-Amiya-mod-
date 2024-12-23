@@ -36,30 +36,13 @@ public class ShadowSkyOpenPower extends AbstractPower {
     }
 
     public void onInitialApplication() {
-        if (this.owner.isPlayer && this.owner instanceof Amiya && this.owner.hasPower(RedSkyPower.POWER_ID)){
-
+        if (this.owner.isPlayer && this.owner instanceof Amiya && this.owner.hasPower(RedSky2Power.POWER_ID)){
             this.owner.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
-
         }
     }
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[3]+this.amount+DESCRIPTIONS[4];
-        //this.description = DESCRIPTIONS[0]+this.n+DESCRIPTIONS[1]+this.amount+DESCRIPTIONS[2];
-    }
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        /*
-        if (card instanceof RedSky){
-            --this.n;
-            if (this.n == 0) {
-                this.flash();
-                this.n = ketnumber;
-                this.addToBot(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new BigNotWorkPower(this.amount)));
-            }
-            this.updateDescription();
-        }
-
-         */
+        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
     }
 }

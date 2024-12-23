@@ -60,7 +60,7 @@ public class Scout extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(m,p,new ScoutPower(this.magicNumber,m)));
-        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeCopy()));
+        //this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeCopy()));
     }
     public void onRetained() {
         this.upgradeDamage(this.magicNumber);

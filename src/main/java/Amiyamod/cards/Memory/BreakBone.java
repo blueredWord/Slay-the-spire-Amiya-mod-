@@ -40,7 +40,8 @@ public class BreakBone extends CustomCard {
         //this.baseDamage = this.damage = 17;
         this.exhaust = true;
         this.misc = 5;
-        this.selfRetain = true;
+        this.isEthereal = true;
+        //this.selfRetain = true;
         //this.purgeOnUse = true;
         //this.tags.add(YCardTagClassEnum.YCard);
     }

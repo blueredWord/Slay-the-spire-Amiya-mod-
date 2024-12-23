@@ -6,8 +6,12 @@ import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.patches.YZCardInterface;
 import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -24,7 +28,7 @@ public class Ydead extends YCard implements YZCardInterface {
     private static final int COST = -2;//卡片费用 -2为诅咒
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.CURSE;//卡片类型
     private static final AbstractCard.CardColor COLOR = AbstractCard.CardColor.CURSE;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.CURSE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardRarity RARITY = CardRarity.SPECIAL;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;//无法选择
     public Ydead() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -33,11 +37,16 @@ public class Ydead extends YCard implements YZCardInterface {
         this.tags.add(YCardTagClassEnum.YZuZhou);
     }
 
-    public void triggerOnEndOfPlayerTurn() {
-        //回合结束时失去生命。
-        this.addToBot(new LoseHPAction(AbstractDungeon.player,AbstractDungeon.player,this.magicNumber));
-        //Amiyamod.BurnSelf();
-        super.triggerOnEndOfPlayerTurn();
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        if (this.dontTriggerOnUseCard) {
+            this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+        }
+        super.use(p,m);
+    }
+
+    public void triggerOnEndOfTurnForPlayingCard() {
+        this.dontTriggerOnUseCard = true;
+        AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
     }
 
     //public void use(AbstractPlayer p, AbstractMonster m) {}

@@ -103,7 +103,9 @@ public class KingSeeAction extends AbstractGameAction {
                 tmp = CG.getRandomCard(true).makeCopy();
             }
 
-            if (!tmp.hasTag(AbstractCard.CardTags.HEALING) && !Objects.equals(tmp.cardID, this.ID)){
+            if (tmp.hasTag(AbstractCard.CardTags.HEALING) || Objects.equals(tmp.cardID, this.ID)){
+                dupe = true;
+            } else {
                 while(var6.hasNext()) {
                     AbstractCard c = (AbstractCard)var6.next();
                     if (c.cardID.equals(tmp.cardID)) {

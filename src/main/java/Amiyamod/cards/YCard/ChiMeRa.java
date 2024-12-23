@@ -46,6 +46,7 @@ public class ChiMeRa extends CustomCard{
         this.magicNumber = this.baseMagicNumber = 2;
         this.misc = 20;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 

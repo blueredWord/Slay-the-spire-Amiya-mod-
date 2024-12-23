@@ -84,6 +84,7 @@ public class FirstSayPower extends AbstractPower {
             int D = 0;
             int mis = 0;
             int Y = 0;
+            int dis = 0;
             if (!list.isEmpty()){
                 this.flash();
                 for (AbstractCard c : list){
@@ -102,13 +103,48 @@ public class FirstSayPower extends AbstractPower {
                     } else if (c.rarity == AbstractCard.CardRarity.RARE) {
                         cost += 10;
                     }
-                    if (c.damage>0){damage += c.damage;}
-                    if (c.block>0){B += c.block;}
-                    if (c.magicNumber>0){M += c.magicNumber;}
-                    if (c.heal>0){H += c.heal;}
-                    if (c.draw>0){D += c.draw;}
-                    if (c.misc>0){mis += c.misc;}
-
+                    if (c.baseDamage>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 提供 {} 点伤害",c,c.baseDamage
+                        );
+                        damage += c.baseDamage;
+                    }
+                    if (c.baseBlock>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 提供 {} 点格挡",c,c.baseBlock
+                        );
+                        B += c.baseBlock;
+                    }
+                    if (c.baseMagicNumber>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 的特殊值转化为 {} 点丝线",c,c.baseMagicNumber
+                        );
+                        M += c.baseMagicNumber;
+                    }
+                    if (c.baseHeal>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 提供 {} 点回复",c,c.baseHeal
+                        );
+                        H += c.baseHeal;
+                    }
+                    if (c.baseDraw>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 提供 {} 张抽卡",c,c.baseDraw
+                        );
+                        D += c.baseDraw;
+                    }
+                    if (c.misc>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 的杂项值转为 {} 点丝线",c,c.misc
+                        );
+                        mis += c.misc;
+                    }
+                    if (c.baseDiscard>0){
+                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                                "源石结晶生成: {} 的丢弃转化为 {} 张消耗",c,c.baseDiscard
+                        );
+                        D += c.baseDiscard;
+                    }
                     p.hand.moveToExhaustPile(c);
                 }
                 AbstractCard c = new FirstSayA(damage,B,M,H,D,mis,cost,Y);

@@ -54,6 +54,7 @@ public class BloodNoPower extends AbstractPower implements DamageModApplyingPowe
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer){
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+
         }
     }
     @Override

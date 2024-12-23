@@ -5,6 +5,7 @@ import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -27,13 +28,14 @@ public class BloodPotion extends CustomCard {
 
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.ALL;//是否指向敌人
 
     public BloodPotion() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
+        this.misc = 2;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -51,6 +53,8 @@ public class BloodPotion extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        this.addToBot(new LoseHPAction(p,p,this.misc));
         // 给予所有敌人1层虚弱及1层易伤
         for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if (!mo.isDead && !mo.isDying) {
@@ -68,7 +72,8 @@ public class BloodPotion extends CustomCard {
 
          */
         //燃己2
-        Amiyamod.BurnSelf(2);
+
+        //Amiyamod.BurnSelf(2);
     }
 
     public AbstractCard makeCopy() {

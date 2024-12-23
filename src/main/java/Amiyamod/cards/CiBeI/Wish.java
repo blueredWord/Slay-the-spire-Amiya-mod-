@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LineBow;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -20,7 +21,7 @@ public class Wish extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
 
-    private static final int COST = 2;//卡片费用
+    private static final int COST = 1;//卡片费用
 
     private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -29,9 +30,10 @@ public class Wish extends CustomCard {
 
     public Wish() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 5;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 

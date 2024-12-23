@@ -2,15 +2,11 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 //慈悲愿景
 //本回合造成伤害时获得等同于伤害点丝线。

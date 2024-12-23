@@ -3,6 +3,7 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.cards.RedSky.ShadowCry;
+import Amiyamod.cards.RedSky.ShadowDefend;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.Gdx;
@@ -70,8 +71,9 @@ public class RedSkyPower extends AbstractPower {
         if(
                 (card.type == AbstractCard.CardType.ATTACK)
                  && ( !(card instanceof RedSky) )
-                && AbstractDungeon.player.hand.size()<10
+                && AbstractDungeon.player.hand.size() < 11
         ) {
+            boolean self = false;
             if(card.cost == -1){
                 this.flash();
                 Amiyamod.getRedSky(card.energyOnUse);
@@ -81,7 +83,12 @@ public class RedSkyPower extends AbstractPower {
                     i += card.magicNumber;
                 }
                 this.flash();
-                Amiyamod.getRedSky(i);
+                if (self) {
+                    Amiyamod.getRedSky(i,true,1);
+                }else {
+                    Amiyamod.getRedSky(i);
+                }
+
             }
         }
     }
@@ -121,12 +128,16 @@ public class RedSkyPower extends AbstractPower {
     //回合结束时退出
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer){
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            /*
             if (this.owner.hasPower(HatePower.POWER_ID)){
                 this.owner.getPower(HatePower.POWER_ID).flash();
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, HatePower.POWER_ID));
             }else {
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
             }
+
+             */
         }
     }
     @Override

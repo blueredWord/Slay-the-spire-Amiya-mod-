@@ -3,13 +3,12 @@ package Amiyamod.cards.CiBeI;
 import Amiyamod.Amiyamod;
 
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -42,6 +41,7 @@ public class Ghost extends CustomCard {
         //this.selfRetain = true;
 
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
@@ -51,8 +51,8 @@ public class Ghost extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.exhaust = false;
-            this.selfRetain = true;
+            this.exhaust = false;
+            //this.selfRetain = true;
             //this.upgradeBaseCost(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -63,8 +63,7 @@ public class Ghost extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int var = TempHPField.tempHp.get(p);
         if (var > 0){
-            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(p,p,var));
-            //TempHPField.tempHp.set(p,var * 2);
+            Amiyamod.LinePower(var);
         }
     }
 

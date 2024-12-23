@@ -14,10 +14,7 @@ public class FastSingAction extends AbstractGameAction {
     private final AbstractPlayer player = AbstractDungeon.player;
     private final int numberOfCards;
 
-    private final boolean anyNumber = false;
     private CardGroup G = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
-    private int tag ;
-
 
     public FastSingAction(int numberOfCards) {
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -34,17 +31,8 @@ public class FastSingAction extends AbstractGameAction {
         if (this.duration == this.startDuration) {
             //第一动
             if (!this.G.isEmpty() && this.numberOfCards > 0) {
-                if ( this.G.size() <= this.numberOfCards && !this.anyNumber) {
-                    // 不是想选多少选多少，可选的比要选的还少，那就直接跳过选择
-                    for (AbstractCard c :  this.G.group){
-                        c.costForTurn -= 1;
-                        AbstractDungeon.player.drawPile.moveToHand(c);
-                    }
-                    this.isDone = true;
-                } else {
-                    AbstractDungeon.gridSelectScreen.open( this.G , this.numberOfCards, this.anyNumber, TEXT[5]);
-                    this.tickDuration();
-                }
+                AbstractDungeon.gridSelectScreen.open( this.G , this.numberOfCards,true, TEXT[5]);
+                this.tickDuration();
             } else {
                 this.isDone = true;
             }
@@ -53,7 +41,10 @@ public class FastSingAction extends AbstractGameAction {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 //只要选到了东西
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards){
-                    if (c.costForTurn>0){c.costForTurn -= 1;}
+                    if (c.costForTurn>0){
+                        c.setCostForTurn(c.costForTurn-1);
+                        //c.costForTurn -= 1;
+                    }
                     AbstractDungeon.player.drawPile.moveToHand(c);
                 }
             }

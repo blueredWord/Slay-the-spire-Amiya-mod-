@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.MindBubblePower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,12 +34,15 @@ public class MindBubble extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST,  CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 15;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 9;
+        this.magicNumber = this.baseMagicNumber = 1;
+        this.draw = this.baseDraw = this.baseMagicNumber;
+        this.misc = 9 ;
         //this.heal = 15;
         //this.misc = 1;
 
         //this.exhaust = true;
         this.isEthereal = true;
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -53,32 +57,22 @@ public class MindBubble extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(4);
+            //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
-            //this.selfRetain = true;
-            //this.isInnate = true;
+
+            this.isEthereal = false;
             //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
-    public void triggerWhenDrawn() {
-        AbstractPlayer p = AbstractDungeon.player;
-        //this.addToBot(new GainEnergyAction(this.misc));
-        Amiyamod.LinePower(this.magicNumber);
-        this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower(this.magicNumber)));
-        /*
-        if(this.upgraded) {
-            this.addToBot(new ApplyPowerAction(p, p, new MindBubblePower()));
-        }else {
-            this.addToBot(new ApplyPowerAction(p, p, new EntanglePower(p)));
-        }
-         */
-    }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {}
+    public void use(AbstractPlayer p, AbstractMonster m) {
+        Amiyamod.LinePower( this.misc );
+        this.addToBot(new ApplyPowerAction(p,p,new MindBubblePower(this.magicNumber)));
+    }
 
     public AbstractCard makeCopy() {return new MindBubble();}
 }

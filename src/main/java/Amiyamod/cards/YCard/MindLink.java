@@ -31,7 +31,7 @@ public class MindLink extends CustomCard {
 
     private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.ATTACK;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.COMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
 
     public MindLink() {
@@ -68,13 +68,7 @@ public class MindLink extends CustomCard {
         }
     }
     public void triggerOnGlowCheck() {
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn){
-            if (c.hasTag(YCardTagClassEnum.YCard)){
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-                break;
-            }
-        }
+        this.glowColor = Amiyamod.LoseHPthisturn ? AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy() : AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -83,16 +77,9 @@ public class MindLink extends CustomCard {
                 new DamageInfo(p, damage,this.damageTypeForTurn)
             )
         );
-        Amiyamod.addY(this.misc);
-
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn){
-            if (c.hasTag(YCardTagClassEnum.YCard) && c.uuid != this.uuid){
-                this.addToBot(new GainEnergyAction(this.magicNumber));
-                break;
-            }
+        if (Amiyamod.LoseHPthisturn){
+            this.addToBot(new GainEnergyAction(this.magicNumber));
         }
-
-        Amiyamod.HenJi(this.misc,this,m);
     }
     public AbstractCard makeCopy() {return new MindLink();}
 }

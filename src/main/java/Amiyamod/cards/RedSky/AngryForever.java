@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 //永燃怒火
-//（固有）进入愠怒，每回合开始时进入 愠怒。
+//每当你打出耗能至少为2的卡牌后， 蕴剑 !M!
 public class AngryForever extends CustomCard {
     private static final String NAME = "AngryForever";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -24,7 +24,7 @@ public class AngryForever extends CustomCard {
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
     private static final int COST = 2;//卡片费用
-
+    public static final int misc = 2;//耗能阈值
     private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
@@ -33,7 +33,7 @@ public class AngryForever extends CustomCard {
     public AngryForever() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.baseMagicNumber = 2;
-        //this.magicNumber = this.baseMagicNumber;
+        this.magicNumber = this.baseMagicNumber = 1;
         //this.baseDraw = this.draw = 1;
         //this.exhaust = true;
         //源石卡牌tag
@@ -57,13 +57,12 @@ public class AngryForever extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //进入愠怒
-        if (this.upgraded){
-            Amiyamod.Sword(true);
-        }
         //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RedSkyPower()));
         //每回合开始时进入愠怒的能力
-        this.addToBot(new ApplyPowerAction(p,p,new AngryForeverPower()));
+        if(this.upgraded){
+            Amiyamod.Sword(true);
+        }
+        this.addToBot(new ApplyPowerAction(p,p,new AngryForeverPower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new AngryForever();}
 }

@@ -31,7 +31,7 @@ public class ShadowBlood extends CustomCard {
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.ATTACK;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardRarity RARITY = CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
 
     public ShadowBlood() {
@@ -40,12 +40,12 @@ public class ShadowBlood extends CustomCard {
         //this.isMultiDamage = true;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.tags.add(YCardTagClassEnum.RedSky1);
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
-//造成 !D! 点伤害。 NL 出鞘 : 失去 !M! 点生命，再造成一次伤害。
+    //造成 !D! 点伤害。 NL 出鞘 : 失去 !M! 点生命，再造成一次伤害。
     @Override
     public void upgrade() {
         if (!this.upgraded) {
@@ -67,7 +67,7 @@ public class ShadowBlood extends CustomCard {
         );
         ArrayList<AbstractGameAction> list =new ArrayList<>();
         list.add(new LoseHPAction(p,p,this.magicNumber));
-        list.add(new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn)));
+        list.add(new DamageAction(m, new DamageInfo(p, damage/2, this.damageTypeForTurn)));
         Amiyamod.Sword(true,list);
     }
     public AbstractCard makeCopy() {return new ShadowBlood();}

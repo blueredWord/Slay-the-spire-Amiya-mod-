@@ -34,8 +34,8 @@ public class ShadowCloudBreak2 extends CustomCard {
         this.cardsToPreview = new RedSky(true);
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        //this.exhaust = true;
-        this.isEthereal = true;
+        this.exhaust = true;
+        //this.isEthereal = true;
         this.tags.add(YCardTagClassEnum.RedSky1);
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
@@ -49,7 +49,7 @@ public class ShadowCloudBreak2 extends CustomCard {
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeBlock(6);
             //this.upgradeMagicNumber(1);
-            //this.isEthereal = false;
+            this.exhaust = false;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
@@ -61,13 +61,7 @@ public class ShadowCloudBreak2 extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if(this.upgraded){
-            this.addToBot(new FindExRedAction());
-            Amiyamod.Sword(true);
-        } else {
-            Amiyamod.Sword(true,new FindExRedAction());
-        }
-
+        this.addToBot(new FindExRedAction());
     }
     public AbstractCard makeCopy() {return new ShadowCloudBreak2();}
 }

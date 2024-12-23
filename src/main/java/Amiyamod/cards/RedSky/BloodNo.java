@@ -18,7 +18,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BloodNo extends CustomCard {
     //=================================================================================================================
-    //@ 【青色怒火】 NL 造成 !D! 点伤害。 NL 入鞘 : 本回合打出的下一张 赤霄 无视 格挡 。
+    //@ 【青色怒火】 NL 造成 !D! 点伤害。 NL 蕴剑 !M!
     //=================================================================================================================
     private static final String NAME = "BloodNo";// 【卡片名字】
 
@@ -34,9 +34,9 @@ public class BloodNo extends CustomCard {
 
     public BloodNo() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 0;
+        this.magicNumber = this.baseMagicNumber = 1;
         this.damage = this.baseDamage = 27;
-        this.misc = 1;
+        this.misc = 0;
         //this.heal = 3;
         this.tags.add(YCardTagClassEnum.RedSky1);
         //this.exhaust = true;
@@ -54,8 +54,7 @@ public class BloodNo extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.misc += 1;
-            //this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(1);
             //this.upgradeBlock(6);
             //this.exhaust = false;
             //this.upgradeDamage(10);
@@ -67,36 +66,31 @@ public class BloodNo extends CustomCard {
     public void applyPowers() {
         int realBaseDamage = this.baseDamage;
 
-        this.baseMagicNumber = 0;
-        for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
-            if (c.isEthereal){
-                this.baseMagicNumber += this.misc;
-            }
-        }
+        this.misc = 0;
+        this.misc += this.magicNumber*AbstractDungeon.player.exhaustPile.size();
 
-        this.baseDamage += this.baseMagicNumber;
+        this.baseDamage += this.misc;
         super.applyPowers();
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
-        this.baseMagicNumber = 0;
-        for(AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
-            if (c.isEthereal){
-                this.baseMagicNumber += this.misc;
-            }
-        }
+        this.misc = 0;
+        this.misc += this.magicNumber*AbstractDungeon.player.exhaustPile.size();
+
         int realBaseDamage = this.baseDamage;
-        this.baseDamage += this.baseMagicNumber;
+        this.baseDamage += this.misc;
+
         super.calculateCardDamage(mo);
+
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //Amiyamod.BurnSelf(1);
-        this.damage += this.magicNumber;
+        this.damage += this.magicNumber*AbstractDungeon.player.exhaustPile.size();
         this.calculateCardDamage(m);
         this.addToBot(
                 new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn))

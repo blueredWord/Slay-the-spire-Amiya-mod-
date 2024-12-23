@@ -1,6 +1,7 @@
 package Amiyamod.relics;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.Yzuzhou.YCard;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
@@ -95,5 +96,21 @@ public class BurnSkirt extends CustomRelic {
     // 返回当前遗物的副本
     public AbstractRelic makeCopy() {
         return new BurnSkirt();
+    }
+
+    public boolean canSpawn() {
+        int i = 1;
+        if (!AbstractDungeon.player.masterDeck.isEmpty()){
+            for(AbstractCard c : AbstractDungeon.player.masterDeck.group){
+                if (c instanceof YCard){
+                    i+=5;
+                } else  if (c.hasTag(YCardTagClassEnum.YCard))
+                    i++;
+            }
+        }
+        if (AbstractDungeon.player.hasRelic(Yill.ID)){
+            i += AbstractDungeon.player.getRelic(Yill.ID).counter;
+        }
+        return i > 10;
     }
 }

@@ -15,8 +15,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-// 行她所行
-// 每次受到伤害对所有敌人造成6点真实伤害。
+
 public class HerDo extends CustomCard {
     private static final String NAME = "HerDo";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -33,7 +32,7 @@ public class HerDo extends CustomCard {
 
     public HerDo() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -53,7 +52,7 @@ public class HerDo extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得状态：每花费次受到伤害 对全体敌人造成6反伤
-        this.addToTop(new ApplyPowerAction(p, p, new HerDoPower(p, this.magicNumber), this.magicNumber));
+        this.addToTop(new ApplyPowerAction(p, p, new HerDoPower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new HerDo();}
 }

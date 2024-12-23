@@ -128,8 +128,6 @@ public class HelpMagic extends CustomCard implements OnLoseTempHpPower {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.addY(this.misc);
-        Amiyamod.HenJi(this.magicNumber,this,m);
         this.addToBot(new GainBlockAction(p,p,this.block));
     }
     public AbstractCard makeCopy() {return new HelpMagic();}

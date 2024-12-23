@@ -37,6 +37,7 @@ public class ShadowBlueFire extends CustomCard {
         this.tags.add(YCardTagClassEnum.RedSky1);
         //this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 

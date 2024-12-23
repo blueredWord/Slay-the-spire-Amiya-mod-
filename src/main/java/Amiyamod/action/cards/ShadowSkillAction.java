@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -38,31 +39,27 @@ public class ShadowSkillAction extends AbstractGameAction {
 
     public void update() {
         //设置花费不能超过magicnumber
-        int effect = Math.min(EnergyPanel.totalCount,this.m) ;
+        int effect = EnergyPanel.totalCount ;
+
         //花费能量
         if (effect > 0 && !this.freeToPlayOnce) {
             this.p.energy.use(effect);
         }
+
+        effect++;
+
 
         //X药剂+2次
         if (this.p.hasRelic("Chemical X")) {
             effect += 2;
             this.p.getRelic("Chemical X").flash();
         }
-        /*如果升级多触发一次
-        if (this.up){
-            effect += this.m;
-        }
-        if (effect > 0) {
-            for(int i = 0; i < effect; ++i) {
-                if (i == 0) {
 
-                }
-                Amiyamod.getRedSky(i,false);
-            }
+        while (effect>0){
+            this.addToTop(new UpgradeRandomCardAction());
+            effect--;
         }
-         */
-        Amiyamod.getRedSky(effect,false);
+
         this.isDone = true;
     }
 }

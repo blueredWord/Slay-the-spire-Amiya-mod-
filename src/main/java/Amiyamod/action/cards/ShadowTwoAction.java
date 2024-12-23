@@ -23,6 +23,7 @@ public class ShadowTwoAction extends AbstractGameAction {
     public static final String[] TEXT;
     private final boolean notchip;
     private final int number;
+    boolean up;
 
     public ShadowTwoAction(AbstractCard source) {
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, -1);
@@ -36,7 +37,8 @@ public class ShadowTwoAction extends AbstractGameAction {
     public ShadowTwoAction(AbstractCard source, boolean notChip) {
         this.setValues(AbstractDungeon.player, AbstractDungeon.player, -1);
         this.actionType = ActionType.CARD_MANIPULATION;
-        this.notchip = notChip;
+        this.notchip = true;
+        this.up = notChip;
         this.number = source.magicNumber;
         this.p = AbstractDungeon.player;
     }
@@ -53,26 +55,23 @@ public class ShadowTwoAction extends AbstractGameAction {
         } else {
             if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
                 if (!AbstractDungeon.handCardSelectScreen.selectedCards.group.isEmpty()) {
-                    if(p.hasPower(RedSkyPower.POWER_ID)){
-                        Amiyamod.Sword(false,new ArrayList<>());
-                        for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                            AbstractDungeon.player.hand.moveToDiscardPile(c);
+                    for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+                        AbstractDungeon.player.hand.moveToDiscardPile(c);
+                        c.triggerOnManualDiscard();
+                        if (c instanceof RedSky){
+                            AbstractDungeon.player.discardPile.moveToHand(c);
                             GameActionManager.incrementDiscard(false);
                             c.triggerOnManualDiscard();
-                            if (c.type == AbstractCard.CardType.ATTACK){
-                                AbstractDungeon.player.discardPile.moveToHand(c);
+                            GameActionManager.incrementDiscard(false);
+                            if (this.up){
+                                c.upgrade();
+                                c.applyPowers();
+                                c.superFlash();
                             }
-                        }
-                    }else{
-                        for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
-                            AbstractDungeon.player.hand.moveToDiscardPile(c);
-                            GameActionManager.incrementDiscard(false);
-                            c.triggerOnManualDiscard();
                         }
                     }
                     this.addToTop(new DrawCardAction(this.p, AbstractDungeon.handCardSelectScreen.selectedCards.group.size()));
                 }
-
                 AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;
             }
 

@@ -31,30 +31,28 @@ public class BreakBuilding  extends CustomRelic implements OnLoseTempHpRelic {
                 LandingSound.SOLID
         );
         this.counter = 0;
-        this.cost = 2;
+        this.cost = 1;
         this.description = getUpdatedDescription() ;
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         this.initializeTips();
     }
 
-    public void onTrigger() {
-        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player,DamageInfo.createDamageMatrix( this.counter, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
-        this.reset();
-    }
 
     public void onPlayerEndTurn() {
         if (this.counter>0){
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
-            this.onTrigger();
+            this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player,DamageInfo.createDamageMatrix( this.counter, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
+            this.reset();
         }
     }
 
 
     // 返回遗物的描述
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0]+this.cost+DESCRIPTIONS[1];
+        return  DESCRIPTIONS[2];
+        //return DESCRIPTIONS[0]+this.cost+DESCRIPTIONS[1];
     }
     public void onVictory() {
         this.reset();

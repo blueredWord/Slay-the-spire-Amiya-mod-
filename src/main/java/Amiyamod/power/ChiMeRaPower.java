@@ -32,6 +32,7 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
     public static final String POWERID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    final static int leve  = 2;
     public ChiMeRaPower(int n) {
         this.name = powerStrings.NAME;
         this.ID = POWERID;
@@ -47,11 +48,11 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = this.amount + DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0]+(leve*100-100)+DESCRIPTIONS[1];
     }
     @Override
     public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
-        return (float) (damage*1.5);
+        return (float) (damage*leve);
     }
 
     @Override
@@ -81,23 +82,21 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
     public void atStartOfTurnPostDraw() {
         this.flash();
         if (this.amount == 0) {
-
+            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner,  this.ID));
+        } else if (this.amount == 1){
             if (!this.owner.hasPower(RedSkyPower.POWER_ID)){
                 this.owner.state.setAnimation(0, "Skill_2_End", false);
                 this.owner.state.addAnimation(0, "Stun", true,0.0F);
             } else {
                 this.owner.state.setAnimation(0, "Stun", true);
             }
-
             this.addToBot(new DiscardAction(this.owner, this.owner, AbstractDungeon.player.hand.size(), true));
             this.addToBot(new PressEndTurnButtonAction());
-            this.amount = -1;
-        } else if (this.amount == -1) {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         } else {
-            this.amount -= 1;
-            //this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
+            this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
+
     }
 
     @Override

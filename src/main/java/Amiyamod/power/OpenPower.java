@@ -15,7 +15,6 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 //来自绽放的能力
 //每次受到伤害令一名随机敌人获得1层虚弱。

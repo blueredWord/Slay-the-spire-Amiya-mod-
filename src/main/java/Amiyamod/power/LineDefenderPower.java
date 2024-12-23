@@ -3,16 +3,19 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
+import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -20,17 +23,20 @@ import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import org.apache.logging.log4j.LogManager;
 
 //直到下个回合开始前，每受到1次伤害获得点丝线
-public class LineDefenderPower extends AbstractPower implements OnLoseTempHpPower {
+public class LineDefenderPower extends TwoAmountPower implements OnLoseTempHpPower {
     public static final String NAME = "LineDefenderPower";
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public LineDefenderPower(AbstractCreature owner, int amount) {
+    public static int t = 0;
+    public LineDefenderPower(int linemuber,int blocknumber) {
         this.name = powerStrings.NAME;
-        this.ID = POWER_ID;
-        this.owner = owner;
+        this.ID = POWER_ID+t;
+        t++;
+        this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = amount;
+        this.amount = linemuber;
+        this.amount2 = blocknumber;
         this.type = PowerType.BUFF;
         // 添加图标                         this.img = new Texture("img/Reimupowers/" + NAME + ".png");
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -39,31 +45,31 @@ public class LineDefenderPower extends AbstractPower implements OnLoseTempHpPowe
         this.updateDescription();
     }
 
+    public void onVictory() {
+        t = 0;
+    }
+
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + this.amount2 + DESCRIPTIONS[1];
     }
 
     // 效果 : 每次受到伤害获得层数丝线
     public int onLoseTempHp(DamageInfo info, int damageAmount){
         int tem=(Integer) TempHPField.tempHp.get(this.owner);
-        if ( damageAmount > 0 && tem >= damageAmount){
+        if ( damageAmount > 0 ){
             this.flash();
-            Amiyamod.LinePower(this.amount,this.owner);
-        }
-        return damageAmount;
-    }
-    public int onLoseHp(int damageAmount) {
-        if (damageAmount > 0) {
-            this.flash();
-            Amiyamod.LinePower(this.amount,this.owner);
-        }
-        return damageAmount;
-    }
 
-    // 能力在回合开始时移除
-    @Override
-    public void atStartOfTurnPostDraw() {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            //Amiyamod.LinePower(this.amount,this.owner);
+            this.addToBot(new GainBlockAction(this.owner,this.owner,this.amount2));
+
+            int i = Math.max(0, this.amount - damageAmount);
+            if (i == 0){
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+            } else {
+                this.amount = i;
+            }
+        }
+        return damageAmount;
     }
 }

@@ -31,21 +31,23 @@ public class ShadowBackWindy extends CustomCard {
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
-    private static final CardType TYPE = CardType.SKILL;//卡片类型
+    private static final CardType TYPE = CardType.ATTACK;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.SELF;//是否指向敌人
+    private static final CardRarity RARITY = CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
 
     //抽 !M! 张牌，本回合每当打出 赤霄 获得 !M! 点 格挡 。 NL 出鞘 : 给予所有敌人 !M! 层 虚弱 。
     public ShadowBackWindy() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        //this.damage = this.baseDamage = 12;
-        this.baseBlock = this.block = 5;
+        this.damage = this.baseDamage = 6;
+        //this.baseBlock = this.block = 5;
 
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.exhaust = true;
-        this.baseDraw = this.draw = this.magicNumber = this.baseMagicNumber = 1;
+        //this.exhaust = true;
+        this.magicNumber = this.baseMagicNumber = 1;
+        this.baseDraw = this.draw = 1;
+        this.misc = 1;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -55,8 +57,9 @@ public class ShadowBackWindy extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            //this.upgradeDamage(6);
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
+            this.baseDraw = this.draw = this.magicNumber;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
@@ -67,9 +70,19 @@ public class ShadowBackWindy extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(
+                new DamageAction(
+                        m,
+                        new DamageInfo(
+                                p,
+                                damage,
+                                this.damageTypeForTurn
+                        )
+                )
+        );
         this.addToBot(new DrawCardAction(this.magicNumber));
-        this.addToBot(new ApplyPowerAction(p,p,new ShadowBackWindyPower(this.block)));
-        Amiyamod.Sword(true,new ShadowBackWindyAction(this.magicNumber));
+        //Amiyamod.S(this.misc);
+        Amiyamod.Sword(true,new DrawCardAction(1));
     }
     public AbstractCard makeCopy() {return new ShadowBackWindy();}
 }

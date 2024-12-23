@@ -30,7 +30,7 @@ import java.util.Random;
 
 public class NoName extends CustomCard {
     //=================================================================================================================
-    //@ 【无名怒火】 急性发作 。 造成 !D! 点伤害。 NL 出鞘 : 下回合开始时 出鞘 。 NL 消耗 。
+    //@ 弃置
     //=================================================================================================================
     private static final String NAME = "NoName";// 【卡片名字】
 
@@ -53,7 +53,7 @@ public class NoName extends CustomCard {
         //this.misc = 20;
         //this.exhaust = true;
         this.tags.add(YCardTagClassEnum.RedSky1);
-        this.isEthereal = true;
+        //this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag
@@ -76,6 +76,7 @@ public class NoName extends CustomCard {
             this.initializeDescription();
         }
     }
+    /*
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         boolean canUse = super.canUse(p, m);
@@ -94,11 +95,13 @@ public class NoName extends CustomCard {
         }
     }
 
+     */
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //this.addToBot(new NoNameAction());
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
-        Amiyamod.Sword(true,new ApplyPowerAction(p,p,new NoNamePower()));
+        Amiyamod.Sword(false,new ApplyPowerAction(p,p,new NoNamePower()));
         //Amiyamod.HenJi(1,this,m);
     }
     public AbstractCard makeCopy() {return new NoName();}

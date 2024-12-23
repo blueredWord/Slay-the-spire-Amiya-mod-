@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.action.UpRedAction;
 import Amiyamod.cards.YCard.SeeMe;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -30,17 +31,17 @@ public class SwordHeard extends CustomCard {
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
     private static final int COST = 0;//【卡片费用】
-    private static final CardType TYPE = CardType.ATTACK;//【卡片类型】
+    private static final CardType TYPE = CardType.SKILL;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.COMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
 
     public SwordHeard() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        //this.damage = this.baseDamage = 5;
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
-        //this.misc = 20;
+        this.misc = 1;
         //this.exhaust = true;
         this.isEthereal = true;
         //this.selfRetain = true;
@@ -58,21 +59,22 @@ public class SwordHeard extends CustomCard {
             //this.upgradeBlock(6);
             //this.exhaust = false;
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        Amiyamod.Sword(true,new UpRedAction(false));
         this.addToBot(new ApplyPowerAction(p,p,new VulnerablePower(p,1,false)));
-        this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,1,false)));
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
-        Amiyamod.Sword(true,new KingSeeAction(this.cardID,this.magicNumber,false));
+        this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.magicNumber,false)));
+        //this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
+        //Amiyamod.Sword(true,new KingSeeAction(this.cardID,this.magicNumber,false));
     }
     public AbstractCard makeCopy() {return new SwordHeard();}
 }

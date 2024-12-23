@@ -19,7 +19,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class BloodSword extends CustomCard {
     //=================================================================================================================
-    //@ 【血影】 燃己 1 。 NL 出鞘 : 升级 !M! 张 赤霄 ，失去等同于它 升级 次数的生命 。
+    //@ 【血影】 失去1点生命。 NL 升级 !M! 张手牌 ，并使它获得 保留 。 NL (无视 虚无 )
     //=================================================================================================================
     private static final String NAME = "BloodSword";// 【卡片名字】
 
@@ -52,7 +52,7 @@ public class BloodSword extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            //this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(1);
             //this.upgradeBlock(6);
             //this.exhaust = false;
             //this.upgradeDamage(6);
@@ -64,11 +64,9 @@ public class BloodSword extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.upgraded){
-            Amiyamod.BurnSelf(this.magicNumber);
-        }
-
-        Amiyamod.Sword(true,new BloodSwordAction());
+        Amiyamod.BurnSelf(this.misc);
+        this.addToBot(new BloodSwordAction(this.magicNumber));
+        //Amiyamod.Sword(true);
     }
     public AbstractCard makeCopy() {return new BloodSword();}
 }

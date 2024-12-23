@@ -38,27 +38,25 @@ private boolean yes = true;
         // 首次添加能力更新描述
         this.updateDescription();
     }
-/*
+
     //回合开始时 获得一张等级等于层数的赤霄
     public void atStartOfTurn() {
-        Amiyamod.getRedSky(this.amount);
+        Amiyamod.S(this.amount);
     }
-
- */
-
+/*
     @Override
     public void triggerMarks(AbstractCard card) {
         if (this.yes){
             this.flash();
             Amiyamod.getRedSky(this.amount);
-            this.yes=false;
+            this.yes = false;
         }
         super.triggerMarks(card);
     }
     public void atEndOfRound() {
         this.yes = true;
     }
-
+ */
 
     @Override
     public void updateDescription() {

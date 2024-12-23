@@ -14,8 +14,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 
 import java.util.ArrayList;
+import java.util.Random;
+
 //
 //消耗（保留） 丢弃一张手牌并将其升级，下回合开始时将其加入手牌。 出鞘 :获得[E]。
 public class ShadowUpgrade extends CustomCard {
@@ -24,7 +27,7 @@ public class ShadowUpgrade extends CustomCard {
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
-    private static final int COST = 0;//卡片费用
+    private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.SKILL;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -36,31 +39,52 @@ public class ShadowUpgrade extends CustomCard {
         //this.damage = this.baseDamage = 6;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
+        this.misc = 1;
         this.exhaust = true;
-        this.tags.add(YCardTagClassEnum.RedSky1);
-        this.magicNumber = this.baseMagicNumber = 2;
+
+        this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+
+        if (!super.canUse(p, m)) {
+            return false;
+        } else {
+            if (!p.hand.isEmpty()){
+                for (AbstractCard c : p.hand.group){
+                    if (c instanceof RedSky){
+                        return true;
+                    }
+                }
+            }
+            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+    }
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             //this.upgradeMagicNumber(1);
-            this.exhaust = false;
+            //this.exhaust = false;
             //this.selfRetain = true;
-            //this.upgradeBaseCost(0);
+            this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(new ShadowUpgradeAction(this,p.hasPower(RedSkyPower.POWER_ID)));
+
+        this.addToBot(new ShadowUpgradeAction());
+        //this.addToBot(new ApplyPowerAction(p,p,new DrawCardNextTurnPower(p,this.misc)));
         //if (this.upgraded){ Amiyamod.Sword(false,new ArrayList<>()); }
     }
     public AbstractCard makeCopy() {return new ShadowUpgrade();}

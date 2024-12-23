@@ -1,8 +1,9 @@
 package Amiyamod.action.cards;
 
+import Amiyamod.Amiyamod;
 import Amiyamod.cards.RedSky.RedSky;
+import Amiyamod.power.RedSkyPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,12 +19,14 @@ public class BloodSwordAction extends AbstractGameAction {
     public static final String[] TEXT;
     private AbstractPlayer p;
     private ArrayList<AbstractCard> cannotUpgrade = new ArrayList<>();
-
-
-    public BloodSwordAction() {
+    int up;
+    boolean ok ;
+    public BloodSwordAction(int u) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.up=u;
+        //this.ok = this.p.hasPower(RedSkyPower.POWER_ID);
     }
 
     public void update() {
@@ -34,7 +37,7 @@ public class BloodSwordAction extends AbstractGameAction {
             var1 = this.p.hand.group.iterator();
             while(var1.hasNext()) {
                 c = (AbstractCard)var1.next();
-                if (!(c instanceof RedSky)) {
+                if (c.selfRetain && !c.canUpgrade()) {
                     this.cannotUpgrade.add(c);
                 }
             }
@@ -46,33 +49,20 @@ public class BloodSwordAction extends AbstractGameAction {
 
             this.p.hand.group.removeAll(this.cannotUpgrade);
             if (this.p.hand.group.size() > 1) {
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, true);
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], this.up, true, true, false, true);
                 this.tickDuration();
                 return;
             } else if (this.p.hand.group.size() == 1) {
-                this.addToTop(new LoseHPAction(this.p,this.p,this.p.hand.getTopCard().timesUpgraded));
-
-                this.p.hand.getTopCard().upgrade();
-                this.p.hand.getTopCard().applyPowers();
-                this.p.hand.getTopCard().superFlash();
-
-
+                this.work(this.p.hand.getTopCard());
                 this.returnCards();
                 this.isDone = true;
             }
-        }
-
-        if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
+        } else if ( !AbstractDungeon.handCardSelectScreen.wereCardsRetrieved ) {
             var1 = AbstractDungeon.handCardSelectScreen.selectedCards.group.iterator();
 
             while(var1.hasNext()) {
                 c = (AbstractCard)var1.next();
-
-                this.addToTop(new LoseHPAction(this.p,this.p,c.timesUpgraded));
-
-                c.upgrade();
-                c.superFlash();
-                c.applyPowers();
+                this.work(c);
                 this.p.hand.addToTop(c);
             }
 
@@ -81,8 +71,25 @@ public class BloodSwordAction extends AbstractGameAction {
             AbstractDungeon.handCardSelectScreen.selectedCards.group.clear();
             this.isDone = true;
         }
-
+        this.p.hand.refreshHandLayout();
         this.tickDuration();
+    }
+    void work(AbstractCard c){
+        /*
+        if(!c.selfRetain ){
+            c.selfRetain = true;
+            c.retain = true;
+            c.rawDescription = RedSky.CARD_STRINGS.UPGRADE_DESCRIPTION + c.rawDescription;
+        }
+
+         */
+        c.retain = true;
+        if (c.canUpgrade()){
+            c.upgrade();
+        }
+        c.superFlash();
+        c.applyPowers();
+        c.initializeDescription();
     }
 
     private void returnCards() {

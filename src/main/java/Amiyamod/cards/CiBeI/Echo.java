@@ -3,12 +3,26 @@ package Amiyamod.cards.CiBeI;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.EchoAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.patches.YDamage;
+import Amiyamod.power.BloodPower;
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.damagemods.BindingHelper;
+import com.evacipated.cardcrawl.mod.stslib.damagemods.DamageModifierManager;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
+import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 
 //  沉默的回响
 //  对所有敌人造成X（X+1）次4点伤害，获得X（X+1）次4点丝线。燃己X
@@ -18,7 +32,7 @@ public class Echo extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/" + NAME + ".png";//卡图
 
-    private static final int COST = -1;//卡片费用
+    private static final int COST = 2;//卡片费用
     private static final AbstractCard.CardType TYPE = CardType.ATTACK;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
@@ -27,11 +41,14 @@ public class Echo extends CustomCard {
     public Echo() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.isMultiDamage = true;
-        this.baseMagicNumber = 5;
-        this.magicNumber = this.baseMagicNumber;
-        this.baseDamage = 5;
+        //this.baseMagicNumber = 9;
+        this.magicNumber = this.baseMagicNumber = 3;
+        this.baseDamage = this.damage = 13;
+        this.misc = 2;
+        //DamageModifierManager.addModifier(this, new YDamage());
         //this.isInnate = true; //固有
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -40,8 +57,8 @@ public class Echo extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeDamage(2);
-            this.upgradeMagicNumber(2);
+            this.upgradeDamage(5);
+            this.upgradeMagicNumber(1);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -49,8 +66,14 @@ public class Echo extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new EchoAction(p, this));
+        this.addToBot(new LoseHPAction(p,p,this.misc));
+        this.addToBot(new ApplyPowerAction(p,p,new BloodPower(this.magicNumber)));
+        //this.addToBot(new DamageAction(m, BindingHelper.makeInfo(this, p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.2F));
+        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.NONE, true));
 
+        //Amiyamod.LinePower(this.damage);
+        //this.addToBot(new EchoAction(p, this));
     }
 
     public AbstractCard makeCopy() {

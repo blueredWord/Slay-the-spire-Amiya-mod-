@@ -3,6 +3,7 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
 import Amiyamod.cards.CiBeI.BlackKing;
+import Amiyamod.cards.CiBeI.KingShadow;
 import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.cards.RedSky.ShadowCry;
 import Amiyamod.character.Amiya;
@@ -11,6 +12,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -25,11 +27,11 @@ import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 public class BlackKingPower extends AbstractPower {
     public static final String NAME = "BlackKingPower";
-    protected float particleTimer;
-    protected float particleTimer2;
+
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    boolean UP = false;
     public BlackKingPower(int i) {
         this.name = powerStrings.NAME;
         this.ID = POWER_ID;
@@ -43,6 +45,7 @@ public class BlackKingPower extends AbstractPower {
         // 首次添加能力更新描述
         this.updateDescription();
     }
+    /*
     public void onExhaust(AbstractCard card) {
         if (!card.hasTag(YCardTagClassEnum.MEMORY)){
             this.flash();
@@ -54,13 +57,40 @@ public class BlackKingPower extends AbstractPower {
         this.flash();
         this.addToBot(new ExhaustAction(this.amount, true));
     }
+    */
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        if(this.amount>0){
+            this.flash();
+            for (int i = 0 ; i < this.amount;i++){
+                AbstractCard c = new KingShadow();
+                this.addToBot(new MakeTempCardInHandAction(c));
+            }
+            /*
+            if (this.UP ){
+                if (!AbstractDungeon.player.hand.isEmpty()){
+                    for (AbstractCard c : AbstractDungeon.player.hand.group){
+                        if (c instanceof KingShadow){
+                            c.dontTriggerOnUseCard = true;
+                            c.superFlash();
+                            c.use(AbstractDungeon.player,null);
+                        }
+                    }
+                }
+            } else {
+                for (int i = 0 ; i < this.amount;i++){
+                    AbstractCard c = new KingShadow();
+                    this.addToBot(new MakeTempCardInHandAction(c));
+                }
+            }
+
+             */
+            this.UP = !this.UP;
+        }
+    }
+
 
     @Override
     public void updateDescription() {
-        if (this.amount == 1){
-            this.description = DESCRIPTIONS[0];
-        }else {
-            this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1]+this.amount+DESCRIPTIONS[2];
-        }
+        this.description = DESCRIPTIONS[0]+ this.amount+ DESCRIPTIONS[1];
     }
 }

@@ -53,7 +53,6 @@ public class MemoryPower extends AbstractPower {
         if ( color == CardColorEnum.AMIYA){
             this.A = true;
         }
-
         // 首次添加能力更新描述
         this.updateDescription();
     }

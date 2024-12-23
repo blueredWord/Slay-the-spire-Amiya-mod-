@@ -29,7 +29,7 @@ public class TenRelic2 extends TenRelic {
 				ID,
 				ImageMaster.loadImage("img/relics/"+NAME+".png"),
 				ImageMaster.loadImage("img/relics/"+NAME+"_out.png"),
-				RelicTier.RARE,
+				RelicTier.UNCOMMON,
 				LandingSound.SOLID
 		);
 		this.counter = 10;

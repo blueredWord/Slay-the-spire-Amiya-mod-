@@ -35,42 +35,38 @@ public class CopyMagicAction extends AbstractGameAction {
             Iterator var1;
             AbstractCard c;
             if (this.duration == this.startingDuration) {
-
                 if (AbstractDungeon.player.drawPile.isEmpty()) {
                     this.isDone = true;
                     return;
-                }
-
-
-                if (this.amount != -1) {
-                    for(int i = 0; i < Math.min(this.amount, AbstractDungeon.player.drawPile.size()); ++i) {
-                        tmpGroup.addToTop((AbstractCard)AbstractDungeon.player.drawPile.group.get(AbstractDungeon.player.drawPile.size() - i - 1));
-                    }
                 } else {
-                    Iterator var5 = AbstractDungeon.player.drawPile.group.iterator();
-
-                    while(var5.hasNext()) {
-                        c = (AbstractCard)var5.next();
-                        tmpGroup.addToBottom(c);
+                    CardGroup G = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+                    G.group.addAll(AbstractDungeon.player.drawPile.group);
+                    int i = Math.min(this.amount, AbstractDungeon.player.drawPile.size());
+                    while (i>0){
+                        AbstractCard ac = G.getRandomCard(true);
+                        G.removeCard(ac);
+                        tmpGroup.addToBottom(ac);
+                        i--;
+                    }
+                    if (!tmpGroup.isEmpty()){
+                        AbstractDungeon.gridSelectScreen.open(tmpGroup,1, true, TEXT[8]);
                     }
                 }
-                AbstractDungeon.gridSelectScreen.open(tmpGroup,1, true, TEXT[8]);
-
-            } else if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
-
-                var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
-                while(var1.hasNext()) {
-                    c = (AbstractCard)var1.next();
-                    AbstractCard ca = c.makeStatEquivalentCopy();
-                    if(this.up){
-                        ca.setCostForTurn(0);
+            } else {
+                if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
+                    var1 = AbstractDungeon.gridSelectScreen.selectedCards.iterator();
+                    while (var1.hasNext()) {
+                        c = (AbstractCard) var1.next();
+                        AbstractCard ca = c.makeStatEquivalentCopy();
+                        if (this.up) {
+                            ca.setCostForTurn(0);
+                        }
+                        this.addToTop(new ChoseTempToHandAction(ca));
                     }
-                    this.addToTop(new ChoseTempToHandAction(ca));
+                    AbstractDungeon.gridSelectScreen.selectedCards.clear();
                 }
-
-                AbstractDungeon.gridSelectScreen.selectedCards.clear();
+                this.isDone = true;
             }
-
             this.tickDuration();
         }
     }

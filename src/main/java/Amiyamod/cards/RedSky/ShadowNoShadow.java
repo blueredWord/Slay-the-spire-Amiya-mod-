@@ -21,6 +21,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.Iterator;
+
 public class ShadowNoShadow extends CustomCard {
     private static final String NAME = "ShadowNoShadow";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -51,10 +53,10 @@ public class ShadowNoShadow extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
-            this.selfRetain = true;
+            //this.upgradeMagicNumber(1);
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -66,8 +68,17 @@ public class ShadowNoShadow extends CustomCard {
                     new ShadowNoShadowAction(this)
             );
         }
-
         Amiyamod.Sword(false,new ApplyPowerAction(p,p,new IntangiblePlayerPower(p,this.magicNumber)));
     }
+
+
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if( AbstractDungeon.player.hasPower(RedSky.ID) ){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+
     public AbstractCard makeCopy() {return new ShadowNoShadow();}
 }

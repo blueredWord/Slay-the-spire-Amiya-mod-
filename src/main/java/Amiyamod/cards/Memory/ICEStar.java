@@ -55,8 +55,7 @@ public class ICEStar extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         int frostCount = 0;
-        Amiyamod.addY(1);
-        Amiyamod.HenJi(1,this,m);
+
         for(int i = 0;i<this.misc;i++){
             AbstractDungeon.actionManager.addToBottom(
                     new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)

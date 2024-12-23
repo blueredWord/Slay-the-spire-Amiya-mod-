@@ -3,6 +3,7 @@ package Amiyamod.cards.CiBeI;
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.RedSky.CloudBreakIn;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.SoulDefendPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -35,6 +36,7 @@ public class SoulDefend extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.isEthereal = true;
         this.cardsToPreview = new SoulDefend(1);
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }

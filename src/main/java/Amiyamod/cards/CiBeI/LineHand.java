@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.LineHandAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.SadMindPower;
 import Amiyamod.power.SoulDefendPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -36,9 +37,26 @@ public class LineHand extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.magicNumber = this.baseMagicNumber = 5 ;
         this.isEthereal = true;
-        this.misc = 2;
+        this.misc = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
+    }
+
+    public void applyPowers() {
+        int realBaseDamage = this.baseMagicNumber;
+
+        this.misc = -1;
+        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
+            if (c.isEthereal){
+                this.misc++;
+            }
+        }
+
+        this.baseMagicNumber += Math.max(this.misc,0);
+        super.applyPowers();
+        this.baseMagicNumber = realBaseDamage;
+        this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
     }
 
     @Override
@@ -54,18 +72,15 @@ public class LineHand extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //感染1
-        //Amiyamod.addY(1);
-        //获得丝线
-        int i = this.magicNumber-this.misc;
-        ArrayList<AbstractCard> list = new ArrayList<AbstractCard>();
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisTurn){
+        int i = -1;
+        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
             if (c.isEthereal){
-                i+=this.misc;
+                i++;
             }
         }
-        Amiyamod.LinePower(i);
-        this.addToBot(new LineHandAction(this.cardID));
+
+        this.magicNumber += Math.max(i,0);
+        Amiyamod.LinePower(this.magicNumber);
     }
 
     public AbstractCard makeCopy() {return new LineHand();}

@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.SoloPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,6 +34,7 @@ public class Solo extends CustomCard {
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 15;
         //this.heal = 15;
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.misc = 20;
 
         //this.exhaust = true;

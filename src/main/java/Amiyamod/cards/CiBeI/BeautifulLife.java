@@ -7,6 +7,7 @@ import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.EscapePlanAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -31,6 +32,7 @@ public class BeautifulLife extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.draw = 1;
         this.exhaust = true;
         //this.isInnate = true; //固有
         //源石卡牌tag
@@ -42,7 +44,7 @@ public class BeautifulLife extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -50,7 +52,8 @@ public class BeautifulLife extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(this.magicNumber, new BeautifulLifeAction()));
+        this.addToBot(new ScryAction(this.magicNumber));
+        this.addToBot(new DrawCardAction(this.draw, new BeautifulLifeAction()));
     }
 
     public AbstractCard makeCopy() {

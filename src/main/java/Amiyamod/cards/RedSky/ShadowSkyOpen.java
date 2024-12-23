@@ -45,11 +45,12 @@ public class ShadowSkyOpen extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
-        this.tags.add(YCardTagClassEnum.RedSky1);
+
         this.isEthereal = true;
         this.misc = 5;
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -73,52 +74,6 @@ public class ShadowSkyOpen extends CustomCard {
         this.addToBot(new ShadowSkyOpenAction(this.misc));
         this.addToBot(new ApplyPowerAction(p,p,new ShadowSkyOpenPower(this.magicNumber)));
     }
-
-
-/*
-    @Override
-    public void use(AbstractPlayer p, AbstractMonster m) {
-        int number = 0;
-        for(AbstractCard c :  AbstractDungeon.actionManager.cardsPlayedThisCombat){
-            if (c instanceof RedSky){
-                number++;
-            }
-        }
-        AbstractDungeon.actionManager.addToBottom(
-                new DamageAction(
-                        m,
-                        new DamageInfo(
-                                p,
-                                this.magicNumber * number,
-                                this.damageTypeForTurn
-                        )
-                )
-        );
-        Amiyamod.Sword(true,new ExpertiseAction(p, 10));
-    }
-
-    public void applyPowers() {
-        super.applyPowers();
-        int number = 0;
-        for(AbstractCard c :  AbstractDungeon.actionManager.cardsPlayedThisCombat){
-            if (c instanceof RedSky){
-                number++;
-            }
-        }
-
-        if (number > 0) {
-            this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0]+ (this.magicNumber * number)+ CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-            this.initializeDescription();
-        }
-
-    }
-
-    public void onMoveToDiscard() {
-        this.rawDescription = CARD_STRINGS.DESCRIPTION;
-        this.initializeDescription();
-    }
-
- */
 
     public AbstractCard makeCopy() {return new ShadowSkyOpen();}
 

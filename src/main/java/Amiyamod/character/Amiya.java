@@ -30,6 +30,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -41,7 +42,10 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.AmiyaFute;
+import org.apache.logging.log4j.LogManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Amiya extends CustomPlayer {
@@ -53,17 +57,17 @@ public class Amiya extends CustomPlayer {
     private static final String CORPSE_IMAGE = "img/character/Amiya/amiyadie.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
-            "images/ui/topPanel/blue/1.png",//4
-            "images/ui/topPanel/blue/2.png",//2
-            "images/ui/topPanel/blue/3.png",//3
-            "images/ui/topPanel/blue/4.png",//5
-            "images/ui/topPanel/blue/5.png",//1
-            "images/ui/topPanel/blue/border.png",
-            "images/ui/topPanel/blue/1d.png",
-            "images/ui/topPanel/blue/2d.png",
-            "images/ui/topPanel/blue/3d.png",
-            "images/ui/topPanel/blue/4d.png",
-            "images/ui/topPanel/blue/5d.png"
+            "img/character/Amiya/EUI/layer5.png",//4
+            "img/character/Amiya/EUI/layer4.png",//5
+            "img/character/Amiya/EUI/layer3.png",//1
+            "img/character/Amiya/EUI/layer2.png",//5
+            "img/character/Amiya/EUI/layer1.png",//1
+            "img/character/Amiya/EUI/layer0.png",
+            "img/character/Amiya/EUI/layer5d.png",
+            "img/character/Amiya/EUI/layer4d.png",
+            "img/character/Amiya/EUI/layer3d.png",
+            "img/character/Amiya/EUI/layer2d.png",
+            "img/character/Amiya/EUI/layer1d.png"
     };
     // 每个图层的旋转速度
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
@@ -312,8 +316,14 @@ public class Amiya extends CustomPlayer {
         this.state.setAnimation(0, "Start", false);
         this.state.addAnimation(0, "Idle", true,0.0F);
         super.applyStartOfCombatLogic();
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "模组核心：Tor：" + Amiyamod.Tor
+        );
+        if (!Amiyamod.Tor) {
+            AbstractDungeon.ftue = new AmiyaFute(0);
+            Amiyamod.Tor = true;
+            Amiyamod.saveData();
+        }
     }
-
-
 }
 

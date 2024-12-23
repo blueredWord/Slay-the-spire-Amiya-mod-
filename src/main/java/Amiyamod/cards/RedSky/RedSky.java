@@ -3,9 +3,12 @@ package Amiyamod.cards.RedSky;
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.BonkPower;
+import Amiyamod.power.ShadowSkyOpenPower;
 import Amiyamod.power.ShadowWaterMusicPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -15,12 +18,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import org.apache.logging.log4j.LogManager;
 
 public class RedSky extends CustomCard {
     private static final String NAME = "RedSky";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
-    private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
@@ -28,22 +34,29 @@ public class RedSky extends CustomCard {
     private static final CardColor COLOR = CardColor.COLORLESS;//卡牌颜色
     private static final CardRarity RARITY = CardRarity.SPECIAL;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
-
     public RedSky(boolean n) {
         super(ID, CARD_STRINGS.NAME, IMG_PATH,0 ,CARD_STRINGS.EXTENDED_DESCRIPTION[6], TYPE, COLOR, RARITY, TARGET);
         //this.misc = n;
-        this.timesUpgraded = 0;
+        this.misc = 32;
+        this.timesUpgraded = -1;
         //this.tags.add(YCardTagClassEnum.RedSky);
         this.isEthereal = true;
         this.exhaust = true;
-
         this.initializeTitle();
     }
     public RedSky(int n) {
         super(ID+n, CARD_STRINGS.NAME, IMG_PATH,0 ,CARD_STRINGS.DESCRIPTION , TYPE, COLOR, RARITY, TARGET);
         //this.misc = n;
+
+        this.misc = 32;
+
         this.timesUpgraded = 0;
-        this.baseDamage = this.damage = (int)(4 * Math.pow(2,timesUpgraded));
+        /*
+        if (AbstractDungeon.player !=null && AbstractDungeon.player.hasPower(ShadowSkyOpenPower.POWERID)){
+            this.misc += AbstractDungeon.player.getPower(ShadowSkyOpenPower.POWERID).amount;
+        }
+        */
+        this.baseDamage = this.damage = (int)(((double) this.misc / 16 ) * Math.pow(2,timesUpgraded));
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "模组核心：尝试做成"+n+"级的赤霄。"
         );
@@ -55,9 +68,6 @@ public class RedSky extends CustomCard {
             this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)];
             for (int i = 0;i<n;i++){
                 this.upgrade();
-                LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                        "模组核心：赤霄第"+i+"次升级。"
-                );
             }
         }else {
             this.rawDescription =CARD_STRINGS.EXTENDED_DESCRIPTION[6];
@@ -67,13 +77,17 @@ public class RedSky extends CustomCard {
 
     @Override
     public void upgrade() {
-        this.timesUpgraded++;
-
-        this.baseDamage = this.damage = (int)(4 * Math.pow(2,timesUpgraded));
-        this.upgradedDamage = true;
-        this.upgraded = true;
-        this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)];
-        this.initializeTitle();
+        if (this.timesUpgraded>=0){
+            this.timesUpgraded++;
+            this.baseDamage = this.damage = (int)(((double) this.misc / 16 ) * Math.pow(2,timesUpgraded));
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "模组核心：赤霄第{}次升级。伤害为{},misc为{}", this.timesUpgraded,this.damage,this.misc
+            );
+            this.upgradedDamage = true;
+            this.upgraded = true;
+            this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)];
+            this.initializeTitle();
+        }
     }
     public void applyPowers() {
         AbstractPlayer p =AbstractDungeon.player;
@@ -94,11 +108,18 @@ public class RedSky extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(p.hasPower(ShadowWaterMusicPower.POWER_ID)){
             //applyPowers();
-            AbstractDungeon.actionManager.addToBottom(
+            this.addToBot(
                     new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
             );
+            if (this.timesUpgraded>0 && p.hasPower(BonkPower.POWER_ID)){
+                for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+                    if (!mo.isDead && !mo.isDying) {
+                        this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.timesUpgraded), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+                    }
+                }
+            }
         } else {
-            AbstractDungeon.actionManager.addToBottom(
+            this.addToBot(
                     new DamageAction(
                             m,
                             new DamageInfo(
@@ -108,6 +129,9 @@ public class RedSky extends CustomCard {
                             )
                     )
             );
+            if (this.timesUpgraded>0 && p.hasPower(BonkPower.POWER_ID)){
+                this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.timesUpgraded), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            }
         }
         for (AbstractCard c : p.drawPile.group){
             if (c instanceof CloudBreakIn){

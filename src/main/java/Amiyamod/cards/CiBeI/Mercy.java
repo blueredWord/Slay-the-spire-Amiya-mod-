@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.MercyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -33,6 +34,7 @@ public class Mercy extends CustomCard {
         this.magicNumber = this.baseMagicNumber;
         this.exhaust = true;//消耗
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 

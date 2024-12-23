@@ -29,8 +29,6 @@ public class FindExAction extends AbstractGameAction {
     }
 
     public void update() {
-
-        AbstractCard derp;
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (AbstractDungeon.player.hand.size() == 10) {
                 AbstractDungeon.player.createHandIsFullDialog();
@@ -40,13 +38,12 @@ public class FindExAction extends AbstractGameAction {
             } else {
                 AbstractDungeon.gridSelectScreen.open(this.G, 1, TEXT[0], false);
                 this.tickDuration();
-
             }
         } else {
-            Iterator c;
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for(AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
-                    this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(card.makeStatEquivalentCopy())));
+                    this.p.exhaustPile.moveToHand(card);
+                    //this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(card.makeStatEquivalentCopy())));
                 }
             }
             this.isDone = true;

@@ -29,7 +29,7 @@ public class RhodesSword extends CustomRelic {
     }
 
     public void atPreBattle() {
-        work(true);
+        this.work(true);
     }
     public void atTurnStart() {
         this.work(true);

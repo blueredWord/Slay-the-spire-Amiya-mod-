@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.ShadowWaterMusicPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -36,6 +37,7 @@ public class ShadowWaterMusic extends CustomCard {
         this.misc = 2;
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -44,11 +46,10 @@ public class ShadowWaterMusic extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(2);
+
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
-            //this.upgradeBaseCost(0);
-            // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+
             this.initializeDescription();
         }
     }
@@ -56,7 +57,7 @@ public class ShadowWaterMusic extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for(int i = 0;i<this.misc;i++){
-            AbstractDungeon.actionManager.addToBottom(
+            this.addToBot(
                     new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HEAVY)
             );
         }

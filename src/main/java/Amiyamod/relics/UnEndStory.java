@@ -26,7 +26,7 @@ public class UnEndStory extends CustomRelic {
                 ID,
                 ImageMaster.loadImage("img/relics/"+NAME+".png"),
                 ImageMaster.loadImage("img/relics/"+NAME+"_out.png"),
-                RelicTier.BOSS,
+                RelicTier.SPECIAL,
                 LandingSound.SOLID
         );
         this.counter = -1;
@@ -38,23 +38,16 @@ public class UnEndStory extends CustomRelic {
         CardGroup G = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         G.group.addAll(p.exhaustPile.group);
         G.group.removeAll(AbstractDungeon.actionManager.cardsPlayedThisCombat);
-        CardGroup list = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+        CardGroup NG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard C : G.group){
-            boolean OK = true;
-            for (AbstractCard card : p.masterDeck.group){
-                if (C.hasTag(YCardTagClassEnum.MEMORY) || C.hasTag(AbstractCard.CardTags.HEALING)){
-                    OK = false;
-                    break;
-                }
-            }
-            if (OK){
-                list.addToTop(C);
+            if (C.type == AbstractCard.CardType.ATTACK || C.type == AbstractCard.CardType.SKILL){
+                NG.addToTop(C);
             }
         }
-        if (!list.isEmpty()) {
+        if (!G.isEmpty()) {
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(p,this));
-            this.addToBot(new FindExAction(list));
+            this.addToBot(new FindExAction(NG));
         }
         /*
 

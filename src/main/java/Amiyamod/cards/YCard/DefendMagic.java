@@ -70,12 +70,12 @@ public class DefendMagic extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new RemoveSpecificPowerAction(p,p, VulnerablePower.POWER_ID));
+
+        //this.addToTop(new RemoveSpecificPowerAction(p,p, FrailPower.POWER_ID));
+        this.addToBot(new GainBlockAction(p,p,this.block));
         if (this.upgraded){
             this.addToBot(new ApplyPowerAction(p,p,new ArtifactPower(p,1)));
         }
-        //this.addToTop(new RemoveSpecificPowerAction(p,p, FrailPower.POWER_ID));
-        this.addToBot(new GainBlockAction(p,p,this.block));
-        Amiyamod.addY(1);
     }
     public AbstractCard makeCopy() {return new DefendMagic();}
 }

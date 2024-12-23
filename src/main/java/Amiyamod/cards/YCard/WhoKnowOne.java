@@ -34,12 +34,13 @@ public class WhoKnowOne extends CustomCard implements OnCombatStartInterface {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 22;
         //this.baseBlock = this.block = 12;
+        this.isMultiDamage = true;
         this.magicNumber = this.baseMagicNumber = 1;
         //this.heal = 15;
         //this.misc = 20;
         //this.isInnate = true;
         //this.exhaust = true;
-        this.isEthereal = true;
+        //this.isEthereal = true;
         //this.selfRetain = true;
 
         //源石卡牌tag

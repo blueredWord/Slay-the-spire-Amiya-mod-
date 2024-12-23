@@ -44,11 +44,13 @@ public class ShadowWaterMusicPower extends AbstractPower {
         }
     }
     //回合结束时退出
+    /*
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer){
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }
+     */
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];

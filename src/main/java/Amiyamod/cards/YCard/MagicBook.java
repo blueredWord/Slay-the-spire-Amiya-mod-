@@ -30,7 +30,7 @@ public class MagicBook extends CustomCard {
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
+    private static final String IMG_PATH = "img/cards/MagicBook.png";//卡图
 
     private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】

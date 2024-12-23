@@ -25,7 +25,7 @@ public class ShadowYangMeiAction extends AbstractGameAction {
     }
     public void update() {
         for (AbstractCard c : this.player.hand.group){
-            if (c.isEthereal && c.canUpgrade()){
+            if ((c.freeToPlay() ||c.costForTurn == 0 || c.cost == 0 )&& c.canUpgrade()){
                 c.upgrade();
                 c.superFlash();
                 c.applyPowers();

@@ -48,21 +48,6 @@ public class FirstSayA extends CustomCard{
         this.selfRetain = true;
         double level = 1;
 
-        if (cost >=15){
-            this.upgradeBaseCost(0);
-        }
-
-        if(cost < 5) {
-        } else if (cost < 10) {
-            level = 1.25;
-        } else if (cost < 20) {
-            level = 1.5;
-        } else if (cost < 30) {
-            level = 1.75;
-        } else {
-            level = 2;
-        }
-
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "源石结晶生成: cost:{},level:{}",cost,level
         );
@@ -102,6 +87,11 @@ public class FirstSayA extends CustomCard{
 
     @Override
     public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName();
+            this.upgradeBaseCost(0);
+            this.initializeDescription();
+        }
     }
 
     @Override

@@ -44,7 +44,7 @@ public class CopyMagic extends CustomCard {
         this.baseDraw = this.draw =  this.magicNumber = this.baseMagicNumber = 3;
         //this.heal = 15;
         this.misc = 1;
-        //this.exhaust = true;
+        this.exhaust = true;
         //this.isEthereal = true;
         //this.selfRetain = true;
 
@@ -76,8 +76,7 @@ public class CopyMagic extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.BurnSelf(this.misc);
-        Amiyamod.addY(this.misc);
+
         this.addToBot(new CopyMagicAction(this.magicNumber,false));
         //this.addToBot(new ApplyPowerAction(p,p,new KingSayPower(this.magicNumber)));
     }

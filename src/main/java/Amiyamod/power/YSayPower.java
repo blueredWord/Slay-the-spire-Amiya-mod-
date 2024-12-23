@@ -2,18 +2,22 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.character.Amiya;
+import Amiyamod.patches.OnBreakInterface;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.ArrayList;
 
 public class YSayPower extends AbstractPower {
     public static final String NAME = "YSayPower";
@@ -43,9 +47,30 @@ public class YSayPower extends AbstractPower {
     }
 
     public void onInitialApplication() {
-        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
+        if (this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
             this.owner.state.setAnimation(0, "Skill_Begin", false);
             this.owner.state.addAnimation(0, "Skill", true,0.0F);
+        }
+        AbstractPlayer p = AbstractDungeon.player;
+        ArrayList<OnBreakInterface> list = new ArrayList<>();
+        if (!p.drawPile.group.isEmpty()){
+            for (AbstractCard c : p.drawPile.group){
+                if (c instanceof OnBreakInterface){
+                    list.add(((OnBreakInterface)c));
+                }
+            }
+        }
+        if (!p.discardPile.group.isEmpty()){
+            for (AbstractCard c : p.discardPile.group){
+                if (c instanceof OnBreakInterface){
+                    list.add(((OnBreakInterface)c));
+                }
+            }
+        }
+        if (!list.isEmpty()){
+            for (OnBreakInterface c : list){
+                c.OnCombatStartInterface();
+            }
         }
     }
     public void onRemove() {

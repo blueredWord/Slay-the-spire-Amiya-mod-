@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.BreakSwordAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
@@ -26,7 +27,7 @@ public class ShadowBreak extends CustomCard {
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.SKILL;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final CardRarity RARITY = CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public ShadowBreak() {
@@ -35,10 +36,12 @@ public class ShadowBreak extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
-        this.tags.add(YCardTagClassEnum.RedSky1);
-        this.baseBlock = this.block = 5;
-        this.magicNumber = this.baseMagicNumber = 1;
+        //this.tags.add(YCardTagClassEnum.RedSky1);
+        //this.baseBlock = this.block = 5;
+        this.draw = this.baseDraw = 1;
+        this.magicNumber = this.baseMagicNumber = 0;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -47,8 +50,8 @@ public class ShadowBreak extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-            //this.upgradeMagicNumber(1);
-            this.selfRetain = true;
+            this.upgradeMagicNumber(1);
+            //this.selfRetain = true;
             //this.upgradeBaseCost(2);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -58,10 +61,8 @@ public class ShadowBreak extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new GainBlockAction(p,p,this.block));
-        this.addToBot(new ApplyPowerAction(p,p,new WeakPower(p,this.magicNumber,false)));
-
-        Amiyamod.Sword(true,new DrawCardAction(1));
+        this.addToBot(new BreakSwordAction(this.magicNumber));
+        this.addToBot(new DrawCardAction(this.draw));
     }
     public AbstractCard makeCopy() {return new ShadowBreak();}
 }

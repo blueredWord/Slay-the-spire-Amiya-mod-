@@ -22,7 +22,7 @@ public class ShadowSkill extends CustomCard {
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
+    private static final String IMG_PATH = "img/cards/MagicBook.png";//卡图
     private static final int COST = -1;//卡片费用
     private static final CardType TYPE = CardType.SKILL;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -34,11 +34,11 @@ public class ShadowSkill extends CustomCard {
         //this.damage = this.baseDamage = 6;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.magicNumber = this.baseMagicNumber = 3;
+        //this.magicNumber = this.baseMagicNumber = 3;
         this.exhaust = true;
-        this.tags.add(YCardTagClassEnum.RedSky1);
-        this.cardsToPreview = new RedSky(true);
+        //this.cardsToPreview = new RedSky(true);
         //源石卡牌tag
+        //this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 

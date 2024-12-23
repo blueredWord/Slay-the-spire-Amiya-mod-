@@ -34,12 +34,13 @@ public class BadZhufu extends CustomCard {
     public BadZhufu() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.isInnate = true; //固有
-        this.misc = 4;
-        this.baseMagicNumber = this.magicNumber = this.misc ;
+        this.misc = 3;
+        this.baseMagicNumber = this.magicNumber = 7 ;
         this.exhaust = true;
 
         //源石卡牌tag
-        //this.tags.add(YCardTagClassEnum.YCard);
+        this.tags.add(YCardTagClassEnum.YCard);
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
     }
 
     @Override
@@ -59,16 +60,14 @@ public class BadZhufu extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得丝线
-        int level = this.misc;
+        int level = this.magicNumber;
         for (AbstractCard c : p.masterDeck.group){
             if (c.hasTag(YCardTagClassEnum.YZuZhou)){
-                level += this.magicNumber;
+                level += this.misc;
             }
         }
 
         Amiyamod.LinePower(level);
-
-        Amiyamod.HenJi(1,this,m);
 
     }
 

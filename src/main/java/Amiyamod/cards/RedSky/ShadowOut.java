@@ -5,6 +5,8 @@ import Amiyamod.cards.AmiyaStrike;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.CardBackPower;
+import Amiyamod.power.RedSky2Power;
+import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -35,10 +37,13 @@ public class ShadowOut extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
         this.cardsToPreview = new RedSky(true);
+        //this.magicNumber = this.baseMagicNumber=1;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
+        //this.misc = 1;
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -58,6 +63,7 @@ public class ShadowOut extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(
                         m,
@@ -68,6 +74,7 @@ public class ShadowOut extends CustomCard {
                         )
                 )
         );
+        //this.addToBot(new ApplyPowerAction(p,p,new RedSkyPower()));
         Amiyamod.Sword(true,new ApplyPowerAction(p,p,new CardBackPower(this)));
     }
     public AbstractCard makeCopy() {return new ShadowOut();}

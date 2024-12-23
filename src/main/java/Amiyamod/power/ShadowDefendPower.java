@@ -41,6 +41,7 @@ public class ShadowDefendPower extends AbstractPower {
         // 首次添加能力更新描述
         this.updateDescription();
     }
+
     //打出赤霄时获得格挡
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(card instanceof RedSky){
@@ -53,12 +54,7 @@ public class ShadowDefendPower extends AbstractPower {
             }
         }
     }
-    //回合结束时退出
-    public void atEndOfTurn(boolean isPlayer) {
-        if (isPlayer){
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-        }
-    }
+
     @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];

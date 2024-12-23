@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.UpRedAction;
 import Amiyamod.action.cards.ShadowYangMeiAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -40,9 +41,10 @@ public class ShadowYangMei extends CustomCard {
         this.baseBlock = this.block = 7;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
-        this.tags.add(YCardTagClassEnum.RedSky1);
+
         this.magicNumber = this.baseMagicNumber = 1;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
         //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
     }
@@ -61,13 +63,18 @@ public class ShadowYangMei extends CustomCard {
             this.initializeDescription();
         }
     }
-
+    public void triggerOnGlowCheck() {
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if( AbstractDungeon.player.hasPower(RedSky.ID) ){
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
                 new GainBlockAction(p,p,this.block)
         );
-        Amiyamod.Sword(true,new ShadowYangMeiAction());
+        Amiyamod.Sword(false,new UpRedAction(true,true));
         /*
         int i = this.magicNumber;
         if (p.hasPower(RedSkyPower.POWER_ID)){ i = 99;}

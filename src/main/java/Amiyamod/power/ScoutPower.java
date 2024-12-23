@@ -2,12 +2,15 @@ package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.Memory.Outcast2;
+import Amiyamod.cards.Memory.Scout;
+import Amiyamod.cards.Memory.Scout1;
 import Amiyamod.patches.OutcastDamage;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.mod.stslib.damagemods.AbstractDamageModifier;
 import com.evacipated.cardcrawl.mod.stslib.powers.abstracts.TwoAmountPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.DamageModApplyingPower;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -46,6 +49,18 @@ public class ScoutPower extends TwoAmountPower{
     public void atEndOfRound() {
         this.flash();
         this.amount2 += this.amount;
+        boolean OK = true;
+        if (!AbstractDungeon.player.hand.isEmpty()){
+            for (AbstractCard c : AbstractDungeon.player.hand.group){
+                if (c instanceof Scout1){
+                    OK = false;
+                    break;
+                }
+            }
+        }
+        if (OK){
+            this.addToBot(new MakeTempCardInHandAction(new Scout1()));
+        }
         /*
         this.addToBot(
                 new DamageAction(this.owner,new DamageInfo(null,this.amount, DamageInfo.DamageType.NORMAL))

@@ -49,7 +49,7 @@ public class EatZuzhouAction extends AbstractGameAction {
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 //只要选到了东西
                 for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards){
-                    this.addToBot(new ApplyPowerAction(this.target,this.target,new EatZuzhouPower(c,this.target)));
+                    //this.addToBot(new ApplyPowerAction(this.target,this.target,new EatZuzhouPower(c,this.target)));
                     for (AbstractCard card : p.hand.group){
                         if (card.uuid == c.uuid){
                             p.hand.moveToExhaustPile(card);

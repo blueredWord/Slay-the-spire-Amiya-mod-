@@ -16,8 +16,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
-//影霄*泪锋
-//造成6（9）点伤害。 出鞘 :此牌产生的赤霄等级+1。
+
 public class ShadowCry extends CustomCard {
     private static final String NAME = "ShadowCry";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
@@ -33,7 +32,7 @@ public class ShadowCry extends CustomCard {
 
     public ShadowCry() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 8;
+        this.damage = this.baseDamage = 9;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.magicNumber = this.baseMagicNumber = 1;

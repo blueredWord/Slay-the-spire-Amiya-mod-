@@ -29,10 +29,14 @@ public class CardBackPower extends AbstractPower{
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static ArrayList<AbstractCard> CardList = new ArrayList<AbstractCard>();
+    public ArrayList<AbstractCard> CardList2 = new ArrayList<AbstractCard>();
+    final String n ;
     public CardBackPower(AbstractCard card) {
-        this.name = powerStrings.NAME;
-        this.ID = POWER_ID;
-        CardList.add(card);
+        this.n = card.name;
+        this.name = powerStrings.NAME+":"+this.n;
+        this.ID = POWER_ID+card.uuid;
+        //CardList.add(card);
+        this.CardList2.add(card);
         this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount =-1;
@@ -46,19 +50,22 @@ public class CardBackPower extends AbstractPower{
 
     public void atEndOfRound() {
         this.flash();
-        this.addToBot(new CardBackAction(CardList));
+        this.addToBot(new CardBackAction(this.CardList2));
         //退出此能力
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-        CardList.clear();
+        //CardList.clear();
+        this.CardList2.clear();
     }
 
+
     public void onRemove() {
-        CardList.clear();
+        this.CardList2.clear();
+        //CardList.clear();
     }
 
     // 能力在更新时如何修改描述
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0]+this.n+DESCRIPTIONS[1];
     }
 
     // 效果 :每次失去所有 丝线 时获得荆棘。

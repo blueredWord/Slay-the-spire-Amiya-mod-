@@ -20,30 +20,32 @@ import java.util.Random;
 public class ChoseTemCardAction extends AbstractGameAction {
     public static final String[] TEXT;
     private final boolean upgraded;
-    private CardGroup list = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+    private ArrayList<AbstractCard> list ;
     private boolean retrieveCard = false;
     private int n = 1;
-    private int i1 ;
-    private int i2 ;
-    public ChoseTemCardAction(CardGroup List, int number, boolean costbocome0) {
+    private int i1 =3;
+    private int i2 =1;
+    boolean M = false;
+    public ChoseTemCardAction(ArrayList<AbstractCard> List, int number, boolean costbocome0) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.upgraded = costbocome0;
         this.list = List;
         this.n = number;
     }
-    public ChoseTemCardAction(CardGroup List, int number) {
+    public ChoseTemCardAction(ArrayList<AbstractCard> List, int number) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.upgraded = false;
         this.list = List;
         this.n = number;
     }
-    public ChoseTemCardAction(CardGroup List) {
+    public ChoseTemCardAction(ArrayList<AbstractCard> List) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.upgraded = false;
         this.list = List;
+        this.M = true;
     }
     public ChoseTemCardAction(int n,int n2,boolean b) {
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -51,6 +53,7 @@ public class ChoseTemCardAction extends AbstractGameAction {
         this.upgraded = b;
         this.i1=n;
         this.i2=n2;
+        this.list = generateCardChoices();
     }
 
     public void update() {
@@ -64,13 +67,19 @@ public class ChoseTemCardAction extends AbstractGameAction {
             this.isDone = true;
         }else {
             if (this.duration == Settings.ACTION_DUR_FAST) {
-                AbstractDungeon.cardRewardScreen.customCombatOpen(this.generateCardChoices(), TEXT[6], true);
+                AbstractDungeon.cardRewardScreen.customCombatOpen(this.list, TEXT[6], true);
                 this.tickDuration();
             } else {
                 if (!this.retrieveCard) {
                     if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
+
                         AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
-                        disCard.setCostForTurn(0);
+                        if (this.M){
+                            disCard = Amiyamod.MakeMemoryCard(disCard);
+                        } else {
+                            disCard.setCostForTurn(0);
+                        }
+
                         disCard.current_x = -1000.0F * Settings.xScale;
                         if (AbstractDungeon.player.hand.size() < 10) {
                             AbstractDungeon.effectList.add(new ShowCardAndAddToHandEffect(disCard, (float)Settings.WIDTH / 2.0F, (float)Settings.HEIGHT / 2.0F));
@@ -97,7 +106,7 @@ public class ChoseTemCardAction extends AbstractGameAction {
         while(derp.size() != this.i1) {
             boolean dupe = false;
 
-            AbstractCard tmp ;;
+            AbstractCard tmp ;
             Iterator var6 = derp.iterator();
             CardGroup G = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
             G.group.addAll(Amiyamod.YZcard);

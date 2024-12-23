@@ -41,7 +41,7 @@ public class CountryLover2 extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        Amiyamod.Sword(true,new ApplyPowerAction(p,p,new CardBackPower(this)));
+        this.addToBot(new ApplyPowerAction(p,p,new CardBackPower(this)));
     }
 
     @Override

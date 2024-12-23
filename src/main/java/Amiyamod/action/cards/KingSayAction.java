@@ -2,6 +2,7 @@ package Amiyamod.action.cards;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.cards.YCard.KingSay;
+import basemod.devcommands.history.History;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,12 +12,16 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.screens.stats.RunData;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
+
+import static basemod.devcommands.history.History.characterIndex;
+import static basemod.devcommands.history.History.getVictories;
 
 public class KingSayAction extends AbstractGameAction {
 
@@ -34,6 +39,7 @@ public class KingSayAction extends AbstractGameAction {
 
 
     public void update() {
+
         CardGroup CG = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         CG.group.addAll(Amiyamod.YZcard);
         ((KingSay)this.c).reset();

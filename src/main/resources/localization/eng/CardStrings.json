@@ -1,537 +1,754 @@
 {
-  "WarlordEmblem:ElementInvoke": {
-    "NAME": "Element Invoke",
-    "DESCRIPTION": "Add a card depending on the three oldest orbs. NL Ethereal Exhaust.",
-    "UPGRADE_DESCRIPTION": "Add a card depending on the three oldest orbs. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need at least 3 orbs"," turn(s) ColdDown"," NL (Quas/Quas/Quas:Cold Snap"," NL (Quas/Quas/Wex:Ghost Walk"," NL (Wex/Wex/Exort:Alacrity"," NL (Exort/Exort/Exort:Sun Strike"," NL (Wex/Wex/Wex:EMP"," NL (Wex/Exort/Exort:Chaos Meteor"," NL (Quas/Quas/Exort:Ice Wall"," NL (Quas/Wex/Exort:Deafening Blast"," NL (Quas/Wex/Wex:Tornado"," NL (Quas/Exort/Exort:Forge Spirit",")"]
-  },
-  "WarlordEmblem:ChaosMeteor": {
-    "NAME": "Chaos Meteor",
-    "DESCRIPTION": "Deal !D! damage to all enemies. Apply !M! Vulnerable. NL warlord_emblem:Cold\u00a0Down 4. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:KaelColdSnap": {
-    "NAME": "Cold Snap",
-    "DESCRIPTION": "Enemy loses 2 Strength. Apply 1 Weak, 3 warlord_emblem:Cold\u00a0Snap. NL warlord_emblem:Cold\u00a0Down 2. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:EMP": {
-    "NAME": "EMP",
-    "DESCRIPTION":"Absorb Block from all enemies. NL warlord_emblem:Cold\u00a0Down 2. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:IceWall": {
-    "NAME": "Ice Wall",
-    "DESCRIPTION":"Gain 1 Intangible. All enemies lose 1 Strength. NL warlord_emblem:Cold\u00a0Down 4. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:GhostWalk": {
-    "NAME": "Ghost Walk",
-    "DESCRIPTION": "Gain 2 Dexterity. Apply 2 Weak to all enemies. NL warlord_emblem:Cold\u00a0Down 2. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:DeafeningBlast": {
-    "NAME": "Deafening Blast",
-    "DESCRIPTION": "Deal !D! damage to all enemies. Apply 1 warlord_emblem:disarm.  NL warlord_emblem:Cold\u00a0Down 4. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:Tornado": {
-    "NAME": "Tornado",
-    "DESCRIPTION": "Target loses all Poison, Weak, and Vulnerable. Deal damage equal to 5 times the number of debuffs removed. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:ForgeSpirit": {
-    "NAME": "Forge Spirit",
-    "DESCRIPTION": "Summon 1 warlord_emblem:Forge\u00a0Spirit. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:SunStrike": {
-    "NAME": "Sun Strike",
-    "DESCRIPTION": "Deal !D! damage to a random enemy. NL warlord_emblem:Cold\u00a0Down 2. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-  "WarlordEmblem:Alacrity": {
-    "NAME": "Alacrity",
-    "DESCRIPTION":  "Gain 1 Strength, NL 2 Focus. NL warlord_emblem:Cold\u00a0Down 3. NL Ethereal Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Need "," turn(s) cold down"]
-  },
-
-
-  "WarlordEmblem:Annihilation": {
-    "NAME": "Annihilation",
-    "DESCRIPTION":  "Lose all your block, and deal warlord_emblem:True Damage equal to !M! times the lost block. NL warlord_emblem:Ice\u00a0Realm : Gain !WarlordEmblem:SecondRealmMagic! Block."
-  },
-  "WarlordEmblem:AntiMagicShield": {
-    "NAME": "Anti-Magic Zone",
-    "DESCRIPTION":  "Gain !M! Artifact.",
-    "UPGRADE_DESCRIPTION":"Gain !M! Artifact. Remove all your debuffs."
-  },
-  "WarlordEmblem:BlackCommand": {
-    "NAME": "Black Command",
-    "DESCRIPTION":  "Gain 1 Strength for each stack of Poison the enemy has. Exhaust."
-  },
-  "WarlordEmblem:BloodBoiling": {
-    "NAME": "Blood Boiling",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X NL （At Most 6). NL Lose !M! health, gain X Strength.",
-    "UPGRADE_DESCRIPTION":" warlord_emblem:Rune Energy X NL （At Most 6). NL Lose !M! health, gain X+1 Strength."
-  },
-  "WarlordEmblem:BloodDiffer": {
-    "NAME": "Blood Differ",
-    "DESCRIPTION":  "Lose !M! health. Gain !M! [E]. Draw !M! card(s). NL warlord_emblem:Blood\u00a0Realm : Do not lose health. Exhaust."
-  },
-  "WarlordEmblem:BloodMask": {
-    "NAME": "Blood Mark",
-    "DESCRIPTION":  "Apply !M! warlord_emblem:Blood Mark to an enemy. NL warlord_emblem:Blood Realm : Apply !WarlordEmblem:RealmMagic! more warlord_emblem:Blood Mark ."
-  },
-  "WarlordEmblem:BloodStrike": {
-    "NAME": "Blood Strike",
-    "DESCRIPTION":  "Deal !D! damage. warlord_emblem:life\u00a0Leech. Exhaust. NL warlord_emblem:Blood\u00a0Realm ：heal !WarlordEmblem:SecondRealmMagic! HP."
-  },
-  "WarlordEmblem:BodyStrike": {
-    "NAME": "Body Strike",
-    "DESCRIPTION":  "Deal !D! damage 3 times. NL warlord_emblem:Blood\u00a0Realm : Deals damage an additional !WarlordEmblem:RealmMagic! time(s) ."
-  },
-  "WarlordEmblem:BoneShield": {
-    "NAME": "Bone Shield",
-    "DESCRIPTION":  "Gain !M! Thorns. NL warlord_emblem:Blood\u00a0Realm : Gain an additional !WarlordEmblem:RealmMagic! Thorns."
-  },
-  "WarlordEmblem:CondemnStrike": {
-    "NAME": "Condemn Strike",
-    "DESCRIPTION":  "Deal !D! damage. If you have a Curse or Status in your hand, double this damage. NL warlord_emblem:Evil\u00a0Realm : add !WarlordEmblem:SecondRealmMagic! base damage."
-  },
-  "WarlordEmblem:CurseStrike": {
-    "NAME": "Curse Strike",
-    "DESCRIPTION":  "Deal !D! damage. If you have a Curse or Status in your hand, deal !D! damage again. NL warlord_emblem:Evil\u00a0Realm : NL Increase base damage by !WarlordEmblem:RealmMagic!.",
-    "EXTENDED_DESCRIPTION": ["I have no Curse or Status in my hand."]
-  },
-  "WarlordEmblem:DeathCoil": {
-    "NAME": "Death Coil",
-    "DESCRIPTION":  "Deal !D! damage, NL If this card kills an enemy, gain [E] and draw a card."
-  },
-  "WarlordEmblem:DeathContract": {
-    "NAME": "Death Contract",
-    "DESCRIPTION":  "warlord_emblem:Rune\u00a0Energy 3, NL Deal !D! damage. NL Raise your Max HP by !M!. Exhaust.  NL warlord_emblem:Blood Realm : Heal !WarlordEmblem:RealmMagic! HP.",
-    "EXTENDED_DESCRIPTION": ["I don't have enough Rune Energy."]
-  },
-  "WarlordEmblem:DeathGateway": {
-    "NAME": "Death Gateway",
-    "DESCRIPTION":  "If there is an attack card in your hand, draw a card."
-  },
-  "WarlordEmblem:DeathShake": {
-    "NAME": "Death Shake",
-    "DESCRIPTION":  "Deal !D! damage. If it is a Minion, deal 1000 extra damage. NL warlord_emblem:Blood\u00a0Realm : Draw !WarlordEmblem:RealmMagic! card(s)."
-  },
-  "WarlordEmblem:DeathStrike": {
-    "NAME": "Death Strike",
-    "DESCRIPTION":  "Deal !D! damage. If target has Poison, apply !M! Vulnerable. NL warlord_emblem:Evil\u00a0Realm : Apply !WarlordEmblem:SecondRealmMagic! Vulnerable ."
-  },
-  "WarlordEmblem:DeathWither": {
-    "NAME": "Death Wither",
-    "DESCRIPTION":  "Deal warlord_emblem:True\u00a0Damage equals to !M! % of all enemy's hp to them(At least 15 damage). NL If target has Poison,double this damage."
-  },
-  "WarlordEmblem:DiseaseCloud": {
-    "NAME": "Disease Cloud",
-    "DESCRIPTION":  "warlord_emblem:Rune\u00a0Energy X NL (At most !M! ). NL Apply 2 Poison to random enemy X times. NL warlord_emblem:Evil\u00a0Realm :additional apply Poison !WarlordEmblem:RealmMagic! .",
-    "UPGRADE_DESCRIPTION":  "warlord_emblem:Rune Energy X NL (At most !M! ). NL Apply 3 Poison to random enemy X times. NL warlord_emblem:Evil Realm :additional apply Poison !WarlordEmblem:RealmMagic! time(s)."
-  },
-  "WarlordEmblem:DiseaseStrike": {
-    "NAME": "Disease Strike",
-    "DESCRIPTION":  "Deal !D! damage to all enemy. NL Apply !M! Poison. NL warlord_emblem:Evil\u00a0Realm :additional apply !WarlordEmblem:RealmMagic! Poison."
-  },
-  "WarlordEmblem:Defend_DK": {
-    "NAME": "Defend",
-    "DESCRIPTION":  "Gain !B! Block."
-  },
-  "WarlordEmblem:EvilEager": {
-    "NAME":  "Evil Eager",
-    "DESCRIPTION":   " warlord_emblem:Rune\u00a0Energy X NL (At most 3). NL Gain 2X warlord_emblem:Sadistic . NL warlord_emblem:Evil\u00a0Realm :additional gain !WarlordEmblem:RealmMagic! warlord_emblem:Sadistic."
-  },
-  "WarlordEmblem:EvilPower": {
-    "NAME":  "Evil Power",
-    "DESCRIPTION":   "Gain !M! Strength. NL warlord_emblem:Evil\u00a0Realm :additional gain !WarlordEmblem:RealmMagic! Strength."
-  },
-  "WarlordEmblem:EvilSee": {
-    "NAME":  "Evil See",
-    "DESCRIPTION":   " warlord_emblem:Rune\u00a0Energy 3.Apply !M! Vulnerable and Poison. Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Don't have enough Rune Energy."]
-  },
-  "WarlordEmblem:EvilStrike": {
-    "NAME":  "Evil Strike",
-    "DESCRIPTION":   "Deal !D! damage.If target has Poison,gain [E] ,draw a card. NL warlord_emblem:Evil\u00a0Realm :additional draw !WarlordEmblem:RealmMagic! card(s)."
-  },
-  "WarlordEmblem:EvilWorm": {
-    "NAME":  "Evil Worm",
-    "DESCRIPTION":   "Deal !D! damage.If target has Poison,apply Poison equals to damage amount instead. Exhaust. NL warlord_emblem:Evil\u00a0Realm :Increase base damage by !WarlordEmblem:RealmMagic!."
-  },
-  "WarlordEmblem:Execute": {
-    "NAME":  "Execute",
-    "DESCRIPTION":   "Deal !D! damage. NL If target has lower than half of its HP,double this damage and Shuffle this card into your draw pile."
-  },
-  "WarlordEmblem:ForceDeflexion": {
-    "NAME":  "Force Deflexion",
-    "DESCRIPTION":   "Ethereal .Gain !B! Block. NL Increase its block by !M! in this combat."
-  },
-  "WarlordEmblem:FrozenChain": {
-    "NAME":  "Frozen Chain",
-    "DESCRIPTION":  "Apply !M! Weak to all enemy. Exhaust. NL warlord_emblem:Ice\u00a0Realm :additional apply !WarlordEmblem:RealmMagic! Weak.",
-    "UPGRADE_DESCRIPTION":  " Innate.Apply !M! Weak to all enemy. Exhaust. NL warlord_emblem:Ice Realm :additional apply !WarlordEmblem:RealmMagic! Weak."
-  },
-  "WarlordEmblem:FrozenDeath": {
-    "NAME":  "Frozen Death",
-    "DESCRIPTION":  "Deal !D! damage.If target has Weak,apply !M! Vulnerable. NL warlord_emblem:Ice\u00a0Realm :additional apply !WarlordEmblem:RealmMagic! Vulnerable."
-  },
-  "WarlordEmblem:FrozenHeart": {
-    "NAME":  "Frozen Heart",
-    "DESCRIPTION":  "Gain 2 Intangible .Lost 1 Strength. NL warlord_emblem:Ice\u00a0Realm ：Draw a card. Exhaust."
-  },
-  "WarlordEmblem:FrozenStrike": {
-    "NAME":  "Frozen Strike",
-    "DESCRIPTION":  "Deal !D! damage,enemy lost !M! Strength this turn. NL warlord_emblem:Ice\u00a0Realm :additional lost !WarlordEmblem:RealmMagic! Strength."
-  },
-  "WarlordEmblem:FrozenTouch": {
-    "NAME":  "Frozen Touch",
-    "DESCRIPTION":  "All enemy lost !M! Strength. warlord_emblem:Ice\u00a0Realm ：additional lost !WarlordEmblem:RealmMagic! Strength."
-  },
-  "WarlordEmblem:FrozenWill": {
-    "NAME":  "Frozen Will",
-    "DESCRIPTION":  "Gain !M! Dexterity. NL warlord_emblem:Ice\u00a0Realm ：additional gain !WarlordEmblem:RealmMagic! Dexterity"
-  },
-  "WarlordEmblem:GhostStrike": {
-    "NAME":  "Ghost Strike",
-    "DESCRIPTION":  "Deal !D! damage and deal  warlord_emblem:True\u00a0Damage half to hp you have lost.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and deal  warlord_emblem:True\u00a0Damage equal to hp you have lost.",
-    "EXTENDED_DESCRIPTION": ["(deal","damage.)"]
-  },
-  "WarlordEmblem:Hanging": {
-    "NAME":  "Hanging",
-    "DESCRIPTION":  "Deal !D! damage.Upon target has negative Strength, Poison, Weak and Vulnerable ,double this damage."
-  },
-  "WarlordEmblem:HeartStrike": {
-    "NAME":  "Heart Strike",
-    "DESCRIPTION":  "Deal !D! damage.Increase !M! base damage for All your card containing \"Strike\"."
-  },
-  "WarlordEmblem:Infect": {
-    "NAME":  "Infect",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X NL (at most !M! ). NL apply X Poison to all enemy. NL warlord_emblem:Evil\u00a0Realm :additional apply !WarlordEmblem:RealmMagic! Poison."
-  },
-  "WarlordEmblem:LichBody": {
-    "NAME":  "Lich Body",
-    "DESCRIPTION":  "Gain !B! Block,apply !M! Weak. NL warlord_emblem:Ice\u00a0Realm ：additional apply !WarlordEmblem:RealmMagic! Weak."
-  },
-  "WarlordEmblem:LichkingWraith": {
-    "NAME":  "Lichking Wraith",
-    "DESCRIPTION":  "Ethereal .At the start of your turn, gain !M! warlord_emblem:Realm Increase. ",
-    "UPGRADE_DESCRIPTION":  "At the start of your turn, gain !M! warlord_emblem:Realm Increase."
-  },
-  "WarlordEmblem:RuneBlade": {
-    "NAME":  "Rune Blade",
-    "DESCRIPTION":  "Deal !D! damage. NL Additional deal warlord_emblem:True\u00a0Damage equals to !M! time(s) of warlord_emblem:Rune\u00a0Energy . NL Cost half of your warlord_emblem:Rune\u00a0Energy ."
-  },
-  "WarlordEmblem:NoLightShield": {
-    "NAME":  "No Light Shield",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X NL (at most 8). NL Gain X warlord_emblem:Plated\u00a0Armor. NL warlord_emblem:Blood\u00a0Realm ：additional gain !WarlordEmblem:RealmMagic! warlord_emblem:Plated\u00a0Armor ."
-  },
-  "WarlordEmblem:RuneBurn": {
-    "NAME":  "Rune Burn",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X NL (at most 3). NL Gain X [E] ."
-  },
-  "WarlordEmblem:RuneDefend": {
-    "NAME":  "Rune Defend",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X NL (at most !M! ). NL For each warlord_emblem:Rune\u00a0Energy ,gain 3 Block. NL Won't affected by Dexterity."
-  },
-  "WarlordEmblem:RuneDiffer": {
-    "NAME":  "Rune Differ",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X NL (at most !M! ). NL Draw 2X card(s)."
-  },
-  "WarlordEmblem:RuneExplode": {
-    "NAME":  "Rune Explode",
-    "DESCRIPTION": " warlord_emblem:Rune\u00a0Energy X NL (at most !M! ). NL Deal !D! damage X times. NL Can be Upgraded any number of times."
-  },
-  "WarlordEmblem:RuneFocus": {
-    "NAME":  "Rune Focus",
-    "DESCRIPTION":  " Exhaust 1 card.Gain !B! Block.Gain !M! warlord_emblem:Rune\u00a0Energy ."
-  },
-  "WarlordEmblem:RuneHeavyStrike": {
-    "NAME":  "Rune Strike",
-    "DESCRIPTION":  "Deal !D! damage. NL Gain !M! warlord_emblem:Rune\u00a0Energy ."
-  },
-  "WarlordEmblem:RuneInspire": {
-    "NAME":  "Rune Inspire",
-    "DESCRIPTION":  "Increase !M! warlord_emblem:Rune\u00a0Energy max limit in this combat."
-  },
-  "WarlordEmblem:RunePerfusion": {
-    "NAME":  "Rune Perfusion",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy !M! .Reduce the cost of all cards in your hand to 0 this turn. NL Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Don't have enough Rune Energy."]
-  },
-  "WarlordEmblem:RuneMultiplex": {
-    "NAME":  "Rune Multiplex",
-    "DESCRIPTION":  "Retain .This turn, your next !M! use warlord_emblem:Rune Energy card(s) will not use warlord_emblem:Rune Energy and regard you have max warlord_emblem:Rune Energy."
-  },
-  "WarlordEmblem:RuneRecast": {
-    "NAME":  "Rune Recast",
-    "DESCRIPTION":  "Draw a card. warlord_emblem:Rune\u00a0Energy 2，draw !M! card(s). Exhaust 1 card.",
-    "EXTENDED_DESCRIPTION": ["Don't have enough Rune Energy."]
-  },
-  "WarlordEmblem:RuneRecover": {
-    "NAME":  "Rune Recover",
-    "DESCRIPTION":  " warlord_emblem:Rune\u00a0Energy X. NL Heal X HP. Exhaust.",
-    "UPGRADE_DESCRIPTION":  " warlord_emblem:Rune Energy X. NL Heal X+1 HP. Exhaust."
-  },
-  "WarlordEmblem:RuneRegen": {
-    "NAME":  "Rune Regen",
-    "DESCRIPTION":  "Gain !M! warlord_emblem:Rune\u00a0Energy .Gain max warlord_emblem:Rune Energy if warlord_emblem:Rune Energy is full. NL Retain , Exhaust.",
-    "UPGRADE_DESCRIPTION":  "Gain !M! warlord_emblem:Rune\u00a0Energy .Gain max warlord_emblem:Rune Energy if warlord_emblem:Rune Energy is full. NL Retain ."
-  },
-  "WarlordEmblem:RuneStorm": {
-    "NAME":  "Rune Storm",
-    "DESCRIPTION": " warlord_emblem:Rune\u00a0Energy X NL (at most !M! ). NL Deal !D! damage X times to all enemy."
-  },
-  "WarlordEmblem:RuneStrike": {
-    "NAME":  "Strike",
+  "AmiyaMod:AmiyaStrike": {
+    "NAME": "基础法术打击",
     "DESCRIPTION": "Deal !D! damage."
   },
-  "WarlordEmblem:SwordWave": {
-    "NAME":  "Sword Wave",
-    "DESCRIPTION": "Deal !D! damage and deal !D! damage to all enemy.Gain !M! warlord_emblem:Rune Energy ."
+  "AmiyaMod:AmiyaDefend": {
+    "NAME": "基础法术防御",
+    "DESCRIPTION": "Gain !B! Block ."
   },
-  "WarlordEmblem:UltimateCold": {
-    "NAME":  "Ultimate Cold",
-    "DESCRIPTION": "All enemy lost its Strength. Exhaust. NL warlord_emblem:Ice\u00a0Realm :All enemy lost !WarlordEmblem:RealmMagic! Strength."
+
+  "AmiyaMod:BadZhufu": {
+    "NAME": "食腐者之赐",
+    "DESCRIPTION": "源石技艺 . NL Gain !M! 点 Line ,卡组中每有1张 源石诅咒 额外Gain3点 Line . NL 消耗 ."
   },
-  "WarlordEmblem:UndeadWill": {
-    "NAME":  "Undead Will",
-    "DESCRIPTION": "Gain !B! Block.Gain 2 Regenerate . Exhaust."
+  "AmiyaMod:BeautifulLife": {
+    "NAME": "远见者之启",
+    "DESCRIPTION": "预见 !M! . NL 抽1张牌,这张牌在本场战斗耗能变为0,但在打出时会Lose等同于原本耗能的生命. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": ""
   },
-  "WarlordEmblem:VoidDefend": {
-    "NAME":  "Void Defend",
-    "DESCRIPTION": "Only can be played when warlord_emblem:Rune\u00a0Energy is empty or not less than 6.Gain !B! Block.",
-    "EXTENDED_DESCRIPTION": ["Only can be played when #yRune\u00a0Energy is empty is empty or not less than 6."]
+  "AmiyaMod:BForB": {
+    "NAME": "以血还血",
+    "DESCRIPTION": "Lose1HP !M! 次. NL Deal !D! damage. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": ""
   },
-  "WarlordEmblem:VoidStrike": {
-    "NAME":  "Void Strike",
-    "DESCRIPTION": "Only can be played when warlord_emblem:Rune\u00a0Energy is empty or not less than 6.Deal !D! damage.",
-    "EXTENDED_DESCRIPTION": ["Only can be played when #yRune\u00a0Energy is empty or not less than 6."]
+  "AmiyaMod:BloodPotion": {
+    "NAME": "战争祭坛",
+    "DESCRIPTION": "Lose 2 HP. NL 给予所有敌人 !M! 层 虚弱 和 易伤 .",
+    "UPGRADE_DESCRIPTION": "Lose1HP2次. NL 给予所有敌人 !M! 层 虚弱 和 易伤 两次."
   },
-  "WarlordEmblem:WindStrike": {
-    "NAME":  "Wind Impact",
-    "DESCRIPTION": "Deal !D! Damage.If target has negative Strength,gain [E] ,draw a card. NL warlord_emblem:Ice\u00a0Realm ：additional draw !WarlordEmblem:RealmMagic! card(s)."
+  "AmiyaMod:LineBody": {
+    "NAME": "身上衣",
+    "DESCRIPTION": " 保留 . NL 本回合你每打出过一次 源石技艺 牌,Gain1层 茧 .降低 !M! 点 感染进度 . NL 消耗 ."
   },
-  "WarlordEmblem:WinterHorn": {
-    "NAME":  "Winter Horn",
-    "DESCRIPTION": "Gain 1 Strength and Dexterity.  NL warlord_emblem:Ice\u00a0Realm ：Gain !WarlordEmblem:RealmMagic! Artifact.",
-    "UPGRADE_DESCRIPTION": " Innate .Gain 1 Strength and Dexterity.  NL warlord_emblem:Ice\u00a0Realm ：Gain !WarlordEmblem:RealmMagic! Artifact."
+  "AmiyaMod:LineHand": {
+    "NAME": "诸魂庇佑",
+    "DESCRIPTION": "Gain !M! 点 Line .你每打出过一张 虚无 牌, Gain量提高 1 . NL 虚无 .",
+    "UPGRADE_DESCRIPTION": "Gain !M! 点 Line .你每打出过一张 虚无 牌, Gain量提高 1 . NL 下回合开始时 Line 不会减半. NL 虚无 ."
   },
-  "WarlordEmblem:Withstand": {
-    "NAME":  "With stand",
-    "DESCRIPTION": "Gain !B! Block.Gain 1 Dexterity. Exhaust."
+  "AmiyaMod:CNoC": {
+    "NAME": "有刺无刺",
+    "DESCRIPTION": "随机对敌人Deal !D! damage !M! 次.直到打出之前你每Lose过1次生命,便额外攻击1次.",
+    "EXTENDED_DESCRIPTION": [" NL （额外Deal","次伤害）"]
   },
-  "WarlordEmblem:RealmRider": {
-    "NAME":  "Realm Rider",
-    "DESCRIPTION": "Regard you have all warlord_emblem:Talent Realm this combat. NL If be Exhausted　,gain !M! warlord_emblem:Realm Increase ."
+  "AmiyaMod:Echo": {
+    "NAME": "血魔之雨",
+    "DESCRIPTION": "Lose2HP. NL 对所有敌人Deal !D! damage. 本回合每当你对敌人Deal伤害时,Gain !M! 点 Line .",
+    "UPGRADE_DESCRIPTION": " Lose1HP 2 次. NL 对所有敌人Deal !D! damageX+1次 NL Gain !M! 点 Line X+1次."
   },
-  "WarlordEmblem:CurseBlade": {
-  "NAME":  "Curse Blade",
-  "DESCRIPTION":  "At the start of your turn, gain [E] .Shuffle 2 *Wounds to your draw pile.",
-  "UPGRADE_DESCRIPTION":  "At the start of your turn, gain [E] .Shuffle 1 *Wound to your hand and discard pile."
-},
-  "WarlordEmblem:SevereWinter": {
-    "NAME":  "Wind Strike",
-    "DESCRIPTION":  "Deal !D! damage to all enemy.NL Deals !M! additional damage for ALL your cards containing \"Strike\".Enemy lost 1 Strength this turn. NL warlord_emblem:Ice Realm :additional lost !WarlordEmblem:RealmMagic! Strength."
+  "AmiyaMod:HelBox": {
+    "NAME": "随身医疗箱",
+    "DESCRIPTION": " 消耗 抽牌堆中的 !M! 张牌,Gain7点 Line . NL 消耗 .",
+    "UPGRADE_DESCRIPTION": " 消耗 抽牌堆中的 !M! 张牌,Gain7点 Line ."
   },
-  "WarlordEmblem:RuneUpgrade": {
-    "NAME":  "Rune Upgrade",
-    "DESCRIPTION":  "Gain !M! warlord_emblem:Rune Energy .Gain max warlord_emblem:Rune Energy if warlord_emblem:Rune Energy is full."
+  "AmiyaMod:HELP": {
+    "NAME": "紧急救援",
+    "DESCRIPTION": "Lose1HP. NL 从弃牌堆中选择 !M! 张牌放入你的手牌. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "Lose1HP. NL 从弃牌堆中选择 !M! 张牌放入你的手牌."
   },
-  "WarlordEmblem:BloodSacrifice": {
-  "NAME":  "Blood Sacrifice",
-  "DESCRIPTION":  "Gain !M! warlord_emblem:Angry . NL warlord_emblem:Blood Realm : NL Gain !WarlordEmblem:RealmMagic! warlord_emblem:plated armor ."
-},
-  "WarlordEmblem:FrostbiteStrike": {
-  "NAME":  "Frostbite Strike",
-  "DESCRIPTION":  "Deal !D! damage.If target has negative Strength,apply !M! Weak. NL warlord_emblem:Ice Realm ： NL Additional apply !WarlordEmblem:RealmMagic! Weak."
-},
-  "WarlordEmblem:DarkSimulation": {
-  "NAME":  "Dark Simulation",
-  "DESCRIPTION":  "Select a card from 3 warlord_emblem:Talent Realm cards add into your hand. NL It costs 0 this turn. NL Exhaust."
-},
-  "WarlordEmblem:RuneIndex": {
-    "NAME":  "Rune Index",
-    "DESCRIPTION":  "At the start of your turn,add a random \"Rune\"card from draw pile into your hand and gain !M! warlord_emblem:Rune Energy .",
-    "UPGRADE_DESCRIPTION": " Innate .At the start of your turn,add a random \"Rune\"card from draw pile into your hand and gain !M! warlord_emblem:Rune Energy ."
+
+  "AmiyaMod:LifeMade": {
+    "NAME": "生命固化",
+    "DESCRIPTION": "Lose2HP. NL Gain !M! 点 Line . NL 下回合开始时, Line 不会减半.",
+    "UPGRADE_DESCRIPTION": "Lose1HP2次. NL Gain !M! 点 Line . NL 下回合开始时, Line 不会减半."
   },
-  "WarlordEmblem:HeartOfDeath": {
-  "NAME":  "Heart Of Death",
-  "DESCRIPTION":  " Retain .Gain !M! [E] . NL When Retained, increase its energy by 1 and gain 1 warlord_emblem:Rune Energy . Exhaust.",
-  "UPGRADE_DESCRIPTION": "Innate.  Retain .Gain !M! [E] . NL When Retained, increase its energy by 1 and gain 1 warlord_emblem:Rune Energy . Exhaust."
-},
-  "WarlordEmblem:Potential": {
-  "NAME":  "Dark Conviction",
-  "DESCRIPTION":  "All enemy lost X Strength and apply X Poison.Gain X warlord_emblem:Rune Energy . Exhaust.",
-  "UPGRADE_DESCRIPTION": "All nemy lost X+1 Strength and apply X+1 Poison.Gain X+1 warlord_emblem:Rune Energy . Exhaust."
-},
-  "WarlordEmblem:WrathOfSindragosa": {
-  "NAME":  "Wrath Of Sindragosa",
-  "DESCRIPTION":  "At this turn,when you played a:Attack,apply 1 Weak to all enemy;Skill,deal 1 damage to all enemy;Power,all enemy lost 1 Strength."
-},
-  "WarlordEmblem:HungeringCold": {
-    "NAME":  "Hungering Cold",
-    "DESCRIPTION":  "Deal !D! damage.Deals additional damage equals to !M! times warlord_emblem:Rune Energy gained this combat."
+
+  "AmiyaMod:Mercy": {
+    "NAME": "慈悲愿景",
+    "DESCRIPTION": "本回合Deal伤害时Gain等同于伤害一半的 Line . NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "本回合Deal伤害时Gain等同于伤害一半的 Line ."
   },
-  "WarlordEmblem:RuneMelter": {
-  "NAME":  "Rune Melt",
-  "DESCRIPTION":  " warlord_emblem:Rune Energy 2.Decrease max warlord_emblem:Rune Energy by !M! .Gain 1 warlord_emblem:Realm Increase . Exhaust.",
-  "UPGRADE_DESCRIPTION": " warlord_emblem:Rune Energy 2.Decrease max warlord_emblem:Rune Energy by !M! .Gain 2 warlord_emblem:Realm Increase . Exhaust.",
-    "EXTENDED_DESCRIPTION": ["Don't have enough Rune Energy."]
-},
-  "WarlordEmblem:Frostmourne": {
-    "NAME":  "Frostmourne",
-    "DESCRIPTION":  "Deal !D! damage.Gain !M! Strength and !B! Block at the end of turn. If Fatal,Gain Relic Ghoul.",
-    "UPGRADE_DESCRIPTION": "Innate , Retain.Deal !D! damage.Gain !M! Strength and !B! Block at the end of turn. If Fatal,Gain Relic Ghoul."
+
+  "AmiyaMod:Open": {
+    "NAME": "绽放",
+    "DESCRIPTION": "每次受到伤害令一名随机敌人Gain !M! 层 虚弱 .",
+    "UPGRADE_DESCRIPTION": "每次受到伤害令一名随机敌人Gain !M! 层 虚弱 ."
   },
-  "WarlordEmblem:WillOfTheNecropolis": {
-    "NAME":  "Will Of The Necropolis",
-    "DESCRIPTION":  "If you have no Block, gain !B! Block. NL Put all basic Defend to your hand."
+
+  "AmiyaMod:SoulDefend": {
+    "NAME": "幽影闪烁",
+    "DESCRIPTION": "每当你Lose生命时Gain !M! 点 Line . NL 将一张 *幽影闪烁 加入手牌 . NL 虚无 .",
+    "UPGRADE_DESCRIPTION": "每当你Lose生命时Gain !M! 点 Line . NL 将一张 *幽影闪烁 加入手牌 . NL 虚无 ."
   },
-  "WarlordEmblem:BloodyStrike": {
-    "NAME":  "Sudden Doom",
-    "DESCRIPTION":  "Deal !D! damage.Permanently decrease this damage by 1.If Fatal,permanently increase this card's damage by !M!."
+  "AmiyaMod:Yangry": {
+    "NAME": "狂躁症",
+    "DESCRIPTION": " 不能被打出 . NL 当你打出攻击牌时,随机丢弃 !M! 张手牌.",
+    "UPGRADE_DESCRIPTION": " 不能被打出 . NL 当你打出攻击牌时,随机丢弃 !M! 张手牌,并 Lose1HP."
   },
-  "WarlordEmblem:RealmStorm": {
-    "NAME":  "Realm Storm",
-    "DESCRIPTION":  "Deal !D! damage to all enemy.Deal addition times for each warlord_emblem:Realm Increase you have."
+  "AmiyaMod:Ychengyin": {
+    "NAME": "源石瘾",
+    "DESCRIPTION": " 不能被打出 . NL 当你连续打出三张非 源石技艺 牌时,Gain !M! 层 易伤 .",
+    "EXTENDED_DESCRIPTION": [" NL （已打出 "," 张牌.）"]
+  },
+  "AmiyaMod:Ydead": {
+    "NAME": "亡陨",
+    "DESCRIPTION": "不能被打出 . NL 回合结束时, Lose !M! HP."
+  },
+  "AmiyaMod:Yjianwang": {
+    "NAME": "健忘症",
+    "DESCRIPTION": "不能被打出 . NL 每当你打出 !M! 张牌时,随机 消耗1张手牌.",
+    "EXTENDED_DESCRIPTION": [" NL （已打出 "," 张牌.）"]
+  },
+  "AmiyaMod:Yjiejin": {
+    "NAME": "体表结晶",
+    "DESCRIPTION": "不能被打出 . NL 打出非 源石技艺 牌时,受到 !M! damage.",
+    "UPGRADE_DESCRIPTION": "不能被打出 . NL 打出非 源石技艺 牌时,受到 !M! damage,Lose !M! 点MaxHP."
+  },
+  "AmiyaMod:Ymust": {
+    "NAME": "偏执症",
+    "DESCRIPTION": "不能被打出 . NL 当你Gain Line 时,改为Gain等量 Block .",
+    "UPGRADE_DESCRIPTION": " 不能被打出 . NL 当你Gain Line 时,改为Gain近似的整数 Block ."
+  },
+  "AmiyaMod:Ysex": {
+    "NAME": "活性化体质",
+    "DESCRIPTION": "不能被打出 . NL 当你打出非 源石技艺 牌时, 感染进度 额外增加 !M! ."
+  },
+  "AmiyaMod:Ysnake": {
+    "NAME": "认知障碍",
+    "DESCRIPTION": "不能被打出 . NL 当你打出第 !M! 张牌时,结束你的回合 .",
+    "EXTENDED_DESCRIPTION": [" NL （已打出 "," 张牌.）"]
+  },
+  "AmiyaMod:Ytiruo": {
+    "NAME": "身虚体弱",
+    "DESCRIPTION": "不能被打出 . NL 当你打出耗能至少为2的卡牌时,Gain !M! 层 虚弱 ."
+  },
+  "AmiyaMod:CRing": {
+    "NAME": "荆与棘之环",
+    "DESCRIPTION": "Gain2层 荆棘 ,每当你耗尽 Line 时,Gain !M! 层 荆棘 ."
+  },
+  "AmiyaMod:RedSky": {
+    "NAME": "影霄",
+    "DESCRIPTION": "Deal !D! damage. NL 可以被多次 升级 . NL 消耗 . NL 虚无 .",
+    "UPGRADE_DESCRIPTION": "保留 . NL ",
+    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","可以被多次 升级 . NL 按照升级次数Deal NL *2 *的 *X *+ *1 *次 *方 damage. NL 消耗 . NL 虚无 ."
+    ]
+  },
+  "AmiyaMod:ShadowOut": {
+    "NAME": "拔刀",
+    "DESCRIPTION": "Deal !D! damage. NL 出鞘 : 下回合开始时将此牌拿回手牌.",
+    "UPGRADE_DESCRIPTION": " 固有 . NL Deal !D! damage. NL 出鞘 : 下回合开始时将此牌拿回手牌. NL  保留 . "
+  },
+  "AmiyaMod:AngryForever": {
+    "NAME": "无名怒火",
+    "DESCRIPTION": "在你的回合开始时,进入 出鞘 状态.",
+    "UPGRADE_DESCRIPTION": "进入 出鞘 状态. NL 在你的回合开始时,进入 出鞘 状态."
+  },
+  "AmiyaMod:FireAgain": {
+    "NAME": "星火重燃",
+    "DESCRIPTION": "每回合打出前!M!张不是卡组中的卡牌后,会Gain1张它的复制.",
+    "UPGRADE_DESCRIPTION": " 固有 NL 每回合打出前!M!张不是卡组中的卡牌后,会Gain1张它的复制."
+  },
+  "AmiyaMod:SoMuchSworld": {
+    "NAME": "无限剑制",
+    "DESCRIPTION": "在你的回合开始时, NL 若你的手牌中没有 影霄 便Gain1张,否则 升级 手中的 影霄 .",
+    "UPGRADE_DESCRIPTION": "固有 . NL 在你的回合开始时, NL 若你的手牌中没有 影霄 便Gain1张,否则 升级 手中的 影霄 ."
+  },
+  "AmiyaMod:BigNotWork": {
+    "NAME": "大巧不工",
+    "DESCRIPTION": "每回合Gain的前 !M! 张 影霄 会额外 升级 一次."
+  },
+
+  "AmiyaMod:ShadowSkill": {
+    "NAME": "剑诀",
+    "DESCRIPTION": "随机 升级 一张手牌 NL X+1 次. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "随机 升级 一张手牌 NL X+1 次."
+  },
+  "AmiyaMod:ShadowCry": {
+    "NAME": "泪锋",
+    "DESCRIPTION": "Deal !D! damage. NL 出鞘 :此牌产生的 影霄 将额外 升级 !M! 次."
+  },
+  "AmiyaMod:ShadowUpgrade": {
+    "NAME": "淬火",
+    "DESCRIPTION": "丢弃一张 影霄 并移除其 消耗 . 下回合开始时 将其拿回手牌. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "将一张 影霄 置于抽牌堆顶. NL 将其 升级 并移除其 消耗 . NL 消耗 .",
+    "EXTENDED_DESCRIPTION": [
+      "我的手中没有刀刃. "
+    ]
+  },
+
+  "AmiyaMod:ShadowBlueFire": {
+    "NAME": "青焰环身",
+    "DESCRIPTION": "处于 出鞘 状态时,打出非攻击牌也能Gain 影霄 ."
+  },
+
+  "AmiyaMod:ShadowWaterMusic": {
+    "NAME": "水韵",
+    "DESCRIPTION": "对所有敌人Deal !D! damage2次. NL 出鞘 : 你的下一张 影霄 会对所有敌人Deal伤害."
+  },
+  "AmiyaMod:ShadowChange": {
+    "NAME": "变式",
+    "DESCRIPTION": " 出鞘 :退出 出鞘 状态,并抽 !M! 张牌,Gain [E] . NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "保留 . NL 出鞘 :退出 出鞘 状态,并抽 !M! 张牌,Gain [E] . NL 消耗 ."
+  },
+  "AmiyaMod:ShadowNoShadow": {
+    "NAME": "绝影",
+    "DESCRIPTION": "优先对生命值最低的敌人Deal !D! damage10次. NL 入鞘 : Gain !M! 层 无实体 . NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "优先对生命值最低的敌人Deal !D! damage10次. NL 入鞘 : Gain !M! 层 无实体 . NL 保留 . 消耗 ."
+  },
+
+  "AmiyaMod:ShadowBreak": {
+    "NAME": "断剑",
+    "DESCRIPTION": "消耗 一张手牌. NL Gain等同于其升级次数的 [E] . NL 抽一张牌.",
+    "UPGRADE_DESCRIPTION": "消耗 一张手牌. NL Gain等同于其升级次数+ !M! 的 [E] . NL 抽一张牌."
+  },
+
+  "AmiyaMod:AmiyaPower": {
+    "NAME": "不稳定的力量",
+    "DESCRIPTION": "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 消耗 . NL 虚无 .",
+    "EXTENDED_DESCRIPTION": [
+      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 出鞘 : 移除你身上的所有负面效果. NL 消耗 . 虚无 .",
+      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 出鞘 : 移除你身上的所有负面效果, 升级 你所有的卡牌. NL 消耗 . 虚无 .",
+      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 出鞘 : 移除你身上的所有负面效果, 升级 你所有的卡牌. NL 消耗 . 保留 .",
+      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] [E] NL 出鞘 : 移除你身上的所有负面效果, 升级 你所有的卡牌. NL 消耗 . 保留 .",
+      "魔王之力"
+    ]
+  },
+  "AmiyaMod:MindEat": {
+    "NAME": "情绪吸收",
+    "DESCRIPTION": "每当你在一回合内打出3次攻击牌时,抽 !M! 张牌.",
+    "UPGRADE_DESCRIPTION": "固有 . NL 每当你在一回合内打出3次攻击牌时,抽 !M! 张牌."
+  },
+  "AmiyaMod:ChiMeRa": {
+    "NAME": "奇美拉",
+    "DESCRIPTION": "Gain20点 Line . NL !M! 回合内Deal的伤害翻倍并无视 Block . NL 效果结束后你丢弃所有手牌并跳过一个回合."
+  },
+  "AmiyaMod:MindBreak": {
+    "NAME": "精神爆发",
+    "DESCRIPTION": "源石技艺 . NL 随机Deal !D! damage !M! 次. 将1张 *晕眩 放入你的抽牌堆中."
+  },
+  "AmiyaMod:SuperYPotion": {
+    "NAME": "强效源石爆发剂",
+    "DESCRIPTION": "将抽牌堆中的 源石诅咒 尽可能拿到手中. NL 抽 !M! 张牌 . NL 消耗 ."
+  },
+  "AmiyaMod:StoneBlock": {
+    "NAME": "结晶化盾",
+    "DESCRIPTION": "源石技艺 . NL Gain !B! 点 Block .",
+    "UPGRADE_DESCRIPTION": "源石技艺 . NL 急性发作 1. NL Gain !B! 点 Block ."
+  },
+  "AmiyaMod:MindBubble": {
+    "NAME": "情感泡泡",
+    "DESCRIPTION": "虚无 . NL Gain9点 Line . 当你打出攻击牌时Lose这些 Line . NL 当你Lose所有来自此牌的 Line 后, 抽1张牌.",
+    "UPGRADE_DESCRIPTION": "Gain9点 Line . 当你打出攻击牌时Lose这些 Line . NL 当你Lose所有来自此牌的 Line 后, 抽1张牌."
+  },
+
+  "AmiyaMod:ZuZhouMagic": {
+    "NAME": "诅咒巫咒",
+    "DESCRIPTION": "源石技艺 . NL Deal !D! damage. 当你Lose生命时,目标敌人也将Lose等量的生命. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": " 固有 . 源石技艺 . NL Deal !D! damage. 当你Lose生命时,目标敌人也将Lose等量的生命. NL 消耗 ."
+  },
+  "AmiyaMod:BadMagic": {
+    "NAME": "笞心魔之吓",
+    "DESCRIPTION": " 源石技艺 . NL 对所有敌人Deal !D! damage. 给予意图为 攻击者 !M! 层 虚弱 ,其他意图者 !M! 层 易伤 ."
+  },
+
+  "AmiyaMod:FastSing": {
+    "NAME": "战术咏唱",
+    "DESCRIPTION": "将 !M! 张抽牌堆中的 源石技艺 加入手牌,并使它本回合的耗能减少1点."
+  },
+  "AmiyaMod:BreakRing": {
+    "NAME": "极限施法",
+    "DESCRIPTION": "本回合当你打出 源石技艺 时,Lose等同于其原本耗能的生命 , 将其额外打出1次. NL 消耗 . ",
+    "UPGRADE_DESCRIPTION": "本回合当你打出 源石技艺 时,Lose等同于其原本耗能的生命 , 将其额外打出1次."
+  },
+
+  "AmiyaMod:OldDoki": {
+    "NAME": "亘古的脉动",
+    "DESCRIPTION": "Lose等同于你手牌数量的生命. NL 抽 !M! 张牌. NL 虚无 ."
+  },
+  "AmiyaMod:SoulBurn": {
+    "NAME": "魂灵熔炉",
+    "DESCRIPTION": "消耗 至多 !M! 张弃牌堆中的卡牌. NL 回合开始时Gain [E] ,每 消耗 1张便持续1回合.",
+    "UPGRADE_DESCRIPTION": "消耗 至多 !M! 张弃牌堆中的卡牌. NL 回合开始时Gain [E] ,每 消耗 1张便持续1回合."
+  },
+  "AmiyaMod:WhoKnowOne": {
+    "NAME": "被预言的魔王",
+    "DESCRIPTION": "对所有敌人Deal!D!damage. NL 战斗开始时,按照卡组中 源石诅咒 的数量 升级 此牌. NL 能被多次 升级 ."
+  },
+
+  "AmiyaMod:ASay": {
+    "NAME": "源石结晶",
+    "DESCRIPTION": "源石诅咒 . NL 随机施展一张 源石技艺 . NL 虚无 . 消耗 ."
+  },
+  "AmiyaMod:Ymagic": {
+    "NAME": "源石戏法",
+    "DESCRIPTION": "源石技艺 . NL 急性发作 1. NL 对随机敌人Deal !D! damage."
+  },
+  "AmiyaMod:MagicYuJin": {
+    "NAME": "巫咒残渣",
+    "DESCRIPTION": "急性发作 1. NL 随机 消耗 一张弃牌堆中的卡牌,优先选择 源石诅咒 ,依据其稀有度Deal至少 !D! damage.",
+    "UPGRADE_DESCRIPTION": "急性发作 1. NL 选择一张弃牌堆中的卡牌 消耗 ,依据其稀有度Deal至少 !D! damage."
+  },
+  "AmiyaMod:DefendMagic": {
+    "NAME": "女妖之吻",
+    "DESCRIPTION": "源石技艺 . NL 去除你的 易伤 . NL Gain !B! 点 Block .",
+    "UPGRADE_DESCRIPTION": "源石技艺 . NL 去除你的 易伤 . NL Gain !B! 点 Block 和1层 人工制品 ."
+  },
+  "AmiyaMod:SeeMe": {
+    "NAME": "见我",
+    "DESCRIPTION": "源石技艺 . NL 抽取一张 源石诅咒 . NL Deal !D! damage,Gain NL 手牌数 !M! 倍的 Line .",
+    "UPGRADE_DESCRIPTION": "源石技艺 . NL Deal!D!damage. NL Gain !M! 点 Line ."
+  },
+  "AmiyaMod:NotNow": {
+    "NAME": "终局未至",
+    "DESCRIPTION": "源石技艺 . 急性发作 1. NL 对所有敌人Deal !D! damage,Deal相当于你 感染进度 的额外伤害. NL 虚无 ."
+  },
+
+  "AmiyaMod:DrBlood": {
+    "NAME": "造物主之血",
+    "DESCRIPTION": "降低 !M! 点 感染进度 . NL 进入 感染爆发 状态. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "降低 !M! 点 感染进度 . NL 进入 感染爆发 状态. NL 消耗 抽牌堆和手牌中所有的 源石诅咒 . NL 消耗 ."
+  },
+  "AmiyaMod:Ghost": {
+    "NAME": "幽影重重",
+    "DESCRIPTION": "将你当前的 Line 翻倍. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "将你当前的 Line 翻倍."
+  },
+
+  "AmiyaMod:MagicBook": {
+    "NAME": "巫术典籍",
+    "DESCRIPTION": "从 !M! 张随机 源石技艺 中选择一张拿到手中. 它在本回合的耗能变为0. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "从 !M! 张随机 升级 过的 源石技艺 中选择一张拿到手中. 它在本回合的耗能变为0. NL 消耗 ."
+  },
+  "AmiyaMod:Solo": {
+    "NAME": "独奏",
+    "DESCRIPTION": "Gain !M! 点 Line . NL 下回合开始时对所有敌人Deal等同于你 Line 值的伤害.",
+    "UPGRADE_DESCRIPTION": "  "
+  },
+
+  "AmiyaMod:FirstSayA": {
+    "NAME": "源石结晶",
+    "DESCRIPTION": "源石诅咒 . NL 保留 . NL 凝聚着被 消耗 卡牌的力量. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "源石诅咒 . 保留 . NL ",
+    "EXTENDED_DESCRIPTION": [
+      ". ",
+      " 急性发作 ",
+      "Deal !D! damage. ",
+      "Gain !B! 点 Block . ",
+      "Gain !M! 点 Line . ",
+      "抽",
+      "张牌.",
+      "回复",
+      "HP. ",
+      " NL 消耗 ."
+    ]
+  },
+  "AmiyaMod:YBBS": {
+    "NAME": "源石祭坛",
+    "DESCRIPTION": "当你抽到 源石诅咒 时,将 !M! 张 虚无 的随机源石技艺拿入手中.",
+    "UPGRADE_DESCRIPTION": " 固有 . NL 当你抽到 源石诅咒 时,将 !M! 张 虚无 的随机源石技艺拿入手中."
+  },
+  "AmiyaMod:HelpMagic": {
+    "NAME": "土石之垒",
+    "DESCRIPTION": "源石技艺 . NL Gain !B! 点 Block . NL Lose生命时将此牌拿到手中. NL 消耗 ."
+  },
+  "AmiyaMod:EatZuzhou": {
+    "NAME": "螯合诅咒",
+    "DESCRIPTION": "源石技艺 . NL 选择 消耗 卡组中的1种 源石诅咒 ,并给予敌人相应的异常状态. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "要使用这个法术...我还对源石诅咒痛苦的了解还不足够.",
+    "EXTENDED_DESCRIPTION": [
+      "每回合有50%几率给予你 [E] .",
+      "回合结束时,Lose !M! HP.",
+      "Deal的伤害减少 !M! 点.",
+      "受到的伤害增加 !M! 点.",
+      "若一次Lose至少8HP,目标Gain !M! 层 易伤 .",
+      "每当你打出 源石技艺 时,Lose所有 Block .",
+      "回合开始时,使你额外抽取 !M! 张牌.",
+      "每当你打出 源石技艺 时,Gain !M! 层 虚弱 .",
+      "回合开始时,Lose生命直到个位为0. NL (若个位为0则Lose10HP.)",
+      "固有 . 源石技艺 . NL 选择 消耗 卡组中的1种 源石诅咒 ,并给予敌人相应的异常状态. NL 消耗 .",
+      ""
+    ]
+  },
+
+  "AmiyaMod:ShadowCloudBreak": {
+    "NAME": "云裂",
+    "DESCRIPTION": "将一张 *云裂 ** *出 放入抽牌堆中. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "入鞘:选择 !M! 张已 消耗 的 影霄 ,将其放入你的手牌."
+  },
+  "AmiyaMod:ShadowCloudBreak2": {
+    "NAME": "云裂",
+    "DESCRIPTION": "从消耗牌堆中选择 !M! 张 影霄 ,将其加入手牌. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "从消耗牌堆中选择 !M! 张 影霄 ,将其加入手牌."
+  },
+  "AmiyaMod:CloudBreakIn": {
+    "NAME": "云裂*出",
+    "DESCRIPTION": "再次打出Gain此牌后你打出过的 影霄 . NL 消耗 .",
+    "UPGRADE_DESCRIPTION": " NL (已记录 !M! 张 影霄 ,总计约 !D! damage.)"
+  },
+  "AmiyaMod:BloodSword": {
+    "NAME": "饲血",
+    "DESCRIPTION": "Lose1HP. NL 在本场战斗中 升级 !M! 张手牌 ,并将其 保留 . NL (无视 虚无 )",
+    "UPGRADE_DESCRIPTION": "Lose1HP. NL 在本场战斗中 升级 !M! 张手牌 ,并将其 保留 . NL (无视 虚无 )",
+    "EXTENDED_DESCRIPTION": [" NL (Deal","damage)"]
+  },
+  "AmiyaMod:ShadowBackWindy": {
+    "NAME": "回风",
+    "DESCRIPTION": "Deal !D! damage. NL 抽 !M! 张牌. NL 出鞘 : 再抽1张.",
+    "UPGRADE_DESCRIPTION": "给予所有敌人 !M! 层 虚弱 . NL 入鞘 : 升级 手牌中的 影霄 . NL 消耗 ."
+  },
+  "AmiyaMod:ShadowBlood": {
+    "NAME": "吹血",
+    "DESCRIPTION": "Deal !D! damage. NL 出鞘 : Lose !M! HP,额外Deal一半的伤害."
+  },
+  "AmiyaMod:BloodNo": {
+    "NAME": "青色怒火",
+    "DESCRIPTION": "Deal !D! damage. NL 额外Deal相当于 *消耗牌堆 数量的伤害.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL 额外Deal *消耗牌堆 数量 !M! 倍的伤害.",
+    "EXTENDED_DESCRIPTION": [" NL (Deal","点额外伤害）"]
+  },
+
+  "AmiyaMod:Memory": {
+    "NAME": "高塔追忆",
+    "DESCRIPTION": "选择 !M! 位角色,在你的回合开始时将1张来自其随机卡牌的 追忆 加入手中并 升级 .",
+    "UPGRADE_DESCRIPTION": "选择一位角色,在你的回合开始时从 !M! 张来自其随机卡牌的 追忆 中选择一张加入手中并 升级 .",
+    "EXTENDED_DESCRIPTION": [
+      "追忆:",
+      "在你回合开始时,将",
+      "张来自",
+      "的随机 追忆 加入手中.",
+      "的随机 追忆 加入手中并 升级 .",
+      "的特殊 追忆 加入手中.",
+      "的特殊 追忆 加入手中并 升级 ."
+    ]
+  },
+
+  "AmiyaMod:Whitemith": {
+    "NAME": "“Whitemith”",
+    "DESCRIPTION": "抽X张牌,它们本回合的耗能变为0. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "抽X+1张牌,它们本回合的耗能变为0. NL 消耗 ."
+  },
+  "AmiyaMod:Outcast": {
+    "NAME": "“Outcast”",
+    "DESCRIPTION": "丢弃所有手牌,将 !M! 张 *圣痕弹 拿入手中."
+  },
+  "AmiyaMod:Outcast1": {
+    "NAME": "圣痕弹",
+    "DESCRIPTION": "源石技艺 .保留 . NL 填装一枚能Deal13damage的子弹. NL 若你手中没有 *鸣铳 则将其拿入手中."
+  },
+  "AmiyaMod:Outcast2": {
+    "NAME": "鸣铳",
+    "DESCRIPTION": "保留 . NL 每枚子弹Deal !D! damage1次. NL 若填装了6枚子弹,改为对所有所有敌人Deal !M! 倍伤害.在那之后对你造13damage.",
+    "UPGRADE_DESCRIPTION": "枪膛中还没有填装子弹."
+  },
+  "AmiyaMod:Scout": {
+    "NAME": "“Scout”",
+    "DESCRIPTION": "瞄准目标,对其每回合积累 !M! damage."
+  },
+  "AmiyaMod:Scout1": {
+    "NAME": "扳机",
+    "DESCRIPTION": "保留 . NL 使所有敌人受到Deal等同于其身上的 *瞄准 层数的伤害.",
+    "UPGRADE_DESCRIPTION": "我没有瞄准任何敌人."
+  },
+  "AmiyaMod:ACE": {
+    "NAME": "“ACE”",
+    "DESCRIPTION": "Deal !D! damage. NL 阻止下 !M! 次你受到的至少为6点的生命值损伤. NL 消耗 ."
+  },
+  "AmiyaMod:ICEStar": {
+    "NAME": "“霜星”",
+    "DESCRIPTION": "源石技艺 . NL 对所有敌人Deal !D! damage. NL 给予所有敌人 !M! 层 虚弱 . NL 消耗 ."
+  },
+  "AmiyaMod:CountryLover": {
+    "NAME": "“爱国者”",
+    "DESCRIPTION": "Deal !D! damage !M! 次.Gain !B! 点 Block . NL 将1张 *生命献祭 拿到手中. NL 消耗 ."
+  },
+  "AmiyaMod:CountryLover1": {
+    "NAME": "生命献祭",
+    "DESCRIPTION": "将 *投矛 拿到手中 . NL 每回合结束时增加 !M! 感染进度 ,对所有敌人Deal6damage. NL 虚无 ."
+  },
+  "AmiyaMod:CountryLover2": {
+    "NAME": "投矛",
+    "DESCRIPTION": "保留 . NL 对随机敌人Deal !D! damage. NL 下回合将此卡拿回手中."
+  },
+  "AmiyaMod:Her": {
+    "NAME": "“特蕾西娅”",
+    "DESCRIPTION": "源石技艺 . NL Gain !M! 个充能球栏位. NL 生成 !M! 粒 微尘 ."
+  },
+  "AmiyaMod:BreakBone": {
+    "NAME": "“碎骨”",
+    "DESCRIPTION": "虚无 . NL 给予所有敌人 !M! 层 易伤 . NL Gain5点 Line ,当你Lose所有 Line 时将另一张 *“碎骨” 拿入手中. NL 消耗 ."
+  },
+
+  "AmiyaMod:KingSee": {
+    "NAME": "魔王幻景",
+    "DESCRIPTION": "抽 2 张牌,并给予一名敌人 8 点 Line . NL 目标在Lose所有 Line 之前,在其回合开始时Gain !M! 层 虚弱 .",
+    "UPGRADE_DESCRIPTION": "给予一名敌人 8 点 Line . 抽 2 张牌 . NL 目标的回合开始时,若它的 Line 仍在, 给予 !M! 层 虚弱 ."
+  },
+  "AmiyaMod:SwordHeard": {
+    "NAME": "以剑交心",
+    "DESCRIPTION": "Gain1层 易伤 . NL 给予 !M! 层 易伤 . NL 出鞘 : 升级 一张手牌. NL 虚无 .",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.Gain1层 易伤 并给予1层 易伤 . NL 出鞘 : 从 !M! 张随机 追忆 中选择1张加入你的手牌. NL 虚无 ."
+  },
+  "AmiyaMod:YOpen": {
+    "NAME": "结晶绽放",
+    "DESCRIPTION": "源石技艺 . 急性发作 2. NL  若你本回合打出过其他 源石技艺 ,Gain [E] .",
+    "UPGRADE_DESCRIPTION": "源石技艺 . 急性发作 2. NL Gain [E] . Gain相当于你 感染进度 的 Block ."
+  },
+  "AmiyaMod:ShadowBack": {
+    "NAME": "振气",
+    "DESCRIPTION": "丢弃手牌中所有的非攻击牌. NL 随机 升级 手牌 !M! 次. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "丢弃手牌中所有的非攻击牌. NL 随机 升级 手牌 !M! 次."
+  },
+
+  "AmiyaMod:ShadowYangMei": {
+    "NAME": "扬眉",
+    "DESCRIPTION": "Deal !D! damage,使 !M! 张手牌Gain 保留 . NL 出鞘 : 保留 所有手牌.",
+    "UPGRADE_DESCRIPTION": "Gain !B! 点 Block . NL 入鞘 : 升级手中所有的 影霄 ."
+  },
+
+
+  "AmiyaMod:SoulMilk": {
+    "NAME": "死魂灵之影",
+    "DESCRIPTION": "从 !M! 张随机 追忆 中选择1张加入手牌. NL 如果 *死魂灵之影 被 消耗 ,Gain2层 再生 .",
+    "UPGRADE_DESCRIPTION": "从 !M! 张 升级 过的 追忆 中选择1张加入手牌. NL 如果 *死魂灵之影 被 消耗 ,Gain2层 再生 ."
+  },
+  "AmiyaMod:MakeLine": {
+    "NAME": "编织茧笼",
+    "DESCRIPTION": "每当你打出 战斗中添加 的卡牌时, Gain !M! 点 Line ."
+  },
+  "AmiyaMod:MindRoll": {
+    "NAME": "意志震荡",
+    "DESCRIPTION": "你的回合开始时, 选择 !M! 张牌 消耗 . NL 每当非 追忆 牌被 消耗时 ,将一张随机 追忆 加入手牌.",
+    "UPGRADE_DESCRIPTION": "对所有敌人Deal相当于消耗牌堆数量+8的伤害. NL 将 !M! 张随机 追忆 拿入手牌.",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人Deal消耗牌堆数量+8的伤害. NL Gain !M! 张随机 追忆 .",
+      "对所有敌人Deal消耗牌堆数量+11的伤害. NL Gain !M! 张随机 追忆 .",
+      " NL (Deal !D! damage)"
+    ]
+  },
+  "AmiyaMod:CopyMagic": {
+    "NAME": "变形者之貌",
+    "DESCRIPTION": "源石技艺 . NL 随机查看抽牌堆中的 !M! 张牌,选择1张将其复制 加入手牌. NL 消耗 .",
+    "UPGRADE_DESCRIPTION":"源石技艺 . NL 随机查看抽牌堆中的 !M! 张牌,选择1张将其复制加入手牌. NL 消耗 ."
+  },
+
+  "AmiyaMod:BreakHug": {
+    "NAME": "浇灌新生",
+    "DESCRIPTION": "Gain !M! 点 Line .下回合开始时你的 Line 不会减半."
+  },
+  "AmiyaMod:SadMind": {
+    "NAME": "哀恸共情",
+    "DESCRIPTION": "Gain等同于目标原始伤害意图的 Line .",
+    "UPGRADE_DESCRIPTION":"保留 . NL Gain等同于目标原始伤害意图的 Line ."
+  },
+  "AmiyaMod:ShadowDefend": {
+    "NAME": "守式",
+    "DESCRIPTION": "你的下 !M! 张 影霄 将额外Gain等同于伤害的 Block . NL 入鞘 : 升级 一张手牌.",
+    "UPGRADE_DESCRIPTION":"保留 . NL Deal !D! damage. NL 本回合打出的下一张 影霄 将额外Gain等同于伤害的 Block . NL 入鞘 :  此卡Gain的 影霄 额外升级 !M! 次."
+  },
+
+  "AmiyaMod:BurnMark": {
+    "NAME": "灼痕",
+    "DESCRIPTION": "抽牌堆不为空时 才能打出, 消耗 其顶端的牌. NL Lose1HP. NL Deal !D! damage . NL 虚无 .",
+    "UPGRADE_DESCRIPTION": " 不能被打出 . NL 当你 Lose1HP 时 消耗 ,Gain [R] [R] .并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品. NL 虚无 .",
+    "EXTENDED_DESCRIPTION": [
+      "已经...没有燃料了"
+    ]
+  },
+
+  "AmiyaMod:ShadowRunNight": {
+    "NAME": "奔夜",
+    "DESCRIPTION": "Deal !D! damage两次. 出鞘 : 本回合每当你打出 影霄 时Gain !M! 点 Block."
+  },
+  "AmiyaMod:LineDefender": {
+    "NAME": "温迪戈之骸",
+    "DESCRIPTION": "Gain !M! 点 Line . NL 每当你Lose这部分 Line 时Gain !B! 点 Block ."
+  },
+  "AmiyaMod:Shadow15": {
+    "NAME": "剑十五",
+    "DESCRIPTION": "抽到此牌时 Lose1HP 5 次. NL Deal !D! damage !M! 次. NL 你每在战斗中Lose生命一次,这张牌的耗能就减少 [E] . NL 入鞘 :回复15HP. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "保留 . NL 抽到此牌时 Lose1HP 5 次. NL Deal !D! damage !M! 次. NL 你每在战斗中Lose生命一次,这张牌的耗能就减少 [E] . NL 入鞘 :回复15HP. NL 消耗 ."
+  },
+
+
+  "AmiyaMod:NoName=弃用": {
+    "NAME": "恨火蔓延",
+    "DESCRIPTION": "Deal !D! damage . NL 入鞘 : 下回合开始时 出鞘 .",
+    "EXTENDED_DESCRIPTION": [
+      "不要...不要惹恼我.",
+      "这把剑渴望着报复...我不能放纵它."]
+  },
+
+  "AmiyaMod:AmiyaMagic": {
+    "NAME": "基础源石技艺",
+    "DESCRIPTION": "源石技艺 . NL Deal !D! damage."
+  },
+
+  "AmiyaMod:badY": {
+    "NAME": "污染碎片",
+    "DESCRIPTION": " 保留 . NL 若本场战斗你打出过另一张 *污染碎片 ,Gain 60 金币. NL 每当这张牌被 保留 时,增加 !M! 感染进度 . NL 源石诅咒 ."
+  },
+  "AmiyaMod:FirstSay": {
+    "NAME": "阿喃那",
+    "DESCRIPTION": "在你的回合结束时,将你手牌中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 .",
+    "UPGRADE_DESCRIPTION": " 固有 . NL 在你的回合结束时,将你手牌中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 ."
+  },
+
+  "AmiyaMod:Hate": {
+    "NAME": "恨火蔓延",
+    "DESCRIPTION": "处于 出鞘 时才能打出. NL Deal !D! damage. NL 下回合开始时 出鞘 .",
+    "EXTENDED_DESCRIPTION": [
+      "不要...不要惹恼我.",
+      "这把剑渴望着报复...我不能放纵它."]
+  },
+
+  "AmiyaMod:MindLink": {
+    "NAME": "情绪联结",
+    "DESCRIPTION": "源石技艺 . NL  Deal !D! damage ,若你本回合Lose过生命,Gain [E] .",
+    "UPGRADE_DESCRIPTION": "源石技艺 . NL  Deal !D! damage  ,若你本回合Lose过生命,Gain [E] ."
+  },
+
+  "AmiyaMod:Bonk": {
+    "NAME": "鞘击",
+    "DESCRIPTION": "下1张 影霄 将使目标降低 升级 次数 的 力量 . NL 出鞘 : 升级 1张 影霄 !M! 次 ,但伤害减半 . NL  消耗 .",
+    "UPGRADE_DESCRIPTION": "保留 . NL 下1张 影霄 将使目标降低 升级 次数 的 力量 . NL 出鞘 : 升级 1张 影霄 !M! 次 ,但伤害减半 . NL  消耗 .",
+    "EXTENDED_DESCRIPTION": [
+      "剑刃已经出鞘..."
+    ]
+  },
+
+  "AmiyaMod:BlackKing": {
+    "NAME": "黑冠圣贤",
+    "DESCRIPTION": "在你的回合结束时,将 !M! 张 *尊主之影 加入手牌.",
+    "UPGRADE_DESCRIPTION": "固有 . NL 在你的回合结束时,将 !M! 张 *尊主之影 加入手牌."
+  },
+  "AmiyaMod:KingShadow": {
+    "NAME": "尊主之影",
+    "DESCRIPTION": "保留 . NL 对所有敌人Deal !D! damage. 打出你手牌中所有的 *尊主之影 . NL 此卡 保留 时,耗能减少 [E] . NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "每回合开始时,将一张 *尊主之影+ 加入手牌."
+  },
+  "AmiyaMod:S": {
+    "NAME": "两仪",
+    "DESCRIPTION": "本回合保留."
+  },
+  "AmiyaMod:ShadowTwo": {
+    "NAME": "两仪",
+    "DESCRIPTION": "丢弃至多 !M! 张牌,抽相同数量的牌. NL 将你丢弃的 影霄 拿回手牌.",
+    "UPGRADE_DESCRIPTION": "丢弃至多 !M! 张牌,抽相同数量的牌. NL 升级 你丢弃的 影霄 并拿回手牌."
+  },
+
+
+  "AmiyaMod:KingSay": {
+    "NAME": "魔王传承",
+    "DESCRIPTION": "不能被打出 . NL 抽到时将1张 升级 过的 源石技艺 和 !M! 张 源石诅咒 加入手牌. NL 若你打出拿到的 源石技艺 ,再Gain另1张.",
+    "UPGRADE_DESCRIPTION": "不能被打出 . NL 抽到时从你最近胜利的卡组中的随机 !M! 张牌中选择一张,此卡变为其复制.",
+    "EXTENDED_DESCRIPTION": [" NL (传承: ",
+      " 、 ",
+      " .)",
+      " NL (已打出) ",
+      "从最近胜利卡组中的随机 !M! 张 追忆 中选择一张拿入手牌. NL 消耗 .",
+      "从最近胜利卡组中的随机 !M! 张 追忆 中选择一张拿入手牌."
+    ]
+  },
+
+  "AmiyaMod:KingSay2": {
+    "NAME": "魔王传承",
+    "DESCRIPTION": "不能被打出 . NL 抽到时从你最近胜利的卡组中的随机 !M! 张牌中选择一张,将它拿入手牌.",
+    "UPGRADE_DESCRIPTION": "不能被打出 . NL 抽到时从你最近胜利的卡组中的随机 !M! 张牌中选择一张两次,将它们拿入手牌.",
+    "EXTENDED_DESCRIPTION": [" NL (传承: ",
+      " 、 ",
+      " .)",
+      " NL (已打出) "
+    ]
+  },
+
+
+  "AmiyaMod:Punch": {
+    "NAME": "歌利亚之拳",
+    "DESCRIPTION": "Deal你生命值与 Line 之和除以 !M! 的伤害. NL  如果此牌杀死了敌人,将此牌拿回手牌.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL  如果此牌杀死了敌人,并将此牌拿回手牌.",
+    "EXTENDED_DESCRIPTION": [" NL (Deal !D! damage)"]
+  },
+
+  "AmiyaMod:Horn": {
+    "NAME": "温迪戈之角",
+    "DESCRIPTION": "源石技艺 . NL Deal !D! damage. NL 若你生命值低于战斗开始时的值, 额外Deal一次伤害 ."
+  },
+
+  "AmiyaMod:PainMagic": {
+    "NAME": "炎魔之火",
+    "DESCRIPTION": " 源石技艺 . NL 对所有敌人Deal !D! damage. 感染爆发 时将此牌加入 手牌 . NL 虚无 ."
+  },
+  "AmiyaMod:StoneSword": {
+    "NAME": "结晶化剑",
+    "DESCRIPTION": "源石技艺 . NL Gain1张 影霄 ,将它 升级 !M! 次. NL 出鞘 : 你打出的下1张 影霄 视为 源石技艺 .",
+    "UPGRADE_DESCRIPTION": "源石技艺 . NL Gain1张 影霄 并将它 升级 !M! 次. NL 出鞘 : 你打出的下1张 NL  影霄 视为 源石技艺 ."
+  },
+
+  "AmiyaMod:TikaziMagic": {
+    "NAME": "巫妖之试",
+    "DESCRIPTION": " 源石技艺 . NL 抽 !M! 张牌.",
+    "UPGRADE_DESCRIPTION": " 源石技艺 . NL 抽 !M! 张牌. NL 抽到 源石诅咒 或 源石技艺 时,Gain [E] ."
+  },
+  "AmiyaMod:Wish": {
+    "NAME": "诚挚期许",
+    "DESCRIPTION": "在你的回合结束时Gain !M! 点 Line ."
+  },
+
+  "AmiyaMod:MagicPC": {
+    "NAME": "私人巫术终端",
+    "DESCRIPTION": "选择一张手牌,将其带有 不能被打出 与 抽到时释放 的复制洗入弃牌堆. NL 消耗 .",
+    "UPGRADE_DESCRIPTION": "选择一张手牌,将其带有 不能被打出 与 抽到时释放 的复制洗入抽牌堆. NL 消耗 ."
+  },
+
+  "AmiyaMod:KingType2": {
+    "NAME": "魔王律令",
+    "DESCRIPTION": "Deal !D! damage. NL 抽1张牌. NL 你打出的下 !M! 张非 源石技艺 牌视为 源石技艺 . NL 虚无 .",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL 抽1张牌. NL 你打出的下 !M! 张非 源石技艺 牌视为 源石技艺 ."
   },
 
 
 
-
-
-  "WarlordEmblem:MantleCardBaku": {
-    "NAME":  "Baku the Mooneater",
-    "DESCRIPTION": "Upgrade odd-Cost cards in this combat. NL Exhaust."
+  "AmiyaMod:LittleTe": {
+    "NAME": "",
+    "DESCRIPTION": "Gain随机 追忆 直到手牌上限. 回合结束时,每剩余一张手牌Gain !M! 点 Line . NL 虚无 .",
+    "UPGRADE_DESCRIPTION":"Gain随机 追忆 直到手牌上限. 回合结束时,每剩余一张手牌Gain !M! 点 Line ."
   },
-  "WarlordEmblem:MantleCardCaireseth": {
-    "NAME":  "Prince Caireseth",
-    "DESCRIPTION":  "If there is no 2-Cost in your draw pile, NL permanent Upgrade a random card. NL Exhaust.",
-    "EXTENDED_DESCRIPTION":["My draw pile have 2-Cost card."]
+  "AmiyaMod:LittleTe2": {
+    "NAME": "忧她所忧",
+    "DESCRIPTION": "抽 !M! 张牌. NL 在本回合 保留 你的手牌.",
+    "UPGRADE_DESCRIPTION":"Gain随机 追忆 直到手牌上限. 回合结束时,每剩余一张手牌Gain !M! 点 Line ."
   },
-  "WarlordEmblem:MantleCardJean": {
-    "NAME":  "Jean",
-    "DESCRIPTION":  "Reduce the cost of all Even-Cost cards to 1 this combat. NL Exhaust."
+  "AmiyaMod:Hope": {
+    "NAME": "期冀之汇",
+    "DESCRIPTION": " 感染进度 增长时,若你拥有 Line , NL Lose1HP并阻止本次增长.",
+    "UPGRADE_DESCRIPTION":" 固有 . NL 感染进度 增长时,若你拥有 Line , NL Lose1HP并阻止本次增长."
   },
-  "WarlordEmblem:MantleCardKazakus": {
-    "NAME":  "Kazakus",
-    "DESCRIPTION":  "If all your cards in your draw pile is different. NL Random craft a *Kazakus\u00a0Potion . NL Exhaust.",
-    "EXTENDED_DESCRIPTION":["My draw pile have same card"]
+  "AmiyaMod:HerDo": {
+    "NAME": "行她所行",
+    "DESCRIPTION": "在你的回合结束时, 本回合你每Lose一次生命, 对所有敌人Deal !M! damage."
   },
-  "WarlordEmblem:MantleCardKazakusPotion": {
-    "NAME":  "Kazakus Potion",
-    "DESCRIPTION":  "3 random effect.",
-    "EXTENDED_DESCRIPTION": ["Deal !D! damage to all enemy","Gain !B! Block","Apply 6 Poison to all enemy ","Gain [E] [E] ","Gain 3 Strength ","Gain 3 Dexterity  ","Heal 10 HP","Draw 4 cards.","Apply 2 Vulnerable to ALL enemies ","Apply 2 Weak to ALL enemies ",". NL ",". NL Exhaust."]
+  "AmiyaMod:HerSee": {
+    "NAME": "见她所见",
+    "DESCRIPTION": "Gain [E] [E] [E] . NL 本回合每使用 [E] 便Lose 1 HP."
   },
-  "WarlordEmblem:MantleCardLazz": {
-    "NAME":  "Lazz",
-    "DESCRIPTION":  "If all your cards in your draw pile is different.  NL Gain [E] [E] each turn in this combat. NL Exhaust.",
-    "EXTENDED_DESCRIPTION":["My draw pile have same card"]
+  "AmiyaMod:LoseWish": {
+    "NAME": "枯竭期许",
+    "DESCRIPTION": "源石技艺 . NL 每当你抽到一张 不能被打出 的牌时, NL 抽 !M! 张牌.",
+    "UPGRADE_DESCRIPTION": "固有 . NL 源石技艺 . NL 每当你抽到一张 不能被打出 的牌时, NL 抽 !M! 张牌."
   },
-  "WarlordEmblem:MantleCardLiam": {
-    "NAME":  "Prince Liam",
-    "DESCRIPTION":  "Transform 1-Cost card in your draw pile into random Rare card. NL Exhaust."
+  "AmiyaMod:ShadowSkyOpen": {
+    "NAME": "天瞠",
+    "DESCRIPTION": "随机丢弃抽牌堆中一半的牌, 消耗 其中 不能被打出 的牌. NL 你Gain的 影霄 将被额外 升级 1次. NL 虚无 .",
+    "UPGRADE_DESCRIPTION": "固有 . NL 随机丢弃抽牌堆中一半的牌,消耗 其中 不能被打出 的牌. NL 你Gain的 影霄 将被额外 升级 1次.",
+    "EXTENDED_DESCRIPTION": [" NL (Deal","damage）"]
   },
-  "WarlordEmblem:MantleCardMarkzar": {
-    "NAME":  "Markzar",
-    "DESCRIPTION":  "Shuffle 5 random Rare cards into your draw pile. NL They cost 1 . NL Exhaust."
+  "AmiyaMod:FullCry": {
+    "NAME": "浸泪",
+    "DESCRIPTION": "虚无. NL 如果此卡 被 消耗 ,Lose !M! 点MaxHP."
   },
-  "WarlordEmblem:MantleCardReynold": {
-    "NAME":  "Reynold",
-    "DESCRIPTION":  "If all your cards in your draw pile is different.Heal your health at the start of this combat.(at most 20) NL Exhaust.",
-    "EXTENDED_DESCRIPTION":["My draw pile have same card"]
-  },
-  "WarlordEmblem:MantleCardWalana": {
-    "NAME":  "Walana",
-    "DESCRIPTION":  "If there is no 0-Cost in your draw pile, NL Gain 30%  warlord_emblem:life\u00a0leech in this combat. NL Exhaust.",
-    "EXTENDED_DESCRIPTION":["My draw pile have 0-Cost card."]
-  },
-
-
-  "WarlordEmblem:QuestCardDK": {
-    "NAME":  "Power of Dark",
-    "DESCRIPTION":  " warlord_emblem:Quest :Draw 5 Curse or Status cards. NL Reward: *Frostmourne .  Ethereal Exhaust."
-  },
-  "WarlordEmblem:QuestCardDKReward": {
-    "NAME":  "Frostmourne",
-    "DESCRIPTION": "Upon each  Curse or Status cards were drawn,gain 2 Strength and 8 Block.Draw a card. Exhaust."
-  },
-  "WarlordEmblem:QuestCardDruid": {
-    "NAME":  "Jungle Giants",
-    "DESCRIPTION": " warlord_emblem:Quest ：Play 5 cards has 2 or more cost. NL Reward: *Bamabus . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardDruidReward": {
-    "NAME":  "Bamabus",
-    "DESCRIPTION": "Gain !B! Block.All  Attack cards cost 0. Exhaust."
-  },
-  "WarlordEmblem:QuestCardHunter": {
-    "NAME":  "The Marsh Queen",
-    "DESCRIPTION": " warlord_emblem:Quest ：Play 7 0-cost cards. NL Reward: *Queen\u00a0Camassa . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardHunterReward": {
-    "NAME":  "Queen Camassa",
-    "DESCRIPTION": "Deal !D! damage.Shuffle 6 *Flash\u00a0of\u00a0Steel into your draw pile. Exhaust."
-  },
-  "WarlordEmblem:QuestCardMage": {
-    "NAME":  "Open the Waygate",
-    "DESCRIPTION": " warlord_emblem:Quest ：Play 6 Colorless cards. NL Reward: *Time Warp . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardMageReward": {
-    "NAME":  "Time Warp",
-    "DESCRIPTION": "Gain 4 [E] .Draw 5 cards. NL Exhaust."
-  },
-  "WarlordEmblem:QuestCardPaladin": {
-    "NAME":  "The Last Kaeidosaur",
-    "DESCRIPTION": " warlord_emblem:Quest ：Gain 6 buff or debuff. NL Reward: *Galvadon . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardPaladinReward": {
-    "NAME":  "Galvadon",
-    "DESCRIPTION": "Deal !D! damage.Gain !B! Block.Heal 2 HP.Apply !M! Posion Weak and Vulnerable."
-  },
-  "WarlordEmblem:QuestCardPriest": {
-    "NAME":  "Awaken the Makers",
-    "DESCRIPTION": " warlord_emblem:Quest ： Exhaust 7 cards. NL Reward:  *Amara,Warden\u00a0of\u00a0Hope . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardPriestReward": {
-    "NAME":  "Amara,Warden of Hope",
-    "DESCRIPTION": "Gain !B! Block, NL Heal your health to the amount at the start of this combat.(at most 20). NL Exhaust."
-  },
-  "WarlordEmblem:QuestCardRogue": {
-    "NAME":  "The Caverns Below",
-    "DESCRIPTION":  " warlord_emblem:Quest ：Play 5 same cards. NL Reward: *Crystal\u00a0Core . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardRogueReward": {
-    "NAME":  "Crystal Core",
-    "DESCRIPTION":  "All your attack damage will be 12. NL Exhaust."
-  },
-  "WarlordEmblem:QuestCardShaman": {
-    "NAME":  "Unite the Murlocs",
-    "DESCRIPTION":  " warlord_emblem:Quest ：Play 10 Skills. NL Reward: *Megafin . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardShamanReward": {
-    "NAME":  "Megafin",
-    "DESCRIPTION":  "Deal !D! Damage.Add 4 *Shiv to your hand."
-  },
-    "WarlordEmblem:QuestCardWarlock": {
-    "NAME":  "Lakkari Sacrifice",
-    "DESCRIPTION":  " warlord_emblem:Quest ：Discard 6 cards. NL Reward: *Nether\u00a0Portal . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardWarlockReward": {
-    "NAME":  "Nether Portal",
-    "DESCRIPTION":  "Deal 6 damage and gain 4 Block at the start of your turn. NL Exhaust."
-  },
-  "WarlordEmblem:QuestCardWarrior": {
-    "NAME":  "Fire Plume's Heart",
-    "DESCRIPTION":  " warlord_emblem:Quest ：Gain Block 7 times. NL Reward: *Sulfuras . Ethereal Exhaust ."
-  },
-  "WarlordEmblem:QuestCardWarriorReward": {
-    "NAME":  "Sulfuras",
-    "DESCRIPTION":  "Deal 16 damage to a random enemy at the end of your turn. NL Exhaust."
+  "AmiyaMod:FinalSong": {
+    "NAME": "炉芯终曲",
+    "DESCRIPTION": "随机Deal !D! damage !M! 次. NL Gain消耗牌堆中的1张 追忆 并 保留 . NL 结束你的回合."
   }
 }
+

@@ -38,6 +38,7 @@ public class SadMind extends CustomCard {
         this.misc = 1;
         //this.exhaust = true;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.baseDamage = this.damage = 11;
         //this.baseMagicNumber = this.magicNumber = 12;
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -59,7 +60,7 @@ public class SadMind extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         if (!m.isDead && m.getIntentBaseDmg() > 0) {
-            Amiyamod.LinePower(m.getIntentBaseDmg() / this.misc);
+            Amiyamod.LinePower(m.getIntentBaseDmg());
         }
         //Amiyamod.HenJi(1,this,m);
     }

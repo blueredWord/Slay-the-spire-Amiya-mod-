@@ -41,7 +41,7 @@ public class MindBreak extends CustomCard {
     private static final CardType TYPE = CardType.ATTACK;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ALL;//【是否指向敌人】
-    private boolean used = true;
+
     public MindBreak() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 3;
@@ -52,7 +52,7 @@ public class MindBreak extends CustomCard {
         //this.heal = 15;
         //this.misc = 20;
         //源石卡牌tag
-        this.used = true;
+
         this.tags.add(YCardTagClassEnum.YCard);
     }
     
@@ -99,14 +99,13 @@ public class MindBreak extends CustomCard {
         //造成多次伤害
         for(int i = 0; i < this.magicNumber; ++i) {
             AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster(true);
-            this.addToBot(new VFXAction(new BloodShotEffect(p.hb.cX, p.hb.cY, randomMonster.hb.cX, randomMonster.hb.cY, 1), 0.02F));
-            this.addToBot(new DamageAction(randomMonster, new DamageInfo(p, damage, this.damageTypeForTurn)));
+            //this.addToBot();
+            this.addToBot(new AttackDamageRandomEnemyAction(this));
+
+            //this.addToBot(new DamageAction(randomMonster, new DamageInfo(p, damage, this.damageTypeForTurn)));
             //this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         //感染进度
-        Amiyamod.addY(1);
-        this.used = false;
-        Amiyamod.HenJi(2,this,m);
         this.addToBot(new MakeTempCardInDrawPileAction(new Dazed(),1, true, true));
         //this.addToBot(new PressEndTurnButtonAction());
         //结束回合

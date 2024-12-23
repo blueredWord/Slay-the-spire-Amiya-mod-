@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,6 +12,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.Random;
 
 // 灼痕
 //不能被打出 。 NL 当此牌在手中时，每当你 燃己 便获得 [E] ，并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品。 NL 虚无 。
@@ -36,12 +39,6 @@ public class BurnMark extends CustomCard {
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
-    public void triggerOnExhaust() {
-        this.addToBot(new MakeTempCardInDrawPileAction(this.makeStatEquivalentCopy(),this.magicNumber,false,false,false));
-        this.addToBot(new MakeTempCardInDiscardAction(this.makeStatEquivalentCopy(),this.magicNumber));
-        //AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.magicNumber));
-    }
-
 
     @Override
     public void upgrade() {
@@ -60,8 +57,18 @@ public class BurnMark extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Amiyamod.BurnSelf(1);
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
-    }
 
+        if (!p.drawPile.isEmpty()){
+            p.drawPile.moveToExhaustPile(p.drawPile.getTopCard());
+            //this.addToBot(new MakeTempCardInDrawPileAction(this.makeStatEquivalentCopy(),this.magicNumber,false,false,false));
+        }
+
+    }
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        return !p.drawPile.isEmpty();
+    }
     public AbstractCard makeCopy() {
         return new BurnMark();
     }

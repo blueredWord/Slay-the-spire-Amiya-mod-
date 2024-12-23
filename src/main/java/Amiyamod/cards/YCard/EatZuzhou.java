@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.EatZAction;
 import Amiyamod.action.cards.DrBloodAction;
 import Amiyamod.action.cards.ExAnyWhereCardAction;
 import Amiyamod.cards.Yzuzhou.*;
@@ -32,8 +33,8 @@ public class EatZuzhou extends CustomCard {
 
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
+    public static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
+    public static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
     private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.SKILL;//【卡片类型】
@@ -61,8 +62,9 @@ public class EatZuzhou extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.upgradeMagicNumber(1);
+            this.isInnate = true;
+            this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[9];
             this.initializeDescription();
         }
     }
@@ -85,77 +87,10 @@ public class EatZuzhou extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.addY(1);
+
+        this.addToBot(new EatZAction(m));
         //Amiyamod.HenJi(1,this,m);
-        for (int i = 0;i<this.magicNumber;i++){
-            CardGroup G = new CardGroup(CardGroup.CardGroupType.CARD_POOL);
-            for (AbstractCard card : p.masterDeck.group){
-                if (card.hasTag(YCardTagClassEnum.YZuZhou) && !(card instanceof FirstSayA) ){
-                    boolean add = true;
-                    if (!G.isEmpty()){
-                        for (AbstractCard c : G.group){
 
-                            if (Objects.equals(c.cardID, this.cardID + card.cardID)){
-
-                                add = false;
-                                break;
-                            }
-                        }
-                    }
-                    if (add){
-                        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                                "螯合诅咒：添加 {} 。",card
-                        );
-                        String ID = this.cardID+card.cardID;
-                        String Des;
-                        if (card instanceof Yjianwang){
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-                        } else if (card instanceof Ydead) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[1];
-                        } else if (card instanceof Ytiruo) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[2];
-                        } else if (card instanceof Yjiejin) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[3];
-                        } else if (card instanceof Yangry) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[4];
-                        }  else if (card instanceof Ysex) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[5];
-                        }  else if (card instanceof Ysnake) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[6];
-                        }  else if (card instanceof Ychengyin) {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[7];
-                        }  else {
-                            Des = CARD_STRINGS.EXTENDED_DESCRIPTION[8];
-                        }
-
-                        String Na = CARD_STRINGS.NAME + ":"+ card.name;
-                        int COST = -2;
-                        AbstractPower pow = new EatZuzhouPower(card,m);
-
-                        CustomCard CC = new CustomCard(ID,Na,IMG_PATH, COST,Des, CardType.SKILL, p.getCardColor(), AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.NONE) {
-                            @Override
-                            public void upgrade() {}
-                            @Override
-                            public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {}
-                            @Override
-                            public void onChoseThisOption() {
-                                this.addToBot(new ExAnyWhereCardAction(card.uuid));
-                                this.addToBot(new ApplyPowerAction(m,m,pow));
-                            }
-                            @Override
-                            public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-                                return false;
-                            }
-                        };
-                        CC.purgeOnUse = true;
-                        G.addToBottom(CC);
-                    }
-                }
-            }
-            if (!G.isEmpty()){
-                this.addToBot(new ChooseOneAction(G.group));
-            }
-        }
     }
     public AbstractCard makeCopy() {return new EatZuzhou();}
 }

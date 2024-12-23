@@ -1,8 +1,10 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.BackHandAction;
 import Amiyamod.cards.RedSky.Shadow15;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.OnBreakInterface;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LoseTempHpPower;
 import basemod.abstracts.CustomCard;
@@ -21,7 +23,7 @@ import org.apache.logging.log4j.LogManager;
 
 import java.util.ArrayList;
 
-public class PainMagic extends CustomCard implements OnLoseTempHpPower {
+public class PainMagic extends CustomCard implements OnBreakInterface {
     //=================================================================================================================
     //@ 【苦难巫咒】 急性发作 源石技艺 。 NL 对所有敌人造成 !D! 点伤害。若你在本场战斗中失去过至少2次生命，此牌耗能减少1。
     //=================================================================================================================
@@ -34,19 +36,22 @@ public class PainMagic extends CustomCard implements OnLoseTempHpPower {
     private boolean isdown = false;
     private static final int COST = 2;//【卡片费用】
     private static final CardType TYPE = CardType.ATTACK;//【卡片类型】
-    private static final CardRarity RARITY = CardRarity.COMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;//【是否指向敌人】
 
     public PainMagic() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 14;
+        this.damage = this.baseDamage = 16;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
         //this.selfRetain = true;
         //this.heal = 15;
-        this.magicNumber = this.baseMagicNumber = 3;
-        this.misc = 1;
+        this.isMultiDamage = true;
+        this.isEthereal = true;
+
+        //this.magicNumber = this.baseMagicNumber = 3;
+        //this.misc = 1;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
     }
@@ -55,8 +60,8 @@ public class PainMagic extends CustomCard implements OnLoseTempHpPower {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(5);
-            this.upgradeMagicNumber(-1);
+            this.upgradeDamage(7);
+            //this.upgradeMagicNumber(-1);
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
@@ -66,6 +71,7 @@ public class PainMagic extends CustomCard implements OnLoseTempHpPower {
     }
 
 
+/*
 
     //失去生命、临时生命时-1费
     @Override
@@ -87,15 +93,17 @@ public class PainMagic extends CustomCard implements OnLoseTempHpPower {
             }
         }
     }
-
+ */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
+        this.addToBot(
                 new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE)
         );
-        //感染进度
-        Amiyamod.addY(1);
-        Amiyamod.HenJi(1,this,m);
     }
     public AbstractCard makeCopy() {return new PainMagic();}
+
+    @Override
+    public void OnCombatStartInterface() {
+        this.addToBot(new BackHandAction(this));
+    }
 }

@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.SeeMeAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
@@ -33,7 +34,7 @@ public class SeeMe extends CustomCard {
 
     public SeeMe() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 14;
+        this.damage = this.baseDamage = 12;
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 2;
         //this.heal = 15;
@@ -71,10 +72,9 @@ public class SeeMe extends CustomCard {
                         new DamageInfo(p, damage,this.damageTypeForTurn)
                 )
         );
-        Amiyamod.LinePower(this.magicNumber*(p.hand.size()-1));
-        this.addToBot(new MakeTempCardInDiscardAction(Amiyamod.GetNextYcard(true),1));
-        Amiyamod.addY(1);
-        Amiyamod.HenJi(1,this,m);
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
+        this.addToBot(new SeeMeAction(this.magicNumber));
+        //this.addToBot(new MakeTempCardInDiscardAction(Amiyamod.GetNextYcard(true),1));
     }
     public AbstractCard makeCopy() {return new SeeMe();}
 }

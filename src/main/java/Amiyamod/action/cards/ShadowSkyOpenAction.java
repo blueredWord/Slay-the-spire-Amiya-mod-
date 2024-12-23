@@ -3,6 +3,7 @@ package Amiyamod.action.cards;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -19,6 +20,21 @@ public class ShadowSkyOpenAction extends AbstractGameAction {
 
     public void update() {
         AbstractPlayer p = AbstractDungeon.player;
+        AbstractCard c ;
+        int i = p.drawPile.size()/2;
+        while (i>0){
+            c = p.drawPile.getRandomCard(true);
+            if (c.cost == -2){
+                p.drawPile.moveToExhaustPile(c);
+            } else {
+                p.drawPile.moveToDiscardPile(c);
+                c.triggerOnManualDiscard();
+            }
+
+
+            i--;
+        }
+        /*
         int i = p.drawPile.size();
         ArrayList<AbstractCard> list =new ArrayList<>();
         if (i>this.v){
@@ -45,6 +61,8 @@ public class ShadowSkyOpenAction extends AbstractGameAction {
                 p.discardPile.moveToExhaustPile(c);
             }
         }
+
+         */
         this.isDone = true;
     }
 }

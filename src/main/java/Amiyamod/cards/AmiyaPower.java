@@ -39,7 +39,7 @@ public class AmiyaPower extends CustomCard {
         this.baseMagicNumber = this.magicNumber =2;
         this.timesUpgraded = 0;
         //源石卡牌tag
-        //this.tags.add(YCardTagClassEnum.YCard);
+        this.tags.add(YCardTagClassEnum.YCard);
         this.exhaust = true;
         this.isEthereal = true;
     }
@@ -70,6 +70,7 @@ public class AmiyaPower extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
         this.addToBot(new GainEnergyAction(this.timesUpgraded > 3 ? 2 : 1));
         this.addToBot(new DrawCardAction(this.magicNumber));
 
@@ -82,8 +83,6 @@ public class AmiyaPower extends CustomCard {
             }
             Amiyamod.Sword(true,list);
         }
-
-        Amiyamod.HenJi(this.magicNumber,this,m);
     }
     public AbstractCard makeCopy() {return new AmiyaPower();}
 }

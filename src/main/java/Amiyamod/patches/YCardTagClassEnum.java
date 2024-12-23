@@ -12,4 +12,6 @@ public class YCardTagClassEnum {
     public static AbstractCard.CardTags RedSky1;
     @SpireEnum
     public static AbstractCard.CardTags MEMORY;
+    @SpireEnum
+    public static AbstractCard.CardTags LINE;
 }

@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LineDefenderPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -28,10 +29,12 @@ public class LineDefender extends CustomCard {
 
     public LineDefender() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 5;
         this.magicNumber = this.baseMagicNumber;
+        this.baseBlock = this.block = 4;
+        //this.misc = 3;
         //this.exhaust = true; //消耗
-        //this.tags.add(YCardTagClassEnum.YCard); //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
     }
 
     @Override
@@ -40,6 +43,7 @@ public class LineDefender extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeBaseCost(1);
             this.upgradeMagicNumber(2);
+            this.upgradeBlock(1);
             //this.exhaust = false;       //消耗
             //this.selfRetain = true;     //保留
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
@@ -49,8 +53,9 @@ public class LineDefender extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        Amiyamod.LinePower(this.magicNumber);
         //获得状态：本回合造成伤害时获得等同于伤害点丝线。
-        this.addToTop(new ApplyPowerAction(p, p, new LineDefenderPower(p, this.magicNumber), this.magicNumber));
+        this.addToTop(new ApplyPowerAction(p, p, new LineDefenderPower(this.magicNumber,this.block)));
     }
     public AbstractCard makeCopy() {return new LineDefender();}
 }

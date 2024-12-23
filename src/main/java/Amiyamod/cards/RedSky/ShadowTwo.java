@@ -32,7 +32,9 @@ public class ShadowTwo extends CustomCard {
         //this.tags.add(CardTags.STRIKE);
         this.tags.add(YCardTagClassEnum.RedSky1);
         this.magicNumber = this.baseMagicNumber = 2;
+        this.baseDraw = this.draw = 2;
         //源石卡牌tag
+        this.tags.add(YCardTagClassEnum.RedSky1);
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
@@ -41,11 +43,12 @@ public class ShadowTwo extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-            this.upgradeMagicNumber(1);
+            //this.upgradeMagicNumber(1);
+            //this.baseDraw = this.draw = this.baseMagicNumber;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -53,7 +56,7 @@ public class ShadowTwo extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ShadowTwoAction(this,true)
+                new ShadowTwoAction(this,this.upgraded)
         );
     }
     public AbstractCard makeCopy() {return new ShadowTwo();}

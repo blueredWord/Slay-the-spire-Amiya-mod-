@@ -25,7 +25,7 @@ public class SoloPower extends AbstractPower {
         this.name = powerStrings.NAME;
         this.ID = POWERID;
         this.owner = AbstractDungeon.player;
-        this.amount = i;
+        this.amount = -1;
         this.type = PowerType.BUFF;
 
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -48,10 +48,14 @@ public class SoloPower extends AbstractPower {
                     new DamageAllEnemiesAction((AbstractPlayer)this.owner,var, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE)
             );
         }
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        /*
         if (this.amount == 0) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else {
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
+
+         */
     }
 }
