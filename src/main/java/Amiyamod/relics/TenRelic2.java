@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import org.apache.logging.log4j.LogManager;
 
-public class TenRelic2 extends TenRelic {
+public class TenRelic2 extends CustomRelic {
 	public static final String NAME = "TenRelic2";
 	public static final String ID = Amiyamod.makeID(NAME);
 
@@ -32,9 +32,9 @@ public class TenRelic2 extends TenRelic {
 				RelicTier.UNCOMMON,
 				LandingSound.SOLID
 		);
-		this.counter = 10;
 		this.cost = 4;
 	}
+	/*
 	public void obtain() {
 		if (AbstractDungeon.player.hasRelic(TenRelic.ID)) {
 			int i = 0;
@@ -54,9 +54,20 @@ public class TenRelic2 extends TenRelic {
 		AbstractPlayer p = AbstractDungeon.player;
 		this.addToBot(new HealAction(p,p,this.cost));
 	}
+
+	 */
 	public String getUpdatedDescription() {
 		return DESCRIPTIONS[0]+4+DESCRIPTIONS[1];
 	}
+
+	public void onEquip() {
+		if (AbstractDungeon.player.hasRelic(TenRelic.ID)) {
+			AbstractRelic r = AbstractDungeon.player.getRelic(TenRelic.ID);
+			r.setCounter(r.cost);
+			r.flash();
+		}
+	}
+
 	public boolean canSpawn() {
 		return AbstractDungeon.player.hasRelic(TenRelic.ID) && AbstractDungeon.player.getRelic(TenRelic.ID).counter < 10 ;
 	}

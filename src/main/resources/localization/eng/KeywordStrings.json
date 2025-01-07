@@ -1,62 +1,100 @@
-[
+{
+  "keywords": [
     {
-      "PROPER_NAME": "Cold Down",
-      "NAMES": ["cold\u00a0down"],
-      "DESCRIPTION": "You can't play cards with this name for X turns."
+      "NAMES": [
+        "感染阶段"
+      ],
+      "DESCRIPTION": "每打出 #b10 张 #yStoneMagic 牌会上升1级，And #b1 random #yStoneCurse into Your Deck."
     },
-  {
-    "PROPER_NAME": "Cold Snap",
-    "NAMES": ["cold\u00a0snap"],
-    "DESCRIPTION": "The next damage dealt will also apply #yVulnerable and #yWeak ."
-  },
-  {
-    "PROPER_NAME": "Forge Spirit",
-    "NAMES": ["forge\u00a0spirit"],
-    "DESCRIPTION": "Orb: deals damage and apply #yVulnerable ."
-  },
-  {
-    "PROPER_NAME": "Disarm",
-    "NAMES": ["disarm"],
-    "DESCRIPTION": "This creature deals half damage."
-  },
-  {"PROPER_NAME": "true_damage",
-    "NAMES": ["true\u00a0damage"],
-    "DESCRIPTION": "Won't affected by damage modifiers."
-  },
-  {"PROPER_NAME": "Talent Specialization",
-    "NAMES": ["blood\u00a0realm","evil\u00a0realm","ice\u00a0realm","talent realm"],
-    "DESCRIPTION": "Gain additional effects when you have a talent specialization."
-  },
-  {"PROPER_NAME": "Life Leech",
-    "NAMES": ["life\u00a0leech"],
-    "DESCRIPTION": "Heal life equal to damage dealt."
-  },
-  {"PROPER_NAME": "sadistic",
-    "NAMES": ["sadistic"],
-    "DESCRIPTION": "Whenever you apply a debuff to an enemy, deal damage."
-  },
-  {"PROPER_NAME": "Rune Energy",
-    "NAMES": ["rune\u00a0energy"],
-    "DESCRIPTION": "Energy charged in Rune Sword, to a maximum of 6. Gain 2 rune energy at the start of your turn."
-  },
-  {"PROPER_NAME": "Plated Armor",
-    "NAMES": ["plated\u00a0armor"],
-    "DESCRIPTION": "At the end of your turn, gain #yBlock . Receiving unblocked attack damage reduces #yPlated #yArmor by #b1."
-  },
-  {"PROPER_NAME": "Quest",
-    "NAMES": ["quest"],
-    "DESCRIPTION": "Clear the Quest, gain the reward."
-  },
-  {"PROPER_NAME": "Realm Increase",
-    "NAMES": ["realm increase"],
-    "DESCRIPTION": "Increases your Talent Specialization effect."
-  },
-  {"PROPER_NAME": "Blood Mark",
-    "NAMES": ["blood mark"],
-    "DESCRIPTION": "On death, heals equal to debuff stacks."
-  },
-  {"PROPER_NAME": "Angry",
-    "NAMES": ["angry"],
-    "DESCRIPTION": "Upon receiving attack damage, gain #yStrength."
-  }
-]
+    {
+      "NAMES": [
+        "Severity"
+      ],
+      "DESCRIPTION": "When #ySeverity become #b10 时，Will Into #yTheBreak Power .And add #b1 #yStoneCurse into your deck."
+    },
+    {
+      "NAMES": [
+        "TheBreak"
+      ],
+      "DESCRIPTION": "You will not add #ySeverity one turn . When you play #yStoneMagic ，Play again even you have not StoneCurse."
+    },
+    {
+      "NAMES": [
+        "Line"
+      ],
+      "DESCRIPTION": "Temporary Hp , Will #yhalved at the start of your turn."
+    }
+  ,
+
+    {
+      "NAMES": [
+        "StoneCurse"
+      ],
+      "DESCRIPTION": "共有九种效果各异的 #yCurse . When You Gain #yStoneCurse Twice ，It will become more #rDanger ."
+    }
+  ,
+    {
+      "NAMES": [
+        "StoneMagic"
+      ],
+      "DESCRIPTION": "When you play #yStoneMagic will add #ySeverity .If #yStone ，将会失去 #b1 点生命来将其丢弃并重复打出 #yStoneMagic ."
+    }
+  ,
+    {
+      "NAMES": [
+        "茧"
+      ],
+      "DESCRIPTION": "每回合结束获得等量的 #y丝线 ."
+    },
+    {
+      "NAMES": [
+        "TheOut"
+      ],
+      "DESCRIPTION": " #b1 回合内打出 #yShadowSword 以外的 #yAttack Card 时，按照消耗的费用获得对应 #y升级 次数的 #yShadowSword . NL If you had this Power , Apply Extra effect."
+    },
+    {
+      "NAMES": [
+        "Thein"
+      ],
+      "DESCRIPTION": "If you have #yTheOut Power ，End your #yTheOut Power and Apply."
+    },
+    {
+      "NAMES": [
+        "ShadowSword"
+      ],
+      "DESCRIPTION": "The Attack Card - Damage #b2 and #b0 Cost ，Double Damage each Upgrade."
+    },
+    {
+      "NAMES": [
+        "追忆",
+        "Memory"
+      ],
+      "DESCRIPTION": " #yMemory is random card, Extra possession #yEthereal and #yExhaust 的效果."
+    },
+    {
+      "NAMES": [
+        "不稳定的力量"
+      ],
+      "DESCRIPTION": "耗能为 #b0 的 #yStoneMagic . Draw #b2 card and Gain #b1 Energy."
+    },
+    {
+      "NAMES": [
+        "污染碎片"
+      ],
+      "DESCRIPTION": "#b2 费 #y能力牌 ，拥有 #y保留 词条.When你打出 #b2 张后获得 #b60 枚 #yGold ."
+    },
+    {
+      "NAMES": [
+        "微尘",
+        "微尘+"
+      ],
+      "DESCRIPTION": "充能球：对获得 #y丝线 ."
+    },
+    {
+      "NAMES": [
+        "TheUse"
+      ],
+      "DESCRIPTION": "Double right click to use."
+    }
+  ]
+}

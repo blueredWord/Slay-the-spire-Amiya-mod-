@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon.CurrentScreen;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 
@@ -36,7 +37,8 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 				RelicTier.STARTER,
 				LandingSound.SOLID
 		);
-		this.counter = 10;
+		this.cost = this.counter = 10;
+
 		this.setDuration(800).addRightClickActions(null, this::onClick);
 	}
 
@@ -79,16 +81,22 @@ public class TenRelic extends CustomRelic implements BetterClickableRelic<TenRel
 	}
 
 	public void onClick(){
+		AbstractPlayer p = AbstractDungeon.player;
 		if(AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !usedThisCombat && this.canU ){
 			//this.grayscale = true;
 			//usedThisCombat = true;
 			//this.pulse = false;
 			//this.stopPulse();
 			LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-					"检测： {}",!AbstractDungeon.player.hasPower(YSayPower.POWER_ID)
+					"检测： {}",!p.hasPower(YSayPower.POWER_ID)
 			);
-			if (this.counter>0 && !AbstractDungeon.player.hasPower(YSayPower.POWER_ID)){
+			if (this.counter>0 && !p.hasPower(YSayPower.POWER_ID)){
 				this.onTrigger();
+				for (AbstractRelic r : p.relics){
+					if (r instanceof TenRelic2){
+						this.addToBot(new HealAction(p,p,r.cost));
+					}
+				}
 			}
 		}
 	}

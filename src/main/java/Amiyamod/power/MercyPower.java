@@ -1,16 +1,26 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.patches.LeechDamage;
+import Amiyamod.patches.MercyDamage;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.damagemods.AbstractDamageModifier;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.DamageModApplyingPower;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+
+import java.util.Collections;
+import java.util.List;
+
 //慈悲愿景
 //本回合造成伤害时获得等同于伤害点丝线。
-public class MercyPower extends AbstractPower {
+public class MercyPower extends AbstractPower implements DamageModApplyingPower {
     public static final String NAME = "MercyPower";
     public static final String POWERID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
@@ -38,5 +48,16 @@ public class MercyPower extends AbstractPower {
     @Override
     public void atStartOfTurnPostDraw() {
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+    }
+
+
+    @Override
+    public boolean shouldPushMods(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
+        return o instanceof AbstractCard && list.stream().noneMatch(mod -> mod instanceof MercyDamage);
+    }
+
+    @Override
+    public List<AbstractDamageModifier> modsToPush(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
+        return Collections.singletonList(new MercyDamage());
     }
 }

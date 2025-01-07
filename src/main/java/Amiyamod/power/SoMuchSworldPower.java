@@ -40,9 +40,10 @@ private boolean yes = true;
     }
 
     //回合开始时 获得一张等级等于层数的赤霄
-    public void atStartOfTurn() {
+    public void atStartOfTurnPostDraw() {
         Amiyamod.S(this.amount);
     }
+
 /*
     @Override
     public void triggerMarks(AbstractCard card) {
@@ -60,6 +61,6 @@ private boolean yes = true;
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + (this.amount-1) + DESCRIPTIONS[1];
     }
 }

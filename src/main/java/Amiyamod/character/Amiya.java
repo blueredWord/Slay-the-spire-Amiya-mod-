@@ -50,6 +50,11 @@ import java.util.ArrayList;
 
 public class Amiya extends CustomPlayer {
     // 火堆的人物立绘（行动前）
+    public static final String NameZn = "阿米娅";
+    public static final String NameEn = "Amiya";
+
+    public static int Skin = 1;
+
     private static final String MY_CHARACTER_SHOULDER_1 = "img/character/Amiya/AmiyaFire.png";
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "img/character/Amiya/AmiyaFire2.png";
@@ -92,24 +97,48 @@ public class Amiya extends CustomPlayer {
 
 //"img/character/Amiya/amiya.png"
         // 如果你的人物没有动画，那么这些不需要写
-         this.loadAnimation("img/character/Amiya/char_002_amiya.atlas", "img/character/Amiya/char_002_amiya37.json", 1.8F);
+
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "皮肤选择：编号=" + Skin
+        );
+
+         this.loadAnimation(
+                 "img/character/Amiya/amiya"+Skin+".atlas",
+                 "img/character/Amiya/amiya"+Skin+".json", 1.8F);
+
+        Amiyamod.saveData();
+
          AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
          e.setTime(e.getEndTime() * MathUtils.random());
          e.setTimeScale(1.2F);
     }
     public void ChangeA(boolean def){
         if (def){
-            this.loadAnimation("img/character/Amiya/char_002_amiya.atlas", "img/character/Amiya/char_002_amiya37.json", 1.8F);
-            AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-            e.setTime(e.getEndTime() * MathUtils.random());
-            e.setTimeScale(1.2F);
+
+            this.loadAnimation(
+                    "img/character/Amiya/amiya"+Skin+".atlas",
+                    "img/character/Amiya/amiya"+Skin+".json", 1.8F);
+            if(Skin != 2){
+                AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+                e.setTime(e.getEndTime() * MathUtils.random());
+                e.setTimeScale(1.2F);
+            }else {
+                AnimationState.TrackEntry e = this.state.setAnimation(0, "Default", true);
+                e.setTime(e.getEndTime() * MathUtils.random());
+                e.setTimeScale(1.2F);
+            }
+
         } else {
-            this.loadAnimation("img/character/Amiya/char_1001_amiya2.atlas", "img/character/Amiya/char_1001_amiya237.json", 1.8F);
+            this.loadAnimation("img/character/Amiya/char_1001_amiya2.atlas", "img/character/Amiya/char_1001_amiya2.json", 1.8F);
             AnimationState.TrackEntry e = this.state.setAnimation(0, "Start", false);
             //this.state.addAnimation(0,"Idle",true,0.0F);
             e.setTime(e.getEndTime() * MathUtils.random());
             e.setTimeScale(1.2F);
         }
+    }
+
+    public static void ChangeSkin(int a){
+        Skin = a;
     }
 
     // 初始卡组的ID，可直接写或引用变量
@@ -139,11 +168,11 @@ public class Amiya extends CustomPlayer {
         String title;
         String flavor;
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT) {
-            title = "阿米娅";
+            title = NameZn;
             flavor = "芝士兔子。";
         }
         else {
-            title = "Amiya";
+            title = NameEn;
             flavor = "Cute Rabbit.";
         }
         return new CharSelectInfo(
@@ -166,9 +195,9 @@ public class Amiya extends CustomPlayer {
     public String getTitle(PlayerClass playerClass) {
         String title;
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT) {
-            title = "阿米娅";
+            title = NameZn;
         } else {
-            title = "Amiya";
+            title = NameEn;
         }
         return title;
     }
@@ -212,6 +241,7 @@ public class Amiya extends CustomPlayer {
     }
 //受伤
     public void damage(DamageInfo info) {
+
         super.damage(info);
     }
     public void useFastAttackAnimation() {
@@ -247,9 +277,9 @@ public class Amiya extends CustomPlayer {
     public ArrayList<CutscenePanel> getCutscenePanels() {
         ArrayList<CutscenePanel> panels = new ArrayList<>();
         // 有两个参数的，第二个参数表示出现图片时播放的音效
-        panels.add(new CutscenePanel("img/character/Amiya/AmiyaBG.png", "ATTACK_MAGIC_FAST_1"));
-        panels.add(new CutscenePanel("img/character/Amiya/AmiyaBG.png"));
-        panels.add(new CutscenePanel("img/character/Amiya/AmiyaBG.png"));
+        panels.add(new CutscenePanel("img/character/Amiya/AmiyaBG"+Skin+".png", "ATTACK_MAGIC_FAST_1"));
+        panels.add(new CutscenePanel("img/character/Amiya/AmiyaBG"+Skin+".png"));
+        panels.add(new CutscenePanel("img/character/Amiya/AmiyaBG"+Skin+".png"));
         return panels;
     }
 

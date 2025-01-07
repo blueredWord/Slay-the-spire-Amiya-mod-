@@ -38,7 +38,7 @@ public class ShadowYangMei extends CustomCard {
     public ShadowYangMei() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.UPGRADE_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 6;
-        this.baseBlock = this.block = 7;
+        this.baseBlock = this.block = 9;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
 

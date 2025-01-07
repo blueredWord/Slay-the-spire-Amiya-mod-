@@ -39,13 +39,14 @@ public class StoneSword extends CustomCard {
     public StoneSword() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 4;
-        this.baseMagicNumber = this.magicNumber = 1;
+        this.baseMagicNumber = this.magicNumber = 3;
         this.exhaust = true;
+        this.misc = 1;
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         this.tags.add(YCardTagClassEnum.RedSky1);
         //源石卡牌tag
-        this.tags.add(YCardTagClassEnum.YCard);
+        //this.tags.add(YCardTagClassEnum.YCard);
     }
 
     //+===============================================================================================================
@@ -58,19 +59,21 @@ public class StoneSword extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
             this.upgradeMagicNumber(1);
-            //this.exhaust = false;
+            this.exhaust = false;
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.getRedSky(this.magicNumber);
-        //this.addToBot(new StoneSwordAction());
-        Amiyamod.Sword(true,new ApplyPowerAction(p,p,new StoneSwordPower(this.magicNumber)));
+        //Amiyamod.getRedSky(this.magicNumber);
+        this.addToBot(new ApplyPowerAction(p,p,new StoneSwordPower(this.misc)));
+        this.addToBot(new StoneSwordAction(Math.max(0,this.magicNumber-3)));
+        //Amiyamod.Sword(true,new UpRedAction(false));
+        //Amiyamod.Sword(true,new ApplyPowerAction(p,p,new StoneSwordPower(this.magicNumber)));
     }
 
     public AbstractCard makeCopy() { return new StoneSword(); }

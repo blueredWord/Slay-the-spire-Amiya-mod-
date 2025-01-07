@@ -20,8 +20,6 @@ public class DamagePatch {
     @SpirePostfixPatch
     public static void Postfix(AbstractCreature __instance, DamageInfo info){
         //如果有慈悲愿景 获得伤害量一半的丝线
-        if (AbstractDungeon.player.hasPower(MercyPower.POWERID)){
-            Amiyamod.LinePower((int)info.output/2);
-        }
+        //if (AbstractDungeon.player.hasPower(MercyPower.POWERID)){Amiyamod.LinePower((int)info.output/2);}
     }
 }

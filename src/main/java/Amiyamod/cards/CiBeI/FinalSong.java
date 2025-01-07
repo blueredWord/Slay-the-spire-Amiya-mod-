@@ -63,7 +63,7 @@ public class FinalSong extends CustomCard {
             //this.exhaust = false;
             //this.selfRetain = true;
             //this.upgradeBaseCost(1);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -74,7 +74,7 @@ public class FinalSong extends CustomCard {
         for(int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
         }
-        this.addToBot(new FindMenmoryAction());
+        this.addToBot(new FindMenmoryAction(this.upgraded));
         this.addToBot(new PressEndTurnButtonAction());
     }
 

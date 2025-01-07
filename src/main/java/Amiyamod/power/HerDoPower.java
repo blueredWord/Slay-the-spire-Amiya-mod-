@@ -74,7 +74,7 @@ public class HerDoPower extends TwoAmountPower implements OnLoseTempHpPower {
                     "行她所行能力：触发受伤效果"
             );
             this.flash();
-            this.amount2 ++;
+            this.amount2 += this.amount;
             //this.addToBot(new SFXAction("ATTACK_HEAVY"));
             //this.addToBot(new VFXAction(this.owner, new CleaveEffect(), 0.1F));
             //this.addToBot(new DamageAllEnemiesAction((AbstractPlayer) this.owner,DamageInfo.createDamageMatrix( this.amount, true), DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.NONE));

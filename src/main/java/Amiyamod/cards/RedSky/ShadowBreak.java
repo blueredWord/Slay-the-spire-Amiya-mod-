@@ -62,7 +62,7 @@ public class ShadowBreak extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new BreakSwordAction(this.magicNumber));
-        this.addToBot(new DrawCardAction(this.draw));
+
     }
     public AbstractCard makeCopy() {return new ShadowBreak();}
 }

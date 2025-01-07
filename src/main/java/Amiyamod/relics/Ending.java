@@ -25,6 +25,7 @@ public class Ending extends CustomRelic {
     public void onEquip() {
         AbstractDungeon.player.increaseMaxHp(N, true);
     }
+
     public int changeNumberOfCardsInReward(int numberOfCards) {
         return 0;
     }

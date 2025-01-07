@@ -7,6 +7,7 @@ import Amiyamod.cards.YCard.MagicBook;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ExhaustAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -55,10 +56,10 @@ public class SoulBurn extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(1);
+            //this.upgradeMagicNumber(1);
             //this.exhaust = false;
             //this.selfRetain = true;
-            //this.upgradeBaseCost(0);
+            this.upgradeBaseCost(0);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

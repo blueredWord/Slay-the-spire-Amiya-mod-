@@ -1,10 +1,12 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.CardBackAction;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseTempHpPower;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,6 +36,10 @@ public class SoulDefendPower extends AbstractPower implements OnLoseTempHpPower 
         this.updateDescription();
     }
 
+
+    public void atStartOfTurn() {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+    }
 
     // 能力在更新时如何修改描述
     public void updateDescription() {

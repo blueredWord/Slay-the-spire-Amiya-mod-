@@ -55,20 +55,22 @@ public class ShadowNoShadow extends CustomCard {
             this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
             //this.upgradeMagicNumber(1);
             //this.upgradeBaseCost(0);
+            this.selfRetain = true;
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        Amiyamod.Sword(false,new ApplyPowerAction(p,p,new IntangiblePlayerPower(p,this.magicNumber)));
         for (int i = 0 ; i<10 ; i++){
             AbstractDungeon.actionManager.addToBottom(
-                    new ShadowNoShadowAction(this)
+                    new ShadowNoShadowAction(this,i==9)
             );
         }
-        Amiyamod.Sword(false,new ApplyPowerAction(p,p,new IntangiblePlayerPower(p,this.magicNumber)));
+
     }
 
 

@@ -94,7 +94,7 @@ public class RedSkyPower extends AbstractPower {
     }
 
     public void onInitialApplication() {
-        if (this.owner.isPlayer && this.owner instanceof Amiya){
+        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(ChiMeRaPower.POWERID) && !this.owner.hasPower(YSayPower.POWER_ID)){
             ((Amiya)this.owner).ChangeA(false);
             this.owner.state.setAnimation(0, "Start", false);
             if (this.owner.hasPower(ShadowSkyOpenPower.POWERID)){
@@ -105,23 +105,10 @@ public class RedSkyPower extends AbstractPower {
         }
     }
     public void onRemove() {
-        if (this.owner.isPlayer && this.owner instanceof Amiya){
+        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(ChiMeRaPower.POWERID)){
+
             ((Amiya)this.owner).ChangeA(true);
-            if (this.owner.hasPower(YSayPower.POWER_ID)){
-                this.owner.state.setAnimation(0, "Skill_Begin", false);
-                this.owner.state.addAnimation(0, "Skill", true,0.0F);
-            } else if (this.owner.hasPower(ChiMeRaPower.POWERID)){
-                if (this.owner.getPower(ChiMeRaPower.POWERID).amount != 0){
-                    this.owner.state.setAnimation(0, "Skill_2_Begin", false);
-                    this.owner.state.addAnimation(0, "Skill_2", true,0.0F);
-                }else {
-                    this.owner.state.setAnimation(0, "Skill_2_End", false);
-                    this.owner.state.addAnimation(0, "Stun", true,0.0F);
-                }
-            }else {
-                this.owner.state.setAnimation(0, "Skill_End", false);
-                this.owner.state.addAnimation(0, "Idle", true,0.0F);
-            }
+
         }
     }
 

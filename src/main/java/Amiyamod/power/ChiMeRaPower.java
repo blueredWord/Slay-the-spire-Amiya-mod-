@@ -6,6 +6,8 @@ import Amiyamod.patches.LeechDamage;
 import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.Yill;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.mod.stslib.damagemods.AbstractDamageModifier;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.DamageModApplyingPower;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
@@ -57,24 +59,26 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
 
     @Override
     public void onRemove() {
-        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
+        if (this.owner.isPlayer && this.owner instanceof Amiya){
             //this.owner.state.setAnimation(0, "Skill2_End", false);
             if (this.owner.hasPower(YSayPower.POWER_ID)){
+                ((Amiya)this.owner).ChangeA(true);
                 this.owner.state.setAnimation(0, "Skill_Begin", false);
                 this.owner.state.addAnimation(0, "Skill", true,0.0F);
-            } else if (this.owner.hasPower(ShadowSkyOpenPower.POWERID) && this.owner.hasPower(RedSkyPower.POWER_ID)) {
-                this.owner.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
+            } else if (this.owner.hasPower(RedSkyPower.POWER_ID)) {
+                ((Amiya)this.owner).ChangeA(false);
+                //this.owner.state.addAnimation(0, "Skill_2_Idle", true, 0.0F);
             } else {
-                this.owner.state.setAnimation(0, "Idle", true);
+                ((Amiya)this.owner).ChangeA(true);
+                //this.owner.state.setAnimation(0, "Idle", true);
             }
         }
     }
     public void onInitialApplication() {
-        if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(RedSkyPower.POWER_ID)){
-            if (!this.owner.hasPower(RedSkyPower.POWER_ID)){
-                this.owner.state.setAnimation(0, "Skill_2_Begin", false);
-                this.owner.state.addAnimation(0, "Skill_2", true,0.0F);
-            }
+        if (this.owner.isPlayer && this.owner instanceof Amiya){
+            ((Amiya)this.owner).ChangeA(true);
+            this.owner.state.setAnimation(0, "Skill_2_Begin", false);
+            this.owner.state.addAnimation(0, "Skill_2", true,0.0F);
         }
     }
 
@@ -84,12 +88,14 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
         if (this.amount == 0) {
             this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner,  this.ID));
         } else if (this.amount == 1){
-            if (!this.owner.hasPower(RedSkyPower.POWER_ID)){
+
+            if( Amiya.Skin != 2){
                 this.owner.state.setAnimation(0, "Skill_2_End", false);
                 this.owner.state.addAnimation(0, "Stun", true,0.0F);
-            } else {
-                this.owner.state.setAnimation(0, "Stun", true);
+            }else {
+                this.owner.state.addAnimation(0, "Skill_Loop_2", true,0.0F);
             }
+
             this.addToBot(new DiscardAction(this.owner, this.owner, AbstractDungeon.player.hand.size(), true));
             this.addToBot(new PressEndTurnButtonAction());
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));

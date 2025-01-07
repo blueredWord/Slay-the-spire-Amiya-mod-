@@ -8,6 +8,7 @@ import Amiyamod.power.FirstSayPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
@@ -32,11 +33,14 @@ public class Ydead extends YCard implements YZCardInterface {
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.NONE;//无法选择
     public Ydead() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
         this.tags.add(YCardTagClassEnum.YZuZhou);
     }
-
+    public void triggerOnManualDiscard() {
+        this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+    }
+    /*
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (this.dontTriggerOnUseCard) {
             this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, this.magicNumber, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
@@ -48,9 +52,7 @@ public class Ydead extends YCard implements YZCardInterface {
         this.dontTriggerOnUseCard = true;
         AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, true));
     }
-
-    //public void use(AbstractPlayer p, AbstractMonster m) {}
-
+     */
     public void upgrade() {}
 
     public AbstractCard makeCopy() {return new Ydead();}
@@ -60,7 +62,7 @@ public class Ydead extends YCard implements YZCardInterface {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-            this.upgradeMagicNumber(3);
+            this.upgradeMagicNumber(4);
             //this.upgradeBaseCost(0);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;

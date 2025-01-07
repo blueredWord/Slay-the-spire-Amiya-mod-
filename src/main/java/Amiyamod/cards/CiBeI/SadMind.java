@@ -3,10 +3,12 @@ package Amiyamod.cards.CiBeI;
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.RedSkyPower;
 import Amiyamod.power.SadMindPower;
 import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 
+import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -16,6 +18,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+
+import java.util.Random;
 
 
 public class SadMind extends CustomCard {
@@ -28,15 +32,15 @@ public class SadMind extends CustomCard {
 
     private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
+    private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
     // 哀恸共情
     // 急性发作 1。 NL  造成 !D! 点伤害。 获得等同于目标伤害意图一半的 丝线 。
     public SadMind() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.isInnate = true; //固有
         this.misc = 1;
-        //this.exhaust = true;
+        this.exhaust = true;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.baseDamage = this.damage = 11;
@@ -59,11 +63,28 @@ public class SadMind extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
-        if (!m.isDead && m.getIntentBaseDmg() > 0) {
-            Amiyamod.LinePower(m.getIntentBaseDmg());
+        int i = TempHPField.tempHp.get(p) - (p.maxHealth - p.currentHealth);
+        if (i>0) {
+            Amiyamod.LinePower(i);
         }
         //Amiyamod.HenJi(1,this,m);
     }
+
+    @Override
+    public boolean canUse(AbstractPlayer p, AbstractMonster m) {
+        boolean canUse = super.canUse(p, m);
+        if (!canUse) {
+            return false;
+        } else {
+            int i = Math.max( TempHPField.tempHp.get(p) , p.maxHealth - p.currentHealth );
+            if (i>0){
+                return true;
+            }
+            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+            return false;
+        }
+    }
+
 
     public AbstractCard makeCopy() {return new SadMind();}
 }

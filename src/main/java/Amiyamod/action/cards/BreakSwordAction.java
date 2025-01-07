@@ -2,6 +2,7 @@ package Amiyamod.action.cards;
 
 import Amiyamod.cards.RedSky.RedSky;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class BreakSwordAction extends AbstractGameAction {
-    private static final UIStrings uiStrings;
     public static final String[] TEXT;
     private AbstractPlayer p;
     private ArrayList<AbstractCard> cannotUpgrade = new ArrayList<>();
@@ -31,7 +31,17 @@ public class BreakSwordAction extends AbstractGameAction {
         Iterator var1;
         AbstractCard c;
         if (this.duration == Settings.ACTION_DUR_FAST) {
+/*
+            var1 = this.p.hand.group.iterator();
+            while(var1.hasNext()) {
+                c = (AbstractCard)var1.next();
+                if (!(c instanceof RedSky)) {
+                    this.cannotUpgrade.add(c);
+                }
+            }
 
+
+ */
             if (this.cannotUpgrade.size() == this.p.hand.group.size()) {
                 this.isDone = true;
                 return;
@@ -39,7 +49,7 @@ public class BreakSwordAction extends AbstractGameAction {
 
             this.p.hand.group.removeAll(this.cannotUpgrade);
             if (this.p.hand.group.size() > 1) {
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, true, false, false);
+                AbstractDungeon.handCardSelectScreen.open(TEXT[9], 1, false, false, false, false);
                 this.tickDuration();
                 return;
             } else if (this.p.hand.group.size() == 1) {
@@ -68,6 +78,10 @@ public class BreakSwordAction extends AbstractGameAction {
         AbstractDungeon.player.hand.moveToExhaustPile(c);
         int i =Math.max(0,c.timesUpgraded) ;
 
+        if (c instanceof RedSky){
+            this.addToTop(new DrawCardAction(1));
+        }
+
         if ( this.up >0){
             i +=this.up;
         }
@@ -87,7 +101,6 @@ public class BreakSwordAction extends AbstractGameAction {
     }
 
     static {
-        uiStrings = CardCrawlGame.languagePack.getUIString("ArmamentsAction");
-        TEXT = uiStrings.TEXT;
+        TEXT = CardCrawlGame.languagePack.getPowerStrings("AmiyaMod:UI").DESCRIPTIONS;
     }
 }

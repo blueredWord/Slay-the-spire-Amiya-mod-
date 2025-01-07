@@ -7,6 +7,7 @@ import Amiyamod.power.AngryForeverPower;
 import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -60,7 +61,7 @@ public class AngryForever extends CustomCard {
         //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new RedSkyPower()));
         //每回合开始时进入愠怒的能力
         if(this.upgraded){
-            Amiyamod.Sword(true);
+            Amiyamod.Sword(true,new GainEnergyAction(1));
         }
         this.addToBot(new ApplyPowerAction(p,p,new AngryForeverPower(this.magicNumber)));
     }

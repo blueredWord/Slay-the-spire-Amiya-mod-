@@ -34,13 +34,13 @@ public class TikaziMagic extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
 
     public TikaziMagic() {
-        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.UPGRADE_DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
         //this.selfRetain = true;
         //this.heal = 15;
-        this.draw = this.baseDraw =  this.magicNumber = this.baseMagicNumber = 3;
+        this.draw = this.baseDraw =  this.magicNumber = this.baseMagicNumber = 2;
         this.misc = 2;
         //源石卡牌tag
         this.tags.add(YCardTagClassEnum.YCard);
@@ -64,9 +64,11 @@ public class TikaziMagic extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //抽卡
-        this.addToBot(new DrawCardAction(this.magicNumber));
-        //if (this.upgraded){this.addToBot(new DrawCardAction(this.magicNumber,new TikaziMagicAction()));
-        //}else {this.addToBot(new DrawCardAction(this.magicNumber));}
+
+        this.addToBot(new DrawCardAction(this.magicNumber,new TikaziMagicAction()));
+
+        //}else {
+        // this.addToBot(new DrawCardAction(this.magicNumber));}
         //,new TikaziMagicAction()
     }
     public AbstractCard makeCopy() {return new TikaziMagic();}

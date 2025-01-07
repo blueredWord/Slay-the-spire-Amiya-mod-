@@ -2,8 +2,10 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -27,7 +29,7 @@ public class BurnMark extends CustomCard {
 
     private static final AbstractCard.CardType TYPE = CardType.ATTACK;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.COMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;//是否指向敌人
 
     public BurnMark() {
@@ -55,19 +57,24 @@ public class BurnMark extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Amiyamod.BurnSelf(1);
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
+        Amiyamod.BurnSelf(this.magicNumber);
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
 
         if (!p.drawPile.isEmpty()){
             p.drawPile.moveToExhaustPile(p.drawPile.getTopCard());
-            //this.addToBot(new MakeTempCardInDrawPileAction(this.makeStatEquivalentCopy(),this.magicNumber,false,false,false));
+            this.addToBot(new MakeTempCardInDrawPileAction(this.makeStatEquivalentCopy(),1,false,false,false));
         }
 
     }
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-        return !p.drawPile.isEmpty();
+        boolean canUse = super.canUse(p, m);
+        if (!canUse) {
+            return false;
+        } else {
+            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+            return !p.drawPile.isEmpty();
+        }
     }
     public AbstractCard makeCopy() {
         return new BurnMark();

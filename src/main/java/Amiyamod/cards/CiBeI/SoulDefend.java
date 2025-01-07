@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.cards.ChoseTempToHandAction;
 import Amiyamod.cards.RedSky.CloudBreakIn;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -25,35 +26,38 @@ public class SoulDefend extends CustomCard {
 
     private static final int COST = 1;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
-    private static final AbstractCard.CardType TYPE = CardType.POWER;//卡片类型
+    private static final AbstractCard.CardType TYPE = CardType.SKILL;//卡片类型
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
-    private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
+    private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
     public SoulDefend() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
-        this.isEthereal = true;
-        this.cardsToPreview = new SoulDefend(1);
+        this.misc = 1;
+        //this.isEthereal = true;
+        this.cardsToPreview = Amiyamod.MakeMemoryCard(new SoulDoor());
         this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
+        /*
     public SoulDefend(int i) {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
         this.isEthereal = true;
         //源石卡牌tag
         //this.tags.add(YCardTagClassEnum.YCard);
     }
 
+     */
     @Override
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -65,8 +69,8 @@ public class SoulDefend extends CustomCard {
         //获得状态：每次受到伤害获得丝线
         this.addToTop(new ApplyPowerAction(p, p, new SoulDefendPower(p, this.magicNumber), this.magicNumber));
         //复制一张自己到手里
-        AbstractCard card = new SoulDefend().makeCopy();
-        this.addToBot(new MakeTempCardInHandAction( card, 1));
+        this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(new SoulDoor()), this.misc));
+
     }
     public AbstractCard makeCopy() {return new SoulDefend();}
 }

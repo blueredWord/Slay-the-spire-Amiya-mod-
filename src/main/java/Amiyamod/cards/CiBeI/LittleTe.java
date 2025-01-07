@@ -54,12 +54,12 @@ public class LittleTe extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //获得状态:获得格挡时改为获得等量的丝线
+
         int i = 11 - p.hand.size();
         for (int n = 0; n < i ; n++){
             this.addToBot(new KingSeeAction(this.cardID,1,false));
         }
-        this.addToTop(new ApplyPowerAction(p, p, new LittleTePower(this.magicNumber)));
+        //this.addToTop(new ApplyPowerAction(p, p, new LittleTePower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new LittleTe();}
 }

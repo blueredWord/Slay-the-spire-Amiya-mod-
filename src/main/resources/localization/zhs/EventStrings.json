@@ -1,4 +1,15 @@
 {
+  "AmiyaMod:selchar": {
+    "DESCRIPTIONS": [],
+    "OPTIONS": [
+      "皮肤切换",
+      "原皮",
+      "报童",
+      "播种者",
+      "见习联结者"
+    ]
+  },
+
   "AmiyaTutorial": {
     "DESCRIPTIONS": [
       "打出 #y出鞘 牌进入出鞘状态。 NL 在出鞘状态下打出 #y出鞘 牌会触发奖励效果。 NL 在出鞘状态下打出 #y攻击牌 会获得升级次数等同于其 #y耗能 的 影霄。",

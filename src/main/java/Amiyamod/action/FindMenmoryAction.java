@@ -1,5 +1,6 @@
 package Amiyamod.action;
 
+import Amiyamod.Amiyamod;
 import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -18,9 +19,10 @@ public class FindMenmoryAction extends AbstractGameAction {
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
     private CardGroup exhumes = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-
-    public FindMenmoryAction() {
+    private boolean UP;
+    public FindMenmoryAction(boolean up) {
         this.p = AbstractDungeon.player;
+        this.UP = up;
         this.setValues(this.p, AbstractDungeon.player, this.amount);
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
@@ -47,7 +49,7 @@ public class FindMenmoryAction extends AbstractGameAction {
                 if (this.exhumes.isEmpty()) {
                     this.isDone = true;
                 } else {
-                    AbstractDungeon.gridSelectScreen.open(this.exhumes, 1, TEXT[0], false);
+                    AbstractDungeon.gridSelectScreen.open(this.exhumes, 1, TEXT[0],false);
                     this.tickDuration();
                 }
             }
@@ -55,6 +57,10 @@ public class FindMenmoryAction extends AbstractGameAction {
             Iterator c;
             if (!AbstractDungeon.gridSelectScreen.selectedCards.isEmpty()) {
                 for(AbstractCard card : AbstractDungeon.gridSelectScreen.selectedCards) {
+                    if (this.UP){
+                        card.upgrade();
+                        Amiyamod.MakeMemoryCard(card);
+                    }
                     card.retain = true;
                     this.p.exhaustPile.moveToHand(card);
                 }

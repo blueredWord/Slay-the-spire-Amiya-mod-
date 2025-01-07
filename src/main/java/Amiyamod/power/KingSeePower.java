@@ -3,6 +3,7 @@ package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import Amiyamod.Effect.HappyEffect;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.cards.Yzuzhou.Ytiruo;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.MathUtils;
@@ -17,6 +18,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import org.apache.logging.log4j.LogManager;
 
 public class KingSeePower extends AbstractPower {
     public static final String NAME = "KingSeePower";
@@ -41,7 +43,7 @@ public class KingSeePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-            this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[2]+this.amount+DESCRIPTIONS[3];
     }
     public void updateParticles() {
 
@@ -52,20 +54,14 @@ public class KingSeePower extends AbstractPower {
             this.T = !this.T;
         }
     }
-    public void wasHPLost(DamageInfo info, int damageAmount) {
-        if (TempHPField.tempHp.get(this.owner) <= 0){
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-        }
+
+    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        return damage-this.amount;
     }
 
-    public void atStartOfTurn() {
-        int var = TempHPField.tempHp.get(this.owner);
-        this.flash();
-        if (var>0){
-            this.addToBot(new ApplyPowerAction(this.owner,null,new WeakPower(this.owner,this.amount,false)));
-            //for (int i = 0;i<this.amount;i++){this.addToBot(new KingSeeAction("",1,this.up));}
-        } else {
-            this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
-        }
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
+        return damageAmount;
     }
+
 }

@@ -32,7 +32,7 @@ public class ShadowSkyOpen extends CustomCard {
 
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
-    private static final int COST = 3;//卡片费用
+    private static final int COST = 2;//卡片费用
     //private static final String DESCRIPTION = "造成 !D! 点伤害。";//卡片描述
     private static final CardType TYPE = CardType.POWER;//卡片类型
     private static final CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
@@ -45,7 +45,6 @@ public class ShadowSkyOpen extends CustomCard {
         //this.tags.add(CardTags.STARTER_STRIKE);
         //this.tags.add(CardTags.STRIKE);
         //this.exhaust = true;
-
         this.isEthereal = true;
         this.misc = 5;
         this.magicNumber = this.baseMagicNumber = 1;
@@ -59,7 +58,7 @@ public class ShadowSkyOpen extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             //this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-            //this.upgradeMagicNumber(3);
+            //this.upgradeMagicNumber(3);a
             this.isInnate = true;
             this.isEthereal = false;
             //this.selfRetain = true;
@@ -71,7 +70,7 @@ public class ShadowSkyOpen extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ShadowSkyOpenAction(this.misc));
+        //this.addToBot(new ShadowSkyOpenAction(this.misc));
         this.addToBot(new ApplyPowerAction(p,p,new ShadowSkyOpenPower(this.magicNumber)));
     }
 

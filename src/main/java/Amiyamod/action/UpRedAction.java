@@ -70,9 +70,7 @@ public class UpRedAction extends AbstractGameAction {
                 while(var1.hasNext()) {
 
                     c = (AbstractCard)var1.next();
-                    if ( !c.canUpgrade() ) {
-                        this.cannotUpgrade.add(c);
-                    } else if (this.Redonly && !(c instanceof RedSky)) {
+                    if ( !(c instanceof RedSky) ) {
                         this.cannotUpgrade.add(c);
                     }
                 }

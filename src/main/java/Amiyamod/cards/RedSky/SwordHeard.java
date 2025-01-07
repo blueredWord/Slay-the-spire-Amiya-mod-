@@ -63,7 +63,8 @@ public class SwordHeard extends CustomCard {
             //this.selfRetain = true;
             //this.selfRetain = true;
             //this.upgradeBaseCost(0);
-            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.isEthereal = false;
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }

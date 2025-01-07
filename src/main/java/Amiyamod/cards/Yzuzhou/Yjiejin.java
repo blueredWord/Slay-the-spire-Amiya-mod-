@@ -10,6 +10,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.unique.IncreaseMaxHpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -42,8 +43,17 @@ public class Yjiejin extends YCard implements YZCardInterface {
 
     public void triggerOnOtherCardPlayed(AbstractCard c) {
         //如果打出非源石牌 扣血
+
         if (!c.hasTag(YCardTagClassEnum.YCard)){
-            this.addToBot(new YjiejinAction(this));
+            c.superFlash();
+            if (this.upgraded){
+                AbstractPlayer p = AbstractDungeon.player;
+                p.increaseMaxHp(-c.magicNumber,true);
+                Amiyamod.BurnSelf(this.magicNumber);
+            }else {
+                Amiyamod.BurnSelf(this.magicNumber);
+            }
+            this.addToBot(new GainBlockAction(AbstractDungeon.player,AbstractDungeon.player,this.magicNumber));
         }
     }
 

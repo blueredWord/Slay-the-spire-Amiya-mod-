@@ -1,176 +1,176 @@
 {
   "AmiyaMod:AmiyaStrike": {
-    "NAME": "基础法术打击",
-    "DESCRIPTION": "Deal !D! damage."
+    "NAME": " Base法术打击",
+    "DESCRIPTION": " Deal !D!  Damage."
   },
   "AmiyaMod:AmiyaDefend": {
-    "NAME": "基础法术防御",
-    "DESCRIPTION": "Gain !B! Block ."
+    "NAME": " Base法术防御",
+    "DESCRIPTION": " Gain  !B! Block."
   },
 
   "AmiyaMod:BadZhufu": {
     "NAME": "食腐者之赐",
-    "DESCRIPTION": "源石技艺 . NL Gain !M! 点 Line ,卡组中每有1张 源石诅咒 额外Gain3点 Line . NL 消耗 ."
+    "DESCRIPTION": "StoneMagic  . NL  Gain  !M!   Line , And Gain 3 Line For Each StoneCurse in Your Deck . NL  Exhaust ."
   },
   "AmiyaMod:BeautifulLife": {
     "NAME": "远见者之启",
-    "DESCRIPTION": "预见 !M! . NL 抽1张牌,这张牌在本场战斗耗能变为0,但在打出时会Lose等同于原本耗能的生命. NL 消耗 .",
+    "DESCRIPTION": " Scry !M! . NL Draw 1 Card ,Cost of This Card Turn to 0 In This Combat, But You Will Lose HP Just Like it’s Cost When It be Played. NL  Exhaust .",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BForB": {
     "NAME": "以血还血",
-    "DESCRIPTION": "Lose1HP !M! 次. NL Deal !D! damage. NL 消耗 .",
+    "DESCRIPTION": "Lose 1 HP !M!  times . NL  Deal !D!  Damage. NL  Exhaust .",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BloodPotion": {
     "NAME": "战争祭坛",
-    "DESCRIPTION": "Lose 2 HP. NL 给予所有敌人 !M! 层 虚弱 和 易伤 .",
-    "UPGRADE_DESCRIPTION": "Lose1HP2次. NL 给予所有敌人 !M! 层 虚弱 和 易伤 两次."
+    "DESCRIPTION": "Lose 2 HP. NL  Apply All Enemy !M!   Weak  And  Vulnerable .",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP 2 times . NL  Apply All Enemy !M!   Weak  And  Vulnerable Two times ."
   },
   "AmiyaMod:LineBody": {
     "NAME": "身上衣",
-    "DESCRIPTION": " 保留 . NL 本回合你每打出过一次 源石技艺 牌,Gain1层 茧 .降低 !M! 点 感染进度 . NL 消耗 ."
+    "DESCRIPTION": "  Retain . NL  This Turn You  Each Played One  times  StoneMagic   Card , Gain 1  茧 . Lose !M!  感染进度 . NL  Exhaust ."
   },
   "AmiyaMod:LineHand": {
     "NAME": "诸魂庇佑",
-    "DESCRIPTION": "Gain !M! 点 Line .你每打出过一张 虚无 牌, Gain量提高 1 . NL 虚无 .",
-    "UPGRADE_DESCRIPTION": "Gain !M! 点 Line .你每打出过一张 虚无 牌, Gain量提高 1 . NL 下回合开始时 Line 不会减半. NL 虚无 ."
+    "DESCRIPTION": " Gain  !M!   Line .  Gain One More Line For Each Ethereal  Card  You Have   Played. NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": " Gain  !M!   Line .You  Each Played One   Ethereal  Card ,  Gain 量提高 1 . NL  You Willnot Lose Your Line at The Start of Your  Next Turn. NL  Ethereal ."
   },
   "AmiyaMod:CNoC": {
-    "NAME": "有刺无刺",
-    "DESCRIPTION": "随机对敌人Deal !D! damage !M! 次.直到打出之前你每Lose过1次生命,便额外攻击1次.",
-    "EXTENDED_DESCRIPTION": [" NL （额外Deal","次伤害）"]
+    "NAME": "CNoC",
+    "DESCRIPTION": " Random 对 Enemy Deal !D!  Damage !M!  times .Until Play之前You  Each Lose 过1 times  HP, Attack 1 More times .",
+    "EXTENDED_DESCRIPTION": [" NL （ Extra  Deal"," times  Damage）"]
   },
   "AmiyaMod:Echo": {
-    "NAME": "血魔之雨",
-    "DESCRIPTION": "Lose2HP. NL 对所有敌人Deal !D! damage. 本回合每当你对敌人Deal伤害时,Gain !M! 点 Line .",
-    "UPGRADE_DESCRIPTION": " Lose1HP 2 次. NL 对所有敌人Deal !D! damageX+1次 NL Gain !M! 点 Line X+1次."
+    "NAME": "Rain of Blood",
+    "DESCRIPTION": "Lose 2 HP. NL Deal All Enemy !D!  Damage.  This Turn Whenever You 对 Enemy Deal Damage时, Gain  !M!   Line .",
+    "UPGRADE_DESCRIPTION": " Lose 1 HP 2  times . NL Deal  All Enemy !D!  Damage X+1 times  NL  Gain  !M!   Line X+1 times ."
   },
   "AmiyaMod:HelBox": {
-    "NAME": "随身医疗箱",
-    "DESCRIPTION": " 消耗 抽牌堆中的 !M! 张牌,Gain7点 Line . NL 消耗 .",
-    "UPGRADE_DESCRIPTION": " 消耗 抽牌堆中的 !M! 张牌,Gain7点 Line ."
+    "NAME": "Medical Kit",
+    "DESCRIPTION": "  Exhaust !M!  Card From Draw Pile, Gain 7  Line . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "  Exhaust !M! Cards From Draw  Pile, Gain 7  Line ."
   },
   "AmiyaMod:HELP": {
     "NAME": "紧急救援",
-    "DESCRIPTION": "Lose1HP. NL 从弃牌堆中选择 !M! 张牌放入你的手牌. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "Lose1HP. NL 从弃牌堆中选择 !M! 张牌放入你的手牌."
+    "DESCRIPTION": "Lose 1 HP. NL 从Discard  Pile中Chose !M!  Card 放入Your Card  in Your Hands . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL 从Discard  Pile中Chose !M!  Card 放入Your Card  in Your Hands ."
   },
 
   "AmiyaMod:LifeMade": {
-    "NAME": "生命固化",
-    "DESCRIPTION": "Lose2HP. NL Gain !M! 点 Line . NL 下回合开始时, Line 不会减半.",
-    "UPGRADE_DESCRIPTION": "Lose1HP2次. NL Gain !M! 点 Line . NL 下回合开始时, Line 不会减半."
+    "NAME": "LifeMade",
+    "DESCRIPTION": "Lose 2 HP. NL  Gain  !M!   Line . NL 下Start of Turn时,  Line Will not减半.",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP2 times . NL  Gain  !M!   Line . NL 下Start of Turn时,  Line Will not减半."
   },
 
   "AmiyaMod:Mercy": {
-    "NAME": "慈悲愿景",
-    "DESCRIPTION": "本回合Deal伤害时Gain等同于伤害一半的 Line . NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "本回合Deal伤害时Gain等同于伤害一半的 Line ."
+    "NAME": "Mercy",
+    "DESCRIPTION": " This Turn  Deal Damage时 Gain =  Damage Half 的  Line . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " This Turn  Deal Damage时 Gain =  Damage Half 的  Line ."
   },
 
   "AmiyaMod:Open": {
     "NAME": "绽放",
-    "DESCRIPTION": "每次受到伤害令一名随机敌人Gain !M! 层 虚弱 .",
-    "UPGRADE_DESCRIPTION": "每次受到伤害令一名随机敌人Gain !M! 层 虚弱 ."
+    "DESCRIPTION": " Each times 受到 Damage令 One 名 Random  Enemy Gain  !M!   Weak .",
+    "UPGRADE_DESCRIPTION": " Each times 受到 Damage令 One 名 Random  Enemy Gain  !M!   Weak ."
   },
 
   "AmiyaMod:SoulDefend": {
     "NAME": "幽影闪烁",
-    "DESCRIPTION": "每当你Lose生命时Gain !M! 点 Line . NL 将一张 *幽影闪烁 加入手牌 . NL 虚无 .",
-    "UPGRADE_DESCRIPTION": "每当你Lose生命时Gain !M! 点 Line . NL 将一张 *幽影闪烁 加入手牌 . NL 虚无 ."
+    "DESCRIPTION": "Whenever You Lose  HP时 Gain  !M!   Line . NL 将 One  *幽影闪烁 加入 Card  in Your Hands  . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": "Whenever You Lose  HP时 Gain  !M!   Line . NL 将 One  *幽影闪烁 加入 Card  in Your Hands  . NL  Ethereal ."
   },
   "AmiyaMod:Yangry": {
     "NAME": "狂躁症",
-    "DESCRIPTION": " 不能被打出 . NL 当你打出攻击牌时,随机丢弃 !M! 张手牌.",
-    "UPGRADE_DESCRIPTION": " 不能被打出 . NL 当你打出攻击牌时,随机丢弃 !M! 张手牌,并 Lose1HP."
+    "DESCRIPTION": " Cannot Be Play . NL Whenever  You  Play Attack Card 时, Random 丢Discard  !M! 张 Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": " Cannot Be Play . NL Whenever  You  Play Attack Card 时, Random 丢Discard  !M! 张 Card  in Your Hands ,并 Lose 1 HP."
   },
   "AmiyaMod:Ychengyin": {
     "NAME": "源石瘾",
-    "DESCRIPTION": " 不能被打出 . NL 当你连续打出三张非 源石技艺 牌时,Gain !M! 层 易伤 .",
-    "EXTENDED_DESCRIPTION": [" NL （已打出 "," 张牌.）"]
+    "DESCRIPTION": " Cannot Be Play . NL Whenever  You 连续 Play三张非 StoneMagic   Card 时, Gain  !M!   Vulnerable .",
+    "EXTENDED_DESCRIPTION": [" NL （已 Play ","  Card .）"]
   },
   "AmiyaMod:Ydead": {
     "NAME": "亡陨",
-    "DESCRIPTION": "不能被打出 . NL 回合结束时, Lose !M! HP."
+    "DESCRIPTION": "Cannot Be Play . NL  Turn End 时, Lose  !M!  HP."
   },
   "AmiyaMod:Yjianwang": {
     "NAME": "健忘症",
-    "DESCRIPTION": "不能被打出 . NL 每当你打出 !M! 张牌时,随机 消耗1张手牌.",
-    "EXTENDED_DESCRIPTION": [" NL （已打出 "," 张牌.）"]
+    "DESCRIPTION": "Cannot Be Play . NL Whenever You  Play !M!  Card 时, Random   Exhaustone Card  in Your Hands .",
+    "EXTENDED_DESCRIPTION": [" NL （已 Play ","  Card .）"]
   },
   "AmiyaMod:Yjiejin": {
     "NAME": "体表结晶",
-    "DESCRIPTION": "不能被打出 . NL 打出非 源石技艺 牌时,受到 !M! damage.",
-    "UPGRADE_DESCRIPTION": "不能被打出 . NL 打出非 源石技艺 牌时,受到 !M! damage,Lose !M! 点MaxHP."
+    "DESCRIPTION": "Cannot Be Play . NL  Play非 StoneMagic   Card 时,受到 !M!  Damage.",
+    "UPGRADE_DESCRIPTION": "Cannot Be Play . NL  Play非 StoneMagic   Card 时,受到 !M!  Damage,Lose  !M! MaxHP."
   },
   "AmiyaMod:Ymust": {
     "NAME": "偏执症",
-    "DESCRIPTION": "不能被打出 . NL 当你Gain Line 时,改为Gain等量 Block .",
-    "UPGRADE_DESCRIPTION": " 不能被打出 . NL 当你Gain Line 时,改为Gain近似的整数 Block ."
+    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Gain   Line 时,改为 Gain 等量 Block .",
+    "UPGRADE_DESCRIPTION": " Cannot Be Play . NL Whenever  You  Gain   Line 时,改为 Gain 近似的整数 Block ."
   },
   "AmiyaMod:Ysex": {
     "NAME": "活性化体质",
-    "DESCRIPTION": "不能被打出 . NL 当你打出非 源石技艺 牌时, 感染进度 额外增加 !M! ."
+    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Play非 StoneMagic   Card 时, 感染进度  Extra 增加 !M! ."
   },
   "AmiyaMod:Ysnake": {
     "NAME": "认知障碍",
-    "DESCRIPTION": "不能被打出 . NL 当你打出第 !M! 张牌时,结束你的回合 .",
-    "EXTENDED_DESCRIPTION": [" NL （已打出 "," 张牌.）"]
+    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Play第 !M!  Card 时,End Your Turn  .",
+    "EXTENDED_DESCRIPTION": [" NL （已 Play ","  Card .）"]
   },
   "AmiyaMod:Ytiruo": {
     "NAME": "身虚体弱",
-    "DESCRIPTION": "不能被打出 . NL 当你打出耗能至少为2的卡牌时,Gain !M! 层 虚弱 ."
+    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Play Cost至少为2的卡 Card 时, Gain  !M!   Weak ."
   },
   "AmiyaMod:CRing": {
     "NAME": "荆与棘之环",
-    "DESCRIPTION": "Gain2层 荆棘 ,每当你耗尽 Line 时,Gain !M! 层 荆棘 ."
+    "DESCRIPTION": " Gain 2  荆棘 ,Whenever You 耗尽  Line 时, Gain  !M!   荆棘 ."
   },
   "AmiyaMod:RedSky": {
-    "NAME": "影霄",
-    "DESCRIPTION": "Deal !D! damage. NL 可以被多次 升级 . NL 消耗 . NL 虚无 .",
-    "UPGRADE_DESCRIPTION": "保留 . NL ",
-    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","可以被多次 升级 . NL 按照升级次数Deal NL *2 *的 *X *+ *1 *次 *方 damage. NL 消耗 . NL 虚无 ."
+    "NAME": " ShadowSword",
+    "DESCRIPTION": " Deal !D!  Damage. NL Can Be多 times  Upgrade . NL  Exhaust . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": " Retain . NL ",
+    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","Can Be多 times  Upgrade . NL 按照Upgrade times 数 Deal NL *2 *的 *X *+ *1 * times  *方  Damage. NL  Exhaust . NL  Ethereal ."
     ]
   },
   "AmiyaMod:ShadowOut": {
     "NAME": "拔刀",
-    "DESCRIPTION": "Deal !D! damage. NL 出鞘 : 下回合开始时将此牌拿回手牌.",
-    "UPGRADE_DESCRIPTION": " 固有 . NL Deal !D! damage. NL 出鞘 : 下回合开始时将此牌拿回手牌. NL  保留 . "
+    "DESCRIPTION": " Deal !D!  Damage. NL TheOut : 下Start of Turn时将此 Card 拿回 Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": "  Innate . NL  Deal !D!  Damage. NL TheOut : 下Start of Turn时将此 Card 拿回 Card  in Your Hands . NL   Retain . "
   },
   "AmiyaMod:AngryForever": {
     "NAME": "无名怒火",
-    "DESCRIPTION": "在你的回合开始时,进入 出鞘 状态.",
-    "UPGRADE_DESCRIPTION": "进入 出鞘 状态. NL 在你的回合开始时,进入 出鞘 状态."
+    "DESCRIPTION": "在YourStart of Turn时,Into  TheOut Power.",
+    "UPGRADE_DESCRIPTION": "Into  TheOut Power. NL 在YourStart of Turn时,Into  TheOut Power."
   },
-  "AmiyaMod:FireAgain": {
+  "AmiyaMod:FireAGain ": {
     "NAME": "星火重燃",
-    "DESCRIPTION": "每回合打出前!M!张不是卡组中的卡牌后,会Gain1张它的复制.",
-    "UPGRADE_DESCRIPTION": " 固有 NL 每回合打出前!M!张不是卡组中的卡牌后,会Gain1张它的复制."
+    "DESCRIPTION": " Each Turn  Play前!M!张不是卡组中的卡 Card 后,会 Gain one它的 To Copy.",
+    "UPGRADE_DESCRIPTION": "  Innate NL  Each Turn  Play前!M!张不是卡组中的卡 Card 后,会 Gain one它的 To Copy."
   },
   "AmiyaMod:SoMuchSworld": {
     "NAME": "无限剑制",
-    "DESCRIPTION": "在你的回合开始时, NL 若你的手牌中没有 影霄 便Gain1张,否则 升级 手中的 影霄 .",
-    "UPGRADE_DESCRIPTION": "固有 . NL 在你的回合开始时, NL 若你的手牌中没有 影霄 便Gain1张,否则 升级 手中的 影霄 ."
+    "DESCRIPTION": "在YourStart of Turn时, NL  If Your Card  in Your Hands 中没有  ShadowSword 便 Gain one,否则 Upgrade 手中的  ShadowSword .",
+    "UPGRADE_DESCRIPTION": " Innate . NL 在YourStart of Turn时, NL  If Your Card  in Your Hands 中没有  ShadowSword 便 Gain one,否则 Upgrade 手中的  ShadowSword ."
   },
   "AmiyaMod:BigNotWork": {
     "NAME": "大巧不工",
-    "DESCRIPTION": "每回合Gain的前 !M! 张 影霄 会额外 升级 一次."
+    "DESCRIPTION": " Each Turn  Gain 的前 !M! 张  ShadowSword 会 Extra  Upgrade  One  times ."
   },
 
   "AmiyaMod:ShadowSkill": {
     "NAME": "剑诀",
-    "DESCRIPTION": "随机 升级 一张手牌 NL X+1 次. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "随机 升级 一张手牌 NL X+1 次."
+    "DESCRIPTION": " Random  Upgrade  One  Card  in Your Hands  NL X+1  times . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " Random  Upgrade  One  Card  in Your Hands  NL X+1  times ."
   },
   "AmiyaMod:ShadowCry": {
     "NAME": "泪锋",
-    "DESCRIPTION": "Deal !D! damage. NL 出鞘 :此牌产生的 影霄 将额外 升级 !M! 次."
+    "DESCRIPTION": " Deal !D!  Damage. NL TheOut :此 Card 产生的  ShadowSword 将 Extra  Upgrade !M!  times ."
   },
   "AmiyaMod:ShadowUpgrade": {
     "NAME": "淬火",
-    "DESCRIPTION": "丢弃一张 影霄 并移除其 消耗 . 下回合开始时 将其拿回手牌. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "将一张 影霄 置于抽牌堆顶. NL 将其 升级 并移除其 消耗 . NL 消耗 .",
+    "DESCRIPTION": "丢Discard  One   ShadowSword 并 Remove 其  Exhaust . 下Start of Turn时 将其拿回 Card  in Your Hands . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "将 One   ShadowSword 置于Draw  Pile顶. NL 将其 Upgrade 并 Remove 其  Exhaust . NL  Exhaust .",
     "EXTENDED_DESCRIPTION": [
       "我的手中没有刀刃. "
     ]
@@ -178,378 +178,381 @@
 
   "AmiyaMod:ShadowBlueFire": {
     "NAME": "青焰环身",
-    "DESCRIPTION": "处于 出鞘 状态时,打出非攻击牌也能Gain 影霄 ."
+    "DESCRIPTION": "处于 TheOut Power时, Play非 Attack Card 也能 Gain   ShadowSword ."
   },
 
   "AmiyaMod:ShadowWaterMusic": {
     "NAME": "水韵",
-    "DESCRIPTION": "对所有敌人Deal !D! damage2次. NL 出鞘 : 你的下一张 影霄 会对所有敌人Deal伤害."
+    "DESCRIPTION": "对 All Enemy Deal !D!  Damage  2 times. NL TheOut : Your下 One   ShadowSword 会对 All Enemy Deal Damage."
   },
   "AmiyaMod:ShadowChange": {
     "NAME": "变式",
-    "DESCRIPTION": " 出鞘 :退出 出鞘 状态,并抽 !M! 张牌,Gain [E] . NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "保留 . NL 出鞘 :退出 出鞘 状态,并抽 !M! 张牌,Gain [E] . NL 消耗 ."
+    "DESCRIPTION": " TheOut :退出 TheOut Power,并Draw  !M!  Card , Gain  [E] . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " Retain . NL TheOut :退出 TheOut Power,并Draw  !M!  Card , Gain  [E] . NL  Exhaust ."
   },
   "AmiyaMod:ShadowNoShadow": {
     "NAME": "绝影",
-    "DESCRIPTION": "优先对生命值最低的敌人Deal !D! damage10次. NL 入鞘 : Gain !M! 层 无实体 . NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "优先对生命值最低的敌人Deal !D! damage10次. NL 入鞘 : Gain !M! 层 无实体 . NL 保留 . 消耗 ."
+    "DESCRIPTION": "优先对 HP值最低的 Enemy Deal !D!  Damage 10 times. NL TheIn :  Gain  !M!    Intangible  . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "优先对 HP值最低的 Enemy Deal !D!  Damage 10 times . NL TheIn :  Gain  !M!   Intangible . NL  Retain .  Exhaust ."
   },
 
   "AmiyaMod:ShadowBreak": {
-    "NAME": "断剑",
-    "DESCRIPTION": "消耗 一张手牌. NL Gain等同于其升级次数的 [E] . NL 抽一张牌.",
-    "UPGRADE_DESCRIPTION": "消耗 一张手牌. NL Gain等同于其升级次数+ !M! 的 [E] . NL 抽一张牌."
+    "NAME": "BreakSword",
+    "DESCRIPTION": " Exhaust  One  Card  in Your Hands . NL  Gain = 其Upgrade times 数的 [E] . NL Draw  One  Card .",
+    "UPGRADE_DESCRIPTION": " Exhaust  One  Card  in Your Hands . NL  Gain = 其Upgrade times 数+ !M! 的 [E] . NL Draw  One  Card ."
   },
 
   "AmiyaMod:AmiyaPower": {
-    "NAME": "不稳定的力量",
-    "DESCRIPTION": "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 消耗 . NL 虚无 .",
+    "NAME": "AmiyaPower",
+    "DESCRIPTION": "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL  Exhaust . NL  Ethereal .",
     "EXTENDED_DESCRIPTION": [
-      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 出鞘 : 移除你身上的所有负面效果. NL 消耗 . 虚无 .",
-      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 出鞘 : 移除你身上的所有负面效果, 升级 你所有的卡牌. NL 消耗 . 虚无 .",
-      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] NL 出鞘 : 移除你身上的所有负面效果, 升级 你所有的卡牌. NL 消耗 . 保留 .",
-      "源石技艺 . NL 抽 !M! 张牌,并Gain [E] [E] NL 出鞘 : 移除你身上的所有负面效果, 升级 你所有的卡牌. NL 消耗 . 保留 .",
+      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL TheOut :  Remove You 身上的 All Debuff. NL  Exhaust .  Ethereal .",
+      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL TheOut :  Remove You 身上的 All Debuff, Upgrade You  All的卡 Card . NL  Exhaust .  Ethereal .",
+      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL TheOut :  Remove You 身上的 All Debuff, Upgrade You  All的卡 Card . NL  Exhaust .  Retain .",
+      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] [E] NL TheOut :  Remove You 身上的 All Debuff, Upgrade You  All的卡 Card . NL  Exhaust .  Retain .",
       "魔王之力"
     ]
   },
   "AmiyaMod:MindEat": {
     "NAME": "情绪吸收",
-    "DESCRIPTION": "每当你在一回合内打出3次攻击牌时,抽 !M! 张牌.",
-    "UPGRADE_DESCRIPTION": "固有 . NL 每当你在一回合内打出3次攻击牌时,抽 !M! 张牌."
+    "DESCRIPTION": "Whenever You 在 One  Turn 内 Play 3 times  Attack Card 时,Draw  !M!  Card .",
+    "UPGRADE_DESCRIPTION": " Innate . NL Whenever You 在 One  Turn 内 Play3 times  Attack Card 时,Draw  !M!  Card ."
   },
   "AmiyaMod:ChiMeRa": {
     "NAME": "奇美拉",
-    "DESCRIPTION": "Gain20点 Line . NL !M! 回合内Deal的伤害翻倍并无视 Block . NL 效果结束后你丢弃所有手牌并跳过一个回合."
+    "DESCRIPTION": " Gain 20  Line . NL !M!  Turn 内 Deal的 DamageDouble并无视 Block . NL 效果End 后You 丢Discard  All Card  in Your Hands 并跳过 One 个 Turn ."
   },
   "AmiyaMod:MindBreak": {
     "NAME": "精神爆发",
-    "DESCRIPTION": "源石技艺 . NL 随机Deal !D! damage !M! 次. 将1张 *晕眩 放入你的抽牌堆中."
+    "DESCRIPTION": "StoneMagic  . NL  Random  Deal !D!  Damage !M!  times . 将one *晕眩 放入YourDraw  Pile中."
   },
   "AmiyaMod:SuperYPotion": {
     "NAME": "强效源石爆发剂",
-    "DESCRIPTION": "将抽牌堆中的 源石诅咒 尽可能拿到手中. NL 抽 !M! 张牌 . NL 消耗 ."
+    "DESCRIPTION": "将Draw  Pile中的 StoneCurse 尽可能 Into Your Hand. NL Draw  !M!  Card  . NL  Exhaust ."
   },
   "AmiyaMod:StoneBlock": {
     "NAME": "结晶化盾",
-    "DESCRIPTION": "源石技艺 . NL Gain !B! 点 Block .",
-    "UPGRADE_DESCRIPTION": "源石技艺 . NL 急性发作 1. NL Gain !B! 点 Block ."
+    "DESCRIPTION": "StoneMagic  . NL  Gain  !B!  Block .",
+    "UPGRADE_DESCRIPTION": "StoneMagic  . NL 急性发作 1. NL  Gain  !B!  Block ."
   },
   "AmiyaMod:MindBubble": {
     "NAME": "情感泡泡",
-    "DESCRIPTION": "虚无 . NL Gain9点 Line . 当你打出攻击牌时Lose这些 Line . NL 当你Lose所有来自此牌的 Line 后, 抽1张牌.",
-    "UPGRADE_DESCRIPTION": "Gain9点 Line . 当你打出攻击牌时Lose这些 Line . NL 当你Lose所有来自此牌的 Line 后, 抽1张牌."
+    "DESCRIPTION": " Ethereal . NL  Gain 9  Line . Whenever  You  Play Attack Card 时Lose 这些  Line . NL Whenever  You Lose  All来自此 Card 的  Line 后, Draw 1 Card .",
+    "UPGRADE_DESCRIPTION": " Gain 9  Line . Whenever  You  Play Attack Card 时Lose 这些  Line . NL Whenever  You Lose  All来自此 Card 的  Line 后, Draw 1 Card ."
   },
 
   "AmiyaMod:ZuZhouMagic": {
     "NAME": "诅咒巫咒",
-    "DESCRIPTION": "源石技艺 . NL Deal !D! damage. 当你Lose生命时,目标敌人也将Lose等量的生命. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": " 固有 . 源石技艺 . NL Deal !D! damage. 当你Lose生命时,目标敌人也将Lose等量的生命. NL 消耗 ."
+    "DESCRIPTION": "StoneMagic  . NL  Deal !D!  Damage. Whenever  You Lose  HP时,目标 Enemy也将Lose 等量的 HP. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "  Innate . StoneMagic  . NL  Deal !D!  Damage. Whenever  You Lose  HP时,目标 Enemy也将Lose 等量的 HP. NL  Exhaust ."
   },
   "AmiyaMod:BadMagic": {
     "NAME": "笞心魔之吓",
-    "DESCRIPTION": " 源石技艺 . NL 对所有敌人Deal !D! damage. 给予意图为 攻击者 !M! 层 虚弱 ,其他意图者 !M! 层 易伤 ."
+    "DESCRIPTION": " StoneMagic  . NL 对 All Enemy Deal !D!  Damage.  Apply意图为  Attack者 !M!   Weak ,其他意图者 !M!   Vulnerable ."
   },
 
   "AmiyaMod:FastSing": {
     "NAME": "战术咏唱",
-    "DESCRIPTION": "将 !M! 张抽牌堆中的 源石技艺 加入手牌,并使它本回合的耗能减少1点."
+    "DESCRIPTION": "将 !M! 张Draw  Pile中的 StoneMagic  加入 Card  in Your Hands ,并使它 This Turn 的 Cost Reduce 1."
   },
   "AmiyaMod:BreakRing": {
     "NAME": "极限施法",
-    "DESCRIPTION": "本回合当你打出 源石技艺 时,Lose等同于其原本耗能的生命 , 将其额外打出1次. NL 消耗 . ",
-    "UPGRADE_DESCRIPTION": "本回合当你打出 源石技艺 时,Lose等同于其原本耗能的生命 , 将其额外打出1次."
+    "DESCRIPTION": " This Turn Whenever  You  Play StoneMagic  时,Lose = 其原本 Cost的 HP , Play 1 More times . NL  Exhaust . ",
+    "UPGRADE_DESCRIPTION": " This Turn Whenever  You  Play StoneMagic  时,Lose = 其原本 Cost的 HP , Play 1 More times ."
   },
 
   "AmiyaMod:OldDoki": {
     "NAME": "亘古的脉动",
-    "DESCRIPTION": "Lose等同于你手牌数量的生命. NL 抽 !M! 张牌. NL 虚无 ."
+    "DESCRIPTION": "Lose = You  Card  in Your Hands 数量的 HP. NL Draw  !M!  Card . NL  Ethereal ."
   },
   "AmiyaMod:SoulBurn": {
     "NAME": "魂灵熔炉",
-    "DESCRIPTION": "消耗 至多 !M! 张弃牌堆中的卡牌. NL 回合开始时Gain [E] ,每 消耗 1张便持续1回合.",
-    "UPGRADE_DESCRIPTION": "消耗 至多 !M! 张弃牌堆中的卡牌. NL 回合开始时Gain [E] ,每 消耗 1张便持续1回合."
+    "DESCRIPTION": " Exhaust Max !M! 张Discard  Pile中的卡 Card . NL Start of Turn时 Gain  [E] , Each  Exhaust one便持续1 Turn .",
+    "UPGRADE_DESCRIPTION": " Exhaust Max !M! 张Discard  Pile中的卡 Card . NL Start of Turn时 Gain  [E] , Each  Exhaust one便持续1 Turn ."
   },
   "AmiyaMod:WhoKnowOne": {
-    "NAME": "被预言的魔王",
-    "DESCRIPTION": "对所有敌人Deal!D!damage. NL 战斗开始时,按照卡组中 源石诅咒 的数量 升级 此牌. NL 能被多次 升级 ."
+    "NAME": "Be预言的魔王",
+    "DESCRIPTION": "对 All Enemy Deal !D! Damage. NL 战斗开始时,按照卡组中 StoneCurse 的数量 Upgrade 此 Card . NL 能Be多 times  Upgrade ."
   },
 
   "AmiyaMod:ASay": {
     "NAME": "源石结晶",
-    "DESCRIPTION": "源石诅咒 . NL 随机施展一张 源石技艺 . NL 虚无 . 消耗 ."
+    "DESCRIPTION": "StoneCurse . NL  Random 施展 One  StoneMagic  . NL  Ethereal .  Exhaust ."
   },
   "AmiyaMod:Ymagic": {
     "NAME": "源石戏法",
-    "DESCRIPTION": "源石技艺 . NL 急性发作 1. NL 对随机敌人Deal !D! damage."
+    "DESCRIPTION": "StoneMagic  . NL 急性发作 1. NL 对 Random  Enemy Deal !D!  Damage."
   },
   "AmiyaMod:MagicYuJin": {
     "NAME": "巫咒残渣",
-    "DESCRIPTION": "急性发作 1. NL 随机 消耗 一张弃牌堆中的卡牌,优先选择 源石诅咒 ,依据其稀有度Deal至少 !D! damage.",
-    "UPGRADE_DESCRIPTION": "急性发作 1. NL 选择一张弃牌堆中的卡牌 消耗 ,依据其稀有度Deal至少 !D! damage."
+    "DESCRIPTION": "急性发作 1. NL  Random   Exhaust  One Discard  Pile中的卡 Card ,优先Chose StoneCurse ,依据其稀有度 Deal至少 !D!  Damage.",
+    "UPGRADE_DESCRIPTION": "急性发作 1. NL Chose One Discard  Pile中的卡 Card   Exhaust ,依据其稀有度 Deal至少 !D!  Damage."
   },
   "AmiyaMod:DefendMagic": {
     "NAME": "女妖之吻",
-    "DESCRIPTION": "源石技艺 . NL 去除你的 易伤 . NL Gain !B! 点 Block .",
-    "UPGRADE_DESCRIPTION": "源石技艺 . NL 去除你的 易伤 . NL Gain !B! 点 Block 和1层 人工制品 ."
+    "DESCRIPTION": "StoneMagic  . NL 去除Your Vulnerable . NL  Gain  !B!  Block .",
+    "UPGRADE_DESCRIPTION": "StoneMagic  . NL 去除Your Vulnerable . NL  Gain  !B!  Block  And 1  人工制品 ."
   },
   "AmiyaMod:SeeMe": {
     "NAME": "见我",
-    "DESCRIPTION": "源石技艺 . NL 抽取一张 源石诅咒 . NL Deal !D! damage,Gain NL 手牌数 !M! 倍的 Line .",
-    "UPGRADE_DESCRIPTION": "源石技艺 . NL Deal!D!damage. NL Gain !M! 点 Line ."
+    "DESCRIPTION": "StoneMagic  . NL Draw 取 One  StoneCurse . NL  Deal !D!  Damage, Gain  NL  Card  in Your Hands 数 !M! 倍的  Line .",
+    "UPGRADE_DESCRIPTION": "StoneMagic  . NL  Deal!D! Damage. NL  Gain  !M!   Line ."
   },
   "AmiyaMod:NotNow": {
     "NAME": "终局未至",
-    "DESCRIPTION": "源石技艺 . 急性发作 1. NL 对所有敌人Deal !D! damage,Deal相当于你 感染进度 的额外伤害. NL 虚无 ."
+    "DESCRIPTION": "StoneMagic  . 急性发作 1. NL 对 All Enemy Deal !D!  Damage, Deal相Whenever  于You  感染进度 的 Extra  Damage. NL  Ethereal ."
   },
 
   "AmiyaMod:DrBlood": {
     "NAME": "造物主之血",
-    "DESCRIPTION": "降低 !M! 点 感染进度 . NL 进入 感染爆发 状态. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "降低 !M! 点 感染进度 . NL 进入 感染爆发 状态. NL 消耗 抽牌堆和手牌中所有的 源石诅咒 . NL 消耗 ."
+    "DESCRIPTION": " Lose !M!  感染进度 . NL Into  TheBreak Power. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " Lose !M!  感染进度 . NL Into  TheBreak Power. NL  Exhaust Draw  Pile And  Card  in Your Hands 中 All的 StoneCurse . NL  Exhaust ."
   },
   "AmiyaMod:Ghost": {
     "NAME": "幽影重重",
-    "DESCRIPTION": "将你当前的 Line 翻倍. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "将你当前的 Line 翻倍."
+    "DESCRIPTION": "Double Your Line . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "Double Your Line ."
   },
 
   "AmiyaMod:MagicBook": {
     "NAME": "巫术典籍",
-    "DESCRIPTION": "从 !M! 张随机 源石技艺 中选择一张拿到手中. 它在本回合的耗能变为0. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "从 !M! 张随机 升级 过的 源石技艺 中选择一张拿到手中. 它在本回合的耗能变为0. NL 消耗 ."
+    "DESCRIPTION": "从 !M! 张 Random  StoneMagic  中Chose One  Into Your Hand. 它在 This Turn 的 Cost变为0. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "从 !M! 张 Random  Upgrade 过的 StoneMagic  中Chose One  Into Your Hand. 它在 This Turn 的 Cost变为0. NL  Exhaust ."
   },
   "AmiyaMod:Solo": {
     "NAME": "独奏",
-    "DESCRIPTION": "Gain !M! 点 Line . NL 下回合开始时对所有敌人Deal等同于你 Line 值的伤害.",
+    "DESCRIPTION": " Gain  !M! Line . NL 下Start of Turn时对 All Enemy Deal= You   Line 值的 Damage.",
     "UPGRADE_DESCRIPTION": "  "
   },
 
   "AmiyaMod:FirstSayA": {
     "NAME": "源石结晶",
-    "DESCRIPTION": "源石诅咒 . NL 保留 . NL 凝聚着被 消耗 卡牌的力量. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "源石诅咒 . 保留 . NL ",
+    "DESCRIPTION": "StoneCurse . NL  Retain . NL 凝聚着Be  Exhaust 卡 Card 的Str. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "StoneCurse .  Retain . NL ",
     "EXTENDED_DESCRIPTION": [
       ". ",
       " 急性发作 ",
-      "Deal !D! damage. ",
-      "Gain !B! 点 Block . ",
-      "Gain !M! 点 Line . ",
-      "抽",
-      "张牌.",
-      "回复",
-      "HP. ",
-      " NL 消耗 ."
+      " Deal !D!  Damage. ",
+      " Gain  !B!  Block . ",
+      " Gain  !M!   Line . ",
+      "Draw ",
+      " Card .",
+      " Heal",
+      " HP. ",
+      " NL  Exhaust ."
     ]
   },
   "AmiyaMod:YBBS": {
     "NAME": "源石祭坛",
-    "DESCRIPTION": "当你抽到 源石诅咒 时,将 !M! 张 虚无 的随机源石技艺拿入手中.",
-    "UPGRADE_DESCRIPTION": " 固有 . NL 当你抽到 源石诅咒 时,将 !M! 张 虚无 的随机源石技艺拿入手中."
+    "DESCRIPTION": "Whenever  You Draw 到 StoneCurse 时,将 !M! 张  Ethereal 的 Random StoneMagic  Into Your Hand.",
+    "UPGRADE_DESCRIPTION": "  Innate . NL Whenever  You Draw 到 StoneCurse 时,将 !M! 张  Ethereal 的 Random StoneMagic  Into Your Hand."
   },
   "AmiyaMod:HelpMagic": {
     "NAME": "土石之垒",
-    "DESCRIPTION": "源石技艺 . NL Gain !B! 点 Block . NL Lose生命时将此牌拿到手中. NL 消耗 ."
+    "DESCRIPTION": "StoneMagic  . NL  Gain  !B!  Block . NL Lose  HP时将此 Card  Into Your Hand. NL  Exhaust ."
   },
   "AmiyaMod:EatZuzhou": {
     "NAME": "螯合诅咒",
-    "DESCRIPTION": "源石技艺 . NL 选择 消耗 卡组中的1种 源石诅咒 ,并给予敌人相应的异常状态. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "要使用这个法术...我还对源石诅咒痛苦的了解还不足够.",
+    "DESCRIPTION": "StoneMagic  . NL Chose  Exhaust 卡组中的1种 StoneCurse ,并 Apply Enemy相应的Debuff. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "要使用这个法术...我还对 StoneCurse 痛苦的了解还不足够.",
     "EXTENDED_DESCRIPTION": [
-      "每回合有50%几率给予你 [E] .",
-      "回合结束时,Lose !M! HP.",
-      "Deal的伤害减少 !M! 点.",
-      "受到的伤害增加 !M! 点.",
-      "若一次Lose至少8HP,目标Gain !M! 层 易伤 .",
-      "每当你打出 源石技艺 时,Lose所有 Block .",
-      "回合开始时,使你额外抽取 !M! 张牌.",
-      "每当你打出 源石技艺 时,Gain !M! 层 虚弱 .",
-      "回合开始时,Lose生命直到个位为0. NL (若个位为0则Lose10HP.)",
-      "固有 . 源石技艺 . NL 选择 消耗 卡组中的1种 源石诅咒 ,并给予敌人相应的异常状态. NL 消耗 .",
+      " Each Turn 有50%几率 ApplyYou  [E] .",
+      " Turn End 时,Lose  !M!  HP.",
+      " Deal的 Damage Reduce  !M! .",
+      "受到的 Damage增加 !M! .",
+      " If  One  times Lose 至少8 HP,目标 Gain  !M!   Vulnerable .",
+      "Whenever You  Play StoneMagic  时,Lose  All Block .",
+      "Start of Turn时,使You  Extra Draw !M!  Card .",
+      "Whenever You  Play StoneMagic  时, Gain  !M!   Weak .",
+      "Start of Turn时,Lose  HPUntil个位为0. NL ( If 个位为0则Lose 10 HP.)",
+      " Innate . StoneMagic  . NL Chose  Exhaust 卡组中的1种 StoneCurse ,并 Apply Enemy相应的Debuff. NL  Exhaust .",
       ""
     ]
   },
 
   "AmiyaMod:ShadowCloudBreak": {
     "NAME": "云裂",
-    "DESCRIPTION": "将一张 *云裂 ** *出 放入抽牌堆中. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "入鞘:选择 !M! 张已 消耗 的 影霄 ,将其放入你的手牌."
+    "DESCRIPTION": "将 One  *云裂 ** *出 放入Draw  Pile中. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "TheIn:Chose !M! 张已  Exhaust 的  ShadowSword ,将其放入Your Card  in Your Hands ."
   },
   "AmiyaMod:ShadowCloudBreak2": {
     "NAME": "云裂",
-    "DESCRIPTION": "从消耗牌堆中选择 !M! 张 影霄 ,将其加入手牌. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "从消耗牌堆中选择 !M! 张 影霄 ,将其加入手牌."
+    "DESCRIPTION": "将 One  Upgrade X  times 的  ShadowSword 拿入 Card  in Your Hands . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "将 One  Upgrade X  times 的  ShadowSword 拿入 Card  in Your Hands ."
   },
   "AmiyaMod:CloudBreakIn": {
     "NAME": "云裂*出",
-    "DESCRIPTION": "再次打出Gain此牌后你打出过的 影霄 . NL 消耗 .",
-    "UPGRADE_DESCRIPTION": " NL (已记录 !M! 张 影霄 ,总计约 !D! damage.)"
+    "DESCRIPTION": "再 times  Play Gain 此 Card 后You  Play过的  ShadowSword . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " NL (已记录 !M! 张  ShadowSword ,总计约 !D!  Damage.)"
   },
   "AmiyaMod:BloodSword": {
     "NAME": "饲血",
-    "DESCRIPTION": "Lose1HP. NL 在本场战斗中 升级 !M! 张手牌 ,并将其 保留 . NL (无视 虚无 )",
-    "UPGRADE_DESCRIPTION": "Lose1HP. NL 在本场战斗中 升级 !M! 张手牌 ,并将其 保留 . NL (无视 虚无 )",
-    "EXTENDED_DESCRIPTION": [" NL (Deal","damage)"]
+    "DESCRIPTION": "Lose 1 HP. NL 在本场战斗中 Upgrade !M! 张 Card  in Your Hands  ,并将其  Retain . NL (无视  Ethereal )",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL 在本场战斗中 Upgrade !M! 张 Card  in Your Hands  ,并将其  Retain . NL (无视  Ethereal )",
+    "EXTENDED_DESCRIPTION": [" NL ( Deal"," Damage)"]
   },
   "AmiyaMod:ShadowBackWindy": {
     "NAME": "回风",
-    "DESCRIPTION": "Deal !D! damage. NL 抽 !M! 张牌. NL 出鞘 : 再抽1张.",
-    "UPGRADE_DESCRIPTION": "给予所有敌人 !M! 层 虚弱 . NL 入鞘 : 升级 手牌中的 影霄 . NL 消耗 ."
+    "DESCRIPTION": " Deal !D!  Damage. NL Draw  !M!  Card . NL TheOut : 再Draw one.",
+    "UPGRADE_DESCRIPTION": " Apply All Enemy !M!   Weak . NL TheIn : Upgrade  Card  in Your Hands 中的  ShadowSword . NL  Exhaust ."
   },
   "AmiyaMod:ShadowBlood": {
     "NAME": "吹血",
-    "DESCRIPTION": "Deal !D! damage. NL 出鞘 : Lose !M! HP,额外Deal一半的伤害."
+    "DESCRIPTION": " Deal !D!  Damage. NL TheOut : Lose  !M!  HP, Extra  Deal Half 的 Damage."
   },
   "AmiyaMod:BloodNo": {
     "NAME": "青色怒火",
-    "DESCRIPTION": "Deal !D! damage. NL 额外Deal相当于 *消耗牌堆 数量的伤害.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL 额外Deal *消耗牌堆 数量 !M! 倍的伤害.",
-    "EXTENDED_DESCRIPTION": [" NL (Deal","点额外伤害）"]
+    "DESCRIPTION": " Deal !D!  Damage. NL  Extra  Deal相Whenever  于 * Exhaust Pile 数量的 Damage.",
+    "UPGRADE_DESCRIPTION": " Deal !D!  Damage. NL  Extra  Deal * Exhaust Pile 数量 !M! 倍的 Damage.",
+    "EXTENDED_DESCRIPTION": [" NL ( Deal"," Extra  Damage）"]
   },
 
   "AmiyaMod:Memory": {
-    "NAME": "高塔追忆",
-    "DESCRIPTION": "选择 !M! 位角色,在你的回合开始时将1张来自其随机卡牌的 追忆 加入手中并 升级 .",
-    "UPGRADE_DESCRIPTION": "选择一位角色,在你的回合开始时从 !M! 张来自其随机卡牌的 追忆 中选择一张加入手中并 升级 .",
+    "NAME": "高塔 Memory",
+    "DESCRIPTION": "Chose !M! 位角色,在YourStart of Turn时将one来自其 Random 卡 Card 的  Memory  Into Your Hand并 Upgrade .",
+    "UPGRADE_DESCRIPTION": "Chose One 位角色,在YourStart of Turn时从 !M! 张来自其 Random 卡 Card 的  Memory 中Chose One  Into Your Hand并 Upgrade .",
     "EXTENDED_DESCRIPTION": [
-      "追忆:",
-      "在你回合开始时,将",
+      " Memory:",
+      "在You Start of Turn时,将",
       "张来自",
-      "的随机 追忆 加入手中.",
-      "的随机 追忆 加入手中并 升级 .",
-      "的特殊 追忆 加入手中.",
-      "的特殊 追忆 加入手中并 升级 ."
+      "的 Random   Memory  Into Your Hand.",
+      "的 Random   Memory  Into Your Hand 并 Upgrade .",
+      "的特殊  Memory  Into Your Hand.",
+      "的特殊  Memory  Into Your Hand 并 Upgrade ."
     ]
   },
 
   "AmiyaMod:Whitemith": {
     "NAME": "“Whitemith”",
-    "DESCRIPTION": "抽X张牌,它们本回合的耗能变为0. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "抽X+1张牌,它们本回合的耗能变为0. NL 消耗 ."
+    "DESCRIPTION": "Draw X Card , They  This Turn 的 Cost变为0. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "Draw X+1 Card , They  This Turn 的 Cost变为0. NL  Exhaust ."
   },
   "AmiyaMod:Outcast": {
     "NAME": "“Outcast”",
-    "DESCRIPTION": "丢弃所有手牌,将 !M! 张 *圣痕弹 拿入手中."
+    "DESCRIPTION": "丢Discard  All Card  in Your Hands ,将 !M! 张 *圣痕弹  Into Your Hand."
   },
   "AmiyaMod:Outcast1": {
     "NAME": "圣痕弹",
-    "DESCRIPTION": "源石技艺 .保留 . NL 填装一枚能Deal13damage的子弹. NL 若你手中没有 *鸣铳 则将其拿入手中."
+    "DESCRIPTION": "StoneMagic  . Retain . NL 填装 One 枚能 Deal1 3 Damage的子弹. NL  If You 手中没有 *鸣铳 则将其 Into Your Hand."
   },
   "AmiyaMod:Outcast2": {
     "NAME": "鸣铳",
-    "DESCRIPTION": "保留 . NL 每枚子弹Deal !D! damage1次. NL 若填装了6枚子弹,改为对所有所有敌人Deal !M! 倍伤害.在那之后对你造13damage.",
+    "DESCRIPTION": " Retain . NL  Each枚子弹 Deal !D!  Damage1 times . NL  If 填装了6枚子弹,改为对 All All Enemy Deal !M! 倍 Damage.在那之后对You 造13 Damage.",
     "UPGRADE_DESCRIPTION": "枪膛中还没有填装子弹."
   },
   "AmiyaMod:Scout": {
     "NAME": "“Scout”",
-    "DESCRIPTION": "瞄准目标,对其每回合积累 !M! damage."
+    "DESCRIPTION": "瞄准目标,对其 Each Turn 积累 !M!  Damage."
   },
   "AmiyaMod:Scout1": {
     "NAME": "扳机",
-    "DESCRIPTION": "保留 . NL 使所有敌人受到Deal等同于其身上的 *瞄准 层数的伤害.",
-    "UPGRADE_DESCRIPTION": "我没有瞄准任何敌人."
+    "DESCRIPTION": " Retain . NL 使 All Enemy受到 Deal= 其身上的 *瞄准  数的 Damage.",
+    "UPGRADE_DESCRIPTION": "我没有瞄准任何 Enemy."
   },
   "AmiyaMod:ACE": {
     "NAME": "“ACE”",
-    "DESCRIPTION": "Deal !D! damage. NL 阻止下 !M! 次你受到的至少为6点的生命值损伤. NL 消耗 ."
+    "DESCRIPTION": " Deal !D!  Damage. NL 阻止下 !M!  times You 受到的至少为6的 HP值损伤. NL  Exhaust ."
   },
   "AmiyaMod:ICEStar": {
     "NAME": "“霜星”",
-    "DESCRIPTION": "源石技艺 . NL 对所有敌人Deal !D! damage. NL 给予所有敌人 !M! 层 虚弱 . NL 消耗 ."
+    "DESCRIPTION": "StoneMagic  . NL 对 All Enemy Deal !D!  Damage. NL  Apply All Enemy !M!   Weak . NL  Exhaust ."
   },
   "AmiyaMod:CountryLover": {
     "NAME": "“爱国者”",
-    "DESCRIPTION": "Deal !D! damage !M! 次.Gain !B! 点 Block . NL 将1张 *生命献祭 拿到手中. NL 消耗 ."
+    "DESCRIPTION": " Deal !D!  Damage !M!  times . Gain  !B!  Block . NL 将one * HP献祭  Into Your Hand. NL  Exhaust ."
   },
   "AmiyaMod:CountryLover1": {
-    "NAME": "生命献祭",
-    "DESCRIPTION": "将 *投矛 拿到手中 . NL 每回合结束时增加 !M! 感染进度 ,对所有敌人Deal6damage. NL 虚无 ."
+    "NAME": " HP献祭",
+    "DESCRIPTION": "将 *投矛  Into Your Hand . NL  Each Turn End 时增加 !M! 感染进度 ,对 All Enemy Deal6 Damage. NL  Ethereal ."
   },
   "AmiyaMod:CountryLover2": {
     "NAME": "投矛",
-    "DESCRIPTION": "保留 . NL 对随机敌人Deal !D! damage. NL 下回合将此卡拿回手中."
+    "DESCRIPTION": " Retain . NL 对 Random  Enemy Deal !D!  Damage. NL 下 Turn 将 This Card拿回手中."
   },
   "AmiyaMod:Her": {
     "NAME": "“特蕾西娅”",
-    "DESCRIPTION": "源石技艺 . NL Gain !M! 个充能球栏位. NL 生成 !M! 粒 微尘 ."
+    "DESCRIPTION": "StoneMagic  . NL  Gain  !M! 个充能球栏位. NL 生成 !M! 粒 微尘 ."
   },
   "AmiyaMod:BreakBone": {
     "NAME": "“碎骨”",
-    "DESCRIPTION": "虚无 . NL 给予所有敌人 !M! 层 易伤 . NL Gain5点 Line ,当你Lose所有 Line 时将另一张 *“碎骨” 拿入手中. NL 消耗 ."
+    "DESCRIPTION": " Ethereal . NL  Apply All Enemy !M!  Vulnerable . NL  Gain 5  Line ,Whenever  You Lose  All  Line 时将另 One  *“碎骨”  Into Your Hand. NL  Exhaust ."
   },
 
   "AmiyaMod:KingSee": {
     "NAME": "魔王幻景",
-    "DESCRIPTION": "抽 2 张牌,并给予一名敌人 8 点 Line . NL 目标在Lose所有 Line 之前,在其回合开始时Gain !M! 层 虚弱 .",
-    "UPGRADE_DESCRIPTION": "给予一名敌人 8 点 Line . 抽 2 张牌 . NL 目标的回合开始时,若它的 Line 仍在, 给予 !M! 层 虚弱 ."
+    "DESCRIPTION": "Draw  2  Card ,并 Apply One 名 Enemy 8   Line . NL 目标在Lose  All  Line 之前,在其Start of Turn时 Gain  !M!   Weak .",
+    "UPGRADE_DESCRIPTION": " Apply One 名 Enemy 8   Line . Draw  2  Card  . NL 目标的Start of Turn时, If 它的  Line 仍在,  Apply !M!   Weak ."
   },
   "AmiyaMod:SwordHeard": {
     "NAME": "以剑交心",
-    "DESCRIPTION": "Gain1层 易伤 . NL 给予 !M! 层 易伤 . NL 出鞘 : 升级 一张手牌. NL 虚无 .",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage.Gain1层 易伤 并给予1层 易伤 . NL 出鞘 : 从 !M! 张随机 追忆 中选择1张加入你的手牌. NL 虚无 ."
+    "DESCRIPTION": " Gain 1  Vulnerable . NL  Apply !M!   Vulnerable . NL TheOut : Upgrade 1 张 Card  in Your Hands . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": " Gain 1  Vulnerable . NL  Apply !M!   Vulnerable . NL TheOut : Upgrade 1 张 Card  in Your Hands ."
   },
   "AmiyaMod:YOpen": {
     "NAME": "结晶绽放",
-    "DESCRIPTION": "源石技艺 . 急性发作 2. NL  若你本回合打出过其他 源石技艺 ,Gain [E] .",
-    "UPGRADE_DESCRIPTION": "源石技艺 . 急性发作 2. NL Gain [E] . Gain相当于你 感染进度 的 Block ."
+    "DESCRIPTION": "StoneMagic  . 急性发作 2. NL   If You  This Turn  Play过其他 StoneMagic  , Gain  [E] .",
+    "UPGRADE_DESCRIPTION": "StoneMagic  . 急性发作 2. NL  Gain  [E] .  Gain 相Whenever  于You  感染进度 的 Block ."
   },
   "AmiyaMod:ShadowBack": {
     "NAME": "振气",
-    "DESCRIPTION": "丢弃手牌中所有的非攻击牌. NL 随机 升级 手牌 !M! 次. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "丢弃手牌中所有的非攻击牌. NL 随机 升级 手牌 !M! 次."
+    "DESCRIPTION": "丢Discard  Card  in Your Hands 中 All的 non-Attack Card . NL  Random  Upgrade  Card  in Your Hands  !M!  times . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "丢Discard  Card  in Your Hands 中 All的非 non-Attack Card . NL  Random  Upgrade  Card  in Your Hands  !M!  times ."
   },
 
   "AmiyaMod:ShadowYangMei": {
     "NAME": "扬眉",
-    "DESCRIPTION": "Deal !D! damage,使 !M! 张手牌Gain 保留 . NL 出鞘 : 保留 所有手牌.",
-    "UPGRADE_DESCRIPTION": "Gain !B! 点 Block . NL 入鞘 : 升级手中所有的 影霄 ."
+    "DESCRIPTION": " Deal !D!  Damage,使 !M! 张 Card  in Your Hands  Gain   Retain . NL TheOut :  Retain  All Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": " Gain  !B!  Block . NL TheIn : Upgrade手中 All的  ShadowSword ."
   },
 
 
   "AmiyaMod:SoulMilk": {
     "NAME": "死魂灵之影",
-    "DESCRIPTION": "从 !M! 张随机 追忆 中选择1张加入手牌. NL 如果 *死魂灵之影 被 消耗 ,Gain2层 再生 .",
-    "UPGRADE_DESCRIPTION": "从 !M! 张 升级 过的 追忆 中选择1张加入手牌. NL 如果 *死魂灵之影 被 消耗 ,Gain2层 再生 ."
+    "DESCRIPTION": "从 !M! 张 Random   Memory 中Choseone加入 Card  in Your Hands . NL If  *死魂灵之影 Be  Exhaust , Gain 2  再生 .",
+    "UPGRADE_DESCRIPTION": "从 !M! 张 Upgrade 过的  Memory 中Choseone加入 Card  in Your Hands . NL If  *死魂灵之影 Be  Exhaust , Gain 2  再生 ."
   },
   "AmiyaMod:MakeLine": {
     "NAME": "编织茧笼",
-    "DESCRIPTION": "每当你打出 战斗中添加 的卡牌时, Gain !M! 点 Line ."
+    "DESCRIPTION": "Whenever You  Play 战斗中添加 的卡 Card 时,  Gain  !M!   Line ."
   },
   "AmiyaMod:MindRoll": {
     "NAME": "意志震荡",
-    "DESCRIPTION": "你的回合开始时, 选择 !M! 张牌 消耗 . NL 每当非 追忆 牌被 消耗时 ,将一张随机 追忆 加入手牌.",
-    "UPGRADE_DESCRIPTION": "对所有敌人Deal相当于消耗牌堆数量+8的伤害. NL 将 !M! 张随机 追忆 拿入手牌.",
+    "DESCRIPTION": "YourStart of Turn时, Chose !M!  Card   Exhaust . NL Whenever 非  Memory  Card Be  Exhaust时 ,将 One  Random   Memory 加入 Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": "对 All Enemy Deal相Whenever  于 Exhaust  Pile数量+8的 Damage. NL 将 !M! 张 Random   Memory 拿入 Card  in Your Hands .",
     "EXTENDED_DESCRIPTION": [
-      "对所有敌人Deal消耗牌堆数量+8的伤害. NL Gain !M! 张随机 追忆 .",
-      "对所有敌人Deal消耗牌堆数量+11的伤害. NL Gain !M! 张随机 追忆 .",
-      " NL (Deal !D! damage)"
+      "对 All Enemy Deal Exhaust  Pile数量+8的 Damage. NL  Gain  !M! 张 Random   Memory .",
+      "对 All Enemy Deal Exhaust  Pile数量+11的 Damage. NL  Gain  !M! 张 Random   Memory .",
+      " NL ( Deal !D!  Damage)"
     ]
   },
   "AmiyaMod:CopyMagic": {
     "NAME": "变形者之貌",
-    "DESCRIPTION": "源石技艺 . NL 随机查看抽牌堆中的 !M! 张牌,选择1张将其复制 加入手牌. NL 消耗 .",
-    "UPGRADE_DESCRIPTION":"源石技艺 . NL 随机查看抽牌堆中的 !M! 张牌,选择1张将其复制加入手牌. NL 消耗 ."
+    "DESCRIPTION": "StoneMagic  . NL  Random 查看Draw  Pile中的 !M!  Card ,Choseone将其 To Copy 加入 Card  in Your Hands . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION":"StoneMagic  . NL  Random 查看Draw  Pile中的 !M!  Card ,Choseone将其 To Copy 加入 Card  in Your Hands . NL  Exhaust ."
   },
 
   "AmiyaMod:BreakHug": {
     "NAME": "浇灌新生",
-    "DESCRIPTION": "Gain !M! 点 Line .下回合开始时你的 Line 不会减半."
+    "DESCRIPTION": " Gain  !M!   Line .下Start of Next Turn Your  Line Will not Lose."
   },
   "AmiyaMod:SadMind": {
     "NAME": "哀恸共情",
-    "DESCRIPTION": "Gain等同于目标原始伤害意图的 Line .",
-    "UPGRADE_DESCRIPTION":"保留 . NL Gain等同于目标原始伤害意图的 Line ."
+    "DESCRIPTION": " Gain = 已损失 HP值的  Line . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION":" Retain . NL  Gain = Has Lose HP值的  Line . NL  Exhaust .",
+    "EXTENDED_DESCRIPTION": [
+      "我还Cannot 感受到他们的苦难."
+    ]
   },
   "AmiyaMod:ShadowDefend": {
     "NAME": "守式",
-    "DESCRIPTION": "你的下 !M! 张 影霄 将额外Gain等同于伤害的 Block . NL 入鞘 : 升级 一张手牌.",
-    "UPGRADE_DESCRIPTION":"保留 . NL Deal !D! damage. NL 本回合打出的下一张 影霄 将额外Gain等同于伤害的 Block . NL 入鞘 :  此卡Gain的 影霄 额外升级 !M! 次."
+    "DESCRIPTION": "Your下 !M! 张  ShadowSword 将 Extra  Gain =  Damage的 Block . NL TheIn : Upgrade  One  Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION":" Retain . NL  Deal !D!  Damage. NL  This Turn  Play的下 One   ShadowSword 将 Extra  Gain =  Damage的 Block . NL TheIn :   This Card Gain 的  ShadowSword  Extra Upgrade !M!  times ."
   },
 
   "AmiyaMod:BurnMark": {
     "NAME": "灼痕",
-    "DESCRIPTION": "抽牌堆不为空时 才能打出, 消耗 其顶端的牌. NL Lose1HP. NL Deal !D! damage . NL 虚无 .",
-    "UPGRADE_DESCRIPTION": " 不能被打出 . NL 当你 Lose1HP 时 消耗 ,Gain [R] [R] .并在抽牌堆顶端和弃牌堆各放入一张此牌的复制品. NL 虚无 .",
+    "DESCRIPTION": "Draw  Pile不为空时 Only Can  Play,  Exhaust 其顶端的 Card . NL Lose 1 HP. NL  Deal !D!  Damage . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": " Cannot Be Play . NL Whenever  You  Lose 1 HP 时  Exhaust , Gain  [R] [R] .并在Draw  Pile顶端 And Discard  Pile各放入 One 此 Card 的 To Copy品. NL  Ethereal .",
     "EXTENDED_DESCRIPTION": [
       "已经...没有燃料了"
     ]
@@ -557,198 +560,197 @@
 
   "AmiyaMod:ShadowRunNight": {
     "NAME": "奔夜",
-    "DESCRIPTION": "Deal !D! damage两次. 出鞘 : 本回合每当你打出 影霄 时Gain !M! 点 Block."
+    "DESCRIPTION": " Deal !D!  DamageTwo times . TheOut :  This Turn Whenever You  Play  ShadowSword 时 Gain  !M!  Block."
   },
   "AmiyaMod:LineDefender": {
     "NAME": "温迪戈之骸",
-    "DESCRIPTION": "Gain !M! 点 Line . NL 每当你Lose这部分 Line 时Gain !B! 点 Block ."
+    "DESCRIPTION": " Gain  !M!   Line . NL Whenever You Lose 这部分  Line 时 Gain  !B!  Block ."
   },
   "AmiyaMod:Shadow15": {
     "NAME": "剑十五",
-    "DESCRIPTION": "抽到此牌时 Lose1HP 5 次. NL Deal !D! damage !M! 次. NL 你每在战斗中Lose生命一次,这张牌的耗能就减少 [E] . NL 入鞘 :回复15HP. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "保留 . NL 抽到此牌时 Lose1HP 5 次. NL Deal !D! damage !M! 次. NL 你每在战斗中Lose生命一次,这张牌的耗能就减少 [E] . NL 入鞘 :回复15HP. NL 消耗 ."
+    "DESCRIPTION": "Draw 到此 Card 时 Lose 1 HP 5  times . NL  Deal !D!  Damage !M!  times . NL You  Each在战斗中Lose  HP One  times ,This Card的 Cost就 Reduce  [E] . NL TheIn : Heal15 HP. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " Retain . NL Draw 到此 Card 时 Lose 1 HP 5  times . NL  Deal !D!  Damage !M!  times . NL You  Each在战斗中Lose  HP One  times ,This Card的 Cost就 Reduce  [E] . NL TheIn : Heal15 HP. NL  Exhaust ."
   },
 
 
-  "AmiyaMod:NoName=弃用": {
+  "AmiyaMod:NoName=Discard 用": {
     "NAME": "恨火蔓延",
-    "DESCRIPTION": "Deal !D! damage . NL 入鞘 : 下回合开始时 出鞘 .",
+    "DESCRIPTION": " Deal !D!  Damage . NL TheIn : 下Start of Turn时 TheOut .",
     "EXTENDED_DESCRIPTION": [
       "不要...不要惹恼我.",
-      "这把剑渴望着报复...我不能放纵它."]
+      "这把剑渴望着报复...我Cannot 放纵它."]
   },
 
   "AmiyaMod:AmiyaMagic": {
-    "NAME": "基础源石技艺",
-    "DESCRIPTION": "源石技艺 . NL Deal !D! damage."
+    "NAME": " BaseStoneMagic ",
+    "DESCRIPTION": "StoneMagic  . NL  Deal !D!  Damage."
   },
 
   "AmiyaMod:badY": {
     "NAME": "污染碎片",
-    "DESCRIPTION": " 保留 . NL 若本场战斗你打出过另一张 *污染碎片 ,Gain 60 金币. NL 每当这张牌被 保留 时,增加 !M! 感染进度 . NL 源石诅咒 ."
+    "DESCRIPTION": "  Retain . NL  If 本场战斗You  Play过另 One  *污染碎片 , Gain  60 金币. NL Whenever This CardBe  Retain 时,增加 !M! 感染进度 . NL StoneCurse ."
   },
   "AmiyaMod:FirstSay": {
     "NAME": "阿喃那",
-    "DESCRIPTION": "在你的回合结束时,将你手牌中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 .",
-    "UPGRADE_DESCRIPTION": " 固有 . NL 在你的回合结束时,将你手牌中所有非 源石诅咒 的卡牌凝聚为一张 *源石结晶 ."
+    "DESCRIPTION": "At The End of Your Turn ,将You  Card  in Your Hands 中 All非 StoneCurse 的卡 Card 凝聚为 One  *源石结晶 .",
+    "UPGRADE_DESCRIPTION": "  Innate . NL At The End of Your Turn ,将You  Card  in Your Hands 中 All非 StoneCurse 的卡 Card 凝聚为 One  *源石结晶 ."
   },
 
   "AmiyaMod:Hate": {
     "NAME": "恨火蔓延",
-    "DESCRIPTION": "处于 出鞘 时才能打出. NL Deal !D! damage. NL 下回合开始时 出鞘 .",
+    "DESCRIPTION": "处于 TheOut 时Only Can  Play. NL  Deal !D!  Damage. NL 下Start of Turn时 TheOut .",
     "EXTENDED_DESCRIPTION": [
       "不要...不要惹恼我.",
-      "这把剑渴望着报复...我不能放纵它."]
+      "这把剑渴望着报复...我Cannot 放纵它."]
   },
 
   "AmiyaMod:MindLink": {
     "NAME": "情绪联结",
-    "DESCRIPTION": "源石技艺 . NL  Deal !D! damage ,若你本回合Lose过生命,Gain [E] .",
-    "UPGRADE_DESCRIPTION": "源石技艺 . NL  Deal !D! damage  ,若你本回合Lose过生命,Gain [E] ."
+    "DESCRIPTION": "StoneMagic  . NL   Deal !D!  Damage , If You  This Turn Lose 过 HP, Gain  [E] .",
+    "UPGRADE_DESCRIPTION": "StoneMagic  . NL   Deal !D!  Damage  , If You  This Turn Lose 过 HP, Gain  [E] ."
   },
 
   "AmiyaMod:Bonk": {
     "NAME": "鞘击",
-    "DESCRIPTION": "下1张 影霄 将使目标降低 升级 次数 的 力量 . NL 出鞘 : 升级 1张 影霄 !M! 次 ,但伤害减半 . NL  消耗 .",
-    "UPGRADE_DESCRIPTION": "保留 . NL 下1张 影霄 将使目标降低 升级 次数 的 力量 . NL 出鞘 : 升级 1张 影霄 !M! 次 ,但伤害减半 . NL  消耗 .",
+    "DESCRIPTION": "下one  ShadowSword 将使目标 Lose Upgrade  times 数 的 Str . NL TheOut : Upgrade one  ShadowSword !M!  times  ,但 Damage减半 . NL   Exhaust .",
+    "UPGRADE_DESCRIPTION": " Retain . NL 下one  ShadowSword 将使目标 Lose Upgrade  times 数 的 Str . NL TheOut : Upgrade one  ShadowSword !M!  times  ,但 Damage减半 . NL   Exhaust .",
     "EXTENDED_DESCRIPTION": [
-      "剑刃已经出鞘..."
+      "剑刃已经TheOut..."
     ]
   },
 
   "AmiyaMod:BlackKing": {
     "NAME": "黑冠圣贤",
-    "DESCRIPTION": "在你的回合结束时,将 !M! 张 *尊主之影 加入手牌.",
-    "UPGRADE_DESCRIPTION": "固有 . NL 在你的回合结束时,将 !M! 张 *尊主之影 加入手牌."
+    "DESCRIPTION": "At The End of Your Turn ,将 !M! 张 *尊主之影 加入 Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": " Innate . NL At The End of Your Turn ,将 !M! 张 *尊主之影 加入 Card  in Your Hands ."
   },
   "AmiyaMod:KingShadow": {
     "NAME": "尊主之影",
-    "DESCRIPTION": "保留 . NL 对所有敌人Deal !D! damage. 打出你手牌中所有的 *尊主之影 . NL 此卡 保留 时,耗能减少 [E] . NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "每回合开始时,将一张 *尊主之影+ 加入手牌."
+    "DESCRIPTION": " Retain . NL 对 All Enemy Deal !D!  Damage.  PlayYou  Card  in Your Hands 中 All的 *尊主之影 . NL  This Card  Retain 时, Cost Reduce  [E] . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " EachStart of Turn时,将 One  *尊主之影+ 加入 Card  in Your Hands ."
   },
   "AmiyaMod:S": {
-    "NAME": "两仪",
-    "DESCRIPTION": "本回合保留."
+    "NAME": "Two仪",
+    "DESCRIPTION": " This Turn  Retain."
   },
   "AmiyaMod:ShadowTwo": {
-    "NAME": "两仪",
-    "DESCRIPTION": "丢弃至多 !M! 张牌,抽相同数量的牌. NL 将你丢弃的 影霄 拿回手牌.",
-    "UPGRADE_DESCRIPTION": "丢弃至多 !M! 张牌,抽相同数量的牌. NL 升级 你丢弃的 影霄 并拿回手牌."
+    "NAME": "Two仪",
+    "DESCRIPTION": "丢Discard Max !M!  Card ,Draw 相同数量的 Card . NL 将You 丢Discard 的  ShadowSword 拿回 Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": "丢Discard Max !M!  Card ,Draw 相同数量的 Card . NL Upgrade You 丢Discard 的  ShadowSword 并拿回 Card  in Your Hands ."
   },
 
 
   "AmiyaMod:KingSay": {
     "NAME": "魔王传承",
-    "DESCRIPTION": "不能被打出 . NL 抽到时将1张 升级 过的 源石技艺 和 !M! 张 源石诅咒 加入手牌. NL 若你打出拿到的 源石技艺 ,再Gain另1张.",
-    "UPGRADE_DESCRIPTION": "不能被打出 . NL 抽到时从你最近胜利的卡组中的随机 !M! 张牌中选择一张,此卡变为其复制.",
+    "DESCRIPTION": "Cannot Be Play . NL Draw 到时将one Upgrade 过的 StoneMagic   And  !M! 张 StoneCurse 加入 Card  in Your Hands . NL  If You  Play拿到的 StoneMagic  ,再 Gain 另one.",
+    "UPGRADE_DESCRIPTION": "Cannot Be Play . NL Draw 到时从You 最近胜利的卡组中的 Random  !M!  Card 中Chose One , This Card变为其 To Copy.",
     "EXTENDED_DESCRIPTION": [" NL (传承: ",
       " 、 ",
       " .)",
-      " NL (已打出) ",
-      "从最近胜利卡组中的随机 !M! 张 追忆 中选择一张拿入手牌. NL 消耗 .",
-      "从最近胜利卡组中的随机 !M! 张 追忆 中选择一张拿入手牌."
+      " NL (已 Play) ",
+      "从最近胜利卡组中的 Random  !M! 张  Memory 中Chose One 拿入 Card  in Your Hands . NL  Exhaust .",
+      "从最近胜利卡组中的 Random  !M! 张  Memory 中Chose One 拿入 Card  in Your Hands ."
     ]
   },
 
   "AmiyaMod:KingSay2": {
     "NAME": "魔王传承",
-    "DESCRIPTION": "不能被打出 . NL 抽到时从你最近胜利的卡组中的随机 !M! 张牌中选择一张,将它拿入手牌.",
-    "UPGRADE_DESCRIPTION": "不能被打出 . NL 抽到时从你最近胜利的卡组中的随机 !M! 张牌中选择一张两次,将它们拿入手牌.",
+    "DESCRIPTION": "Cannot Be Play . NL Draw 到时从You 最近胜利的卡组中的 Random  !M!  Card 中Chose One ,将它拿入 Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION": "Cannot Be Play . NL Draw 到时从You 最近胜利的卡组中的 Random  !M!  Card 中Chose One Two times ,将 They 拿入 Card  in Your Hands .",
     "EXTENDED_DESCRIPTION": [" NL (传承: ",
       " 、 ",
       " .)",
-      " NL (已打出) "
+      " NL (已 Play) "
     ]
   },
 
 
   "AmiyaMod:Punch": {
-    "NAME": "歌利亚之拳",
-    "DESCRIPTION": "Deal你生命值与 Line 之和除以 !M! 的伤害. NL  如果此牌杀死了敌人,将此牌拿回手牌.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL  如果此牌杀死了敌人,并将此牌拿回手牌.",
-    "EXTENDED_DESCRIPTION": [" NL (Deal !D! damage)"]
+    "NAME": "Punch",
+    "DESCRIPTION": " DealYou  HP值与  Line 之 And 除以 !M! 的 Damage.If 此 Card 杀死了 Enemy, Gain  [E] 并返回 Card  in Your Hands . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": " Deal !D!  Damage. NL If 此 Card 杀死了 Enemy, Gain  [E] 并返回 Card  in Your Hands . NL  Exhaust .",
+    "EXTENDED_DESCRIPTION": [" NL ( Deal !D!  Damage)"]
   },
 
   "AmiyaMod:Horn": {
-    "NAME": "温迪戈之角",
-    "DESCRIPTION": "源石技艺 . NL Deal !D! damage. NL 若你生命值低于战斗开始时的值, 额外Deal一次伤害 ."
+    "NAME": "Horn",
+    "DESCRIPTION": "StoneMagic  . NL  Deal !D!  Damage. NL  If You  HP is Less Than The Begin of Combat, Deal One More times Damage ."
   },
 
   "AmiyaMod:PainMagic": {
     "NAME": "炎魔之火",
-    "DESCRIPTION": " 源石技艺 . NL 对所有敌人Deal !D! damage. 感染爆发 时将此牌加入 手牌 . NL 虚无 ."
+    "DESCRIPTION": " StoneMagic  . NL 对 All Enemy Deal !D!  Damage. TheBreak 时将此 Card 加入  Card  in Your Hands  . NL  Ethereal ."
   },
   "AmiyaMod:StoneSword": {
     "NAME": "结晶化剑",
-    "DESCRIPTION": "源石技艺 . NL Gain1张 影霄 ,将它 升级 !M! 次. NL 出鞘 : 你打出的下1张 影霄 视为 源石技艺 .",
-    "UPGRADE_DESCRIPTION": "源石技艺 . NL Gain1张 影霄 并将它 升级 !M! 次. NL 出鞘 : 你打出的下1张 NL  影霄 视为 源石技艺 ."
+    "DESCRIPTION": "You  Play的下one  ShadowSword 视为 StoneMagic  . NL TheOut : Upgrade one Card  in Your Hands . NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "You  Play的下one  ShadowSword 视为 StoneMagic  . NL TheOut : Upgrade one Card  in Your Hands ."
   },
 
   "AmiyaMod:TikaziMagic": {
     "NAME": "巫妖之试",
-    "DESCRIPTION": " 源石技艺 . NL 抽 !M! 张牌.",
-    "UPGRADE_DESCRIPTION": " 源石技艺 . NL 抽 !M! 张牌. NL 抽到 源石诅咒 或 源石技艺 时,Gain [E] ."
+    "DESCRIPTION": " StoneMagic  . NL Draw  !M!  Card .",
+    "UPGRADE_DESCRIPTION": " StoneMagic  . NL Draw  !M!  Card . NL Draw 到 StoneCurse orS StoneMagic  时, Gain  [E] ."
   },
   "AmiyaMod:Wish": {
     "NAME": "诚挚期许",
-    "DESCRIPTION": "在你的回合结束时Gain !M! 点 Line ."
+    "DESCRIPTION": "At The End of Your Turn  Gain  !M!   Line ."
   },
 
   "AmiyaMod:MagicPC": {
     "NAME": "私人巫术终端",
-    "DESCRIPTION": "选择一张手牌,将其带有 不能被打出 与 抽到时释放 的复制洗入弃牌堆. NL 消耗 .",
-    "UPGRADE_DESCRIPTION": "选择一张手牌,将其带有 不能被打出 与 抽到时释放 的复制洗入抽牌堆. NL 消耗 ."
+    "DESCRIPTION": "Chose One  Card  in Your Hands ,将其带有 Cannot Be Play 与 Draw 到时释放 的 To Copy洗入Discard  Pile. NL  Exhaust .",
+    "UPGRADE_DESCRIPTION": "Chose One  Card  in Your Hands ,将其带有 Cannot Be Play 与 Draw 到时释放 的 To Copy洗入Draw  Pile. NL  Exhaust ."
   },
 
   "AmiyaMod:KingType2": {
     "NAME": "魔王律令",
-    "DESCRIPTION": "Deal !D! damage. NL 抽1张牌. NL 你打出的下 !M! 张非 源石技艺 牌视为 源石技艺 . NL 虚无 .",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL 抽1张牌. NL 你打出的下 !M! 张非 源石技艺 牌视为 源石技艺 ."
+    "DESCRIPTION": " Deal !D!  Damage. NL Draw 1 Card . NL You  Play的下 !M! 张非 StoneMagic   Card 视为 StoneMagic  . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": " Deal !D!  Damage. NL Draw 1 Card . NL You  Play的下 !M! 张非 StoneMagic   Card 视为 StoneMagic  ."
   },
 
 
 
   "AmiyaMod:LittleTe": {
     "NAME": "",
-    "DESCRIPTION": "Gain随机 追忆 直到手牌上限. 回合结束时,每剩余一张手牌Gain !M! 点 Line . NL 虚无 .",
-    "UPGRADE_DESCRIPTION":"Gain随机 追忆 直到手牌上限. 回合结束时,每剩余一张手牌Gain !M! 点 Line ."
+    "DESCRIPTION": " Gain  Random   Memory Until Card  in Your Hands 上限.  Turn End 时, Each剩余 One  Card  in Your Hands  Gain  !M!   Line . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION":" Gain  Random   Memory Until Card  in Your Hands 上限.  Turn End 时, Each剩余 One  Card  in Your Hands  Gain  !M!   Line ."
   },
   "AmiyaMod:LittleTe2": {
     "NAME": "忧她所忧",
-    "DESCRIPTION": "抽 !M! 张牌. NL 在本回合 保留 你的手牌.",
-    "UPGRADE_DESCRIPTION":"Gain随机 追忆 直到手牌上限. 回合结束时,每剩余一张手牌Gain !M! 点 Line ."
+    "DESCRIPTION": "Draw  !M!  Card . NL 在 This Turn   Retain Your Card  in Your Hands .",
+    "UPGRADE_DESCRIPTION":" Gain  Random   Memory Until Card  in Your Hands 上限.  Turn End 时, Each剩余 One  Card  in Your Hands  Gain  !M!   Line ."
   },
   "AmiyaMod:Hope": {
     "NAME": "期冀之汇",
-    "DESCRIPTION": " 感染进度 增长时,若你拥有 Line , NL Lose1HP并阻止本次增长.",
-    "UPGRADE_DESCRIPTION":" 固有 . NL 感染进度 增长时,若你拥有 Line , NL Lose1HP并阻止本次增长."
+    "DESCRIPTION": " 感染进度 增长时, If You  Have  Line , NL Lose 1 HP并阻止本 times 增长.",
+    "UPGRADE_DESCRIPTION":"  Innate . NL 感染进度 增长时, If You  Have   Line , NL Lose 1 HP并阻止本 times 增长."
   },
   "AmiyaMod:HerDo": {
     "NAME": "行她所行",
-    "DESCRIPTION": "在你的回合结束时, 本回合你每Lose一次生命, 对所有敌人Deal !M! damage."
+    "DESCRIPTION": "At The End of Your Turn ,  This Turn You  Each Lose  One time  HP, Deal All Enemy !M!  Damage."
   },
   "AmiyaMod:HerSee": {
     "NAME": "见她所见",
-    "DESCRIPTION": "Gain [E] [E] [E] . NL 本回合每使用 [E] 便Lose 1 HP."
+    "DESCRIPTION": " Gain  [E] [E] [E] . NL  Then You Lose 1 HP For Each [E] You Will Use."
   },
   "AmiyaMod:LoseWish": {
     "NAME": "枯竭期许",
-    "DESCRIPTION": "源石技艺 . NL 每当你抽到一张 不能被打出 的牌时, NL 抽 !M! 张牌.",
-    "UPGRADE_DESCRIPTION": "固有 . NL 源石技艺 . NL 每当你抽到一张 不能被打出 的牌时, NL 抽 !M! 张牌."
+    "DESCRIPTION": "StoneMagic  . NL Whenever You Draw 到 One  Cannot Be Play 的 Card 时, NL Draw  !M!  Card .",
+    "UPGRADE_DESCRIPTION": " Innate . NL StoneMagic  . NL Whenever You Draw 到 One  Cannot Be Play 的 Card 时, NL Draw  !M!  Card ."
   },
   "AmiyaMod:ShadowSkyOpen": {
     "NAME": "天瞠",
-    "DESCRIPTION": "随机丢弃抽牌堆中一半的牌, 消耗 其中 不能被打出 的牌. NL 你Gain的 影霄 将被额外 升级 1次. NL 虚无 .",
-    "UPGRADE_DESCRIPTION": "固有 . NL 随机丢弃抽牌堆中一半的牌,消耗 其中 不能被打出 的牌. NL 你Gain的 影霄 将被额外 升级 1次.",
-    "EXTENDED_DESCRIPTION": [" NL (Deal","damage）"]
+    "DESCRIPTION": " Random 丢Discard Draw  Pile中 Half 的 Card ,  Exhaust 其中 Cannot Be Play 的 Card . NL You  Gain 的  ShadowSword 将Be Extra  Upgrade 1 times . NL  Ethereal .",
+    "UPGRADE_DESCRIPTION": " Innate . NL  Random 丢Discard Draw  Pile中 Half 的 Card , Exhaust 其中 Cannot Be Play 的 Card . NL You  Gain 的  ShadowSword 将Be Extra  Upgrade 1 times .",
+    "EXTENDED_DESCRIPTION": [" NL ( Deal"," Damage）"]
   },
   "AmiyaMod:FullCry": {
     "NAME": "浸泪",
-    "DESCRIPTION": "虚无. NL 如果此卡 被 消耗 ,Lose !M! 点MaxHP."
+    "DESCRIPTION": " Ethereal. NL If  This Card Be  Exhaust ,Lose  !M! MaxHP."
   },
   "AmiyaMod:FinalSong": {
     "NAME": "炉芯终曲",
-    "DESCRIPTION": "随机Deal !D! damage !M! 次. NL Gain消耗牌堆中的1张 追忆 并 保留 . NL 结束你的回合."
+    "DESCRIPTION": " Random  Deal !D!  Damage !M!  times . NL  Gain  Exhaust Pile中的one  Memory 并  Retain . NL End Your Turn ."
   }
 }
-

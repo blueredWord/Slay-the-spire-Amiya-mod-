@@ -40,7 +40,7 @@ public class Memory extends CustomCard {
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
         this.misc = 1;
-        RefundVariable.setBaseValue(this,1);
+        //RefundVariable.setBaseValue(this,1);
         //this.exhaust = true ;
         //this.isEthereal = true;
         //源石卡牌tag

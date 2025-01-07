@@ -65,7 +65,7 @@ public class RedSky extends CustomCard {
         this.isEthereal = true;
         this.exhaust = true;
         if(n>=0){
-            this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)];
+            this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)]+ "+" + this.timesUpgraded;
             for (int i = 0;i<n;i++){
                 this.upgrade();
             }
@@ -85,7 +85,7 @@ public class RedSky extends CustomCard {
             );
             this.upgradedDamage = true;
             this.upgraded = true;
-            this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)];
+            this.name = CARD_STRINGS.NAME + "*" + CARD_STRINGS.EXTENDED_DESCRIPTION[Math.min(this.timesUpgraded, 5)]+ "+" + this.timesUpgraded;
             this.initializeTitle();
         }
     }
@@ -114,7 +114,8 @@ public class RedSky extends CustomCard {
             if (this.timesUpgraded>0 && p.hasPower(BonkPower.POWER_ID)){
                 for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
                     if (!mo.isDead && !mo.isDying) {
-                        this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.timesUpgraded), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+
+                        this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.timesUpgraded), -this.timesUpgraded, true));
                     }
                 }
             }
@@ -130,7 +131,8 @@ public class RedSky extends CustomCard {
                     )
             );
             if (this.timesUpgraded>0 && p.hasPower(BonkPower.POWER_ID)){
-                this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.timesUpgraded), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+
+                this.addToBot(new ApplyPowerAction(m, p, new StrengthPower(m, -this.timesUpgraded), -this.timesUpgraded, true));
             }
         }
         for (AbstractCard c : p.drawPile.group){

@@ -6,10 +6,8 @@ import Amiyamod.action.cards.KingSayAction;
 import Amiyamod.action.cards.MagicYuJinAction;
 import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.patches.CardColorEnum;
-import Amiyamod.patches.KingDamage;
-import Amiyamod.patches.YCardTagClassEnum;
-import Amiyamod.power.FirstSayPower;
-import Amiyamod.power.KingSayPower;
+
+
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;

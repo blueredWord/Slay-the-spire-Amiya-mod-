@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class Violin extends CustomRelic {
     public static final String NAME = "Violin";
     public static final String ID = Amiyamod.makeID(NAME);
-    private static final int ti = 14;
+    public static final int A = 14;
     public  Violin() {
         super(
                 ID,
@@ -21,19 +21,26 @@ public class Violin extends CustomRelic {
                 RelicTier.UNCOMMON,
                 LandingSound.SOLID
         );
+        // this.cost = 14;//丝线获得量
+    }
+    public void atTurnStart() {
+        if (!this.grayscale){
+            this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
+            Amiyamod.LinePower(A);
+            this.grayscale = true;
+        }
+
     }
 
     public void atBattleStartPreDraw(){
-        this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player,this));
-        Amiyamod.LinePower(ti);
-        this.grayscale = true;
+        this.grayscale = false;
     }
     public void onVictory() {
         this.grayscale = false;
     }
     // 返回遗物的描述
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0]+ti+DESCRIPTIONS[1];
+        return DESCRIPTIONS[0]+A+DESCRIPTIONS[1];
     }
 
     // 返回当前遗物的副本

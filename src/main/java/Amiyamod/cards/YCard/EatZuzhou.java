@@ -63,6 +63,7 @@ public class EatZuzhou extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName();
             //this.upgradeMagicNumber(1);
+            this.upgradeBaseCost(0);
             this.isInnate = true;
             this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[9];
             this.initializeDescription();

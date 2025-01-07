@@ -38,30 +38,13 @@ public class OnLoseTempHpCardPatch {
 
     @SpirePostfixPatch
     public static void Postfix(AbstractCreature __instance, DamageInfo info){
-        int damageAmount = info.output-block ;
-        int temp = temhp;
-        if (damageAmount> 0){
+        temhp -= Math.max(0,TempHPField.tempHp.get(AbstractDungeon.player));
+        if (temhp > 0){
             LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
-                    "模组核心：触发OnLoseTempHpCardPatch:收到的伤害减去格挡 > 0"
+                    "模组核心：patch中触发LineLose"+temhp
             );
             Amiyamod.LoseHPthisturn = true;
-        }
-        if (damageAmount > 0 && temp >= damageAmount){
-            for (AbstractCard card : AbstractDungeon.player.hand.group){
-                if (card instanceof OnLoseTempHpPower){
-                    ((OnLoseTempHpPower)card).onLoseTempHp(new DamageInfo(AbstractDungeon.player,damageAmount), damageAmount);
-                }
-            }
-            for (AbstractCard card : AbstractDungeon.player.drawPile.group){
-                if (card instanceof OnLoseTempHpPower){
-                    ((OnLoseTempHpPower)card).onLoseTempHp(new DamageInfo(AbstractDungeon.player,damageAmount), damageAmount);
-                }
-            }
-            for (AbstractCard card : AbstractDungeon.player.discardPile.group){
-                if (card instanceof OnLoseTempHpPower){
-                    ((OnLoseTempHpPower)card).onLoseTempHp(new DamageInfo(AbstractDungeon.player,damageAmount), damageAmount);
-                }
-            }
+            Amiyamod.LineLose(temhp);
         }
         temhp = 0;
     }

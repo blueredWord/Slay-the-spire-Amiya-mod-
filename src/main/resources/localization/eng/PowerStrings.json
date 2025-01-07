@@ -1,77 +1,245 @@
 {
-  "WarlordEmblem:ColdSnapPower": {
-    "NAME": "Cold Snap",
+  "AmiyaMod:UI": {
+    "NAME": "Soul Furnace",
     "DESCRIPTIONS": [
-      "Next ",
-      " attack damage will also apply #yVulnerable and #yWeak ."
+      "Please choose the card you want to upgrade.",
+      "Please choose the card you want to keep.",
+      "Please choose the card you want to use as fuel for the soul furnace.",
+      "Please choose the card you want to rescue.",
+      "Please choose the card you want to heal.",
+      "Please choose the source stone skill you want to prepare.",
+      "Please choose the skill you want to inherit.",
+      "Please choose the emotion you want to experience.",
+      "Please choose the card you want to mimic."
     ]
   },
-  "WarlordEmblem:DeafeningBlastPower": {
-  "NAME": "Deafening Blast",
-  "DESCRIPTIONS": [
-    "Deal Half damage."
-  ]
-},
-  "WarlordEmblem:CrystalCenterPower": {
-  "NAME": "Crystal Center",
-  "DESCRIPTIONS": [
-    "All damage you inflict from cards is 12."
-  ]
-},
-  "WarlordEmblem:RealmRiderPower": {
-  "NAME": "Death Rider",
-  "DESCRIPTIONS": [
-    "You have the abilities of all three talent Specializations."
-  ]
-},
-  "WarlordEmblem:RealmIncreasePower": {
-  "NAME": "Specialization increase",
-  "DESCRIPTIONS": [
-    "Increases specialization effect by #b",
-    "Decreases specialization effect by #b",
-    "."
-  ]
-},
-  "WarlordEmblem:LichkingWraithPower": {
-  "NAME": "Lich King Wraith",
-  "DESCRIPTIONS": [
-    "At the start of your turn, gain #b",
-    " #yRealm Increase."
-  ]
-},
-  "WarlordEmblem:RuneMultiplexPower": {
-  "NAME": "Rune Multiplex",
-  "DESCRIPTIONS": [
-    "This turn, your next #b",
-    " use #yRune Energy card(s) will not use #yRune Energy."
-  ]
-},
-  "WarlordEmblem:BloodMaskPower": {
-  "NAME": "Blood Mark",
-  "DESCRIPTIONS": [
-    "On death, heals you for #b",
-    " HP"
-  ]
-},
-  "WarlordEmblem:RuneIndexPower": {
-  "NAME": "Rune Index",
-  "DESCRIPTIONS": [
-    "At the start of your turn,add #b",
-    " random \"Rune\" card(s) into your hand and gain #b",
-    " #yRune Energy."
-  ]
-},
-  "WarlordEmblem:WrathOfSindragosaPower": {
-  "NAME": "Wrath Of Sindragosa",
-  "DESCRIPTIONS": [
-    "When you played a:",
-    " #rAttack ,apply #y",
-    " Weak to all enemy,",
-    " #gSkill ,deal #y",
-    " damage to all enemy,",
-    " #bPower ,all enemy lost #y",
-    " Strength.",
-    " NL "
-  ]
+  "AmiyaMod:UI2": {
+    "NAME": "Soul Furnace",
+    "DESCRIPTIONS": [
+      "Please choose the card to be recorded in the terminal.",
+      " Source Stone Skill . NL ",
+      " Keep . NL ",
+      " Source Stone Skill . Keep . NL "
+    ]
+  },
+  "AmiyaMod:BeautifulLifePower": {
+    "NAME": "Fateful Prophecy",
+    "DESCRIPTIONS": [
+      "When you play a card with energy cost reduced to #b0, #y",
+      " , lose life equal to the original energy cost."
+    ]
+  },
+  "AmiyaMod:HerDoPower": {
+    "NAME": "Do as She Does",
+    "DESCRIPTIONS": [
+      "At the end of the turn, deal damage to all enemies equal to #b times the number of life lost this turn. (Deal #b",
+      " points of damage.)"
+    ]
+  },
+  "AmiyaMod:HerSeePower": {
+    "NAME": "See as She Sees",
+    "DESCRIPTIONS": [
+      "For each #b1 point of energy consumed this turn, lose #b1 points of life #b",
+      " times.",
+      ""
+    ]
+  },
+  "AmiyaMod:LineBowPower": {
+    "NAME": "Cocoon",
+    "DESCRIPTIONS": [
+      "At the end of the turn, gain",
+      " points of #y thread.",
+      " Then, lose life equal to the original energy cost."
+    ]
+  },
+  "AmiyaMod:LineDefenderPower": {
+    "NAME": "Advance",
+    "DESCRIPTIONS": [
+      "Each time you lose #y thread, gain #b",
+      " points of #y block.",
+      ""
+    ]
+  },
+  "AmiyaMod:MercyPower": {
+    "NAME": "Vision of Mercy",
+    "DESCRIPTIONS": [
+      "When dealing damage this turn, gain #y thread equal to half of the damage dealt."
+    ]
+  },
+  "AmiyaMod:NoFengPower": {
+    "NAME": "No Edge",
+    "DESCRIPTIONS": [
+      "Until the next round begins, for every #b2 points of damage received, gain",
+      " layers of Cocoon.",
+      " Then, lose life equal to the original energy cost."
+    ]
+  },
+  "AmiyaMod:OpenPower": {
+    "NAME": "Bloom",
+    "DESCRIPTIONS": [
+      "Each time you take damage, make #b1 random enemies gain",
+      " layers of #y Weakness.",
+      " Each time you take damage, you gain"
+    ]
+  },
+  "AmiyaMod:SoulDefenderPower": {
+    "NAME": "Shadow Gateway",
+    "DESCRIPTIONS": [
+      "Each time you take damage, gain #b",
+      " points of thread.",
+      " Then, lose life equal to the original energy cost."
+    ]
+  },
+  "AmiyaMod:SnakePower": {
+    "NAME": "Temporary Chaos",
+    "DESCRIPTIONS": [
+      "For every card drawn, the energy cost will change randomly. #b",
+      " rounds after this effect ends.",
+      " Each card you draw will have randomly changing energy costs. This effect ends at the end of the turn."
+    ]
+  },
+  "AmiyaMod:CRingPower": {
+    "NAME": "Ring of Thorns",
+    "DESCRIPTIONS": [
+      "Each time you exhaust #y thread, gain #b",
+      " layers of #y Thorns."
+    ]
+  },
+  "AmiyaMod:CardBackPower": {
+    "NAME": "Refund",
+    "DESCRIPTIONS": [
+      "At the start of the next turn, the #y",
+      " in the draw pile or discard pile will return to your hand."
+    ]
+  },
+  "AmiyaMod:RedSkyPower": {
+    "NAME": "Unsheathe",
+    "DESCRIPTIONS": [
+      "This turn, each time you play a non-#y Shadow Gale attack card, add a #y Shadow Gale to your hand."
+    ]
+  },
+  "AmiyaMod:AngryForeverPower": {
+    "NAME": "Unnamed Fury",
+    "DESCRIPTIONS": [
+      "Each time you play a card with an energy cost of at least #b, upgrade all #y Shadow Gale cards in your hand #b times.",
+      "At the start of your turn, enter #y Unsheathe state."
+    ]
+  },
+  "AmiyaMod:FireAgainPower": {
+    "NAME": "Spark Rekindling",
+    "DESCRIPTIONS": [
+      "When playing the first card of the turn that is not in the deck, gain an extra copy.",
+      "When you play the first #b cards that are not in the deck, gain an extra copy."
+    ]
+  },
+  "AmiyaMod:SoMuchSworldPower": {
+    "NAME": "Infinite Sword Control",
+    "DESCRIPTIONS": [
+      "At the start of each turn, #y Sword Essence #b."
+    ]
+  },
+  "AmiyaMod:BigNotWorkPower": {
+    "NAME": "Angry Eyes of the Firmament",
+    "DESCRIPTIONS": [
+      "The first #b cards of #y Shadow Gale you gain each turn will be additionally #y upgraded #b1 times.",
+      "You gain the next #b"
+    ]
+  },
+  "AmiyaMod:ShadowBlueFirePower": {
+    "NAME": "Blue Flame Scorching",
+    "DESCRIPTIONS": [
+      "When you are in #y Unsheathe state, playing a non-attack card will also grant #y Shadow Gale."
+    ]
+  },
+  "AmiyaMod:ShadowDefendPower": {
+    "NAME": "Guard Stance",
+    "DESCRIPTIONS": [
+      "When you play #y Shadow Gale, gain #y block equal to the damage value."
+    ]
+  },
+  "AmiyaMod:ShadowWaterMusicPower": {
+    "NAME": "Water Melody",
+    "DESCRIPTIONS": [
+      "When you play #y Shadow Gale, deal damage to all enemies."
+    ]
+  },
+  "AmiyaMod:LoseTempHpPower": {
+    "NAME": "Silken Life is Precious",
+    "DESCRIPTIONS": [
+      "When you lose thread, the effect of losing life on cards can also be triggered."
+    ]
+  },
+  "AmiyaMod:YSayPower": {
+    "NAME": "Infection Outbreak",
+    "DESCRIPTIONS": [
+      "This turn, your #y infection progress will not accumulate. And even if you have no #y Source Stone Curse, the additional activation effect of #y Source Stone Skills will trigger at least #b1 times."
+    ]
+  },
+  "AmiyaMod:MindEatPower": {
+    "NAME": "Emotion Absorption",
+    "DESCRIPTIONS": [
+      "If you play #b",
+      " attack cards in this turn, draw #b",
+      " cards.",
+      " attack cards, draw #b"
+    ]
+  },
+  "AmiyaMod:MemoryPower": {
+    "NAME": "Memory of",
+    "DESCRIPTIONS": [
+      "Faded memories",
+      "Recollection:",
+      " NL Nothingness. Consume.",
+      " NL Nothingness.",
+      " NL Consume.",
+      "At the start of the turn, put #b",
+      " cards from #y",
+      " 's #y recollection into your hand."
+    ]
+  },
+  "AmiyaMod:ChiMeRaPower": {
+    "NAME": "Chimera",
+    "DESCRIPTIONS": [
+      "During this turn, your dealt damage increases by #b%",
+      " At the end of the effect, you will discard all cards in hand and skip a turn."
+    ]
+  },
+  "AmiyaMod:ZuZhouMagicPower": {
+    "NAME": "Cursed Sorcery",
+    "DESCRIPTIONS": [
+      "Each time you lose life,",
+      " #y",
+      " and",
+      " will also lose an equal amount of life."
+    ]
+  },
+  "AmiyaMod:MindBubblePower": {
+    "NAME": "Bubble",
+    "DESCRIPTIONS": [
+      "After you play a #b attack card, lose #b",
+      " points of #y thread. After losing this #y thread, draw #b",
+      " cards."
+    ]
+  },
+  "AmiyaMod:BreakRingPower": {
+    "NAME": "Extreme Spellcasting",
+    "DESCRIPTIONS": [
+      "The next #b cards of #y Acute Attack you play will trigger their effects #b1 times additionally."
+    ]
+  },
+  "AmiyaMod:SoulBurnPower": {
+    "NAME": "Soul Furnace",
+    "DESCRIPTIONS": [
+      "At the start of the turn, gain #b1 energy."
+    ]
+  },
+  "AmiyaMod:FirstSayPower": {
+    "NAME": "Ananai",
+    "DESCRIPTIONS": [
+      "At the end of each turn, condense all non-#y Source Stone Curse cards in your hand into one #y Source Stone Crystal.",
+      "To take #b1 random #y Source Stone Skill cards into your hand."
+    ]
+  }
+}
 }
 }

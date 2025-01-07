@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 //基础伤害技艺
 //急性发作2  造成6（9）点伤害1次。 每次打出令下次造成伤害次数+1次。
@@ -41,7 +43,7 @@ public class AmiyaMagic extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(5); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(4); // 将该卡牌的伤害提高3点。
 
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -51,18 +53,17 @@ public class AmiyaMagic extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0;i < this.magicNumber ; i++){
-            this.addToBot(
-                    new DamageAction(
-                            m,
-                            new DamageInfo(
-                                    p,
-                                    damage,
-                                    this.damageTypeForTurn
-                            )
-                    )
-            );
-        }
+        this.addToBot(
+                new DamageAction(
+                        m,
+                        new DamageInfo(
+                                p,
+                                damage,
+                                this.damageTypeForTurn
+                        )
+                )
+        );
+        this.addToBot(new ApplyPowerAction(m,p,new WeakPower(m, this.magicNumber, false)));
     }
     public AbstractCard makeCopy() {return new AmiyaMagic();}
 }

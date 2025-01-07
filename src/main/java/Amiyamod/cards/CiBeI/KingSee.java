@@ -8,6 +8,7 @@ import basemod.abstracts.CustomCard;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -34,9 +35,9 @@ public class KingSee extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.damage = this.baseDamage = 8;
         //this.baseBlock = this.block = 12;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 8;
         this.baseDraw = this.draw = 2;
-        this.misc = 8;
+        this.misc = 2;
         //this.exhaust = true;
         //this.isEthereal = true;
         //this.selfRetain = true;
@@ -55,7 +56,7 @@ public class KingSee extends CustomCard {
             //this.exhaust = true;
             //this.isEthereal = false;
             //this.upgradeDamage(4);
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(-4);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -66,10 +67,10 @@ public class KingSee extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //m.takeTurn();
         //this.addToBot();
-        //this.addToBot(new GainEnergyAction(this.misc));
-        Amiyamod.LinePower(this.misc,m);
+        this.addToBot(new HealAction(m,p,this.magicNumber));
+        //Amiyamod.LinePower(this.misc,m);
         this.addToBot(new DrawCardAction(this.draw));
-        this.addToBot(new ApplyPowerAction(m,p,new KingSeePower(this.magicNumber,m)));
+        this.addToBot(new ApplyPowerAction(m,p,new KingSeePower(this.misc,m)));
         //this.addToBot(new ApplyPowerAction(p,p,new KingSayPower(this.magicNumber)));
     }
 
