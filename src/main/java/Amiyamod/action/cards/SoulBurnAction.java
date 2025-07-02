@@ -44,6 +44,7 @@ public class SoulBurnAction extends AbstractGameAction {
                 }
                 this.addToTop(new ApplyPowerAction(p,p,new SoulBurnPower(i)));
             }
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.isDone=true;
         }
     }

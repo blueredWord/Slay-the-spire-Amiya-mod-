@@ -60,6 +60,8 @@ public class EatZuzhouAction extends AbstractGameAction {
                     c.moveToDiscardPile();
                     AbstractDungeon.player.drawPile.moveToHand(c);
                 }
+
+                AbstractDungeon.gridSelectScreen.selectedCards.clear();
             }
             this.isDone = true;
         }

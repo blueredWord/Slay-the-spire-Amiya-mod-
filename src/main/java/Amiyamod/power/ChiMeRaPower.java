@@ -102,7 +102,6 @@ public class ChiMeRaPower extends AbstractPower implements DamageModApplyingPowe
         } else {
             this.addToBot(new ReducePowerAction(this.owner, this.owner, this.ID, 1));
         }
-
     }
 
     @Override

@@ -52,16 +52,16 @@ public class Hope extends CustomCard {
             //this.upgradeMagicNumber(1);
             //this.selfRetain = true;
             //this.selfRetain = true;
-            //this.upgradeBaseCost(0);
-            this.isInnate = true ;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.upgradeBaseCost(0);
+            //this.isInnate = true ;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p,p,new HopePower()));
+        this.addToBot(new ApplyPowerAction(p,p,new HopePower(this.magicNumber)));
     }
 
     public AbstractCard makeCopy() {return new Hope();}

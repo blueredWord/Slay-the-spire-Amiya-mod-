@@ -3,6 +3,7 @@ package Amiyamod.cards.CiBeI;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.LineHandAction;
 import Amiyamod.patches.CardColorEnum;
+import Amiyamod.patches.OnCombatStartInterface;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.SadMindPower;
 import Amiyamod.power.SoulDefendPower;
@@ -19,7 +20,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import java.util.ArrayList;
 //手中线
 //源石技艺 。 NL 获得 !M! 点丝线，本回合每打出一张同名卡额外获得4点 丝线 。将抽牌堆中的同名卡拿到手中。 NL 虚无 。
-public class LineHand extends CustomCard {
+public class LineHand extends CustomCard{
     private static final String NAME = "LineHand";//卡片名字
     public static final String ID = Amiyamod.makeID(NAME);//卡片ID
 
@@ -46,17 +47,21 @@ public class LineHand extends CustomCard {
     public void applyPowers() {
         int realBaseDamage = this.baseMagicNumber;
 
-        this.misc = -1;
+        this.misc = 0;
         for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
             if (c.isEthereal){
                 this.misc++;
             }
         }
-
-        this.baseMagicNumber += Math.max(this.misc,0);
+        if (this.misc > 0){
+            //this.rawDescription = CARD_STRINGS.DESCRIPTION + CARD_STRINGS.EXTENDED_DESCRIPTION[0] + this.misc + CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+            //this.initializeDescription();
+            this.baseMagicNumber += this.misc;
+            this.magicNumber = this.baseMagicNumber;
+        }
         super.applyPowers();
         this.baseMagicNumber = realBaseDamage;
-        this.isMagicNumberModified = this.magicNumber != this.baseMagicNumber;
+        this.isMagicNumberModified = (this.magicNumber != this.baseMagicNumber);
     }
 
     @Override
@@ -66,22 +71,16 @@ public class LineHand extends CustomCard {
             //this.upgradeMagicNumber(5);
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
             this.upgradeMagicNumber(3);
-            this.initializeDescription();
+
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int i = -1;
-        for (AbstractCard c : AbstractDungeon.actionManager.cardsPlayedThisCombat){
-            if (c.isEthereal){
-                i++;
-            }
-        }
 
-        this.magicNumber += Math.max(i,0);
         Amiyamod.LinePower(this.magicNumber);
     }
 
     public AbstractCard makeCopy() {return new LineHand();}
+
 }

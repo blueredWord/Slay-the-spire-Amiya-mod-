@@ -63,7 +63,7 @@ public class SadMind extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
-        int i = TempHPField.tempHp.get(p) - (p.maxHealth - p.currentHealth);
+        int i = p.maxHealth - p.currentHealth - Amiyamod.playerLine;
         if (i>0) {
             Amiyamod.LinePower(i);
         }
@@ -72,17 +72,12 @@ public class SadMind extends CustomCard {
 
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-        boolean canUse = super.canUse(p, m);
-        if (!canUse) {
-            return false;
-        } else {
-            int i = Math.max( TempHPField.tempHp.get(p) , p.maxHealth - p.currentHealth );
-            if (i>0){
-                return true;
-            }
-            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-            return false;
+        int i = p.maxHealth - p.currentHealth - Amiyamod.playerLine;
+        if (i>=0){
+            return super.canUse(p, m);
         }
+        this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        return false;
     }
 
 

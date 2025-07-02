@@ -32,8 +32,12 @@
   },
   "AmiyaMod:LineHand": {
     "NAME": "诸魂庇佑",
-    "DESCRIPTION": "获得 !M! 点 丝线 。 NL 你每打出过1张 虚无 牌， 获得量提高 1 。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 点 丝线 。你每打出过一张 虚无 牌， 获得量提高 1 。 NL 下回合开始时 丝线 不会减半。 NL 虚无 。"
+    "DESCRIPTION": "获得 !M! 点 丝线 。 NL 获得量按打出过 虚无 牌的数量提高。 NL 虚无 。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 丝线 。每打出过1张 虚无 牌， 获得量提高 1 。 NL 下回合开始时 丝线 不会减半。 NL 虚无 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （已打出 #y",
+      " 张。）"
+    ]
   },
   "AmiyaMod:CNoC": {
     "NAME": "有刺无刺",
@@ -45,7 +49,7 @@
   },
   "AmiyaMod:Echo": {
     "NAME": "血魔之雨",
-    "DESCRIPTION": "失去2点生命。 NL 对所有敌人造成 !D! 点伤害。 本回合每当你对敌人造成伤害时，获得 !M! 点 丝线 。",
+    "DESCRIPTION": "失去1点生命对所有敌人造成 !D! 点伤害 2 次。 NL 本回合每次对敌人造成伤害时获得 !M! 点 丝线 。",
     "UPGRADE_DESCRIPTION": " 失去1点生命 2 次。 NL 对所有敌人造成 !D! 点伤害X+1次 NL 获得 !M! 点 丝线 X+1次。"
   },
   "AmiyaMod:HelBox": {
@@ -191,7 +195,8 @@
     "DESCRIPTION": "丢弃一张 影霄 并移除其 消耗 。 下回合开始时 将其拿回手牌。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "将一张 影霄 置于抽牌堆顶。 NL 将其 升级 并移除其 消耗 。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
-      "我的手中没有剑刃。 "
+      "我的手中没有剑刃。 ",
+      "我的手中没有影霄。 "
     ]
   },
   "AmiyaMod:ShadowBlueFire": {
@@ -255,8 +260,8 @@
   },
   "AmiyaMod:MindBubble": {
     "NAME": "情感泡泡",
-    "DESCRIPTION": "虚无 。 NL 获得9点 丝线 。 当你打出攻击牌时失去这些 丝线 。 NL 当你失去所有来自此牌的 丝线 后， 抽1张牌。",
-    "UPGRADE_DESCRIPTION": "获得9点 丝线 。 当你打出攻击牌时失去这些 丝线 。 NL 当你失去所有来自此牌的 丝线 后， 抽1张牌。"
+    "DESCRIPTION": "获得9点会在打出攻击牌时失去的 丝线 。 NL 失去所有来自此牌的 丝线 后， 抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "获得9点 丝线 。 打出攻击牌时失去这些 丝线 。 NL 当你失去所有来自此牌的 丝线 后， 抽1张牌。"
   },
   "AmiyaMod:ZuZhouMagic": {
     "NAME": "诅咒巫咒",
@@ -287,7 +292,9 @@
   },
   "AmiyaMod:WhoKnowOne": {
     "NAME": "被预言的魔王",
-    "DESCRIPTION": "对所有敌人造成!D!点伤害。 NL 战斗开始时，按照卡组中 源石诅咒 的数量 升级 此牌。 NL 能被多次 升级 。"
+    "DESCRIPTION": "对所有敌人造成!D!点伤害。 NL 战斗开始时，按照卡组中 源石诅咒 的数量 升级 此牌。 NL 能被多次 升级 。",
+    "EXTENDED_DESCRIPTION": [
+      "对所有敌人造成!D!点伤害。 NL 能被多次 升级 。"]
   },
   "AmiyaMod:ASay": {
     "NAME": "源石结晶",
@@ -308,7 +315,7 @@
     "UPGRADE_DESCRIPTION": "源石技艺 。 NL 去除你的 易伤 。 NL 获得 !B! 点 格挡 和1层 人工制品 。"
   },
   "AmiyaMod:SeeMe": {
-    "NAME": "见我",
+    "NAME": "不容拒绝",
     "DESCRIPTION": "源石技艺 。 NL 抽取一张 源石诅咒 。 NL 造成 !D! 点伤害，获得 NL 手牌数 !M! 倍的 丝线 。",
     "UPGRADE_DESCRIPTION": "源石技艺 。 NL 造成!D!点伤害。 NL 获得 !M! 点 丝线 。"
   },
@@ -546,8 +553,8 @@
   },
   "AmiyaMod:SadMind": {
     "NAME": "哀恸共情",
-    "DESCRIPTION": "获得 丝线 直到其等同于已损失的生命值。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 获得 丝线 直到其等同于已损失的生命值。 NL 消耗 。",
+    "DESCRIPTION": "获得 丝线 直到等于 NL 已损失的生命值。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 获得 丝线 直到等于 NL 已损失的生命值。 NL 消耗 。",
     "EXTENDED_DESCRIPTION": [
       "我还不能感受到他们的苦难。"
     ]
@@ -622,8 +629,8 @@
   },
   "AmiyaMod:BlackKing": {
     "NAME": "黑冠圣贤",
-    "DESCRIPTION": "在你的回合结束时，将 !M! 张 *尊主之影 加入手牌。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 在你的回合结束时，将 !M! 张 *尊主之影 加入手牌。"
+    "DESCRIPTION": "在回合结束时和现在，将 !M! 张 *尊主之影 加入手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 在回合结束时和现在，将 !M! 张 *尊主之影 加入手牌。"
   },
   "AmiyaMod:KingShadow": {
     "NAME": "尊主之影",
@@ -691,7 +698,7 @@
   },
   "AmiyaMod:Wish": {
     "NAME": "诚挚期许",
-    "DESCRIPTION": "在你的回合结束时获得 !M! 点 丝线 。"
+    "DESCRIPTION": "获得 !M! 点 丝线 。 NL 每回合结束时获得 !M! 点 丝线 。"
   },
   "AmiyaMod:MagicPC": {
     "NAME": "私人巫术终端",
@@ -715,12 +722,12 @@
   },
   "AmiyaMod:Hope": {
     "NAME": "期冀之汇",
-    "DESCRIPTION": " 感染进度 增长时，若你拥有 丝线 ， NL 失去1点 生命并阻止本次增长。",
+    "DESCRIPTION": " 感染进度 增长时，若你拥有 丝线 。 NL 失去1点 生命以阻止增长并抽 !M! 张牌。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL 感染进度 增长时，若你拥有 丝线 ， NL 失去1点生命并阻止本次增长。"
   },
   "AmiyaMod:HerDo": {
     "NAME": "行她所行",
-    "DESCRIPTION": "在你的回合结束时， 本回合你每失去一次生命， 对所有敌人造成 !M! 点伤害。"
+    "DESCRIPTION": "在你的回合结束时， 当回合你每失去一次生命， 对所有敌人造成 !M! 点伤害。"
   },
   "AmiyaMod:HerSee": {
     "NAME": "见她所见",
@@ -734,7 +741,7 @@
   "AmiyaMod:ShadowSkyOpen": {
     "NAME": "天瞠",
     "DESCRIPTION": "你获得的 影霄 将被 NL 额外 升级 1次。 NL 虚无 。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 你获得的 影霄 将被 NL 额外 升级 1次。",
+    "UPGRADE_DESCRIPTION": "你获得的 影霄 将被 NL 额外 升级 1次。",
     "EXTENDED_DESCRIPTION": [
       "NL 随机丢弃抽牌堆中一半的牌，消耗 其中 不能被打出 的牌。 NL ",
       "点伤害）"
@@ -784,7 +791,16 @@
   },
   "AmiyaMod:Finding": {
     "NAME": "阿纳萨之觉",
-    "DESCRIPTION": "虚无 。 NL 失去 50 金币 。 NL 消耗 1张牌 ，若为 诅咒 ，从牌组中移除。否则将其永久 升级 。 NL (使用 !M! 次后移除。)",
-    "UPGRADE_DESCRIPTION":"虚无 。 NL 失去 50 金币 。 NL 消耗 1张牌 ，若为 诅咒 ，从牌组中移除。否则将其永久 升级 。"
+    "DESCRIPTION": "虚无 。 NL 消耗 打出的下 1张牌 。 将其永久 升级 。 NL (使用 !M! 次后移除。)",
+    "UPGRADE_DESCRIPTION":"虚无 。 NL 消耗 1张牌 ，若为 诅咒 ，从牌组中移除。否则将其永久 升级 。"
+  },
+  "AmiyaMod:Before": {
+    "NAME": "昔日道标",
+    "DESCRIPTION": "固有 。 NL 被 消耗 时打出  ",
+    "UPGRADE_DESCRIPTION":"。 NL 无法被打出 。 NL 保留 。",
+    "EXTENDED_DESCRIPTION": [
+      "固有 。 NL 被 消耗 时打出  ",
+      "。 NL 无法被打出 。 NL 保留 。"
+    ]
   }
 }

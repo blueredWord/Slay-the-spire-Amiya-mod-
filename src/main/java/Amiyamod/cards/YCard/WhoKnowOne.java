@@ -77,5 +77,7 @@ public class WhoKnowOne extends CustomCard implements OnCombatStartInterface {
                 this.upgrade();
             }
         }
+        this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        this.initializeDescription();
     }
 }

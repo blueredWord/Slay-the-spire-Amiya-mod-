@@ -51,20 +51,22 @@ public class ShadowUpgrade extends CustomCard {
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
 
-        if (!super.canUse(p, m)) {
-            return false;
-        } else {
-            if (!p.hand.isEmpty()){
-                for (AbstractCard c : p.hand.group){
-                    if (c instanceof RedSky){
-                        return true;
-                    }
+        if (!p.hand.isEmpty()){
+            for (AbstractCard c : p.hand.group){
+                if (c instanceof RedSky){
+                    return super.canUse(p, m);
                 }
             }
-            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
-            return false;
         }
+        if (new Random().nextBoolean()){
+            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
+        } else {
+            this.cantUseMessage = CARD_STRINGS.EXTENDED_DESCRIPTION[1];
+        }
+        //this.cantUseMessage =" CARD_STRINGS.EXTENDED_DESCRIPTION[0]";
+        return false;
     }
+
     @Override
     public void upgrade() {
         if (!this.upgraded) {

@@ -27,13 +27,13 @@ public class MindBubblePower extends TwoAmountPower implements OnLoseTempHpPower
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     final static int paopao = 9;
-    public MindBubblePower(int i) {
+    public MindBubblePower(int a ,int i) {
         this.name = powerStrings.NAME;
         this.ID = POWERID;
         this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = i;
-        this.amount2 = i * paopao;
+        this.amount2 = a;
         this.type = PowerType.BUFF;
 
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);

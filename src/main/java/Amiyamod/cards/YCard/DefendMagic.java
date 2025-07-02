@@ -1,7 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
-import Amiyamod.action.cards.MagicYuJinAction;
+
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;

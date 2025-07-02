@@ -51,6 +51,7 @@ public class Wish extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 获得茧
+        Amiyamod.LinePower(this.magicNumber);
         this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,this.magicNumber)));
     }
 

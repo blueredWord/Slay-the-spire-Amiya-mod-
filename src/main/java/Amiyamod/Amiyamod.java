@@ -19,6 +19,8 @@ import Amiyamod.potions.LovePotion;
 import Amiyamod.potions.YPotion;
 import Amiyamod.power.*;
 import Amiyamod.relics.*;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
 import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.helpers.RelicType;
 import com.badlogic.gdx.Gdx;
@@ -279,6 +281,7 @@ public class Amiyamod implements
         } else if ( n>0 && p.hasPower(HopePower.POWER_ID) && TempHPField.tempHp.get(p) > 0 ) {
             p.getPower(HopePower.POWER_ID).flash();
             BurnSelf(1);
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p.getPower(HopePower.POWER_ID).amount));
         } else {
             //if  (p.hasRelic(BurnSkirt.ID)){p.getRelic(BurnSkirt.ID).onTrigger();}
             if (p.hasRelic(Yill.ID)){
@@ -412,6 +415,7 @@ public class Amiyamod implements
             }else{
                 //记录来自阿米娅mod的丝线量
                 playerLine = Math.max(playerLine,0);
+                number = Math.min(999-playerLine,number);
                 playerLine += number;
                 LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                         "模组核心：丝线记录：获得{}丝线,剩余：{}", number,playerLine
@@ -677,6 +681,8 @@ public class Amiyamod implements
     public void receiveEditCards() {
         List<CustomCard> cards = new ArrayList<>();
     //加入卡牌
+        //cards.add(new Only());
+        //cards.add(new Before());
 
         cards.add(new AmiyaStrike());
 
@@ -942,10 +948,12 @@ public class Amiyamod implements
     @Override
     public void receiveEditRelics() {
         logger.debug("Amiyamod relic load start.");
+        //BaseMod.addRelicToCustomPool(new Story(),CardColorEnum.AMIYA);
+
         BaseMod.addRelicToCustomPool(new TheTen(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new TenRelic2(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new YRing(),CardColorEnum.AMIYA);
-        BaseMod.addRelicToCustomPool(new YRing2(),CardColorEnum.AMIYA);
+        //BaseMod.addRelicToCustomPool(new YRing2(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new Violin(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new HealCard(),CardColorEnum.AMIYA);
         BaseMod.addRelicToCustomPool(new GoldenStone(),CardColorEnum.AMIYA);
@@ -963,9 +971,24 @@ public class Amiyamod implements
         logger.debug("Amiyamod relic load finish.");
 
         logger.info("准备导入事件");
-        BaseMod.addEvent(dream.ID, dream.class, Exordium.ID);
-        BaseMod.addEvent(story.ID, story.class, TheBeyond.ID);
+
+        BaseMod.addEvent(new AddEventParams.Builder(dream.ID, dream.class)
+                .dungeonID(Exordium.ID)
+                .playerClass(AmiyaClassEnum.AMIYA)
+                .eventType(EventUtils.EventType.ONE_TIME)
+                .create()
+        );
+
+        BaseMod.addEvent(new AddEventParams.Builder(story.ID, story.class)
+                .dungeonID(TheBeyond.ID)
+                .playerClass(AmiyaClassEnum.AMIYA)
+                .eventType(EventUtils.EventType.ONE_TIME)
+                .create()
+        );
+
         logger.info("应该导入好了？");
+
+
 
         logger.info(
                 "尝试加入药水"

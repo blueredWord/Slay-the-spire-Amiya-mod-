@@ -3,8 +3,6 @@ package Amiyamod.cards.YCard;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ChoseTempToHandAction;
 import Amiyamod.action.cards.KingSayAction;
-import Amiyamod.action.cards.MagicYuJinAction;
-import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.patches.CardColorEnum;
 
 

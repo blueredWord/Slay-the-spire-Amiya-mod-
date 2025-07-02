@@ -59,7 +59,7 @@ public class Her extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(2);
+            this.upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }

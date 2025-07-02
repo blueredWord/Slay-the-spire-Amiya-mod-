@@ -5,8 +5,10 @@ import Amiyamod.action.cards.FindingAction;
 import Amiyamod.cards.CiBeI.SoulDoor;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
+import Amiyamod.power.FindingPower;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -47,19 +49,21 @@ public class Finding extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.magicNumber = this.baseMagicNumber = 3;
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.magicNumber = this.baseMagicNumber = 3;
+            this.upgradeBaseCost(0);
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.player.loseGold(AbstractDungeon.player.gold);
-        this.addToBot(new FindingAction(this.misc));
-        if (!this.upgraded){
+        //AbstractDungeon.player.loseGold(50);
+        //this.addToBot(new FindingAction(this.misc));
+        //if (!this.upgraded){
             this.upgradeMagicNumber(-1);
             this.applyPowers();
+            this.addToBot(new ApplyPowerAction(p,p,new FindingPower(p,1)));
             for (AbstractCard caa: AbstractDungeon.player.masterDeck.group) {
                 if (caa.uuid == this.uuid) {
                     caa.baseMagicNumber = caa.magicNumber = this.magicNumber;
@@ -75,7 +79,7 @@ public class Finding extends CustomCard {
                     break;
                 }
             }
-        }
+        //}
     }
 
     public AbstractCard makeCopy() {

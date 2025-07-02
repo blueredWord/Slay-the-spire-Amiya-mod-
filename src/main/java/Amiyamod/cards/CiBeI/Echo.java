@@ -42,9 +42,9 @@ public class Echo extends CustomCard {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.isMultiDamage = true;
         //this.baseMagicNumber = 9;
-        this.magicNumber = this.baseMagicNumber = 3;
-        this.baseDamage = this.damage = 13;
-        this.misc = 2;
+        this.magicNumber = this.baseMagicNumber = 2;
+        this.baseDamage = this.damage = 8;
+        this.misc = 1;
         //DamageModifierManager.addModifier(this, new YDamage());
         //this.isInnate = true; //固有
         //源石卡牌tag
@@ -57,7 +57,7 @@ public class Echo extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             // 加上以下两行就能使用UPGRADE_DESCRIPTION了（如果你写了的话）
-            this.upgradeDamage(5);
+            this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
             //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -66,11 +66,14 @@ public class Echo extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new LoseHPAction(p,p,this.misc));
         this.addToBot(new ApplyPowerAction(p,p,new BloodPower(this.magicNumber)));
         //this.addToBot(new DamageAction(m, BindingHelper.makeInfo(this, p, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.2F));
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.NONE, true));
+
+        for (int i=0;i<2;i++){
+            this.addToBot(new VFXAction(p, new ShockWaveEffect(p.hb.cX, p.hb.cY, Settings.GREEN_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.2F));
+            this.addToBot(new LoseHPAction(p,p,this.misc));
+            this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageType, AbstractGameAction.AttackEffect.NONE, true));
+        }
 
         //Amiyamod.LinePower(this.damage);
         //this.addToBot(new EchoAction(p, this));

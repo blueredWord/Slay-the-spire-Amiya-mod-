@@ -65,7 +65,7 @@ public class FindingAction extends AbstractGameAction {
         this.p.hand.refreshHandLayout();
         this.tickDuration();
     }
-    void work(AbstractCard c){
+    public static void work(AbstractCard c){
         for (AbstractCard caa: AbstractDungeon.player.masterDeck.group) {
             if (caa.uuid == c.uuid) {
                 if(caa.type != AbstractCard.CardType.CURSE){

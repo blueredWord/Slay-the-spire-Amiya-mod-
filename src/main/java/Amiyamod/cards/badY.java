@@ -32,7 +32,7 @@ public class badY extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 2;//【卡片费用】
+    private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.POWER;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.CURSE;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final CardTarget TARGET = CardTarget.NONE;//【是否指向敌人】
@@ -43,7 +43,7 @@ public class badY extends CustomCard {
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 2;
         //this.heal = 15;
-        this.misc = 60;
+        this.misc = 80;
         this.selfRetain = true;
         //this.selfRetain = true;
 

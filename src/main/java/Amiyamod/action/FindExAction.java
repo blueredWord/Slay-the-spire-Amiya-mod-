@@ -46,6 +46,7 @@ public class FindExAction extends AbstractGameAction {
                     //this.addToBot(new ChoseTempToHandAction(Amiyamod.MakeMemoryCard(card.makeStatEquivalentCopy())));
                 }
             }
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.isDone = true;
         }
     }

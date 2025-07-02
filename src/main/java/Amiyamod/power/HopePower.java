@@ -16,12 +16,12 @@ public class HopePower extends AbstractPower {
     public static final String POWER_ID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public HopePower() {
+    public HopePower(int a) {
         this.name = powerStrings.NAME;
         this.ID = POWER_ID;
         this.owner = AbstractDungeon.player;
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = -1;
+        this.amount =a;
         this.type = PowerType.BUFF;
         // 添加图标
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage("img/powers/" + NAME + "_48.png"),0,0,48,48);
@@ -32,6 +32,6 @@ public class HopePower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0]+this.amount+DESCRIPTIONS[1];
     }
 }

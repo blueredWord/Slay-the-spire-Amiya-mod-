@@ -3,6 +3,7 @@ package Amiyamod.action;
 import Amiyamod.Amiyamod;
 import Amiyamod.action.cards.ChoseTemCardAction;
 import Amiyamod.action.cards.ChoseTempToHandAction;
+import Amiyamod.cards.Finding;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -93,7 +94,7 @@ public class KingSeeAction extends AbstractGameAction {
                 cardRarity = AbstractCard.CardRarity.SPECIAL;
             }
 
-            AbstractCard tmp ;;
+            AbstractCard tmp ;
             Iterator var6 = derp.iterator();
             if (cardRarity != AbstractCard.CardRarity.SPECIAL){
                 tmp = CardLibrary.getAnyColorCard(cardRarity);
@@ -103,7 +104,7 @@ public class KingSeeAction extends AbstractGameAction {
                 tmp = CG.getRandomCard(true).makeCopy();
             }
 
-            if (tmp.hasTag(AbstractCard.CardTags.HEALING) || Objects.equals(tmp.cardID, this.ID)){
+            if (tmp instanceof Finding || tmp.hasTag(AbstractCard.CardTags.HEALING) || Objects.equals(tmp.cardID, this.ID)){
                 dupe = true;
             } else {
                 while(var6.hasNext()) {

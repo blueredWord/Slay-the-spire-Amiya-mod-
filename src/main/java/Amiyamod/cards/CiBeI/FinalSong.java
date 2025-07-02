@@ -31,14 +31,14 @@ public class FinalSong extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String IMG_PATH = "img/cards/"+NAME+".png";//卡图
 
-    private static final int COST = 2;//【卡片费用】
+    private static final int COST = 1;//【卡片费用】
     private static final CardType TYPE = CardType.ATTACK;//【卡片类型】
     private static final CardRarity RARITY = CardRarity.UNCOMMON;//【卡片稀有度】，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
-    private static final CardTarget TARGET = CardTarget.SELF;//【是否指向敌人】
+    private static final CardTarget TARGET = CardTarget.ENEMY;//【是否指向敌人】
 
     public FinalSong() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 8;
         //this.baseBlock = this.block = 12;
         this.magicNumber = this.baseMagicNumber = 2;
         //this.heal = 15;
@@ -59,11 +59,11 @@ public class FinalSong extends CustomCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(4);
+            this.upgradeDamage(3);
             //this.exhaust = false;
             //this.selfRetain = true;
             //this.upgradeBaseCost(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -74,7 +74,7 @@ public class FinalSong extends CustomCard {
         for(int i = 0; i < this.magicNumber; ++i) {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.LIGHTNING));
         }
-        this.addToBot(new FindMenmoryAction(this.upgraded));
+        this.addToBot(new FindMenmoryAction(false));
         this.addToBot(new PressEndTurnButtonAction());
     }
 

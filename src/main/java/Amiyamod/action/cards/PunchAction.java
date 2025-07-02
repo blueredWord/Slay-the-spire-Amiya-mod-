@@ -46,9 +46,8 @@ public class PunchAction extends AbstractGameAction {
                 this.addToTop(new GainEnergyAction(1));
                 //c.upgrade();
                 //c.retain = true;
-                //c.applyPowers();
-                //c.superFlash();
                 this.addToBot(new ExhaustToHandAction(c));
+                c.applyPowers();
                 c.superFlash();
                 /*
                 AbstractCard tmp = c.makeSameInstanceOf();

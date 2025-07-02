@@ -48,6 +48,7 @@ public class FastSingAction extends AbstractGameAction {
                     AbstractDungeon.player.drawPile.moveToHand(c);
                 }
             }
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.isDone = true;
         }
     }

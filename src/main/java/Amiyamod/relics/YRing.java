@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -41,6 +42,7 @@ public class YRing extends CustomRelic {
     public void atPreBattle() {
         work(true);
     }
+
     public void onTrigger() {
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "特殊抑制器触发"
@@ -52,12 +54,14 @@ public class YRing extends CustomRelic {
             this.counter--;
         }
         this.flash();
+        this.addToBot(new DrawCardAction(1));
         this.addToBot(new VFXAction(new RelicAboveCreatureEffect(AbstractDungeon.player.hb_x,AbstractDungeon.player.hb_y,this)));
     }
     // 返回遗物的描述
     public String getUpdatedDescription() {
         return this.DESCRIPTIONS[0];
     }
+
     public void work(boolean f) {
         this.pulse = f;
         this.isDone = !f;

@@ -58,6 +58,7 @@ public class FindExRedAction extends AbstractGameAction {
                     this.p.exhaustPile.moveToHand(card);
                 }
             }
+            AbstractDungeon.gridSelectScreen.selectedCards.clear();
             this.isDone = true;
         }
     }

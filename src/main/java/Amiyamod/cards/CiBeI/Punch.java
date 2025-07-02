@@ -53,7 +53,7 @@ public class Punch extends CustomCard implements OnCombatStartInterface {
 
     public void applyPowers() {
         AbstractPlayer p = AbstractDungeon.player;
-        int i = (p.currentHealth +  TempHPField.tempHp.get(p)) / this.magicNumber;
+        int i = (p.currentHealth +  Math.max(0,TempHPField.tempHp.get(p))) / this.magicNumber;
         int realBaseDamage = this.baseDamage;
         this.baseDamage += i;
         super.applyPowers();
@@ -63,7 +63,7 @@ public class Punch extends CustomCard implements OnCombatStartInterface {
 
     public void calculateCardDamage(AbstractMonster mo) {
         AbstractPlayer p = AbstractDungeon.player;
-        int i = (p.currentHealth +  TempHPField.tempHp.get(p)) / this.magicNumber;
+        int i = (p.currentHealth +  Math.max(0,TempHPField.tempHp.get(p))) / this.magicNumber;
         int realBaseDamage = this.baseDamage;
         this.baseDamage += i;
         super.calculateCardDamage(mo);
@@ -72,7 +72,7 @@ public class Punch extends CustomCard implements OnCombatStartInterface {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int i = (p.currentHealth +  TempHPField.tempHp.get(p)) / this.magicNumber;
+        int i = (p.currentHealth +  Math.max(0,TempHPField.tempHp.get(p))) / this.magicNumber;
         this.damage += i;
         this.calculateCardDamage(m);
         this.addToBot(new PunchAction(this,m));

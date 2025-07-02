@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.cards.Yzuzhou.Ymust;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.MindBubblePower;
@@ -41,7 +42,7 @@ public class MindBubble extends CustomCard {
         //this.misc = 1;
 
         //this.exhaust = true;
-        this.isEthereal = true;
+        //this.isEthereal = true;
         this.tags.add(YCardTagClassEnum.LINE); //丝线卡牌tag
         //this.selfRetain = true;
 
@@ -57,12 +58,12 @@ public class MindBubble extends CustomCard {
             this.upgradeName();
             //this.upgradeBlock(6);
             //this.upgradeDamage(4);
-            //this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(1);
             //this.selfRetain = true;
 
-            this.isEthereal = false;
+            //this.isEthereal = false;
             //this.upgradeBaseCost(0);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            //this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -71,7 +72,19 @@ public class MindBubble extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Amiyamod.LinePower( this.misc );
-        this.addToBot(new ApplyPowerAction(p,p,new MindBubblePower(this.magicNumber)));
+        boolean a = true;
+        for (AbstractCard c:AbstractDungeon.player.hand.group){
+            //如果是玩家要获得丝线，检查手里有没有活性化诅咒
+            if (c instanceof Ymust){
+                a = false;
+                break;
+            }
+        }
+
+        if (a){
+            this.addToBot(new ApplyPowerAction(p,p,new MindBubblePower(this.misc,this.magicNumber)));
+        }
+
     }
 
     public AbstractCard makeCopy() {return new MindBubble();}
