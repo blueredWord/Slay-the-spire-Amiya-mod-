@@ -1,5 +1,5 @@
 package Amiyamod.patches;
 
 public interface YZCardInterface {
-        void YZupgrade();
+        //void YZupgrade();
 }

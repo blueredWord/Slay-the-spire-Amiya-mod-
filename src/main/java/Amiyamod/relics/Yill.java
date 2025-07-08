@@ -60,7 +60,7 @@ public class Yill extends CYrelic{
         }//触发所有遗物的获取卡片效果 真的有获取诅咒时触发的吗？万一呢
         for (AbstractCard c : p.masterDeck.group){
             if (Objects.equals(c.cardID,((AbstractCard)card).cardID)){
-                card.YZupgrade();
+                ((AbstractCard) card).upgrade();
                 break;
             }
         }

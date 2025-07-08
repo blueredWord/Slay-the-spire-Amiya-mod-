@@ -14,13 +14,15 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import org.apache.logging.log4j.LogManager;
 
 import java.util.Collections;
 import java.util.List;
 
 //慈悲愿景
 //本回合造成伤害时获得等同于伤害点丝线。
-public class MercyPower extends AbstractPower implements DamageModApplyingPower {
+//implements DamageModApplyingPower
+public class MercyPower extends AbstractPower {
     public static final String NAME = "MercyPower";
     public static final String POWERID = Amiyamod.makeID(NAME);
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWERID);
@@ -51,6 +53,92 @@ public class MercyPower extends AbstractPower implements DamageModApplyingPower 
     }
 
 
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
+        if (info.owner == this.owner && damageAmount > 0) {
+            int i = Math.max(1,damageAmount/2);
+            LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                    "慈悲愿景：伤害修饰器成功触发，获得丝线{}", i
+            );
+            Amiyamod.LinePower(i);
+        }
+    }
+
+    public int onAttackedToChangeDamage(DamageInfo info, int damageAmount) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "onAttackedToChangeDamage  "+ damageAmount
+        );
+        return damageAmount;
+    }
+
+    public int onAttackToChangeDamage(DamageInfo info, int damageAmount) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "onAttackToChangeDamage  "+ damageAmount
+        );
+        return damageAmount;
+    }
+
+    public void onInflictDamage(DamageInfo info, int damageAmount, AbstractCreature target) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "onInflictDamage  "+ damageAmount
+        );
+    }
+    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "atDamageGive  "+ damage
+        );
+        return damage;
+    }
+
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "atDamageFinalGive  "+ damage
+        );
+        return damage;
+    }
+
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                " atDamageFinalReceive  "+ damage
+        );
+        return damage;
+    }
+
+    public float atDamageReceive(float damage, DamageInfo.DamageType damageType) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                " atDamageReceive  "+ damage
+        );
+        return damage;
+    }
+
+    public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                " atDamageGive  "+ damage
+        );
+        return this.atDamageGive(damage, type);
+    }
+
+    public float atDamageFinalGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                "  atDamageFinalGive  "+ damage
+        );
+        return this.atDamageFinalGive(damage, type);
+    }
+
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                " atDamageFinalReceive  "+ damage
+        );
+        return this.atDamageFinalReceive(damage, type);
+    }
+
+    public float atDamageReceive(float damage, DamageInfo.DamageType damageType, AbstractCard card) {
+        LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
+                " atDamageReceive  "+ damage
+        );
+        return this.atDamageReceive(damage, damageType);
+    }
+/*
+
     @Override
     public boolean shouldPushMods(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
         return o instanceof AbstractCard && list.stream().noneMatch(mod -> mod instanceof MercyDamage);
@@ -60,4 +148,6 @@ public class MercyPower extends AbstractPower implements DamageModApplyingPower 
     public List<AbstractDamageModifier> modsToPush(DamageInfo damageInfo, Object o, List<AbstractDamageModifier> list) {
         return Collections.singletonList(new MercyDamage());
     }
+
+ */
 }

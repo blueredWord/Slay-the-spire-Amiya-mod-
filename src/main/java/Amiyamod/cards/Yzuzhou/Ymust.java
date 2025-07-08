@@ -78,9 +78,15 @@ public class Ymust extends YCard implements YZCardInterface {
     }
 
     //public void use(AbstractPlayer p, AbstractMonster m) {}
-    public void upgrade() {}
+    public void upgrade() {
+        if (!this.upgraded) {
+            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
+        }
+    }
     public AbstractCard makeCopy() {return new Ymust();}
-
+/*
     @Override
     public void YZupgrade() {
         if (!this.upgraded) {
@@ -89,4 +95,6 @@ public class Ymust extends YCard implements YZCardInterface {
             this.initializeDescription();
         }
     }
+
+ */
 }

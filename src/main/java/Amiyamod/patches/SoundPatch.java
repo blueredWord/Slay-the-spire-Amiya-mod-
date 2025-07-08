@@ -31,5 +31,6 @@ public class SoundPatch {
 
     static {
         map.put("Amiya_SELECT", load("title.wav"));
+        map.put("break", load("break.wav"));
     }
 }

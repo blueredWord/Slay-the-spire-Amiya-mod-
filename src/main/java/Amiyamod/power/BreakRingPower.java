@@ -1,8 +1,10 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.character.Amiya;
 import Amiyamod.patches.YCardTagClassEnum;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -36,6 +38,8 @@ public class BreakRingPower extends AbstractPower {
         // 首次添加能力更新描述
         this.updateDescription();
     }
+
+
 
     //回合结束时退出
     public void atEndOfTurn(boolean isPlayer) {
@@ -77,6 +81,10 @@ public class BreakRingPower extends AbstractPower {
         }
     }
 
+    //音效
+    public void onInitialApplication() {
+        CardCrawlGame.sound.playA("break", MathUtils.random(-0.1F, 0.1F));
+    }
 
     @Override
     public void updateDescription() {

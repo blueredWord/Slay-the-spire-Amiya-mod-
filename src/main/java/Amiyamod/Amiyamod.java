@@ -681,7 +681,7 @@ public class Amiyamod implements
     public void receiveEditCards() {
         List<CustomCard> cards = new ArrayList<>();
     //加入卡牌
-        //cards.add(new Only());
+        cards.add(new BallCard());
         //cards.add(new Before());
 
         cards.add(new AmiyaStrike());

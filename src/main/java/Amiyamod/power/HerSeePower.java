@@ -1,6 +1,7 @@
 package Amiyamod.power;
 import Amiyamod.Amiyamod;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -41,11 +42,13 @@ public class HerSeePower extends AbstractPower {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.costForTurn > 0){
             this.flash();
-            Amiyamod.BurnSelf(card.costForTurn * this.amount);
+            this.addToBot(new LoseHPAction(this.owner,this.owner,card.costForTurn * this.amount));
+            //Amiyamod.BurnSelf(card.costForTurn * this.amount);
         }
-        else if (card.cost == -2 && card.energyOnUse > 0){
+        else if (card.cost == -1 && card.energyOnUse > 0){
             this.flash();
-            Amiyamod.BurnSelf(card.energyOnUse * this.amount);
+            this.addToBot(new LoseHPAction(this.owner,this.owner,card.energyOnUse * this.amount));
+            //Amiyamod.BurnSelf(card.energyOnUse * this.amount);
         }
     }
 

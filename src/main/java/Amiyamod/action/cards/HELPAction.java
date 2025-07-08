@@ -47,17 +47,20 @@ public class HELPAction extends AbstractGameAction {
                         c = (AbstractCard)var5.next();
                         cardsToMove.add(c);
                     }
-                    int cost = 0;
+
+
+                    //int cost = 0;
                     for(var5 = cardsToMove.iterator(); var5.hasNext(); c.lighten(false)) {
                         c = (AbstractCard)var5.next();
                         if (this.player.hand.size() < 10) {
                             this.player.discardPile.moveToHand(c);
-                            cost += Math.max(0,c.cost);
+                            //cost += Math.max(0,c.cost);
                         }
-                        if (cost >0){
-                            Amiyamod.BurnSelf(cost);
-                        }
+                        //if (cost >0){
+                        //    Amiyamod.BurnSelf(cost);
+                        //}
                     }
+
 
                     this.isDone = true;
                 } else {

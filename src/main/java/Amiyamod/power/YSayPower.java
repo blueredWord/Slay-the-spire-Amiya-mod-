@@ -7,6 +7,7 @@ import Amiyamod.relics.CYrelic;
 import Amiyamod.relics.TenRelic;
 import Amiyamod.relics.Yill;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -47,6 +48,10 @@ public class YSayPower extends AbstractPower {
     }
 
     public void onInitialApplication() {
+        //音效
+        CardCrawlGame.sound.playA("break", MathUtils.random(-0.1F, 0.1F));
+
+
         if (this.owner instanceof Amiya && !this.owner.hasPower(ChiMeRaPower.POWERID)){
             ((Amiya)this.owner).ChangeA(true);
             this.owner.state.setAnimation(0, "Skill_Begin", false);

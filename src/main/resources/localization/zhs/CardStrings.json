@@ -561,7 +561,7 @@
   },
   "AmiyaMod:ShadowDefend": {
     "NAME": "守式",
-    "DESCRIPTION": "你的下 !M! 张 影霄 将额外获得等同于伤害的 格挡 。 NL 入鞘 : 升级 一张手牌。",
+    "DESCRIPTION": "你的下 !M! 张 影霄 将额外获得等同于伤害的 格挡 。 NL 入鞘 : 升级 1张 影霄 。",
     "UPGRADE_DESCRIPTION": "保留 。 NL 造成 !D! 点伤害。 NL 本回合打出的下一张 影霄 将额外获得等同于伤害的 格挡 。 NL 入鞘 :  此卡获得的 影霄 额外升级 !M! 次。"
   },
   "AmiyaMod:BurnMark": {
@@ -794,10 +794,12 @@
     "DESCRIPTION": "虚无 。 NL 消耗 打出的下 1张牌 。 将其永久 升级 。 NL (使用 !M! 次后移除。)",
     "UPGRADE_DESCRIPTION":"虚无 。 NL 消耗 1张牌 ，若为 诅咒 ，从牌组中移除。否则将其永久 升级 。"
   },
-  "AmiyaMod:Before": {
-    "NAME": "昔日道标",
-    "DESCRIPTION": "固有 。 NL 被 消耗 时打出  ",
-    "UPGRADE_DESCRIPTION":"。 NL 无法被打出 。 NL 保留 。",
+
+
+  "AmiyaMod:BallCard": {
+    "NAME": "仅剩的创意",
+    "DESCRIPTION": "虚无 。 NL 丢弃 !M! 张手牌，给予阿米娅　!M! 层 仅剩的创意 。 NL 此牌被 消耗 时 给予阿米娅　!M! 层 仅剩的创意 ，召唤特殊敌人。",
+    "UPGRADE_DESCRIPTION":"虚无 。 NL 给予阿米娅　!M! 层 仅剩的创意 。 NL 此牌被 消耗 时 打出，同时召唤特殊敌人。",
     "EXTENDED_DESCRIPTION": [
       "固有 。 NL 被 消耗 时打出  ",
       "。 NL 无法被打出 。 NL 保留 。"

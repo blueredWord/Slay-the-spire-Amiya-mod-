@@ -485,5 +485,17 @@
       "#y消耗 并永久 #y升级 你打出的下 #b",
       " 张非 #y诅咒 牌。"
     ]
+  },
+  "AmiyaMod:BallAPower": {
+    "NAME": "仅剩的创意",
+    "DESCRIPTIONS": [
+      "当你打出耗能不为 #b0 的牌后，将 #b1 张 #y仅剩的创意 置入手牌。"
+    ]
+  },
+  "AmiyaMod:BallBPower": {
+    "NAME": "封印",
+    "DESCRIPTIONS": [
+      "若阿米娅没有 #y仅剩的创意 状态，你无法打出耗能不为 #b0 的卡牌。"
+    ]
   }
 }
