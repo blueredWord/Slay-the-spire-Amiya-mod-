@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.OnCombatStartInterface;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -116,6 +117,8 @@ public class MindRoll extends CustomCard{
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        this.addToBot(new SEAction(NAME,true));
         //this.addToBot(new ApplyPowerAction(p,p,new MindRollPower(this.magicNumber)));
         this.damage += Math.max(AbstractDungeon.player.exhaustPile.size(),0);
         calculateCardDamage(m);

@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.KingTypePower;
 import basemod.abstracts.CustomCard;
@@ -50,7 +51,7 @@ public class KingType2 extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        this.addToBot(new SEAction(NAME));
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
         this.addToBot(new DrawCardAction(this.draw));
         this.addToBot(new ApplyPowerAction(p,p,new KingTypePower(this.magicNumber)));

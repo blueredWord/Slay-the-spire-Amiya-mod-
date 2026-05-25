@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.OnCombatStartInterface;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -82,6 +83,8 @@ public class Horn extends CustomCard {
  */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
+
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));
         if (this.isdown()){
             this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn)));

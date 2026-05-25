@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.BonkPower;
@@ -106,6 +107,7 @@ public class RedSky extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
         if(p.hasPower(ShadowWaterMusicPower.POWER_ID)){
             //applyPowers();
             this.addToBot(

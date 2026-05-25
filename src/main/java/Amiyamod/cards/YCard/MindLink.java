@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.relics.Yill;
@@ -72,6 +73,8 @@ public class MindLink extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
+
         this.addToBot(new DamageAction(
                 m,
                 new DamageInfo(p, damage,this.damageTypeForTurn)

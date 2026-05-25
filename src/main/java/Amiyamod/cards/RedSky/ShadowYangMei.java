@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.UpRedAction;
 import Amiyamod.action.cards.ShadowYangMeiAction;
 import Amiyamod.patches.CardColorEnum;
@@ -71,6 +72,8 @@ public class ShadowYangMei extends CustomCard {
     }
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
+
         AbstractDungeon.actionManager.addToBottom(
                 new GainBlockAction(p,p,this.block)
         );

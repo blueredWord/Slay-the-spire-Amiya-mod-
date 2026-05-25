@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.LittleTePower;
 import Amiyamod.power.LittleTePower2;
@@ -53,6 +54,7 @@ public class LittleTe2 extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         //获得状态:获得格挡时改为获得等量的丝线
         this.addToBot(new DrawCardAction(this.magicNumber));
         this.addToTop(new ApplyPowerAction(p, p, new LittleTePower2(this.misc)));

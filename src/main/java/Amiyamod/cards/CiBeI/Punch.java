@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.PunchAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.OnCombatStartInterface;
@@ -72,6 +73,8 @@ public class Punch extends CustomCard implements OnCombatStartInterface {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
+
         int i = (p.currentHealth +  Math.max(0,TempHPField.tempHp.get(p))) / this.magicNumber;
         this.damage += i;
         this.calculateCardDamage(m);

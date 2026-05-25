@@ -1,756 +1,805 @@
 {
   "AmiyaMod:AmiyaStrike": {
-    "NAME": " Base法术打击",
-    "DESCRIPTION": " Deal !D!  Damage."
+    "NAME": "Basic Arts Strike",
+    "DESCRIPTION": "Deal !D! damage."
   },
   "AmiyaMod:AmiyaDefend": {
-    "NAME": " Base法术防御",
-    "DESCRIPTION": " Gain  !B! Block."
+    "NAME": "Basic Arts Defense",
+    "DESCRIPTION": "Gain !B! Block."
   },
-
   "AmiyaMod:BadZhufu": {
-    "NAME": "食腐者之赐",
-    "DESCRIPTION": "StoneMagic  . NL  Gain  !M!   Line , And Gain 3 Line For Each StoneCurse in Your Deck . NL  Exhaust ."
+    "NAME": "Nachzehrer's Blessing",
+    "DESCRIPTION": "Originium-Arts. NL Gain !M! Thread. Gain 3 additional Thread for each Originium-Curse in your deck. NL Exhaust."
   },
   "AmiyaMod:BeautifulLife": {
-    "NAME": "远见者之启",
-    "DESCRIPTION": " Scry !M! . NL Draw 1 Card ,Cost of This Card Turn to 0 In This Combat, But You Will Lose HP Just Like it’s Cost When It be Played. NL  Exhaust .",
+    "NAME": "Farseer's Inspiration",
+    "DESCRIPTION": "Scry !M!. NL Draw 1 card. It costs 0 this combat, but you lose HP equal to its original cost when played. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BForB": {
-    "NAME": "以血还血",
-    "DESCRIPTION": "Lose 1 HP !M!  times . NL  Deal !D!  Damage. NL  Exhaust .",
+    "NAME": "Blood for Blood",
+    "DESCRIPTION": "Lose 1 HP !M! times. NL Deal !D! damage. NL Exhaust.",
     "UPGRADE_DESCRIPTION": ""
   },
   "AmiyaMod:BloodPotion": {
-    "NAME": "战争祭坛",
-    "DESCRIPTION": "Lose 2 HP. NL  Apply All Enemy !M!   Weak  And  Vulnerable .",
-    "UPGRADE_DESCRIPTION": "Lose 1 HP 2 times . NL  Apply All Enemy !M!   Weak  And  Vulnerable Two times ."
+    "NAME": "Originium Altar",
+    "DESCRIPTION": "Lose 2 HP. NL Apply !M! Weak and Vulnerable to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP twice. NL Apply !M! Weak and Vulnerable to ALL enemies twice."
   },
   "AmiyaMod:LineBody": {
-    "NAME": "身上衣",
-    "DESCRIPTION": "  Retain . NL  This Turn You  Each Played One  times  StoneMagic   Card , Gain 1  茧 . Lose !M!  感染进度 . NL  Exhaust ."
+    "NAME": "Clothing of the Body",
+    "DESCRIPTION": "Retain. NL For each Originium-Arts played this turn, gain 1 Cocoon. NL Reduce Infection-Progress by !M!. NL Exhaust."
   },
   "AmiyaMod:LineHand": {
-    "NAME": "诸魂庇佑",
-    "DESCRIPTION": " Gain  !M!   Line .  Gain One More Line For Each Ethereal  Card  You Have   Played. NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": " Gain  !M!   Line .You  Each Played One   Ethereal  Card ,  Gain 量提高 1 . NL  You Willnot Lose Your Line at The Start of Your  Next Turn. NL  Ethereal ."
+    "NAME": "Blessing of Souls",
+    "DESCRIPTION": "Gain !M! Thread. NL Gain is increased for each Ethereal card played this combat. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Thread. Gain is increased by 1 for each Ethereal card played this combat. NL At the start of your next turn, Thread does not halve. NL Ethereal.",
+    "EXTENDED_DESCRIPTION": [
+      " NL ( #y",
+      " card played.)"
+    ]
   },
   "AmiyaMod:CNoC": {
-    "NAME": "CNoC",
-    "DESCRIPTION": " Random 对 Enemy Deal !D!  Damage !M!  times .Until Play之前You  Each Lose 过1 times  HP, Attack 1 More times .",
-    "EXTENDED_DESCRIPTION": [" NL （ Extra  Deal"," times  Damage）"]
+    "NAME": "Thorn or No Thorn",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. For each time you have lost HP before playing this card, deal damage 1 additional time.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals ",
+      " additional damage.)"
+    ]
   },
   "AmiyaMod:Echo": {
-    "NAME": "Rain of Blood",
-    "DESCRIPTION": "Lose 2 HP. NL Deal All Enemy !D!  Damage.  This Turn Whenever You 对 Enemy Deal Damage时, Gain  !M!   Line .",
-    "UPGRADE_DESCRIPTION": " Lose 1 HP 2  times . NL Deal  All Enemy !D!  Damage X+1 times  NL  Gain  !M!   Line X+1 times ."
+    "NAME": "Rain of the Bloodborn",
+    "DESCRIPTION": "Lose 1 HP. Deal !D! damage to ALL enemies twice. NL Whenever you deal damage this turn, gain !M! Thread.",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP twice. NL Deal !D! damage to ALL enemies X+1 times. NL Gain !M! Thread X+1 times."
   },
   "AmiyaMod:HelBox": {
-    "NAME": "Medical Kit",
-    "DESCRIPTION": "  Exhaust !M!  Card From Draw Pile, Gain 7  Line . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "  Exhaust !M! Cards From Draw  Pile, Gain 7  Line ."
+    "NAME": "Portable Medical Kit",
+    "DESCRIPTION": "Exhaust !M! cards from your draw pile and gain 7 Thread. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Exhaust !M! cards from your draw pile and gain 7 Thread."
   },
   "AmiyaMod:HELP": {
-    "NAME": "紧急救援",
-    "DESCRIPTION": "Lose 1 HP. NL 从Discard  Pile中Chose !M!  Card 放入Your Card  in Your Hands . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL 从Discard  Pile中Chose !M!  Card 放入Your Card  in Your Hands ."
+    "NAME": "Emergency Rescue",
+    "DESCRIPTION": "Lose 1 HP. NL Put !M! cards from your discard pile into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL Put !M! cards from your discard pile into your hand."
   },
-
   "AmiyaMod:LifeMade": {
-    "NAME": "LifeMade",
-    "DESCRIPTION": "Lose 2 HP. NL  Gain  !M!   Line . NL 下Start of Turn时,  Line Will not减半.",
-    "UPGRADE_DESCRIPTION": "Lose 1 HP2 times . NL  Gain  !M!   Line . NL 下Start of Turn时,  Line Will not减半."
+    "NAME": "Life Solidification",
+    "DESCRIPTION": "Lose 2 HP. NL Gain !M! Thread. NL At the start of your next turn, Thread does not halve.",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP twice. NL Gain !M! Thread. NL At the start of your next turn, Thread does not halve."
   },
-
   "AmiyaMod:Mercy": {
-    "NAME": "Mercy",
-    "DESCRIPTION": " This Turn  Deal Damage时 Gain =  Damage Half 的  Line . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " This Turn  Deal Damage时 Gain =  Damage Half 的  Line ."
+    "NAME": "Vision of Mercy",
+    "DESCRIPTION": "Whenever you deal damage this turn, gain Thread equal to half the damage dealt. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Whenever you deal damage this turn, gain Thread equal to half the damage dealt."
   },
-
   "AmiyaMod:Open": {
-    "NAME": "绽放",
-    "DESCRIPTION": " Each times 受到 Damage令 One 名 Random  Enemy Gain  !M!   Weak .",
-    "UPGRADE_DESCRIPTION": " Each times 受到 Damage令 One 名 Random  Enemy Gain  !M!   Weak ."
-  },
-
-  "AmiyaMod:SoulDefend": {
-    "NAME": "幽影闪烁",
-    "DESCRIPTION": "Whenever You Lose  HP时 Gain  !M!   Line . NL 将 One  *幽影闪烁 加入 Card  in Your Hands  . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": "Whenever You Lose  HP时 Gain  !M!   Line . NL 将 One  *幽影闪烁 加入 Card  in Your Hands  . NL  Ethereal ."
+    "NAME": "Bloom",
+    "DESCRIPTION": "Whenever you take damage, apply !M! Weak to a random enemy.",
+    "UPGRADE_DESCRIPTION": "Whenever you take damage, apply !M! Weak to a random enemy."
   },
   "AmiyaMod:Yangry": {
-    "NAME": "狂躁症",
-    "DESCRIPTION": " Cannot Be Play . NL Whenever  You  Play Attack Card 时, Random 丢Discard  !M! 张 Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": " Cannot Be Play . NL Whenever  You  Play Attack Card 时, Random 丢Discard  !M! 张 Card  in Your Hands ,并 Lose 1 HP."
+    "NAME": "Mania",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play an Attack, NL discard !M! card(s) at random.",
+    "UPGRADE_DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play an Attack, NL discard !M! card(s) at random NL and lose 1 HP."
   },
   "AmiyaMod:Ychengyin": {
-    "NAME": "源石瘾",
-    "DESCRIPTION": " Cannot Be Play . NL Whenever  You 连续 Play三张非 StoneMagic   Card 时, Gain  !M!   Vulnerable .",
-    "EXTENDED_DESCRIPTION": [" NL （已 Play ","  Card .）"]
+    "NAME": "Originium Addiction",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play 3 non-Originium-Arts cards in a row, gain !M! Vulnerable.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " card played.)"
+    ]
   },
   "AmiyaMod:Ydead": {
-    "NAME": "亡陨",
-    "DESCRIPTION": "Cannot Be Play . NL  Turn End 时, Lose  !M!  HP."
+    "NAME": "Deathfall",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL If this card is discarded from your hand, take !M! damage."
   },
   "AmiyaMod:Yjianwang": {
-    "NAME": "健忘症",
-    "DESCRIPTION": "Cannot Be Play . NL Whenever You  Play !M!  Card 时, Random   Exhaustone Card  in Your Hands .",
-    "EXTENDED_DESCRIPTION": [" NL （已 Play ","  Card .）"]
+    "NAME": "Amnesia",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play !M! cards, Exhaust 1 random card in your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " card played.)"
+    ]
   },
   "AmiyaMod:Yjiejin": {
-    "NAME": "体表结晶",
-    "DESCRIPTION": "Cannot Be Play . NL  Play非 StoneMagic   Card 时,受到 !M!  Damage.",
-    "UPGRADE_DESCRIPTION": "Cannot Be Play . NL  Play非 StoneMagic   Card 时,受到 !M!  Damage,Lose  !M! MaxHP."
+    "NAME": "Crystallization on Skin",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play a card, NL lose !M! HP NL and gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever you play a card, NL lose !M! Max HP NL and gain !M! Block."
   },
   "AmiyaMod:Ymust": {
-    "NAME": "偏执症",
-    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Gain   Line 时,改为 Gain 等量 Block .",
-    "UPGRADE_DESCRIPTION": " Cannot Be Play . NL Whenever  You  Gain   Line 时,改为 Gain 近似的整数 Block ."
+    "NAME": "Paranoia",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you would gain Thread, gain that much Block instead.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever you would gain Thread, gain an approximate integer amount of Block instead."
   },
   "AmiyaMod:Ysex": {
-    "NAME": "活性化体质",
-    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Play非 StoneMagic   Card 时, 感染进度  Extra 增加 !M! ."
+    "NAME": "Activated Constitution",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play a non-Originium-Arts card, increase Infection-Progress by !M!."
   },
   "AmiyaMod:Ysnake": {
-    "NAME": "认知障碍",
-    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Play第 !M!  Card 时,End Your Turn  .",
-    "EXTENDED_DESCRIPTION": [" NL （已 Play ","  Card .）"]
+    "NAME": "Cognitive Disorder",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play the !M!th card, end your turn.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      " card played.)"
+    ]
   },
   "AmiyaMod:Ytiruo": {
-    "NAME": "身虚体弱",
-    "DESCRIPTION": "Cannot Be Play . NL Whenever  You  Play Cost至少为2的卡 Card 时, Gain  !M!   Weak ."
+    "NAME": "Physical Weakness",
+    "DESCRIPTION": "Originium-Curse. NL Unplayable. NL Whenever you play a card that costs at least 2, gain !M! Weak."
   },
   "AmiyaMod:CRing": {
-    "NAME": "荆与棘之环",
-    "DESCRIPTION": " Gain 2  荆棘 ,Whenever You 耗尽  Line 时, Gain  !M!   荆棘 ."
+    "NAME": "Ring of Thorns and Briars",
+    "DESCRIPTION": "Gain 2 Thorns. Whenever your Thread is fully depleted, gain !M! Thorns."
   },
   "AmiyaMod:RedSky": {
-    "NAME": " ShadowSword",
-    "DESCRIPTION": " Deal !D!  Damage. NL Can Be多 times  Upgrade . NL  Exhaust . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": " Retain . NL ",
-    "EXTENDED_DESCRIPTION": ["凡","影","朔","瞬","垠","寰","Can Be多 times  Upgrade . NL 按照Upgrade times 数 Deal NL *2 *的 *X *+ *1 * times  *方  Damage. NL  Exhaust . NL  Ethereal ."
+    "NAME": "Ying-Xiao",
+    "DESCRIPTION": "Deal !D! damage. NL Can be Upgraded any number of times. NL Exhaust. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Retain. NL ",
+    "EXTENDED_DESCRIPTION": [
+      "Mortal",
+      "Shadow",
+      "New Moon",
+      "Instant",
+      "Boundless",
+      "Universe",
+      "Can be Upgraded any number of times. NL Deals damage equal to *2 *to *the *power *of *X *+ *1 *per *Upgrade. NL Exhaust. NL Ethereal."
     ]
   },
   "AmiyaMod:ShadowOut": {
-    "NAME": "拔刀",
-    "DESCRIPTION": " Deal !D!  Damage. NL TheOut : 下Start of Turn时将此 Card 拿回 Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": "  Innate . NL  Deal !D!  Damage. NL TheOut : 下Start of Turn时将此 Card 拿回 Card  in Your Hands . NL   Retain . "
+    "NAME": "Unsheath",
+    "DESCRIPTION": "Deal !D! damage. NL Unsheathed: At the start of your next turn, NL return this card to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Deal !D! damage. NL Unsheathed: At the start of your next turn, NL return this card to your hand. NL Retain."
   },
   "AmiyaMod:AngryForever": {
-    "NAME": "无名怒火",
-    "DESCRIPTION": "在YourStart of Turn时,Into  TheOut Power.",
-    "UPGRADE_DESCRIPTION": "Into  TheOut Power. NL 在YourStart of Turn时,Into  TheOut Power."
+    "NAME": "Nameless Fury",
+    "DESCRIPTION": "At the start of your turn, enter Unsheathed.",
+    "UPGRADE_DESCRIPTION": "Unsheathed: Gain [E]. NL At the start of your turn, enter Unsheathed."
   },
-  "AmiyaMod:FireAGain ": {
-    "NAME": "星火重燃",
-    "DESCRIPTION": " Each Turn  Play前!M!张不是卡组中的卡 Card 后,会 Gain one它的 To Copy.",
-    "UPGRADE_DESCRIPTION": "  Innate NL  Each Turn  Play前!M!张不是卡组中的卡 Card 后,会 Gain one它的 To Copy."
+  "AmiyaMod:FireAgain": {
+    "NAME": "Sparks Rekindled",
+    "DESCRIPTION": "Each turn, the first !M! cards you play that did not start in your deck are duplicated into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, the first !M! cards you play that did not start in your deck are duplicated into your hand."
   },
   "AmiyaMod:SoMuchSworld": {
-    "NAME": "无限剑制",
-    "DESCRIPTION": "在YourStart of Turn时, NL  If Your Card  in Your Hands 中没有  ShadowSword 便 Gain one,否则 Upgrade 手中的  ShadowSword .",
-    "UPGRADE_DESCRIPTION": " Innate . NL 在YourStart of Turn时, NL  If Your Card  in Your Hands 中没有  ShadowSword 便 Gain one,否则 Upgrade 手中的  ShadowSword ."
+    "NAME": "Infinite Sword Works",
+    "DESCRIPTION": "At the start of your turn, Upgrade !M! Ying-Xiao. NL If none are Upgraded, you may Retain !M! Ying-Xiao at the end of your turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of your turn, NL if you have no Ying-Xiao in hand, add 1 to your hand. Otherwise, Upgrade the Ying-Xiao in your hand."
   },
   "AmiyaMod:BigNotWork": {
-    "NAME": "大巧不工",
-    "DESCRIPTION": " Each Turn  Gain 的前 !M! 张  ShadowSword 会 Extra  Upgrade  One  times ."
+    "NAME": "Masterful Simplicity",
+    "DESCRIPTION": "Each turn, the first !M! Ying-Xiao you obtain is Upgraded an additional time."
   },
-
+  "AmiyaMod:PlanA": {
+    "NAME": "Plan A",
+    "DESCRIPTION": "Draw 1 card. When played, it grants [E] [E]. NL At the end of your turn, if it was not played, add a *Plan *B to your hand. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. When played, it grants [E] [E]. NL At the end of your turn, if it was not played, add a *Plan *B to your hand."
+  },
+  "AmiyaMod:PlanB": {
+    "NAME": "Plan B",
+    "DESCRIPTION": "Retain. NL Fill your hand with random Reminiscence cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Fill your hand with random Upgraded Reminiscence cards. NL Exhaust."
+  },
   "AmiyaMod:ShadowSkill": {
-    "NAME": "剑诀",
-    "DESCRIPTION": " Random  Upgrade  One  Card  in Your Hands  NL X+1  times . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " Random  Upgrade  One  Card  in Your Hands  NL X+1  times ."
+    "NAME": "Sword Mnemonic",
+    "DESCRIPTION": "Upgrade a random card in your hand NL X+1 times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Upgrade a random card in your hand NL X+1 times."
   },
   "AmiyaMod:ShadowCry": {
-    "NAME": "泪锋",
-    "DESCRIPTION": " Deal !D!  Damage. NL TheOut :此 Card 产生的  ShadowSword 将 Extra  Upgrade !M!  times ."
+    "NAME": "Teardrop",
+    "DESCRIPTION": "Deal !D! damage. NL Unsheathed: Ying-Xiao created by this card are Upgraded an additional !M! times."
   },
   "AmiyaMod:ShadowUpgrade": {
-    "NAME": "淬火",
-    "DESCRIPTION": "丢Discard  One   ShadowSword 并 Remove 其  Exhaust . 下Start of Turn时 将其拿回 Card  in Your Hands . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "将 One   ShadowSword 置于Draw  Pile顶. NL 将其 Upgrade 并 Remove 其  Exhaust . NL  Exhaust .",
+    "NAME": "Quenching",
+    "DESCRIPTION": "Discard a Ying-Xiao and remove its Exhaust. NL At the start of your next turn, return it to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Put a Ying-Xiao on top of your draw pile. NL Upgrade it and remove its Exhaust. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "我的手中没有刀刃. "
+      "I have no blade in hand.",
+      "I have no Ying-Xiao in hand."
     ]
   },
-
   "AmiyaMod:ShadowBlueFire": {
-    "NAME": "青焰环身",
-    "DESCRIPTION": "处于 TheOut Power时, Play非 Attack Card 也能 Gain   ShadowSword ."
+    "NAME": "Azure Flame Aura",
+    "DESCRIPTION": "While Unsheathed, playing non-Attack cards also grants Ying-Xiao."
   },
-
   "AmiyaMod:ShadowWaterMusic": {
-    "NAME": "水韵",
-    "DESCRIPTION": "对 All Enemy Deal !D!  Damage  2 times. NL TheOut : Your下 One   ShadowSword 会对 All Enemy Deal Damage."
+    "NAME": "Water Rhythm",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice. NL Unsheathed: Your next Ying-Xiao deals damage to ALL enemies."
   },
   "AmiyaMod:ShadowChange": {
-    "NAME": "变式",
-    "DESCRIPTION": " TheOut :退出 TheOut Power,并Draw  !M!  Card , Gain  [E] . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " Retain . NL TheOut :退出 TheOut Power,并Draw  !M!  Card , Gain  [E] . NL  Exhaust ."
+    "NAME": "Variation",
+    "DESCRIPTION": "Unsheathed: Exit Unsheathed and draw !M! cards, gain [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Unsheathed: Exit Unsheathed and draw !M! cards, gain [E]. NL Exhaust."
   },
   "AmiyaMod:ShadowNoShadow": {
-    "NAME": "绝影",
-    "DESCRIPTION": "优先对 HP值最低的 Enemy Deal !D!  Damage 10 times. NL TheIn :  Gain  !M!    Intangible  . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "优先对 HP值最低的 Enemy Deal !D!  Damage 10 times . NL TheIn :  Gain  !M!   Intangible . NL  Retain .  Exhaust ."
+    "NAME": "Shadowless",
+    "DESCRIPTION": "Deal !D! damage to the lowest HP enemy 10 times. NL Sheathed: Gain !M! Intangible. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to the lowest HP enemy 10 times. NL Sheathed: Gain !M! Intangible. NL Retain. NL Exhaust."
   },
-
   "AmiyaMod:ShadowBreak": {
-    "NAME": "BreakSword",
-    "DESCRIPTION": " Exhaust  One  Card  in Your Hands . NL  Gain = 其Upgrade times 数的 [E] . NL Draw  One  Card .",
-    "UPGRADE_DESCRIPTION": " Exhaust  One  Card  in Your Hands . NL  Gain = 其Upgrade times 数+ !M! 的 [E] . NL Draw  One  Card ."
-  },
-
-  "AmiyaMod:AmiyaPower": {
-    "NAME": "AmiyaPower",
-    "DESCRIPTION": "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL  Exhaust . NL  Ethereal .",
+    "NAME": "Broken Sword",
+    "DESCRIPTION": "Exhaust 1 card in your hand. NL Gain [E] equal to the number of times it was Upgraded. NL If it is a Ying-Xiao, draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card in your hand. NL Gain [E] equal to the number of times it was Upgraded + !M!. NL If it is a Ying-Xiao, draw 1 card.",
     "EXTENDED_DESCRIPTION": [
-      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL TheOut :  Remove You 身上的 All Debuff. NL  Exhaust .  Ethereal .",
-      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL TheOut :  Remove You 身上的 All Debuff, Upgrade You  All的卡 Card . NL  Exhaust .  Ethereal .",
-      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] NL TheOut :  Remove You 身上的 All Debuff, Upgrade You  All的卡 Card . NL  Exhaust .  Retain .",
-      "StoneMagic  . NL Draw  !M!  Card ,并 Gain  [E] [E] NL TheOut :  Remove You 身上的 All Debuff, Upgrade You  All的卡 Card . NL  Exhaust .  Retain .",
-      "魔王之力"
+      "I have no blade in hand."
+    ]
+  },
+  "AmiyaMod:AmiyaPower": {
+    "NAME": "Unstable Power",
+    "DESCRIPTION": "Originium-Arts. NL Draw !M! cards and gain [E]. NL Exhaust. NL Ethereal.",
+    "EXTENDED_DESCRIPTION": [
+      "Originium-Arts. NL Draw !M! cards and gain [E]. NL Unsheathed: Remove all debuffs from you. NL Exhaust. Ethereal.",
+      "Originium-Arts. NL Draw !M! cards and gain [E]. NL Unsheathed: Remove all debuffs from you and Upgrade all your cards. NL Exhaust. Ethereal.",
+      "Originium-Arts. NL Draw !M! cards and gain [E]. NL Unsheathed: Remove all debuffs from you and Upgrade all your cards. NL Exhaust. Retain.",
+      "Originium-Arts. NL Draw !M! cards and gain [E] [E]. NL Unsheathed: Remove all debuffs from you and Upgrade all your cards. NL Exhaust. Retain.",
+      "Power of the Sarkaz King"
     ]
   },
   "AmiyaMod:MindEat": {
-    "NAME": "情绪吸收",
-    "DESCRIPTION": "Whenever You 在 One  Turn 内 Play 3 times  Attack Card 时,Draw  !M!  Card .",
-    "UPGRADE_DESCRIPTION": " Innate . NL Whenever You 在 One  Turn 内 Play3 times  Attack Card 时,Draw  !M!  Card ."
+    "NAME": "Emotional Absorption",
+    "DESCRIPTION": "Whenever you play 3 Attacks in a single turn, draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you play 3 Attacks in a single turn, draw !M! cards."
   },
   "AmiyaMod:ChiMeRa": {
-    "NAME": "奇美拉",
-    "DESCRIPTION": " Gain 20  Line . NL !M!  Turn 内 Deal的 DamageDouble并无视 Block . NL 效果End 后You 丢Discard  All Card  in Your Hands 并跳过 One 个 Turn ."
+    "NAME": "Chimera",
+    "DESCRIPTION": "Gain 20 Thread. NL For !M! turns, your damage is doubled and ignores Block. NL When this effect ends, discard your hand and skip your next turn."
   },
   "AmiyaMod:MindBreak": {
-    "NAME": "精神爆发",
-    "DESCRIPTION": "StoneMagic  . NL  Random  Deal !D!  Damage !M!  times . 将one *晕眩 放入YourDraw  Pile中."
+    "NAME": "Spirit Burst",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage to a random enemy !M! times. NL Shuffle a *Dazed into your draw pile."
   },
   "AmiyaMod:SuperYPotion": {
-    "NAME": "强效源石爆发剂",
-    "DESCRIPTION": "将Draw  Pile中的 StoneCurse 尽可能 Into Your Hand. NL Draw  !M!  Card  . NL  Exhaust ."
+    "NAME": "Potent Originium Stimulant",
+    "DESCRIPTION": "Put as many Originium-Curses from your draw pile into your hand as possible. NL Draw !M! cards. NL Exhaust."
   },
   "AmiyaMod:StoneBlock": {
-    "NAME": "结晶化盾",
-    "DESCRIPTION": "StoneMagic  . NL  Gain  !B!  Block .",
-    "UPGRADE_DESCRIPTION": "StoneMagic  . NL 急性发作 1. NL  Gain  !B!  Block ."
+    "NAME": "Crystalized Shield",
+    "DESCRIPTION": "Originium-Arts. NL Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. NL Acute Onset 1. NL Gain !B! Block."
   },
   "AmiyaMod:MindBubble": {
-    "NAME": "情感泡泡",
-    "DESCRIPTION": " Ethereal . NL  Gain 9  Line . Whenever  You  Play Attack Card 时Lose 这些  Line . NL Whenever  You Lose  All来自此 Card 的  Line 后, Draw 1 Card .",
-    "UPGRADE_DESCRIPTION": " Gain 9  Line . Whenever  You  Play Attack Card 时Lose 这些  Line . NL Whenever  You Lose  All来自此 Card 的  Line 后, Draw 1 Card ."
+    "NAME": "Emotion Bubble",
+    "DESCRIPTION": "Gain 9 Thread. When you play an Attack, lose this Thread. NL When all Thread from this card is lost, draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Gain 9 Thread. Lose it when you play an Attack. NL When all Thread from this card is lost, draw 1 card."
   },
-
   "AmiyaMod:ZuZhouMagic": {
-    "NAME": "诅咒巫咒",
-    "DESCRIPTION": "StoneMagic  . NL  Deal !D!  Damage. Whenever  You Lose  HP时,目标 Enemy也将Lose 等量的 HP. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "  Innate . StoneMagic  . NL  Deal !D!  Damage. Whenever  You Lose  HP时,目标 Enemy也将Lose 等量的 HP. NL  Exhaust ."
+    "NAME": "Cursing Hex",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage. Whenever you lose HP, the target enemy loses an equal amount. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Originium-Arts. NL Deal !D! damage. Whenever you lose HP, the target enemy loses an equal amount. NL Exhaust."
   },
   "AmiyaMod:BadMagic": {
-    "NAME": "笞心魔之吓",
-    "DESCRIPTION": " StoneMagic  . NL 对 All Enemy Deal !D!  Damage.  Apply意图为  Attack者 !M!   Weak ,其他意图者 !M!   Vulnerable ."
+    "NAME": "Sarkaz Mindbender's Fright",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage to ALL enemies. Apply !M! Weak to enemies intending to attack, and !M! Vulnerable to all others."
   },
-
   "AmiyaMod:FastSing": {
-    "NAME": "战术咏唱",
-    "DESCRIPTION": "将 !M! 张Draw  Pile中的 StoneMagic  加入 Card  in Your Hands ,并使它 This Turn 的 Cost Reduce 1."
+    "NAME": "Tactical Chant",
+    "DESCRIPTION": "Put !M! Originium-Arts from your draw pile into your hand. They cost 1 less this turn."
   },
   "AmiyaMod:BreakRing": {
-    "NAME": "极限施法",
-    "DESCRIPTION": " This Turn Whenever  You  Play StoneMagic  时,Lose = 其原本 Cost的 HP , Play 1 More times . NL  Exhaust . ",
-    "UPGRADE_DESCRIPTION": " This Turn Whenever  You  Play StoneMagic  时,Lose = 其原本 Cost的 HP , Play 1 More times ."
+    "NAME": "Limit Casting",
+    "DESCRIPTION": "Whenever you play an Originium-Arts this turn, lose HP equal to its original cost and play it an additional time. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Whenever you play an Originium-Arts this turn, lose HP equal to its original cost and play it an additional time."
   },
-
   "AmiyaMod:OldDoki": {
-    "NAME": "亘古的脉动",
-    "DESCRIPTION": "Lose = You  Card  in Your Hands 数量的 HP. NL Draw  !M!  Card . NL  Ethereal ."
+    "NAME": "Eternal Pulse",
+    "DESCRIPTION": "Lose HP equal to the number of cards in your hand. NL Draw !M! cards. NL Ethereal."
   },
   "AmiyaMod:SoulBurn": {
-    "NAME": "魂灵熔炉",
-    "DESCRIPTION": " Exhaust Max !M! 张Discard  Pile中的卡 Card . NL Start of Turn时 Gain  [E] , Each  Exhaust one便持续1 Turn .",
-    "UPGRADE_DESCRIPTION": " Exhaust Max !M! 张Discard  Pile中的卡 Card . NL Start of Turn时 Gain  [E] , Each  Exhaust one便持续1 Turn ."
+    "NAME": "Soul Forge",
+    "DESCRIPTION": "Exhaust up to 2 cards from your discard pile. NL At the start of your next X turns, gain [E]. where X is the number of cards Exhausted.",
+    "UPGRADE_DESCRIPTION": "Exhaust up to 2 cards from your discard pile. NL At the start of your next X+1 turns, gain [E]."
   },
   "AmiyaMod:WhoKnowOne": {
-    "NAME": "Be预言的魔王",
-    "DESCRIPTION": "对 All Enemy Deal !D! Damage. NL 战斗开始时,按照卡组中 StoneCurse 的数量 Upgrade 此 Card . NL 能Be多 times  Upgrade ."
+    "NAME": "Prophesied Sarkaz King",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL At the start of combat, Upgrade this card for each Originium-Curse in your deck. NL Can be Upgraded any number of times.",
+    "EXTENDED_DESCRIPTION": [
+      "Deal !D! damage to ALL enemies. NL Can be Upgraded any number of times."
+    ]
   },
-
   "AmiyaMod:ASay": {
-    "NAME": "源石结晶",
-    "DESCRIPTION": "StoneCurse . NL  Random 施展 One  StoneMagic  . NL  Ethereal .  Exhaust ."
+    "NAME": "Originium Crystal",
+    "DESCRIPTION": "Originium-Curse. NL Play a random Originium-Arts. NL Ethereal. Exhaust."
   },
   "AmiyaMod:Ymagic": {
-    "NAME": "源石戏法",
-    "DESCRIPTION": "StoneMagic  . NL 急性发作 1. NL 对 Random  Enemy Deal !D!  Damage."
+    "NAME": "Originium Trick",
+    "DESCRIPTION": "Originium-Arts. NL Acute Onset 1. NL Deal !D! damage to a random enemy."
   },
   "AmiyaMod:MagicYuJin": {
-    "NAME": "巫咒残渣",
-    "DESCRIPTION": "急性发作 1. NL  Random   Exhaust  One Discard  Pile中的卡 Card ,优先Chose StoneCurse ,依据其稀有度 Deal至少 !D!  Damage.",
-    "UPGRADE_DESCRIPTION": "急性发作 1. NL Chose One Discard  Pile中的卡 Card   Exhaust ,依据其稀有度 Deal至少 !D!  Damage."
+    "NAME": "Hex Residue",
+    "DESCRIPTION": "Acute Onset 1. NL Exhaust a random card from your discard pile, prioritizing Originium-Curses. Deal at least !D! damage based on its rarity.",
+    "UPGRADE_DESCRIPTION": "Acute Onset 1. NL Choose a card from your discard pile to Exhaust. Deal at least !D! damage based on its rarity."
   },
   "AmiyaMod:DefendMagic": {
-    "NAME": "女妖之吻",
-    "DESCRIPTION": "StoneMagic  . NL 去除Your Vulnerable . NL  Gain  !B!  Block .",
-    "UPGRADE_DESCRIPTION": "StoneMagic  . NL 去除Your Vulnerable . NL  Gain  !B!  Block  And 1  人工制品 ."
+    "NAME": "Banshee's Kiss",
+    "DESCRIPTION": "Originium-Arts. NL Remove your Vulnerable. NL Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. NL Remove your Vulnerable. NL Gain !B! Block and 1 Artifact."
   },
   "AmiyaMod:SeeMe": {
-    "NAME": "见我",
-    "DESCRIPTION": "StoneMagic  . NL Draw 取 One  StoneCurse . NL  Deal !D!  Damage, Gain  NL  Card  in Your Hands 数 !M! 倍的  Line .",
-    "UPGRADE_DESCRIPTION": "StoneMagic  . NL  Deal!D! Damage. NL  Gain  !M!   Line ."
+    "NAME": "Irrefusable",
+    "DESCRIPTION": "Originium-Arts. NL Draw an Originium-Curse. NL Deal !D! damage. NL Gain Thread equal to !M! times the number of cards in your hand.",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. NL Deal !D! damage. NL Gain !M! Thread."
   },
   "AmiyaMod:NotNow": {
-    "NAME": "终局未至",
-    "DESCRIPTION": "StoneMagic  . 急性发作 1. NL 对 All Enemy Deal !D!  Damage, Deal相Whenever  于You  感染进度 的 Extra  Damage. NL  Ethereal ."
+    "NAME": "Not Yet the End",
+    "DESCRIPTION": "Originium-Arts. NL Acute Onset 1. NL Deal !D! damage to ALL enemies. Deal additional damage equal to your Infection-Progress. NL Ethereal."
   },
-
   "AmiyaMod:DrBlood": {
-    "NAME": "造物主之血",
-    "DESCRIPTION": " Lose !M!  感染进度 . NL Into  TheBreak Power. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " Lose !M!  感染进度 . NL Into  TheBreak Power. NL  Exhaust Draw  Pile And  Card  in Your Hands 中 All的 StoneCurse . NL  Exhaust ."
+    "NAME": "Blood of the Creator",
+    "DESCRIPTION": "Reduce Infection-Progress by !M!. NL Enter Infection Outbreak. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Reduce Infection-Progress by !M!. NL Enter Infection Outbreak. NL Exhaust all Originium-Curses in your draw pile and hand. NL Exhaust."
   },
   "AmiyaMod:Ghost": {
-    "NAME": "幽影重重",
-    "DESCRIPTION": "Double Your Line . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "Double Your Line ."
+    "NAME": "Umbral Shadows",
+    "DESCRIPTION": "Double your Thread. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double your Thread."
   },
-
   "AmiyaMod:MagicBook": {
-    "NAME": "巫术典籍",
-    "DESCRIPTION": "从 !M! 张 Random  StoneMagic  中Chose One  Into Your Hand. 它在 This Turn 的 Cost变为0. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "从 !M! 张 Random  Upgrade 过的 StoneMagic  中Chose One  Into Your Hand. 它在 This Turn 的 Cost变为0. NL  Exhaust ."
+    "NAME": "Grimoire of Witchcraft",
+    "DESCRIPTION": "Choose 1 of !M! random Originium-Arts cards to add into your hand. It costs 0 this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of !M! random Upgraded Originium-Arts cards to add into your hand. It costs 0 this turn. NL Exhaust."
   },
   "AmiyaMod:Solo": {
-    "NAME": "独奏",
-    "DESCRIPTION": " Gain  !M! Line . NL 下Start of Turn时对 All Enemy Deal= You   Line 值的 Damage.",
-    "UPGRADE_DESCRIPTION": "  "
+    "NAME": "Solo",
+    "DESCRIPTION": "Gain !M! Thread. NL At the start of your next turn, deal damage to ALL enemies equal to your Thread.",
+    "UPGRADE_DESCRIPTION": " "
   },
-
   "AmiyaMod:FirstSayA": {
-    "NAME": "源石结晶",
-    "DESCRIPTION": "StoneCurse . NL  Retain . NL 凝聚着Be  Exhaust 卡 Card 的Str. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "StoneCurse .  Retain . NL ",
+    "NAME": "Originium Crystal",
+    "DESCRIPTION": "Originium-Curse. NL Retain. NL Condenses the power of Exhausted cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Originium-Curse. Retain. NL ",
     "EXTENDED_DESCRIPTION": [
       ". ",
-      " 急性发作 ",
-      " Deal !D!  Damage. ",
-      " Gain  !B!  Block . ",
-      " Gain  !M!   Line . ",
+      "Acute Onset ",
+      "Deal !D! damage. ",
+      "Gain !B! Block. ",
+      "Gain !M! Thread. ",
       "Draw ",
-      " Card .",
-      " Heal",
+      " card(s).",
+      "Heal ",
       " HP. ",
-      " NL  Exhaust ."
+      " NL Exhaust."
     ]
   },
   "AmiyaMod:YBBS": {
-    "NAME": "源石祭坛",
-    "DESCRIPTION": "Whenever  You Draw 到 StoneCurse 时,将 !M! 张  Ethereal 的 Random StoneMagic  Into Your Hand.",
-    "UPGRADE_DESCRIPTION": "  Innate . NL Whenever  You Draw 到 StoneCurse 时,将 !M! 张  Ethereal 的 Random StoneMagic  Into Your Hand."
+    "NAME": "Originium Altar",
+    "DESCRIPTION": "Whenever you draw an Originium-Curse, add !M! Ethereal random Originium-Arts into your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever you draw an Originium-Curse, add !M! Ethereal random Originium-Arts into your hand."
   },
   "AmiyaMod:HelpMagic": {
-    "NAME": "土石之垒",
-    "DESCRIPTION": "StoneMagic  . NL  Gain  !B!  Block . NL Lose  HP时将此 Card  Into Your Hand. NL  Exhaust ."
+    "NAME": "Earthen Rampart",
+    "DESCRIPTION": "Originium-Arts. NL Gain !B! Block. NL Whenever you lose HP, return this card to your hand. NL Exhaust."
   },
   "AmiyaMod:EatZuzhou": {
-    "NAME": "螯合诅咒",
-    "DESCRIPTION": "StoneMagic  . NL Chose  Exhaust 卡组中的1种 StoneCurse ,并 Apply Enemy相应的Debuff. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "要使用这个法术...我还对 StoneCurse 痛苦的了解还不足够.",
+    "NAME": "Chelating Curse",
+    "DESCRIPTION": "Originium-Arts. NL Choose an Originium-Curse in your deck to Exhaust and apply its corresponding debuff to an enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "To use this Art... I still lack sufficient understanding of the pain of Originium-Curses.",
     "EXTENDED_DESCRIPTION": [
-      " Each Turn 有50%几率 ApplyYou  [E] .",
-      " Turn End 时,Lose  !M!  HP.",
-      " Deal的 Damage Reduce  !M! .",
-      "受到的 Damage增加 !M! .",
-      " If  One  times Lose 至少8 HP,目标 Gain  !M!   Vulnerable .",
-      "Whenever You  Play StoneMagic  时,Lose  All Block .",
-      "Start of Turn时,使You  Extra Draw !M!  Card .",
-      "Whenever You  Play StoneMagic  时, Gain  !M!   Weak .",
-      "Start of Turn时,Lose  HPUntil个位为0. NL ( If 个位为0则Lose 10 HP.)",
-      " Innate . StoneMagic  . NL Chose  Exhaust 卡组中的1种 StoneCurse ,并 Apply Enemy相应的Debuff. NL  Exhaust .",
+      "50% chance to grant you [E] each turn.",
+      "At the end of your turn, lose !M! HP.",
+      "Deal !M! less damage.",
+      "Take !M! more damage.",
+      "If the target loses at least 8 HP at once, apply !M! Vulnerable.",
+      "Whenever you play an Originium-Arts, lose all Block.",
+      "At the start of your turn, draw !M! additional cards.",
+      "Whenever you play an Originium-Arts, gain !M! Weak.",
+      "At the start of your turn, lose HP until the last digit is 0. NL (If already 0, lose 10 HP.)",
+      "Innate. NL Originium-Arts. NL Choose an Originium-Curse in your deck to Exhaust and apply its corresponding debuff to an enemy. NL Exhaust.",
       ""
     ]
   },
-
   "AmiyaMod:ShadowCloudBreak": {
-    "NAME": "云裂",
-    "DESCRIPTION": "将 One  *云裂 ** *出 放入Draw  Pile中. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "TheIn:Chose !M! 张已  Exhaust 的  ShadowSword ,将其放入Your Card  in Your Hands ."
+    "NAME": "Stratus Rent",
+    "DESCRIPTION": "Shuffle a *Stratus *Rent *:* *Out into your draw pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Sheathed: Choose !M! Exhausted Ying-Xiao and put them into your hand."
   },
   "AmiyaMod:ShadowCloudBreak2": {
-    "NAME": "云裂",
-    "DESCRIPTION": "将 One  Upgrade X  times 的  ShadowSword 拿入 Card  in Your Hands . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "将 One  Upgrade X  times 的  ShadowSword 拿入 Card  in Your Hands ."
+    "NAME": "Stratus Rent",
+    "DESCRIPTION": "Choose X times: NL Gain an Upgraded Ying-Xiao. NL Or Upgrade a Ying-Xiao in your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose X times: NL Gain an Upgraded Ying-Xiao. NL Or Upgrade a Ying-Xiao in your hand."
   },
   "AmiyaMod:CloudBreakIn": {
-    "NAME": "云裂*出",
-    "DESCRIPTION": "再 times  Play Gain 此 Card 后You  Play过的  ShadowSword . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " NL (已记录 !M! 张  ShadowSword ,总计约 !D!  Damage.)"
+    "NAME": "Stratus Rent: Out",
+    "DESCRIPTION": "Replay all Ying-Xiao you have played since obtaining this card. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": " NL (Recorded !M! Ying-Xiao, totaling approximately !D! damage.)"
   },
   "AmiyaMod:BloodSword": {
-    "NAME": "饲血",
-    "DESCRIPTION": "Lose 1 HP. NL 在本场战斗中 Upgrade !M! 张 Card  in Your Hands  ,并将其  Retain . NL (无视  Ethereal )",
-    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL 在本场战斗中 Upgrade !M! 张 Card  in Your Hands  ,并将其  Retain . NL (无视  Ethereal )",
-    "EXTENDED_DESCRIPTION": [" NL ( Deal"," Damage)"]
-  },
-  "AmiyaMod:ShadowBackWindy": {
-    "NAME": "回风",
-    "DESCRIPTION": " Deal !D!  Damage. NL Draw  !M!  Card . NL TheOut : 再Draw one.",
-    "UPGRADE_DESCRIPTION": " Apply All Enemy !M!   Weak . NL TheIn : Upgrade  Card  in Your Hands 中的  ShadowSword . NL  Exhaust ."
-  },
-  "AmiyaMod:ShadowBlood": {
-    "NAME": "吹血",
-    "DESCRIPTION": " Deal !D!  Damage. NL TheOut : Lose  !M!  HP, Extra  Deal Half 的 Damage."
-  },
-  "AmiyaMod:BloodNo": {
-    "NAME": "青色怒火",
-    "DESCRIPTION": " Deal !D!  Damage. NL  Extra  Deal相Whenever  于 * Exhaust Pile 数量的 Damage.",
-    "UPGRADE_DESCRIPTION": " Deal !D!  Damage. NL  Extra  Deal * Exhaust Pile 数量 !M! 倍的 Damage.",
-    "EXTENDED_DESCRIPTION": [" NL ( Deal"," Extra  Damage）"]
-  },
-
-  "AmiyaMod:Memory": {
-    "NAME": "高塔 Memory",
-    "DESCRIPTION": "Chose !M! 位角色,在YourStart of Turn时将one来自其 Random 卡 Card 的  Memory  Into Your Hand并 Upgrade .",
-    "UPGRADE_DESCRIPTION": "Chose One 位角色,在YourStart of Turn时从 !M! 张来自其 Random 卡 Card 的  Memory 中Chose One  Into Your Hand并 Upgrade .",
+    "NAME": "Blood Feeding",
+    "DESCRIPTION": "Lose 1 HP. NL Upgrade !M! cards in your hand for the rest of combat and Retain them. NL (Ignores Ethereal)",
+    "UPGRADE_DESCRIPTION": "Lose 1 HP. NL Upgrade !M! cards in your hand for the rest of combat and Retain them. NL (Ignores Ethereal)",
     "EXTENDED_DESCRIPTION": [
-      " Memory:",
-      "在You Start of Turn时,将",
-      "张来自",
-      "的 Random   Memory  Into Your Hand.",
-      "的 Random   Memory  Into Your Hand 并 Upgrade .",
-      "的特殊  Memory  Into Your Hand.",
-      "的特殊  Memory  Into Your Hand 并 Upgrade ."
+      " NL (Deals ",
+      " damage)"
     ]
   },
-
+  "AmiyaMod:ShadowBackWindy": {
+    "NAME": "Returning Wind",
+    "DESCRIPTION": "Deal !D! damage. NL Draw !M! cards. NL Unsheathed: Draw 1 additional card.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Weak to ALL enemies. NL Sheathed: Upgrade the Ying-Xiao in your hand. NL Exhaust."
+  },
+  "AmiyaMod:ShadowBlood": {
+    "NAME": "Blowing Blood",
+    "DESCRIPTION": "Deal !D! damage. NL Unsheathed: Lose !M! HP and deal half again as much damage."
+  },
+  "AmiyaMod:BloodNo": {
+    "NAME": "Azure Fury",
+    "DESCRIPTION": "Deal !D! damage. NL Deal additional damage equal to the number of cards in the Exhaust pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Deal additional damage equal to !M! times the number of cards in the Exhaust pile.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals ",
+      " additional damage)"
+    ]
+  },
+  "AmiyaMod:Memory": {
+    "NAME": "Tower Reminiscence",
+    "DESCRIPTION": "Choose !M! characters. At the start of your turn, add a Reminiscence of a random card from them into your hand and Upgrade it.",
+    "UPGRADE_DESCRIPTION": "Choose a character. At the start of your turn, from !M! Reminiscences of random cards from them, choose one to add into your hand and Upgrade it.",
+    "EXTENDED_DESCRIPTION": [
+      "Reminiscence:",
+      "At the start of your turn, add ",
+      " random Reminiscence(s) from ",
+      " into your hand.",
+      " random Reminiscence(s) from ",
+      " into your hand and Upgrade it.",
+      "'s special Reminiscence into your hand.",
+      "'s special Reminiscence into your hand and Upgrade it."
+    ]
+  },
   "AmiyaMod:Whitemith": {
-    "NAME": "“Whitemith”",
-    "DESCRIPTION": "Draw X Card , They  This Turn 的 Cost变为0. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "Draw X+1 Card , They  This Turn 的 Cost变为0. NL  Exhaust ."
+    "NAME": "\"Whitemith\"",
+    "DESCRIPTION": "Draw X cards. They cost 0 this turn. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Draw X+1 cards. They cost 0 this turn. NL Exhaust."
   },
   "AmiyaMod:Outcast": {
-    "NAME": "“Outcast”",
-    "DESCRIPTION": "丢Discard  All Card  in Your Hands ,将 !M! 张 *圣痕弹  Into Your Hand."
+    "NAME": "\"Outcast\"",
+    "DESCRIPTION": "Discard your hand, then add !M! *Stigmata *Bullets into your hand."
   },
   "AmiyaMod:Outcast1": {
-    "NAME": "圣痕弹",
-    "DESCRIPTION": "StoneMagic  . Retain . NL 填装 One 枚能 Deal1 3 Damage的子弹. NL  If You 手中没有 *鸣铳 则将其 Into Your Hand."
+    "NAME": "Stigmata Bullet",
+    "DESCRIPTION": "Originium-Arts. Retain. NL Load a bullet that deals 13 damage. NL If you have no *Echoing *Pistol in your hand, add one to your hand."
   },
   "AmiyaMod:Outcast2": {
-    "NAME": "鸣铳",
-    "DESCRIPTION": " Retain . NL  Each枚子弹 Deal !D!  Damage1 times . NL  If 填装了6枚子弹,改为对 All All Enemy Deal !M! 倍 Damage.在那之后对You 造13 Damage.",
-    "UPGRADE_DESCRIPTION": "枪膛中还没有填装子弹."
+    "NAME": "Echoing Pistol",
+    "DESCRIPTION": "Retain. NL Deal !D! damage 1 time for each bullet loaded. NL If 6 bullets are loaded, deal !M! times the damage to ALL enemies instead. Then take 13 damage.",
+    "UPGRADE_DESCRIPTION": "No bullets are loaded in the chamber."
   },
   "AmiyaMod:Scout": {
-    "NAME": "“Scout”",
-    "DESCRIPTION": "瞄准目标,对其 Each Turn 积累 !M!  Damage."
+    "NAME": "\"Scout\"",
+    "DESCRIPTION": "Take aim at an enemy, accumulating !M! damage each turn."
   },
   "AmiyaMod:Scout1": {
-    "NAME": "扳机",
-    "DESCRIPTION": " Retain . NL 使 All Enemy受到 Deal= 其身上的 *瞄准  数的 Damage.",
-    "UPGRADE_DESCRIPTION": "我没有瞄准任何 Enemy."
+    "NAME": "Trigger",
+    "DESCRIPTION": "Retain. NL Deal damage to ALL enemies equal to their *Mark (Target) stacks.",
+    "UPGRADE_DESCRIPTION": "I have not marked any enemy."
   },
   "AmiyaMod:ACE": {
-    "NAME": "“ACE”",
-    "DESCRIPTION": " Deal !D!  Damage. NL 阻止下 !M!  times You 受到的至少为6的 HP值损伤. NL  Exhaust ."
+    "NAME": "\"ACE\"",
+    "DESCRIPTION": "Deal !D! damage. NL Prevent the next !M! times you would lose 6 or more HP. NL Exhaust."
   },
   "AmiyaMod:ICEStar": {
-    "NAME": "“霜星”",
-    "DESCRIPTION": "StoneMagic  . NL 对 All Enemy Deal !D!  Damage. NL  Apply All Enemy !M!   Weak . NL  Exhaust ."
+    "NAME": "\"Froststar\"",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage to ALL enemies. NL Apply !M! Weak to ALL enemies. NL Exhaust."
   },
   "AmiyaMod:CountryLover": {
-    "NAME": "“爱国者”",
-    "DESCRIPTION": " Deal !D!  Damage !M!  times . Gain  !B!  Block . NL 将one * HP献祭  Into Your Hand. NL  Exhaust ."
+    "NAME": "\"Patriot\"",
+    "DESCRIPTION": "Deal !D! damage !M! times. Gain !B! Block. NL Add a *Life *Sacrifice into your hand. NL Exhaust."
   },
   "AmiyaMod:CountryLover1": {
-    "NAME": " HP献祭",
-    "DESCRIPTION": "将 *投矛  Into Your Hand . NL  Each Turn End 时增加 !M! 感染进度 ,对 All Enemy Deal6 Damage. NL  Ethereal ."
+    "NAME": "Life Sacrifice",
+    "DESCRIPTION": "Add a *Throwing *Spear into your hand. NL At the end of your turn, increase Infection-Progress by !M! and deal 6 damage to ALL enemies. NL Ethereal."
   },
   "AmiyaMod:CountryLover2": {
-    "NAME": "投矛",
-    "DESCRIPTION": " Retain . NL 对 Random  Enemy Deal !D!  Damage. NL 下 Turn 将 This Card拿回手中."
+    "NAME": "Throwing Spear",
+    "DESCRIPTION": "Retain. NL Deal !D! damage to a random enemy. NL Return this card to your hand next turn."
   },
   "AmiyaMod:Her": {
-    "NAME": "“特蕾西娅”",
-    "DESCRIPTION": "StoneMagic  . NL  Gain  !M! 个充能球栏位. NL 生成 !M! 粒 微尘 ."
+    "NAME": "\"Theresa\"",
+    "DESCRIPTION": "Originium-Arts. NL Gain !M! Orb slots. NL Channel !M! Mote."
   },
   "AmiyaMod:BreakBone": {
-    "NAME": "“碎骨”",
-    "DESCRIPTION": " Ethereal . NL  Apply All Enemy !M!  Vulnerable . NL  Gain 5  Line ,Whenever  You Lose  All  Line 时将另 One  *“碎骨”  Into Your Hand. NL  Exhaust ."
+    "NAME": "\"Bonebreaker\"",
+    "DESCRIPTION": "Ethereal. NL Apply !M! Vulnerable to ALL enemies. NL Gain 5 Thread. When all Thread is lost, add another *\"Bonebreaker\" into your hand. NL Exhaust."
   },
-
   "AmiyaMod:KingSee": {
-    "NAME": "魔王幻景",
-    "DESCRIPTION": "Draw  2  Card ,并 Apply One 名 Enemy 8   Line . NL 目标在Lose  All  Line 之前,在其Start of Turn时 Gain  !M!   Weak .",
-    "UPGRADE_DESCRIPTION": " Apply One 名 Enemy 8   Line . Draw  2  Card  . NL 目标的Start of Turn时, If 它的  Line 仍在,  Apply !M!   Weak ."
+    "NAME": "Sarkaz King's Mirage",
+    "DESCRIPTION": "Draw 2 cards. Heal an enemy for !M! HP. NL Until attacked, the target deals 2 less damage.",
+    "UPGRADE_DESCRIPTION": "Give an enemy 8 Thread. Draw 2 cards. NL At the start of the target's turn, if it still has this Thread, apply !M! Weak."
   },
   "AmiyaMod:SwordHeard": {
-    "NAME": "以剑交心",
-    "DESCRIPTION": " Gain 1  Vulnerable . NL  Apply !M!   Vulnerable . NL TheOut : Upgrade 1 张 Card  in Your Hands . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": " Gain 1  Vulnerable . NL  Apply !M!   Vulnerable . NL TheOut : Upgrade 1 张 Card  in Your Hands ."
+    "NAME": "Heart-to-Sword",
+    "DESCRIPTION": "Gain 1 Vulnerable. NL Apply !M! Vulnerable. NL Unsheathed: Upgrade 1 card in your hand. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Gain 1 Vulnerable. NL Apply !M! Vulnerable. NL Unsheathed: Upgrade 1 card in your hand."
   },
   "AmiyaMod:YOpen": {
-    "NAME": "结晶绽放",
-    "DESCRIPTION": "StoneMagic  . 急性发作 2. NL   If You  This Turn  Play过其他 StoneMagic  , Gain  [E] .",
-    "UPGRADE_DESCRIPTION": "StoneMagic  . 急性发作 2. NL  Gain  [E] .  Gain 相Whenever  于You  感染进度 的 Block ."
+    "NAME": "Crystal Bloom",
+    "DESCRIPTION": "Originium-Arts. Acute Onset 2. NL If you have played another Originium-Arts this turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. Acute Onset 2. NL Gain [E]. Gain Block equal to your Infection-Progress."
   },
   "AmiyaMod:ShadowBack": {
-    "NAME": "振气",
-    "DESCRIPTION": "丢Discard  Card  in Your Hands 中 All的 non-Attack Card . NL  Random  Upgrade  Card  in Your Hands  !M!  times . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "丢Discard  Card  in Your Hands 中 All的非 non-Attack Card . NL  Random  Upgrade  Card  in Your Hands  !M!  times ."
+    "NAME": "Spirit Surge",
+    "DESCRIPTION": "Discard all non-Attack cards in your hand. NL Upgrade a random card in your hand !M! times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard all non-Attack cards in your hand. NL Upgrade a random card in your hand !M! times."
   },
-
   "AmiyaMod:ShadowYangMei": {
-    "NAME": "扬眉",
-    "DESCRIPTION": " Deal !D!  Damage,使 !M! 张 Card  in Your Hands  Gain   Retain . NL TheOut :  Retain  All Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": " Gain  !B!  Block . NL TheIn : Upgrade手中 All的  ShadowSword ."
+    "NAME": "Slashing Grand and Bold",
+    "DESCRIPTION": "Deal !D! damage. NL Retain !M! cards in your hand. NL Unsheathed: Retain your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Sheathed: Upgrade all Ying-Xiao in your hand."
   },
-
-
   "AmiyaMod:SoulMilk": {
-    "NAME": "死魂灵之影",
-    "DESCRIPTION": "从 !M! 张 Random   Memory 中Choseone加入 Card  in Your Hands . NL If  *死魂灵之影 Be  Exhaust , Gain 2  再生 .",
-    "UPGRADE_DESCRIPTION": "从 !M! 张 Upgrade 过的  Memory 中Choseone加入 Card  in Your Hands . NL If  *死魂灵之影 Be  Exhaust , Gain 2  再生 ."
+    "NAME": "Shadow of the Nachzehrer",
+    "DESCRIPTION": "Choose 1 of !M! random Reminiscence to add into your hand. NL If *Shadow *of *the *Nachzehrer is Exhausted, gain 2 Regeneration.",
+    "UPGRADE_DESCRIPTION": "Choose 1 of !M! random Upgraded Reminiscence to add into your hand. NL If *Shadow *of *the *Nachzehrer is Exhausted, gain 2 Regeneration."
   },
   "AmiyaMod:MakeLine": {
-    "NAME": "编织茧笼",
-    "DESCRIPTION": "Whenever You  Play 战斗中添加 的卡 Card 时,  Gain  !M!   Line ."
+    "NAME": "Weaving Cocoon",
+    "DESCRIPTION": "Whenever you play a card created during combat, gain !M! Thread."
   },
   "AmiyaMod:MindRoll": {
-    "NAME": "意志震荡",
-    "DESCRIPTION": "YourStart of Turn时, Chose !M!  Card   Exhaust . NL Whenever 非  Memory  Card Be  Exhaust时 ,将 One  Random   Memory 加入 Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": "对 All Enemy Deal相Whenever  于 Exhaust  Pile数量+8的 Damage. NL 将 !M! 张 Random   Memory 拿入 Card  in Your Hands .",
+    "NAME": "Will Shock",
+    "DESCRIPTION": "At the start of your turn, choose !M! cards to Exhaust. NL Whenever a non-Reminiscence card is Exhausted, add a random Reminiscence into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to the number of cards in the Exhaust pile +8 to ALL enemies. NL Add !M! random Reminiscences into your hand.",
     "EXTENDED_DESCRIPTION": [
-      "对 All Enemy Deal Exhaust  Pile数量+8的 Damage. NL  Gain  !M! 张 Random   Memory .",
-      "对 All Enemy Deal Exhaust  Pile数量+11的 Damage. NL  Gain  !M! 张 Random   Memory .",
-      " NL ( Deal !D!  Damage)"
+      "Deal damage equal to the number of cards in the Exhaust pile +8 to ALL enemies. NL Gain !M! random Reminiscences.",
+      "Deal damage equal to the number of cards in the Exhaust pile +11 to ALL enemies. NL Gain !M! random Reminiscences.",
+      " NL (Deals !D! damage)"
     ]
   },
   "AmiyaMod:CopyMagic": {
-    "NAME": "变形者之貌",
-    "DESCRIPTION": "StoneMagic  . NL  Random 查看Draw  Pile中的 !M!  Card ,Choseone将其 To Copy 加入 Card  in Your Hands . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION":"StoneMagic  . NL  Random 查看Draw  Pile中的 !M!  Card ,Choseone将其 To Copy 加入 Card  in Your Hands . NL  Exhaust ."
+    "NAME": "Visage of the Shapeshifter",
+    "DESCRIPTION": "Originium-Arts. NL Look at !M! random cards from your draw pile. Choose 1 and add a copy into your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. NL Look at !M! random cards from your draw pile. Choose 1 and add a copy into your hand. NL Exhaust."
   },
-
   "AmiyaMod:BreakHug": {
-    "NAME": "浇灌新生",
-    "DESCRIPTION": " Gain  !M!   Line .下Start of Next Turn Your  Line Will not Lose."
+    "NAME": "Nurturing Rebirth",
+    "DESCRIPTION": "Gain !M! Thread. NL At the start of your next turn, Thread does not halve."
   },
   "AmiyaMod:SadMind": {
-    "NAME": "哀恸共情",
-    "DESCRIPTION": " Gain = 已损失 HP值的  Line . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION":" Retain . NL  Gain = Has Lose HP值的  Line . NL  Exhaust .",
+    "NAME": "Empathy of Grief",
+    "DESCRIPTION": "Gain Thread equal to your missing HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain Thread equal to your missing HP. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
-      "我还Cannot 感受到他们的苦难."
+      "I cannot feel their suffering yet."
     ]
   },
   "AmiyaMod:ShadowDefend": {
-    "NAME": "守式",
-    "DESCRIPTION": "Your下 !M! 张  ShadowSword 将 Extra  Gain =  Damage的 Block . NL TheIn : Upgrade  One  Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION":" Retain . NL  Deal !D!  Damage. NL  This Turn  Play的下 One   ShadowSword 将 Extra  Gain =  Damage的 Block . NL TheIn :   This Card Gain 的  ShadowSword  Extra Upgrade !M!  times ."
+    "NAME": "Defensive Stance",
+    "DESCRIPTION": "Your next !M! Ying-Xiao gain Block equal to their damage. NL Sheathed: Upgrade 1 Ying-Xiao.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Deal !D! damage. NL The next Ying-Xiao you play this turn gains Block equal to its damage. NL Sheathed: Ying-Xiao obtained from this card are Upgraded an additional !M! times."
   },
-
   "AmiyaMod:BurnMark": {
-    "NAME": "灼痕",
-    "DESCRIPTION": "Draw  Pile不为空时 Only Can  Play,  Exhaust 其顶端的 Card . NL Lose 1 HP. NL  Deal !D!  Damage . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": " Cannot Be Play . NL Whenever  You  Lose 1 HP 时  Exhaust , Gain  [R] [R] .并在Draw  Pile顶端 And Discard  Pile各放入 One 此 Card 的 To Copy品. NL  Ethereal .",
+    "NAME": "Scorch Mark",
+    "DESCRIPTION": "Ethereal. NL Lose !M! HP. NL Can only be played if there are cards in your draw pile. Exhaust the top card of your draw pile and put a copy of this card there. NL Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever you lose 1 HP, Exhaust this card, gain [R] [R], and put a copy on top of your draw pile and another into your discard pile. NL Ethereal.",
     "EXTENDED_DESCRIPTION": [
-      "已经...没有燃料了"
+      "There is no fuel left..."
     ]
   },
-
   "AmiyaMod:ShadowRunNight": {
-    "NAME": "奔夜",
-    "DESCRIPTION": " Deal !D!  DamageTwo times . TheOut :  This Turn Whenever You  Play  ShadowSword 时 Gain  !M!  Block."
+    "NAME": "Fleeting Night",
+    "DESCRIPTION": "Deal !D! damage twice. NL Unsheathed: Whenever you play a Ying-Xiao this turn, gain !M! Block."
   },
   "AmiyaMod:LineDefender": {
-    "NAME": "温迪戈之骸",
-    "DESCRIPTION": " Gain  !M!   Line . NL Whenever You Lose 这部分  Line 时 Gain  !B!  Block ."
+    "NAME": "Wendigo's Remains",
+    "DESCRIPTION": "Gain !M! Thread. NL Whenever you lose this Thread, gain !B! Block."
   },
   "AmiyaMod:Shadow15": {
-    "NAME": "剑十五",
-    "DESCRIPTION": "Draw 到此 Card 时 Lose 1 HP 5  times . NL  Deal !D!  Damage !M!  times . NL You  Each在战斗中Lose  HP One  times ,This Card的 Cost就 Reduce  [E] . NL TheIn : Heal15 HP. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " Retain . NL Draw 到此 Card 时 Lose 1 HP 5  times . NL  Deal !D!  Damage !M!  times . NL You  Each在战斗中Lose  HP One  times ,This Card的 Cost就 Reduce  [E] . NL TheIn : Heal15 HP. NL  Exhaust ."
+    "NAME": "Sword Fifteen",
+    "DESCRIPTION": "When drawn, lose 1 HP 5 times. NL Deal !D! damage !M! times. NL Costs 1 less [E] for each time you lose HP this combat. NL Sheathed: Heal 15 HP. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL When drawn, lose 1 HP 5 times. NL Deal !D! damage !M! times. NL Costs 1 less [E] for each time you lose HP this combat. NL Sheathed: Heal 15 HP. NL Exhaust."
   },
-
-
-  "AmiyaMod:NoName=Discard 用": {
-    "NAME": "恨火蔓延",
-    "DESCRIPTION": " Deal !D!  Damage . NL TheIn : 下Start of Turn时 TheOut .",
+  "AmiyaMod:NoName=弃用": {
+    "NAME": "Spreading Hatred",
+    "DESCRIPTION": "Deal !D! damage. NL Sheathed: At the start of your next turn, Unsheathed.",
     "EXTENDED_DESCRIPTION": [
-      "不要...不要惹恼我.",
-      "这把剑渴望着报复...我Cannot 放纵它."]
+      "Do not... provoke me.",
+      "This blade thirsts for revenge... I must not indulge it."
+    ]
   },
-
   "AmiyaMod:AmiyaMagic": {
-    "NAME": " BaseStoneMagic ",
-    "DESCRIPTION": "StoneMagic  . NL  Deal !D!  Damage."
+    "NAME": "Basic Originium Arts",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage. NL Apply !M! Weak."
   },
-
   "AmiyaMod:badY": {
-    "NAME": "污染碎片",
-    "DESCRIPTION": "  Retain . NL  If 本场战斗You  Play过另 One  *污染碎片 , Gain  60 金币. NL Whenever This CardBe  Retain 时,增加 !M! 感染进度 . NL StoneCurse ."
+    "NAME": "Contaminated Fragments",
+    "DESCRIPTION": "Retain. NL If you have played another *Contaminated *Shard this combat, gain 60 Gold. NL Whenever this card is Retained, increase Infection-Progress by !M!. NL Originium-Curse."
   },
   "AmiyaMod:FirstSay": {
-    "NAME": "阿喃那",
-    "DESCRIPTION": "At The End of Your Turn ,将You  Card  in Your Hands 中 All非 StoneCurse 的卡 Card 凝聚为 One  *源石结晶 .",
-    "UPGRADE_DESCRIPTION": "  Innate . NL At The End of Your Turn ,将You  Card  in Your Hands 中 All非 StoneCurse 的卡 Card 凝聚为 One  *源石结晶 ."
+    "NAME": "Amnannam",
+    "DESCRIPTION": "At the end of your turn, condense all non- Originium-Curse cards in your hand into an *Originium *Crystal.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the end of your turn, condense all non- Originium-Curse cards in your hand into an *Originium *Crystal."
   },
-
   "AmiyaMod:Hate": {
-    "NAME": "恨火蔓延",
-    "DESCRIPTION": "处于 TheOut 时Only Can  Play. NL  Deal !D!  Damage. NL 下Start of Turn时 TheOut .",
+    "NAME": "Spreading Hatred",
+    "DESCRIPTION": "Can only be played while Unsheathed. NL Deal !D! damage. NL At the start of your next turn, Unsheathed.",
     "EXTENDED_DESCRIPTION": [
-      "不要...不要惹恼我.",
-      "这把剑渴望着报复...我Cannot 放纵它."]
-  },
-
-  "AmiyaMod:MindLink": {
-    "NAME": "情绪联结",
-    "DESCRIPTION": "StoneMagic  . NL   Deal !D!  Damage , If You  This Turn Lose 过 HP, Gain  [E] .",
-    "UPGRADE_DESCRIPTION": "StoneMagic  . NL   Deal !D!  Damage  , If You  This Turn Lose 过 HP, Gain  [E] ."
-  },
-
-  "AmiyaMod:Bonk": {
-    "NAME": "鞘击",
-    "DESCRIPTION": "下one  ShadowSword 将使目标 Lose Upgrade  times 数 的 Str . NL TheOut : Upgrade one  ShadowSword !M!  times  ,但 Damage减半 . NL   Exhaust .",
-    "UPGRADE_DESCRIPTION": " Retain . NL 下one  ShadowSword 将使目标 Lose Upgrade  times 数 的 Str . NL TheOut : Upgrade one  ShadowSword !M!  times  ,但 Damage减半 . NL   Exhaust .",
-    "EXTENDED_DESCRIPTION": [
-      "剑刃已经TheOut..."
+      "Do not... provoke me.",
+      "This blade thirsts for revenge... I must not indulge it."
     ]
   },
-
+  "AmiyaMod:MindLink": {
+    "NAME": "Emotional Link",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage. NL If you have lost HP this turn, gain [E].",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. NL Deal !D! damage. NL If you have lost HP this turn, gain [E]."
+  },
+  "AmiyaMod:Bonk": {
+    "NAME": "Scabbard Strike",
+    "DESCRIPTION": "The next Ying-Xiao reduces the target's Strength by the number of times it was Upgraded. NL Unsheathed: Upgrade 1 Ying-Xiao !M! times, but its damage is halved. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL The next Ying-Xiao reduces the target's Strength by the number of times it was Upgraded. NL Unsheathed: Upgrade 1 Ying-Xiao !M! times, but its damage is halved. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "The blade is already unsheathed..."
+    ]
+  },
   "AmiyaMod:BlackKing": {
-    "NAME": "黑冠圣贤",
-    "DESCRIPTION": "At The End of Your Turn ,将 !M! 张 *尊主之影 加入 Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": " Innate . NL At The End of Your Turn ,将 !M! 张 *尊主之影 加入 Card  in Your Hands ."
+    "NAME": "Black Crowned Sage",
+    "DESCRIPTION": "Add !M! *Shadow *of *the *Lord into your hand now and at the end of your turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Add !M! *Shadow *of *the *Lord into your hand now and at the end of your turn."
   },
   "AmiyaMod:KingShadow": {
-    "NAME": "尊主之影",
-    "DESCRIPTION": " Retain . NL 对 All Enemy Deal !D!  Damage.  PlayYou  Card  in Your Hands 中 All的 *尊主之影 . NL  This Card  Retain 时, Cost Reduce  [E] . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " EachStart of Turn时,将 One  *尊主之影+ 加入 Card  in Your Hands ."
+    "NAME": "Shadow of the Lord",
+    "DESCRIPTION": "Retain. NL Deal !D! damage to ALL enemies. Play all *Shadow *of *the *Lord in your hand. NL While Retained, costs 1 less [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, add a *Shadow *of *the *Lord+ into your hand."
   },
   "AmiyaMod:S": {
-    "NAME": "Two仪",
-    "DESCRIPTION": " This Turn  Retain."
+    "NAME": "Duality",
+    "DESCRIPTION": "Retain your hand this turn."
   },
   "AmiyaMod:ShadowTwo": {
-    "NAME": "Two仪",
-    "DESCRIPTION": "丢Discard Max !M!  Card ,Draw 相同数量的 Card . NL 将You 丢Discard 的  ShadowSword 拿回 Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": "丢Discard Max !M!  Card ,Draw 相同数量的 Card . NL Upgrade You 丢Discard 的  ShadowSword 并拿回 Card  in Your Hands ."
+    "NAME": "Duality",
+    "DESCRIPTION": "Discard up to !M! cards, NL then draw that many cards. NL Return the Ying-Xiao you discarded to your hand.",
+    "UPGRADE_DESCRIPTION": "Discard up to !M! cards, NL then draw that many cards. NL Upgrade the Ying-Xiao you discarded and return them to your hand."
   },
-
-
   "AmiyaMod:KingSay": {
-    "NAME": "魔王传承",
-    "DESCRIPTION": "Cannot Be Play . NL Draw 到时将one Upgrade 过的 StoneMagic   And  !M! 张 StoneCurse 加入 Card  in Your Hands . NL  If You  Play拿到的 StoneMagic  ,再 Gain 另one.",
-    "UPGRADE_DESCRIPTION": "Cannot Be Play . NL Draw 到时从You 最近胜利的卡组中的 Random  !M!  Card 中Chose One , This Card变为其 To Copy.",
-    "EXTENDED_DESCRIPTION": [" NL (传承: ",
-      " 、 ",
-      " .)",
-      " NL (已 Play) ",
-      "从最近胜利卡组中的 Random  !M! 张  Memory 中Chose One 拿入 Card  in Your Hands . NL  Exhaust .",
-      "从最近胜利卡组中的 Random  !M! 张  Memory 中Chose One 拿入 Card  in Your Hands ."
+    "NAME": "Sarkaz King's Legacy",
+    "DESCRIPTION": "Unplayable. NL When drawn, add 1 Upgraded Originium-Arts and !M! Originium-Curses to your hand. NL If you play the Originium-Artsobtained, gain another.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When drawn, choose from !M! random cards from your last victorious deck. This card transforms into a copy of the chosen card.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Legacy: ",
+      ", ",
+      ".)",
+      " NL (Played)",
+      "Choose 1 of !M! random Reminiscences from your last victorious deck to add into your hand. NL Exhaust.",
+      "Choose 1 of !M! random Reminiscences from your last victorious deck to add into your hand."
     ]
   },
-
   "AmiyaMod:KingSay2": {
-    "NAME": "魔王传承",
-    "DESCRIPTION": "Cannot Be Play . NL Draw 到时从You 最近胜利的卡组中的 Random  !M!  Card 中Chose One ,将它拿入 Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION": "Cannot Be Play . NL Draw 到时从You 最近胜利的卡组中的 Random  !M!  Card 中Chose One Two times ,将 They 拿入 Card  in Your Hands .",
-    "EXTENDED_DESCRIPTION": [" NL (传承: ",
-      " 、 ",
-      " .)",
-      " NL (已 Play) "
+    "NAME": "Sarkaz King's Legacy",
+    "DESCRIPTION": "Unplayable. NL When drawn, choose 1 of !M! random cards from your last victorious deck to add into your hand.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When drawn, choose 1 of !M! random cards from your last victorious deck twice, and add them to your hand.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Legacy: ",
+      ", ",
+      ".)",
+      " NL (Played)"
     ]
   },
-
-
   "AmiyaMod:Punch": {
-    "NAME": "Punch",
-    "DESCRIPTION": " DealYou  HP值与  Line 之 And 除以 !M! 的 Damage.If 此 Card 杀死了 Enemy, Gain  [E] 并返回 Card  in Your Hands . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": " Deal !D!  Damage. NL If 此 Card 杀死了 Enemy, Gain  [E] 并返回 Card  in Your Hands . NL  Exhaust .",
-    "EXTENDED_DESCRIPTION": [" NL ( Deal !D!  Damage)"]
+    "NAME": "Goliath's Fist",
+    "DESCRIPTION": "Deal damage equal to your HP plus Thread divided by !M!. If this kills an enemy, gain [E] and return this card to your hand. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this kills an enemy, gain [E] and return this card to your hand. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
   },
-
   "AmiyaMod:Horn": {
-    "NAME": "Horn",
-    "DESCRIPTION": "StoneMagic  . NL  Deal !D!  Damage. NL  If You  HP is Less Than The Begin of Combat, Deal One More times Damage ."
+    "NAME": "Wendigo's Horn",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage. NL If your HP is lower than at the start of combat, deal damage an additional time."
   },
-
   "AmiyaMod:PainMagic": {
-    "NAME": "炎魔之火",
-    "DESCRIPTION": " StoneMagic  . NL 对 All Enemy Deal !D!  Damage. TheBreak 时将此 Card 加入  Card  in Your Hands  . NL  Ethereal ."
+    "NAME": "Flame of Diαblo",
+    "DESCRIPTION": "Originium-Arts. NL Deal !D! damage to ALL enemies. NL During Infection Outbreak, add this card to your hand. NL Ethereal."
   },
   "AmiyaMod:StoneSword": {
-    "NAME": "结晶化剑",
-    "DESCRIPTION": "You  Play的下one  ShadowSword 视为 StoneMagic  . NL TheOut : Upgrade one Card  in Your Hands . NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "You  Play的下one  ShadowSword 视为 StoneMagic  . NL TheOut : Upgrade one Card  in Your Hands ."
+    "NAME": "Crystalized Sword",
+    "DESCRIPTION": "Exhaust 1 card. NL Gain a Ying-Xiao Upgraded a number of times equal to its cost. NL If it was an Originium-Curse, Upgrade it !M! more times. NL The next Ying-Xiao you play is treated as Originium-Arts.",
+    "UPGRADE_DESCRIPTION": "Exhaust 1 card. NL Gain a Ying-Xiao Upgraded a number of times equal to its cost +1. NL If it was an Originium-Curse, Upgrade it !M! more times. NL The next Ying-Xiao you play is treated as Originium-Arts."
   },
-
   "AmiyaMod:TikaziMagic": {
-    "NAME": "巫妖之试",
-    "DESCRIPTION": " StoneMagic  . NL Draw  !M!  Card .",
-    "UPGRADE_DESCRIPTION": " StoneMagic  . NL Draw  !M!  Card . NL Draw 到 StoneCurse orS StoneMagic  时, Gain  [E] ."
+    "NAME": "Lich's Trial",
+    "DESCRIPTION": "Originium-Arts. NL Draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Originium-Arts. NL Draw !M! cards. NL Whenever you draw an Originium-Curse or Originium-Arts, gain [E]."
   },
   "AmiyaMod:Wish": {
-    "NAME": "诚挚期许",
-    "DESCRIPTION": "At The End of Your Turn  Gain  !M!   Line ."
+    "NAME": "Prayer of Sincerity",
+    "DESCRIPTION": "Gain !M! Thread. NL At the end of your turn, gain !M! Thread."
   },
-
   "AmiyaMod:MagicPC": {
-    "NAME": "私人巫术终端",
-    "DESCRIPTION": "Chose One  Card  in Your Hands ,将其带有 Cannot Be Play 与 Draw 到时释放 的 To Copy洗入Discard  Pile. NL  Exhaust .",
-    "UPGRADE_DESCRIPTION": "Chose One  Card  in Your Hands ,将其带有 Cannot Be Play 与 Draw 到时释放 的 To Copy洗入Draw  Pile. NL  Exhaust ."
+    "NAME": "Personal Arts Terminal",
+    "DESCRIPTION": "Choose a card in your hand. Shuffle an Unplayable copy with \"When drawn, play this card\" into your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose a card in your hand. Shuffle an Unplayable copy with \"When drawn, play this card\" into your draw pile. NL Exhaust."
   },
-
   "AmiyaMod:KingType2": {
-    "NAME": "魔王律令",
-    "DESCRIPTION": " Deal !D!  Damage. NL Draw 1 Card . NL You  Play的下 !M! 张非 StoneMagic   Card 视为 StoneMagic  . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": " Deal !D!  Damage. NL Draw 1 Card . NL You  Play的下 !M! 张非 StoneMagic   Card 视为 StoneMagic  ."
+    "NAME": "Sarkaz King's Decree",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL The next !M! non-Originium-Arts cards you play are treated as Originium-Arts. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL The next !M! non-Originium-Arts cards you play are treated as Originium-Arts."
   },
-
-
-
   "AmiyaMod:LittleTe": {
     "NAME": "",
-    "DESCRIPTION": " Gain  Random   Memory Until Card  in Your Hands 上限.  Turn End 时, Each剩余 One  Card  in Your Hands  Gain  !M!   Line . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION":" Gain  Random   Memory Until Card  in Your Hands 上限.  Turn End 时, Each剩余 One  Card  in Your Hands  Gain  !M!   Line ."
+    "DESCRIPTION": "Add random Reminiscences to your hand until it's full. At the end of your turn, gain !M! Thread for each card remaining in your hand. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Add random Reminiscences to your hand until it's full. At the end of your turn, gain !M! Thread for each card remaining in your hand."
   },
   "AmiyaMod:LittleTe2": {
-    "NAME": "忧她所忧",
-    "DESCRIPTION": "Draw  !M!  Card . NL 在 This Turn   Retain Your Card  in Your Hands .",
-    "UPGRADE_DESCRIPTION":" Gain  Random   Memory Until Card  in Your Hands 上限.  Turn End 时, Each剩余 One  Card  in Your Hands  Gain  !M!   Line ."
+    "NAME": "Worry for Her",
+    "DESCRIPTION": "Draw !M! cards. NL Retain your hand this turn.",
+    "UPGRADE_DESCRIPTION": "Add random Reminiscences to your hand until it's full. At the end of your turn, gain !M! Thread for each card remaining in your hand."
   },
   "AmiyaMod:Hope": {
-    "NAME": "期冀之汇",
-    "DESCRIPTION": " 感染进度 增长时, If You  Have  Line , NL Lose 1 HP并阻止本 times 增长.",
-    "UPGRADE_DESCRIPTION":"  Innate . NL 感染进度 增长时, If You  Have   Line , NL Lose 1 HP并阻止本 times 增长."
+    "NAME": "Converging Hope",
+    "DESCRIPTION": "Whenever your Infection-progress increases while you have Thread, NL lose 1 HP to prevent the increase and draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Whenever your Infection-progress increases while you have Thread, NL lose 1 HP and prevent the increase."
   },
   "AmiyaMod:HerDo": {
-    "NAME": "行她所行",
-    "DESCRIPTION": "At The End of Your Turn ,  This Turn You  Each Lose  One time  HP, Deal All Enemy !M!  Damage."
+    "NAME": "Walk Her Path",
+    "DESCRIPTION": "At the end of your turn, for each time you lost HP this turn, deal !M! damage to ALL enemies."
   },
   "AmiyaMod:HerSee": {
-    "NAME": "见她所见",
-    "DESCRIPTION": " Gain  [E] [E] [E] . NL  Then You Lose 1 HP For Each [E] You Will Use."
+    "NAME": "See What She Saw",
+    "DESCRIPTION": "Gain [E] [E] [E]. NL Whenever you spend [E] this turn, lose 1 HP."
   },
   "AmiyaMod:LoseWish": {
-    "NAME": "枯竭期许",
-    "DESCRIPTION": "StoneMagic  . NL Whenever You Draw 到 One  Cannot Be Play 的 Card 时, NL Draw  !M!  Card .",
-    "UPGRADE_DESCRIPTION": " Innate . NL StoneMagic  . NL Whenever You Draw 到 One  Cannot Be Play 的 Card 时, NL Draw  !M!  Card ."
+    "NAME": "Withered Wish",
+    "DESCRIPTION": "Originium-Arts. NL Whenever you draw an Unplayable card, NL draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Originium-Arts. NL Whenever you draw an Unplayable card, NL draw !M! cards."
   },
   "AmiyaMod:ShadowSkyOpen": {
-    "NAME": "天瞠",
-    "DESCRIPTION": " Random 丢Discard Draw  Pile中 Half 的 Card ,  Exhaust 其中 Cannot Be Play 的 Card . NL You  Gain 的  ShadowSword 将Be Extra  Upgrade 1 times . NL  Ethereal .",
-    "UPGRADE_DESCRIPTION": " Innate . NL  Random 丢Discard Draw  Pile中 Half 的 Card , Exhaust 其中 Cannot Be Play 的 Card . NL You  Gain 的  ShadowSword 将Be Extra  Upgrade 1 times .",
-    "EXTENDED_DESCRIPTION": [" NL ( Deal"," Damage）"]
+    "NAME": "Heaven's Eye",
+    "DESCRIPTION": "Ying-Xiao you obtain are NL Upgraded 1 additional time. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Ying-Xiao you obtain are NL Upgraded 1 additional time.",
+    "EXTENDED_DESCRIPTION": [
+      " NL Randomly discard half the cards in your draw pile. Exhaust all Unplayable cards among them. NL ",
+      " damage)."
+    ]
   },
   "AmiyaMod:FullCry": {
-    "NAME": "浸泪",
-    "DESCRIPTION": " Ethereal. NL If  This Card Be  Exhaust ,Lose  !M! MaxHP."
+    "NAME": "Soaked in Tears",
+    "DESCRIPTION": "Ethereal. NL If this card is Exhausted, lose !M! Max HP."
   },
   "AmiyaMod:FinalSong": {
-    "NAME": "炉芯终曲",
-    "DESCRIPTION": " Random  Deal !D!  Damage !M!  times . NL  Gain  Exhaust Pile中的one  Memory 并  Retain . NL End Your Turn ."
+    "NAME": "Furnace Core Finale",
+    "DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Take a Reminiscence from your exhaust pile and Retain it. NL End your turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy !M! times. NL Take a Reminiscence from your exhaust pile. NL Upgrade and Retain it. NL End your turn."
+  },
+  "AmiyaMod:ShadowCloudBreakA": {
+    "NAME": "Behold",
+    "DESCRIPTION": "Gain a Ying-Xiao."
+  },
+  "AmiyaMod:ShadowCloudBreakB": {
+    "NAME": "Twilight",
+    "DESCRIPTION": "Upgrade the Ying-Xiao in your hand."
+  },
+  "AmiyaMod:KKZ": {
+    "NAME": "Entropy of Terrorkaz",
+    "DESCRIPTION": "Draw 2 cards. They are considered both Originium-Arts and Originium-Curse. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Scry !M!. NL Draw 2 cards. They are considered both Originium-Arts and Originium-Curse. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      "Originium-Arts. NL ",
+      "Originium-Curse. NL ",
+      "Originium-Arts. Originium-Curse. NL "
+    ]
+  },
+  "AmiyaMod:DA": {
+    "NAME": "Anger to be Tuned",
+    "DESCRIPTION": "Unsheathed: Gain [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Unsheathed: Gain [E]. NL Exhaust."
+  },
+  "AmiyaMod:SoulDefend": {
+    "NAME": "Umbral Flicker",
+    "DESCRIPTION": "Until the start of your next turn, NL whenever you lose HP, NL gain !M! Thread. NL Add a Reminiscence of *Spectral *Gate into your hand."
+  },
+  "AmiyaMod:SoulDoor": {
+    "NAME": "Spectral Gate",
+    "DESCRIPTION": "Deal !D! damage to a random enemy. NL When this card is Exhausted, lose !M! HP."
+  },
+  "AmiyaMod:Finding": {
+    "NAME": "Sensing of Anasa, the Enlightened",
+    "DESCRIPTION": "Ethereal. NL Exhaust the next card you play. Upgrade it permanently. NL (Removed after !M! uses.)",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Exhaust 1 card. If it is a Curse, remove it from your deck. Otherwise, Upgrade it permanently."
+  },
+  "AmiyaMod:BallCard": {
+    "NAME": "Last Creativity",
+    "DESCRIPTION": "Ethereal. NL Discard !M! cards. Apply !M! Last Creativity to Amiya. NL When Exhausted, apply !M! Last Creativity to Amiya and summon a special enemy.",
+    "UPGRADE_DESCRIPTION": "Ethereal. NL Apply !M! Last Creativity to Amiya. NL When Exhausted, play this card and summon a special enemy.",
+    "EXTENDED_DESCRIPTION": [
+      "Innate. NL Played when Exhausted.",
+      ". NL Unplayable. NL Retain."
+    ]
   }
 }

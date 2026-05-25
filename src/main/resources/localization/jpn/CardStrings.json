@@ -1,0 +1,803 @@
+{
+  "AmiyaMod:AmiyaStrike": {
+    "NAME": "基礎術式打撃",
+    "DESCRIPTION": "!D! ダメージを与える。"
+  },
+  "AmiyaMod:AmiyaDefend": {
+    "NAME": "基礎術式防御",
+    "DESCRIPTION": "!B! ブロック を得る。"
+  },
+  "AmiyaMod:BadZhufu": {
+    "NAME": "腐食者の賜",
+    "DESCRIPTION": "源石技芸 。 NL !M! 絲線 を得る。デッキ内の 源石呪詛 1枚につき追加で3 絲線 を得る。 NL 廃棄 。"
+  },
+  "AmiyaMod:BeautifulLife": {
+    "NAME": "先見者の啓",
+    "DESCRIPTION": "占術 !M! 。 NL カードを1枚引く。このカードのコストはこの戦闘中0になるが、プレイ時に元のコストに等しいHPを失う。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "AmiyaMod:BForB": {
+    "NAME": "血には血を",
+    "DESCRIPTION": "HPを1失う !M! 回。 NL !D! ダメージを与える。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": ""
+  },
+  "AmiyaMod:BloodPotion": {
+    "NAME": "戦争の祭壇",
+    "DESCRIPTION": "HPを2失う。 NL 敵全体に 脱力 !M! と 弱体 !M! を与える。",
+    "UPGRADE_DESCRIPTION": "HPを1失う 2 回。 NL 敵全体に 脱力 !M! と 弱体 !M! を与える 2 回。"
+  },
+  "AmiyaMod:LineBody": {
+    "NAME": "身に纏う衣",
+    "DESCRIPTION": "保留 。 NL このターンにプレイした 源石技芸 カード1枚につき、繭 1層を得る。 感染度 を !M! 下げる。 NL 廃棄 。"
+  },
+  "AmiyaMod:LineHand": {
+    "NAME": "諸魂の加護",
+    "DESCRIPTION": "!M! 絲線 を得る。 NL 獲得量はプレイした エセリアル カードの枚数に応じて増加する。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "!M! 絲線 を得る。プレイした エセリアル カード1枚につき獲得量が1増加。 NL 次のターン開始時に 絲線 が半減しない。 NL エセリアル 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （#y",
+      " 枚プレイ済み。）"
+    ]
+  },
+  "AmiyaMod:CNoC": {
+    "NAME": "刺あるも刺なきも",
+    "DESCRIPTION": "ランダムな敵に !D! ダメージを !M! 回与える。プレイするまでにHPを失った回数につき、追加で1回攻撃する。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （追加で",
+      "回のダメージ）"
+    ]
+  },
+  "AmiyaMod:Echo": {
+    "NAME": "血魔の雨",
+    "DESCRIPTION": "HPを1失い、敵全体に !D! ダメージを 2 回与える。 NL このターン、敵にダメージを与えるたび、 !M! 絲線 を得る。",
+    "UPGRADE_DESCRIPTION": "HPを1失う 2 回。 NL 敵全体に !D! ダメージをX+1回与える。 NL !M! 絲線 を X+1回得る。"
+  },
+  "AmiyaMod:HelBox": {
+    "NAME": "携帯医療箱",
+    "DESCRIPTION": "山札から !M! 枚のカードを 廃棄 し、7 絲線 を得る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "山札から !M! 枚のカードを 廃棄 し、7 絲線 を得る。"
+  },
+  "AmiyaMod:HELP": {
+    "NAME": "緊急救援",
+    "DESCRIPTION": "HPを1失う。 NL 捨て札から !M! 枚のカードを選び手札に加える。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "HPを1失う。 NL 捨て札から !M! 枚のカードを選び手札に加える。"
+  },
+  "AmiyaMod:LifeMade": {
+    "NAME": "生命固定",
+    "DESCRIPTION": "HPを2失う。 NL !M! 絲線 を得る。 NL 次のターン開始時、絲線 が半減しない。",
+    "UPGRADE_DESCRIPTION": "HPを1失う 2 回。 NL !M! 絲線 を得る。 NL 次のターン開始時、絲線 が半減しない。"
+  },
+  "AmiyaMod:Mercy": {
+    "NAME": "慈悲の展望",
+    "DESCRIPTION": "このターン、ダメージを与えるたび、そのダメージの半分の 絲線 を得る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "このターン、ダメージを与えるたび、そのダメージの半分の 絲線 を得る。"
+  },
+  "AmiyaMod:Open": {
+    "NAME": "綻放",
+    "DESCRIPTION": "ダメージを受けるたび、ランダムな敵1体に 脱力 !M! を与える。",
+    "UPGRADE_DESCRIPTION": "ダメージを受けるたび、ランダムな敵1体に 脱力 !M! を与える。"
+  },
+  "AmiyaMod:Yangry": {
+    "NAME": "狂躁症",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL アタックカードをプレイするたび、 NL ランダムに !M! 枚の手札を捨てる。",
+    "UPGRADE_DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL アタックカードをプレイするたび、 NL ランダムに !M! 枚の手札を捨て、 NL HPを1失う。"
+  },
+  "AmiyaMod:Ychengyin": {
+    "NAME": "源石依存症",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL 源石技芸 以外のカードを3枚連続でプレイすると、弱体 !M! を得る。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （",
+      " 枚プレイ済み。）"
+    ]
+  },
+  "AmiyaMod:Ydead": {
+    "NAME": "亡隕",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL このカードが手札から捨てられた時、 !M! ダメージを受ける。"
+  },
+  "AmiyaMod:Yjianwang": {
+    "NAME": "健忘症",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL !M! 枚のカードをプレイするたび、ランダムに手札を1枚 廃棄 する。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （",
+      " 枚プレイ済み。）"
+    ]
+  },
+  "AmiyaMod:Yjiejin": {
+    "NAME": "体表結晶",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL カードをプレイするたび、 NL HPを !M! 失い、 NL !M! ブロック を得る。",
+    "UPGRADE_DESCRIPTION": "使用不可 。 NL カードをプレイするたび、 NL 最大HPを !M! 失い、 NL !M! ブロック を得る。"
+  },
+  "AmiyaMod:Ymust": {
+    "NAME": "偏執症",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL 絲線 を得る時、代わりに同量の ブロック を得る。",
+    "UPGRADE_DESCRIPTION": "使用不可 。 NL 絲線 を得る時、代わりに近似の整数値の ブロック を得る。"
+  },
+  "AmiyaMod:Ysex": {
+    "NAME": "活性化体質",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL 源石技芸 以外のカードをプレイするたび、感染度 が追加で !M! 増加する。"
+  },
+  "AmiyaMod:Ysnake": {
+    "NAME": "認知障害",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL !M! 枚目のカードをプレイすると、ターンを終了する。",
+    "EXTENDED_DESCRIPTION": [
+      " NL （",
+      " 枚プレイ済み。）"
+    ]
+  },
+  "AmiyaMod:Ytiruo": {
+    "NAME": "身虚体弱",
+    "DESCRIPTION": "源石呪詛 。 NL 使用不可 。 NL コストが2以上のカードをプレイするたび、脱力 !M! を得る。"
+  },
+  "AmiyaMod:CRing": {
+    "NAME": "茨と棘の輪",
+    "DESCRIPTION": "茨 2層を得る。絲線 をすべて使い果たすたび、茨 !M! 層を得る。"
+  },
+  "AmiyaMod:RedSky": {
+    "NAME": "影霄",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 何度でも アップグレード できる。 NL 廃棄 。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL ",
+    "EXTENDED_DESCRIPTION": [
+      "凡",
+      "影",
+      "朔",
+      "瞬",
+      "垠",
+      "寰",
+      "何度でも アップグレード できる。 NL アップグレード回数に応じて NL *2 *の *X *+ *1 *乗 のダメージを与える。 NL 廃棄 。 NL エセリアル 。"
+    ]
+  },
+  "AmiyaMod:ShadowOut": {
+    "NAME": "抜刀",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 抜剣 : 次のターン開始時に NL このカードを手札に戻す。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL !D! ダメージを与える。 NL 抜剣 : 次のターン開始時に NL このカードを手札に戻す。 NL 保留 。 "
+  },
+  "AmiyaMod:AngryForever": {
+    "NAME": "無名の怒り",
+    "DESCRIPTION": "あなたのターン開始時、抜剣 状態に入る。",
+    "UPGRADE_DESCRIPTION": "抜剣 : [E] を得る。 NL あなたのターン開始時、抜剣 状態に入る。"
+  },
+  "AmiyaMod:FireAgain": {
+    "NAME": "再燃する星火",
+    "DESCRIPTION": "毎ターン、デッキ由来ではないカードを最初の !M! 枚プレイする時、その複製を1枚得る。",
+    "UPGRADE_DESCRIPTION": "天賦 NL 毎ターン、デッキ由来ではないカードを最初の !M! 枚プレイする時、その複製を1枚得る。"
+  },
+  "AmiyaMod:SoMuchSworld": {
+    "NAME": "無限の剣製",
+    "DESCRIPTION": "ターン開始時、影霄 を !M! 枚 アップグレード する。アップグレードがなければ、ターン終了時に 影霄 を !M! 枚 保留 できる。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL あなたのターン開始時、 NL 手札に 影霄 がなければ1枚得る。そうでなければ手札の 影霄 を アップグレード する。"
+  },
+  "AmiyaMod:BigNotWork": {
+    "NAME": "大巧は工ならず",
+    "DESCRIPTION": "毎ターン最初に得る !M! 枚の 影霄 は追加で1回 アップグレード される。"
+  },
+  "AmiyaMod:PlanA": {
+    "NAME": "プランA",
+    "DESCRIPTION": "カードを1枚引く。それをプレイする時 [E] [E] を得る。ターン終了時にそれが プレイされていなければ、 *代替案 を手札に加える。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "カードを1枚引く。それをプレイする時 [E] [E] を得る。ターン終了時にそれが プレイされていなければ、 *代替案 を手札に加える。"
+  },
+  "AmiyaMod:PlanB": {
+    "NAME": "代替案",
+    "DESCRIPTION": "保留 。 NL ランダムな 追憶 で手札を満たす。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL ランダムな アップグレード された 追憶 で手札を満たす。 NL 廃棄 。"
+  },
+  "AmiyaMod:ShadowSkill": {
+    "NAME": "剣訣",
+    "DESCRIPTION": "ランダムに手札を1枚 NL X+1 回 アップグレード する。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "ランダムに手札を1枚 NL X+1 回 アップグレード する。"
+  },
+  "AmiyaMod:ShadowCry": {
+    "NAME": "涙の鋒",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 抜剣 :このカードから得られる 影霄 は追加で !M! 回 アップグレード される。"
+  },
+  "AmiyaMod:ShadowUpgrade": {
+    "NAME": "焼き入れ",
+    "DESCRIPTION": "影霄 を1枚捨て、その 廃棄 を除去する。次のターン開始時にそれを手札に戻す。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "影霄 を1枚山札の一番上に置く。 NL それを アップグレード し 廃棄 を除去する。 NL 廃棄 。",
+    "EXTENDED_DESCRIPTION": [
+      "私の手に刃はない。 ",
+      "私の手に影霄はない。 "
+    ]
+  },
+  "AmiyaMod:ShadowBlueFire": {
+    "NAME": "青焔環身",
+    "DESCRIPTION": "抜剣 状態の時、非アタックカードをプレイしても 影霄 を得る。"
+  },
+  "AmiyaMod:ShadowWaterMusic": {
+    "NAME": "水韻",
+    "DESCRIPTION": "敵全体に !D! ダメージを 2 回与える。 NL 抜剣 : 次にプレイする 影霄 は敵全体にダメージを与える。"
+  },
+  "AmiyaMod:ShadowChange": {
+    "NAME": "変式",
+    "DESCRIPTION": "抜剣 :抜剣 状態を解除し、カードを !M! 枚引き、 [E] を得る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 抜剣 :抜剣 状態を解除し、カードを !M! 枚引き、 [E] を得る。 NL 廃棄 。"
+  },
+  "AmiyaMod:ShadowNoShadow": {
+    "NAME": "絶影",
+    "DESCRIPTION": "最もHPの低い敵を優先して !D! ダメージを 10 回与える。 NL 入鞘 : 無形 !M! 層を得る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "最もHPの低い敵を優先して !D! ダメージを 10 回与える。 NL 入鞘 : 無形 !M! 層を得る。 NL 保留 。 廃棄 。"
+  },
+  "AmiyaMod:ShadowBreak": {
+    "NAME": "折剣",
+    "DESCRIPTION": "手札を1枚 廃棄 する。 NL その アップグレード 回数に等しい [E] を得る。 NL それが 影霄 なら、カードを1枚引く。",
+    "UPGRADE_DESCRIPTION": "手札を1枚 廃棄 する。 NL その アップグレード 回数+ !M! に等しい [E] を得る。 NL それが 影霄 なら、カードを1枚引く。",
+    "EXTENDED_DESCRIPTION": [
+      "私の手に刃はない。 "
+    ]
+  },
+  "AmiyaMod:AmiyaPower": {
+    "NAME": "不安定な力",
+    "DESCRIPTION": "源石技芸 。 NL カードを !M! 枚引き、 [E] を得る。 NL 廃棄 。 NL エセリアル 。",
+    "EXTENDED_DESCRIPTION": [
+      "源石技芸 。 NL カードを !M! 枚引き、 [E] を得る。 NL 抜剣 : すべてのデバフを除去する。 NL 廃棄 。 エセリアル 。",
+      "源石技芸 。 NL カードを !M! 枚引き、 [E] を得る。 NL 抜剣 : すべてのデバフを除去し、すべてのカードを アップグレード する。 NL 廃棄 。 エセリアル 。",
+      "源石技芸 。 NL カードを !M! 枚引き、 [E] を得る。 NL 抜剣 : すべてのデバフを除去し、すべてのカードを アップグレード する。 NL 廃棄 。 保留 。",
+      "源石技芸 。 NL カードを !M! 枚引き、 [E] [E] を得る。 NL 抜剣 : すべてのデバフを除去し、すべてのカードを アップグレード する。 NL 廃棄 。 保留 。",
+      "魔王の力"
+    ]
+  },
+  "AmiyaMod:MindEat": {
+    "NAME": "感情吸収",
+    "DESCRIPTION": "1ターンにアタックカードを3枚プレイするたび、カードを !M! 枚引く。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL 1ターンにアタックカードを3枚プレイするたび、カードを !M! 枚引く。"
+  },
+  "AmiyaMod:ChiMeRa": {
+    "NAME": "キメラ",
+    "DESCRIPTION": "20 絲線 を得る。 NL !M! ターンの間、与えるダメージが2倍になり ブロック を無視する。 NL 効果終了時、手札をすべて捨て1ターンを飛ばす。"
+  },
+  "AmiyaMod:MindBreak": {
+    "NAME": "精神爆発",
+    "DESCRIPTION": "源石技芸 。 NL ランダムに !D! ダメージを !M! 回与える。 *めまい を1枚山札に加える。"
+  },
+  "AmiyaMod:SuperYPotion": {
+    "NAME": "強力源石爆発剤",
+    "DESCRIPTION": "山札から 源石呪詛 を可能な限り手札に加える。 NL カードを !M! 枚引く。 NL 廃棄 。"
+  },
+  "AmiyaMod:StoneBlock": {
+    "NAME": "結晶化盾",
+    "DESCRIPTION": "源石技芸 。 NL !B! ブロック を得る。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 NL 急性発作 1。 NL !B! ブロック を得る。"
+  },
+  "AmiyaMod:MindBubble": {
+    "NAME": "感情の泡",
+    "DESCRIPTION": "アタックカードをプレイするたびに失われる 絲線 9を得る。 NL このカードからの 絲線 をすべて失った後、カードを !M! 枚引く。",
+    "UPGRADE_DESCRIPTION": "絲線 9を得る。アタックカードをプレイするたびにこれらの 絲線 を失う。 NL このカードからの 絲線 をすべて失った後、カードを1枚引く。"
+  },
+  "AmiyaMod:ZuZhouMagic": {
+    "NAME": "呪詛の魔術",
+    "DESCRIPTION": "源石技芸 。 NL !D! ダメージを与える。あなたがHPを失うたび、対象の敵も同量のHPを失う。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "天賦 。 源石技芸 。 NL !D! ダメージを与える。あなたがHPを失うたび、対象の敵も同量のHPを失う。 NL 廃棄 。"
+  },
+  "AmiyaMod:BadMagic": {
+    "NAME": "笞心魔の脅嚇",
+    "DESCRIPTION": "源石技芸 。 NL 敵全体に !D! ダメージを与える。攻撃予定の敵に 脱力 !M! 、その他の敵に 弱体 !M! を与える。"
+  },
+  "AmiyaMod:FastSing": {
+    "NAME": "戦術詠唱",
+    "DESCRIPTION": "山札から 源石技芸 を !M! 枚手札に加え、このターンそれらのコストを1減らす。"
+  },
+  "AmiyaMod:BreakRing": {
+    "NAME": "限界駆動",
+    "DESCRIPTION": "このターン、源石技芸 をプレイする時、その元のコストに等しいHPを失い、追加で1回発動する。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "このターン、源石技芸 をプレイする時、その元のコストに等しいHPを失い、追加で1回発動する。"
+  },
+  "AmiyaMod:OldDoki": {
+    "NAME": "古の脈動",
+    "DESCRIPTION": "手札の枚数に等しいHPを失う。 NL カードを !M! 枚引く。 NL エセリアル 。"
+  },
+  "AmiyaMod:SoulBurn": {
+    "NAME": "魂の溶解炉",
+    "DESCRIPTION": "捨て札から最大 NL 2枚のカードを 廃棄 する。 NL 廃棄 した枚数分の NL ターン開始時に [E] を得る。",
+    "UPGRADE_DESCRIPTION": "捨て札から最大2枚のカードを 廃棄 する。 NL 廃棄 した枚数+1 回のターン開始時に [E] を得る。"
+  },
+  "AmiyaMod:WhoKnowOne": {
+    "NAME": "予言された魔王",
+    "DESCRIPTION": "敵全体に !D! ダメージを与える。 NL 戦闘開始時、デッキ内の 源石呪詛 の枚数に応じてこのカードを アップグレード する。 NL 何度でも アップグレード できる。",
+    "EXTENDED_DESCRIPTION": [
+      "敵全体に !D! ダメージを与える。 NL 何度でも アップグレード できる。"
+    ]
+  },
+  "AmiyaMod:ASay": {
+    "NAME": "源石結晶",
+    "DESCRIPTION": "源石呪詛 。 NL ランダムな 源石技芸 を1回発動する。 NL エセリアル 。 廃棄 。"
+  },
+  "AmiyaMod:Ymagic": {
+    "NAME": "源石の手品",
+    "DESCRIPTION": "源石技芸 。 NL 急性発作 1。 NL ランダムな敵に !D! ダメージを与える。"
+  },
+  "AmiyaMod:MagicYuJin": {
+    "NAME": "呪詛の残滓",
+    "DESCRIPTION": "急性発作 1。 NL 捨て札からランダムに1枚 廃棄 し、源石呪詛 を優先する。そのレア度に応じて少なくとも !D! ダメージを与える。",
+    "UPGRADE_DESCRIPTION": "急性発作 1。 NL 捨て札から1枚選んで 廃棄 し、そのレア度に応じて少なくとも !D! ダメージを与える。"
+  },
+  "AmiyaMod:DefendMagic": {
+    "NAME": "女妖の口づけ",
+    "DESCRIPTION": "源石技芸 。 NL 弱体 を除去する。 NL !B! ブロック を得る。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 NL 弱体 を除去する。 NL !B! ブロック と アーティファクト 1層を得る。"
+  },
+  "AmiyaMod:SeeMe": {
+    "NAME": "拒否不能",
+    "DESCRIPTION": "源石技芸 。 NL 源石呪詛 を1枚引く。 NL !D! ダメージを与え、手札の枚数 !M! 倍の 絲線 を得る。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 NL !D! ダメージを与える。 NL !M! 絲線 を得る。"
+  },
+  "AmiyaMod:NotNow": {
+    "NAME": "終局は未だ来たらず",
+    "DESCRIPTION": "源石技芸 。 急性発作 1。 NL 敵全体に !D! ダメージを与え、あなたの 感染度 に等しい追加ダメージを与える。 NL エセリアル 。"
+  },
+  "AmiyaMod:DrBlood": {
+    "NAME": "造物主の血",
+    "DESCRIPTION": "感染度 を !M! 下げる。 NL 感染爆発 状態に入る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "感染度 を !M! 下げる。 NL 感染爆発 状態に入る。 NL 山札と手札のすべての 源石呪詛 を 廃棄 する。 NL 廃棄 。"
+  },
+  "AmiyaMod:Ghost": {
+    "NAME": "幽影重重",
+    "DESCRIPTION": "現在の 絲線 を2倍にする。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "現在の 絲線 を2倍にする。"
+  },
+  "AmiyaMod:MagicBook": {
+    "NAME": "魔術典籍",
+    "DESCRIPTION": "!M! 枚のランダムな 源石技芸 から1枚選び手札に加える。このターンそのコストは0。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "!M! 枚のランダムな アップグレード された 源石技芸 から1枚選び手札に加える。このターンそのコストは0。 NL 廃棄 。"
+  },
+  "AmiyaMod:Solo": {
+    "NAME": "独奏",
+    "DESCRIPTION": "!M! 絲線 を得る。 NL 次のターン開始時、あなたの 絲線 の値に等しいダメージを敵全体に与える。",
+    "UPGRADE_DESCRIPTION": "  "
+  },
+  "AmiyaMod:FirstSayA": {
+    "NAME": "源石結晶",
+    "DESCRIPTION": "源石呪詛 。 NL 保留 。 NL 廃棄 されたカードの力を凝結している。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "源石呪詛 。 保留 。 NL ",
+    "EXTENDED_DESCRIPTION": [
+      "。 ",
+      " 急性発作 ",
+      "!D! ダメージを与える。 ",
+      "!B! ブロック を得る。 ",
+      "!M! 絲線 を得る。 ",
+      "カードを",
+      "枚引く。",
+      "HPを",
+      "回復する。 ",
+      " NL 廃棄 。"
+    ]
+  },
+  "AmiyaMod:YBBS": {
+    "NAME": "源石の祭壇",
+    "DESCRIPTION": "源石呪詛 を引くたび、エセリアル のランダムな 源石技芸 を !M! 枚手札に加える。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL 源石呪詛 を引くたび、エセリアル のランダムな 源石技芸 を !M! 枚手札に加える。"
+  },
+  "AmiyaMod:HelpMagic": {
+    "NAME": "土石の塁",
+    "DESCRIPTION": "源石技芸 。 NL !B! ブロック を得る。 NL HPを失う時、このカードを手札に加える。 NL 廃棄 。"
+  },
+  "AmiyaMod:EatZuzhou": {
+    "NAME": "呪いのキレート",
+    "DESCRIPTION": "源石技芸 。 NL デッキから 源石呪詛 1種を選んで 廃棄 し、対応する異常状態を敵に与える。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "この術式を使うには...まだ源石呪詛の苦痛への理解が足りない。",
+    "EXTENDED_DESCRIPTION": [
+      "毎ターン50%の確率で [E] を得る。",
+      "ターン終了時、HPを !M! 失う。",
+      "与えるダメージが !M! 減少する。",
+      "受けるダメージが !M! 増加する。",
+      "一度に8以上のHPを失うと、対象は 弱体 !M! 層を得る。",
+      "源石技芸 をプレイするたび、すべての ブロック を失う。",
+      "ターン開始時、追加で !M! 枚のカードを引く。",
+      "源石技芸 をプレイするたび、脱力 !M! 層を得る。",
+      "ターン開始時、一の位が0になるまでHPを失う。 NL (一の位が0の場合は10失う。)",
+      "天賦 。 源石技芸 。 NL デッキから 源石呪詛 1種を選んで 廃棄 し、対応する異常状態を敵に与える。 NL 廃棄 。",
+      ""
+    ]
+  },
+  "AmiyaMod:ShadowCloudBreak": {
+    "NAME": "雲裂",
+    "DESCRIPTION": "*雲裂 ** *出 を1枚山札に加える。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "入鞘:廃棄 された 影霄 から !M! 枚選び、手札に加える。"
+  },
+  "AmiyaMod:ShadowCloudBreak2": {
+    "NAME": "雲裂",
+    "DESCRIPTION": "X回選択する: NL アップグレード された 影霄 を1枚得る。 NL または手札の 影霄 を アップグレード する。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "X回選択する: NL アップグレード された 影霄 を1枚得る。 NL または手札の 影霄 を アップグレード する。"
+  },
+  "AmiyaMod:CloudBreakIn": {
+    "NAME": "雲裂*出",
+    "DESCRIPTION": "このカードを得た後にプレイした 影霄 を再びプレイする。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": " NL (!M! 枚の 影霄 を記録、合計約 !D! ダメージ。) "
+  },
+  "AmiyaMod:BloodSword": {
+    "NAME": "血を飼う",
+    "DESCRIPTION": "HPを1失う。 NL この戦闘中、手札を !M! 枚 アップグレード し、保留 する。 NL (エセリアル を無視)",
+    "UPGRADE_DESCRIPTION": "HPを1失う。 NL この戦闘中、手札を !M! 枚 アップグレード し、保留 する。 NL (エセリアル を無視)",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      "ダメージを与える)"
+    ]
+  },
+  "AmiyaMod:ShadowBackWindy": {
+    "NAME": "回風",
+    "DESCRIPTION": "!D! ダメージを与える。 NL カードを !M! 枚引く。 NL 抜剣 : さらに1枚引く。",
+    "UPGRADE_DESCRIPTION": "敵全体に 脱力 !M! を与える。 NL 入鞘 : 手札の 影霄 を アップグレード する。 NL 廃棄 。"
+  },
+  "AmiyaMod:ShadowBlood": {
+    "NAME": "血を吹く",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 抜剣 : HPを !M! 失い、半分の追加ダメージを与える。"
+  },
+  "AmiyaMod:BloodNo": {
+    "NAME": "青き怒り",
+    "DESCRIPTION": "!D! ダメージを与える。 NL *廃棄札の山 の枚数に等しい追加ダメージを与える。",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL *廃棄札の山 の枚数 !M! 倍の追加ダメージを与える。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (",
+      "追加ダメージを与える）"
+    ]
+  },
+  "AmiyaMod:Memory": {
+    "NAME": "高塔の追憶",
+    "DESCRIPTION": "!M! 人の人物を選ぶ。あなたのターン開始時、その人物のランダムなカードからの 追憶 を1枚手札に加え アップグレード する。",
+    "UPGRADE_DESCRIPTION": "1人の人物を選ぶ。あなたのターン開始時、その人物のランダムなカードからの 追憶 !M! 枚から1枚選び手札に加え アップグレード する。",
+    "EXTENDED_DESCRIPTION": [
+      "追憶:",
+      "あなたのターン開始時、",
+      "枚の",
+      "からのランダムな 追憶 を手札に加える。",
+      "からのランダムな 追憶 を手札に加え アップグレード する。",
+      "の特殊な 追憶 を手札に加える。",
+      "の特殊な 追憶 を手札に加え アップグレード する。"
+    ]
+  },
+  "AmiyaMod:Whitemith": {
+    "NAME": "「Whitemith」",
+    "DESCRIPTION": "カードをX枚引き、それらのコストはこのターン0になる。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "カードをX+1枚引き、それらのコストはこのターン0になる。 NL 廃棄 。"
+  },
+  "AmiyaMod:Outcast": {
+    "NAME": "「Outcast」",
+    "DESCRIPTION": "手札をすべて捨て、 *聖痕弾 を !M! 枚手札に加える。"
+  },
+  "AmiyaMod:Outcast1": {
+    "NAME": "聖痕弾",
+    "DESCRIPTION": "源石技芸 。保留 。 NL 13ダメージを与える弾丸を1発装填する。 NL 手札に *鳴銃 がなければそれを手札に加える。"
+  },
+  "AmiyaMod:Outcast2": {
+    "NAME": "鳴銃",
+    "DESCRIPTION": "保留 。 NL 弾丸1発につき !D! ダメージを1回与える。 NL 6発装填している場合、代わりに敵全体に !M! 倍のダメージを与える。その後あなたに13ダメージを与える。",
+    "UPGRADE_DESCRIPTION": "銃腔にまだ弾丸が装填されていない。"
+  },
+  "AmiyaMod:Scout": {
+    "NAME": "「Scout」",
+    "DESCRIPTION": "目標を照準し、毎ターン !M! ダメージを累積する。"
+  },
+  "AmiyaMod:Scout1": {
+    "NAME": "引き金",
+    "DESCRIPTION": "保留 。 NL すべての敵に、その *照準 の層数に等しいダメージを与える。",
+    "UPGRADE_DESCRIPTION": "どの敵も照準していない。"
+  },
+  "AmiyaMod:ACE": {
+    "NAME": "「ACE」",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 次の !M! 回の少なくとも6点のHP喪失を防ぐ。 NL 廃棄 。"
+  },
+  "AmiyaMod:ICEStar": {
+    "NAME": "「霜星」",
+    "DESCRIPTION": "源石技芸 。 NL 敵全体に !D! ダメージを与える。 NL 敵全体に 脱力 !M! を与える。 NL 廃棄 。"
+  },
+  "AmiyaMod:CountryLover": {
+    "NAME": "「愛国者」",
+    "DESCRIPTION": "!D! ダメージを !M! 回与える。!B! ブロック を得る。 NL *生命献祭 を1枚手札に加える。 NL 廃棄 。"
+  },
+  "AmiyaMod:CountryLover1": {
+    "NAME": "生命献祭",
+    "DESCRIPTION": "*投槍 を手札に加える。 NL 毎ターン終了時に 感染度 が !M! 増加し、敵全体に6ダメージを与える。 NL エセリアル 。"
+  },
+  "AmiyaMod:CountryLover2": {
+    "NAME": "投槍",
+    "DESCRIPTION": "保留 。 NL ランダムな敵に !D! ダメージを与える。 NL 次のターン、このカードを手札に戻す。"
+  },
+  "AmiyaMod:Her": {
+    "NAME": "「テレジア」",
+    "DESCRIPTION": "源石技芸 。 NL オーブスロットを !M! つ得る。 NL 微塵 を !M! 粒 生成 する。"
+  },
+  "AmiyaMod:BreakBone": {
+    "NAME": "「砕骨」",
+    "DESCRIPTION": "エセリアル 。 NL 敵全体に 弱体 !M! を与える。 NL 絲線 5を得る。絲線 をすべて失った時、別の *「砕骨」 を手札に加える。 NL 廃棄 。"
+  },
+  "AmiyaMod:KingSee": {
+    "NAME": "魔王の幻景",
+    "DESCRIPTION": "カードを2枚引き、敵1体のHPを !M! 回復する。 NL 対象は攻撃を受ける前、与えるダメージが2減少する。",
+    "UPGRADE_DESCRIPTION": "敵1体に 絲線 8を与える。カードを2枚引く。 NL 対象のターン開始時、絲線 が残っていれば、脱力 !M! を与える。"
+  },
+  "AmiyaMod:SwordHeard": {
+    "NAME": "剣を以て心を通わす",
+    "DESCRIPTION": "弱体 1層を得る。 NL 弱体 !M! 層を与える。 NL 抜剣 : 手札を1枚 アップグレード する。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "弱体 1層を得る。 NL 弱体 !M! 層を与える。 NL 抜剣 : 手札を1枚 アップグレード する。"
+  },
+  "AmiyaMod:YOpen": {
+    "NAME": "結晶の綻放",
+    "DESCRIPTION": "源石技芸 。 急性発作 2。 NL このターンに他の 源石技芸 をプレイしていれば、 [E] を得る。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 急性発作 2。 NL [E] を得る。あなたの 感染度 に等しい ブロック を得る。"
+  },
+  "AmiyaMod:ShadowBack": {
+    "NAME": "気を振るう",
+    "DESCRIPTION": "手札の非アタックカードをすべて捨てる。 NL ランダムに手札を !M! 回 アップグレード する。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "手札の非アタックカードをすべて捨てる。 NL ランダムに手札を !M! 回 アップグレード する。"
+  },
+  "AmiyaMod:ShadowYangMei": {
+    "NAME": "眉を揚げる",
+    "DESCRIPTION": "!D! ダメージを与え、!M! 枚の手札に 保留 を与える。 NL 抜剣 : 手札をすべて 保留 する。",
+    "UPGRADE_DESCRIPTION": "!B! ブロック を得る。 NL 入鞘 : 手札のすべての 影霄 を アップグレード する。"
+  },
+  "AmiyaMod:SoulMilk": {
+    "NAME": "死魂霊の影",
+    "DESCRIPTION": "!M! 枚のランダムな 追憶 から1枚選び手札に加える。 NL *死魂霊の影 が 廃棄 された場合、再生 2層を得る。",
+    "UPGRADE_DESCRIPTION": "!M! 枚の アップグレード された 追憶 から1枚選び手札に加える。 NL *死魂霊の影 が 廃棄 された場合、再生 2層を得る。"
+  },
+  "AmiyaMod:MakeLine": {
+    "NAME": "繭籠を編む",
+    "DESCRIPTION": "戦闘中に追加 されたカードをプレイするたび、 !M! 絲線 を得る。"
+  },
+  "AmiyaMod:MindRoll": {
+    "NAME": "意志の震盪",
+    "DESCRIPTION": "あなたのターン開始時、 !M! 枚のカードを選んで 廃棄 する。 NL 追憶 以外のカードが 廃棄 されるたび、ランダムな 追憶 を1枚手札に加える。",
+    "UPGRADE_DESCRIPTION": "廃棄札の山 の枚数+8に等しいダメージを敵全体に与える。 NL ランダムな 追憶 を !M! 枚手札に加える。",
+    "EXTENDED_DESCRIPTION": [
+      "廃棄札の山 の枚数+8に等しいダメージを敵全体に与える。 NL ランダムな 追憶 を !M! 枚得る。",
+      "廃棄札の山 の枚数+11に等しいダメージを敵全体に与える。 NL ランダムな 追憶 を !M! 枚得る。",
+      " NL (!D! ダメージを与える)"
+    ]
+  },
+  "AmiyaMod:CopyMagic": {
+    "NAME": "変形者の貌",
+    "DESCRIPTION": "源石技芸 。 NL 山札からランダムに !M! 枚のカードを見て、1枚選びその複製を手札に加える。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 NL 山札からランダムに !M! 枚のカードを見て、1枚選びその複製を手札に加える。 NL 廃棄 。"
+  },
+  "AmiyaMod:BreakHug": {
+    "NAME": "新生を注ぐ",
+    "DESCRIPTION": "!M! 絲線 を得る。次のターン開始時に 絲線 が半減しない。"
+  },
+  "AmiyaMod:SadMind": {
+    "NAME": "哀慟の共感",
+    "DESCRIPTION": "失ったHPの値に等しくなるまで 絲線 を得る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 失ったHPの値に等しくなるまで 絲線 を得る。 NL 廃棄 。",
+    "EXTENDED_DESCRIPTION": [
+      "まだ彼らの苦難を感じ取れない。"
+    ]
+  },
+  "AmiyaMod:ShadowDefend": {
+    "NAME": "守式",
+    "DESCRIPTION": "次の !M! 枚の 影霄 はダメージに等しい ブロック を追加で得る。 NL 入鞘 : 影霄 を1枚 アップグレード する。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL !D! ダメージを与える。 NL このターン次にプレイする 影霄 はダメージに等しい ブロック を追加で得る。 NL 入鞘 : このカードから得られる 影霄 は追加で !M! 回 アップグレード される。"
+  },
+  "AmiyaMod:BurnMark": {
+    "NAME": "灼痕",
+    "DESCRIPTION": "エセリアル 。 NL HPを !M! 失う。 NL 山札にカードがある時のみプレイ可能。その一番上のカードを 廃棄 し、このカードの複製を入れる。 NL !D! ダメージを与える。",
+    "UPGRADE_DESCRIPTION": "使用不可 。 NL HPを1失う 時、廃棄 し [R] [R] を得る。山札の一番上と捨て札にこのカードの複製を1枚ずつ加える。 NL エセリアル 。",
+    "EXTENDED_DESCRIPTION": [
+      "もう...燃料がない"
+    ]
+  },
+  "AmiyaMod:ShadowRunNight": {
+    "NAME": "夜を奔る",
+    "DESCRIPTION": "!D! ダメージを2回与える。 抜剣 : このターン、影霄 をプレイするたび !M! ブロック を得る。"
+  },
+  "AmiyaMod:LineDefender": {
+    "NAME": "ウェンディゴの骸",
+    "DESCRIPTION": "!M! 絲線 を得る。 NL この部分の 絲線 を失うたび !B! ブロック を得る。"
+  },
+  "AmiyaMod:Shadow15": {
+    "NAME": "剣十五",
+    "DESCRIPTION": "このカードを引く時、HPを1失う 5 回。 NL !D! ダメージを !M! 回与える。 NL 戦闘でHPを失うたび、このカードのコストが [E] 減る。 NL 入鞘 :HPを15回復する。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL このカードを引く時、HPを1失う 5 回。 NL !D! ダメージを !M! 回与える。 NL 戦闘でHPを失うたび、このカードのコストが [E] 減る。 NL 入鞘 :HPを15回復する。 NL 廃棄 。"
+  },
+  "AmiyaMod:NoName=弃用": {
+    "NAME": "憎悪の炎が広がる",
+    "DESCRIPTION": "!D! ダメージを与える。 NL 入鞘 : 次のターン開始時に 抜剣 。",
+    "EXTENDED_DESCRIPTION": [
+      "やめろ...俺を怒らせるな。",
+      "この剣は復讐を渇望している...それを野放しにはできない。"
+    ]
+  },
+  "AmiyaMod:AmiyaMagic": {
+    "NAME": "基礎源石技芸",
+    "DESCRIPTION": "源石技芸 。 NL !D! ダメージを与える。 NL 脱力 !M! を与える。"
+  },
+  "AmiyaMod:badY": {
+    "NAME": "汚染破片",
+    "DESCRIPTION": "保留 。 NL この戦闘で別の *汚染破片 をプレイしていれば、60 ゴールド を得る。 NL このカードが 保留 されるたび、感染度 が !M! 増加する。 NL 源石呪詛 。"
+  },
+  "AmiyaMod:FirstSay": {
+    "NAME": "アナナ",
+    "DESCRIPTION": "あなたのターン終了時、手札の 源石呪詛 以外のカードすべてを1枚の *源石結晶 に凝結する。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL あなたのターン終了時、手札の 源石呪詛 以外のカードすべてを1枚の *源石結晶 に凝結する。"
+  },
+  "AmiyaMod:Hate": {
+    "NAME": "憎悪の炎が広がる",
+    "DESCRIPTION": "抜剣 状態の時のみプレイ可能。 NL !D! ダメージを与える。 NL 次のターン開始時に 抜剣 。",
+    "EXTENDED_DESCRIPTION": [
+      "やめろ...俺を怒らせるな。",
+      "この剣は復讐を渇望している...それを野放しにはできない。"
+    ]
+  },
+  "AmiyaMod:MindLink": {
+    "NAME": "感情連結",
+    "DESCRIPTION": "源石技芸 。 NL !D! ダメージを与える。 NL このターンにHPを失っていれば、 [E] を得る。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 NL !D! ダメージを与える。 NL このターンにHPを失っていれば、 [E] を得る。"
+  },
+  "AmiyaMod:Bonk": {
+    "NAME": "鞘撃",
+    "DESCRIPTION": "次の 影霄 1枚は、対象の 筋力 を アップグレード 回数分減少させる。 NL 抜剣 : 影霄 1枚を !M! 回 アップグレード するが、ダメージが半減する。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 次の 影霄 1枚は、対象の 筋力 を アップグレード 回数分減少させる。 NL 抜剣 : 影霄 1枚を !M! 回 アップグレード するが、ダメージが半減する。 NL 廃棄 。",
+    "EXTENDED_DESCRIPTION": [
+      "刃は既に抜かれている..."
+    ]
+  },
+  "AmiyaMod:BlackKing": {
+    "NAME": "黒き冠の聖賢",
+    "DESCRIPTION": "ターン終了時と現在、 *主君の影 を !M! 枚手札に加える。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL ターン終了時と現在、 *主君の影 を !M! 枚手札に加える。"
+  },
+  "AmiyaMod:KingShadow": {
+    "NAME": "主君の影",
+    "DESCRIPTION": "保留 。 NL 敵全体に !D! ダメージを与える。手札のすべての *主君の影 をプレイする。 NL このカードが 保留 されるたび、コストが [E] 減る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "毎ターン開始時、 *主君の影+ を1枚手札に加える。"
+  },
+  "AmiyaMod:S": {
+    "NAME": "両儀",
+    "DESCRIPTION": "このターン保留する。"
+  },
+  "AmiyaMod:ShadowTwo": {
+    "NAME": "両儀",
+    "DESCRIPTION": "最大 !M! 枚のカードを捨て、 NL 同じ枚数のカードを引く。 NL 捨てた 影霄 を NL 手札に戻す。",
+    "UPGRADE_DESCRIPTION": "最大 !M! 枚のカードを捨て、 NL 同じ枚数のカードを引く。 NL 捨てた 影霄 を NL アップグレード して手札に戻す。"
+  },
+  "AmiyaMod:KingSay": {
+    "NAME": "魔王の継承",
+    "DESCRIPTION": "使用不可 。 NL 引いた時、アップグレード された 源石技芸 1枚と 源石呪詛 !M! 枚を手札に加える。 NL 得た 源石技芸 をプレイすると、さらにもう1枚得る。",
+    "UPGRADE_DESCRIPTION": "使用不可 。 NL 引いた時、最近勝利したデッキのランダムな !M! 枚のカードから1枚選び、このカードをその複製に変える。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (継承: ",
+      " 、 ",
+      " 。)",
+      " NL (プレイ済み) ",
+      "最近勝利したデッキのランダムな 追憶 !M! 枚から1枚選び手札に加える。 NL 廃棄 。",
+      "最近勝利したデッキのランダムな 追憶 !M! 枚から1枚選び手札に加える。"
+    ]
+  },
+  "AmiyaMod:KingSay2": {
+    "NAME": "魔王の継承",
+    "DESCRIPTION": "使用不可 。 NL 引いた時、最近勝利したデッキのランダムな !M! 枚のカードから1枚選び手札に加える。",
+    "UPGRADE_DESCRIPTION": "使用不可 。 NL 引いた時、最近勝利したデッキのランダムな !M! 枚のカードから1枚を2回選び、それらを手札に加える。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (継承: ",
+      " 、 ",
+      " 。)",
+      " NL (プレイ済み) "
+    ]
+  },
+  "AmiyaMod:Punch": {
+    "NAME": "ゴリアテの拳",
+    "DESCRIPTION": "あなたのHPと 絲線 の合計を !M! で割ったダメージを与える。このカードが敵を倒した場合、 [E] を得て手札に戻す。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL このカードが敵を倒した場合、 [E] を得て手札に戻す。 NL 廃棄 。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (!D! ダメージを与える)"
+    ]
+  },
+  "AmiyaMod:Horn": {
+    "NAME": "ウェンディゴの角",
+    "DESCRIPTION": "源石技芸 。 NL !D! ダメージを与える。 NL あなたのHPが戦闘開始時の値より低い場合、追加でもう一度ダメージを与える。"
+  },
+  "AmiyaMod:PainMagic": {
+    "NAME": "炎魔の火",
+    "DESCRIPTION": "源石技芸 。 NL 敵全体に !D! ダメージを与える。 感染爆発 時にこのカードを手札に加える。 NL エセリアル 。"
+  },
+  "AmiyaMod:StoneSword": {
+    "NAME": "結晶化剣",
+    "DESCRIPTION": "カードを1枚 廃棄 する。 NL そのコストに等しい アップグレード 回数を持つ 影霄 を得る。 NL 源石呪詛 の場合、!M! 回 アップグレード する。 NL 次にプレイする 影霄 1枚は NL 源石技芸 として扱われる。",
+    "UPGRADE_DESCRIPTION": "カードを1枚 廃棄 する。 NL そのコスト+1に等しい アップグレード 回数を持つ 影霄 を得る。 NL 源石呪詛 の場合、!M! 回 アップグレード する。 NL 次にプレイする 影霄 1枚は NL 源石技芸 として扱われる。"
+  },
+  "AmiyaMod:TikaziMagic": {
+    "NAME": "巫妖の試練",
+    "DESCRIPTION": "源石技芸 。 NL カードを !M! 枚引く。",
+    "UPGRADE_DESCRIPTION": "源石技芸 。 NL カードを !M! 枚引く。 NL 源石呪詛 か 源石技芸 を引いた時、 [E] を得る。"
+  },
+  "AmiyaMod:Wish": {
+    "NAME": "誠実な期待",
+    "DESCRIPTION": "!M! 絲線 を得る。 NL 毎ターン終了時に !M! 絲線 を得る。"
+  },
+  "AmiyaMod:MagicPC": {
+    "NAME": "個人魔術端末",
+    "DESCRIPTION": "手札から1枚選び、使用不可 と 引いた時に発動 を持つ複製を捨て札に混ぜる。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "手札から1枚選び、使用不可 と 引いた時に発動 を持つ複製を山札に混ぜる。 NL 廃棄 。"
+  },
+  "AmiyaMod:KingType2": {
+    "NAME": "魔王の律令",
+    "DESCRIPTION": "!D! ダメージを与える。 NL カードを1枚引く。 NL 次にプレイする !M! 枚の 源石技芸 以外のカードは 源石技芸 として扱われる。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "!D! ダメージを与える。 NL カードを1枚引く。 NL 次にプレイする !M! 枚の 源石技芸 以外のカードは 源石技芸 として扱われる。"
+  },
+  "AmiyaMod:LittleTe": {
+    "NAME": "",
+    "DESCRIPTION": "手札上限までランダムな 追憶 を得る。ターン終了時、残った手札1枚につき !M! 絲線 を得る。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "手札上限までランダムな 追憶 を得る。ターン終了時、残った手札1枚につき !M! 絲線 を得る。"
+  },
+  "AmiyaMod:LittleTe2": {
+    "NAME": "彼女の憂いを憂う",
+    "DESCRIPTION": "カードを !M! 枚引く。 NL このターン、手札を 保留 する。",
+    "UPGRADE_DESCRIPTION": "手札上限までランダムな 追憶 を得る。ターン終了時、残った手札1枚につき !M! 絲線 を得る。"
+  },
+  "AmiyaMod:Hope": {
+    "NAME": "希望の集い",
+    "DESCRIPTION": "感染度 が増加する時、絲線 を持っていれば、 NL HPを1失って増加を阻止しカードを !M! 枚引く。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL 感染度 が増加する時、絲線 を持っていれば、 NL HPを1失って今回の増加を阻止する。"
+  },
+  "AmiyaMod:HerDo": {
+    "NAME": "彼女の行いを",
+    "DESCRIPTION": "あなたのターン終了時、そのターンにHPを失った回数につき、敵全体に !M! ダメージを与える。"
+  },
+  "AmiyaMod:HerSee": {
+    "NAME": "彼女の見たもの",
+    "DESCRIPTION": "[E] [E] [E] を得る。 NL このターン、 [E] を使うたびHPを1失う。"
+  },
+  "AmiyaMod:LoseWish": {
+    "NAME": "枯渇した期待",
+    "DESCRIPTION": "源石技芸 。 NL 使用不可 のカードを引くたび、 NL カードを !M! 枚引く。",
+    "UPGRADE_DESCRIPTION": "天賦 。 NL 源石技芸 。 NL 使用不可 のカードを引くたび、 NL カードを !M! 枚引く。"
+  },
+  "AmiyaMod:ShadowSkyOpen": {
+    "NAME": "天瞠",
+    "DESCRIPTION": "あなたが得る 影霄 は NL 追加で1回 アップグレード される。 NL エセリアル 。",
+    "UPGRADE_DESCRIPTION": "あなたが得る 影霄 は NL 追加で1回 アップグレード される。",
+    "EXTENDED_DESCRIPTION": [
+      "NL 山札の半分のカードをランダムに捨て、その中の 使用不可 のカードを 廃棄 する。 NL ",
+      "ダメージ）"
+    ]
+  },
+  "AmiyaMod:FullCry": {
+    "NAME": "涙に浸る",
+    "DESCRIPTION": "エセリアル。 NL このカードが 廃棄 された場合、最大HPを !M! 失う。"
+  },
+  "AmiyaMod:FinalSong": {
+    "NAME": "炉芯の終曲",
+    "DESCRIPTION": "ランダムに !D! ダメージを !M! 回与える。 NL 廃棄札の山から 追憶 を1枚得て 保留 する。 NL ターンを終了する。",
+    "UPGRADE_DESCRIPTION": "ランダムに !D! ダメージを !M! 回与える。 NL 廃棄札の山から 追憶 を1枚得る。 NL それを アップグレード し 保留 する。 NL ターンを終了する。"
+  },
+  "AmiyaMod:ShadowCloudBreakA": {
+    "NAME": "睜眼",
+    "DESCRIPTION": "影霄 を1枚得る。"
+  },
+  "AmiyaMod:ShadowCloudBreakB": {
+    "NAME": "日暮",
+    "DESCRIPTION": "手札の 影霄 を アップグレード する。"
+  },
+  "AmiyaMod:KKZ": {
+    "NAME": "恐卡茲の熵",
+    "DESCRIPTION": "カードを2枚引く。それらは 源石技芸 と 源石呪詛 の両方として同時に扱われる。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "占術 !M! 。 NL カードを2枚引く。それらは 源石技芸 と 源石呪詛 の両方として同時に扱われる。 NL 廃棄 。",
+    "EXTENDED_DESCRIPTION": [
+      " 源石技芸 。 NL ",
+      " 源石呪詛 。 NL ",
+      " 源石技芸 。 源石呪詛 。 NL "
+    ]
+  },
+  "AmiyaMod:DA": {
+    "NAME": "調弦を待つ怒り",
+    "DESCRIPTION": "抜剣 : [E] を得る。 NL 廃棄 。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 抜剣 : [E] を得る。 NL 廃棄 。"
+  },
+  "AmiyaMod:SoulDefend": {
+    "NAME": "幽影の瞬き",
+    "DESCRIPTION": "次のターン開始時まで、 NL HPを失うたび NL !M! 絲線 を得る。 NL *幽影の扉 の 追憶 を1枚手札に加える。"
+  },
+  "AmiyaMod:SoulDoor": {
+    "NAME": "幽影の扉",
+    "DESCRIPTION": "ランダムな敵に !D! ダメージを与える。 NL このカードが 廃棄 された時、HPを !M! 失う。"
+  },
+  "AmiyaMod:Finding": {
+    "NAME": "アナサの覚醒",
+    "DESCRIPTION": "エセリアル 。 NL 次にプレイするカード1枚を 廃棄 する。それを永続的に アップグレード する。 NL (!M! 回使用後、除去される。)",
+    "UPGRADE_DESCRIPTION": "エセリアル 。 NL カードを1枚 廃棄 する。呪い なら、デッキから除去する。そうでなければ永続的に アップグレード する。"
+  },
+  "AmiyaMod:BallCard": {
+    "NAME": "残された創造性",
+    "DESCRIPTION": "エセリアル 。 NL 手札を !M! 枚捨て、アーミヤに 残された創造性 !M! 層を与える。 NL このカードが 廃棄 された時、アーミヤに 残された創造性 !M! 層を与え、特殊な敵を召喚する。",
+    "UPGRADE_DESCRIPTION": "エセリアル 。 NL アーミヤに 残された創造性 !M! 層を与える。 NL このカードが 廃棄 された時、プレイされ、同時に特殊な敵を召喚する。",
+    "EXTENDED_DESCRIPTION": [
+      "天賦 。 NL 廃棄 された時にプレイされる。 NL 使用不可 。 NL 保留 。"
+    ]
+  }
+}

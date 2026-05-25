@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.ShadowSkillAction;
 import Amiyamod.action.cards.ShadowTwoAction;
 import Amiyamod.patches.CardColorEnum;
@@ -55,6 +56,7 @@ public class ShadowTwo extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         AbstractDungeon.actionManager.addToBottom(
                 new ShadowTwoAction(this,this.upgraded)
         );

@@ -1,6 +1,7 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.cards.RedSky.RedSky;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -35,6 +36,7 @@ public class BonkPower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(card instanceof RedSky && card.timesUpgraded>0){
             this.flash();
+            this.addToBot(new SEAction("Bonk"));
             if (this.amount == 0) {
                 this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner,  this.ID));
             } else {

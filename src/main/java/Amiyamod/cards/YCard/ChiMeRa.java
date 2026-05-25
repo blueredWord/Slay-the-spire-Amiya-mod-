@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.cards.RedSky.Shadow15;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -66,12 +67,12 @@ public class ChiMeRa extends CustomCard{
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         //获得丝线
         Amiyamod.LinePower(this.misc);
-        //造成多次伤害
+
         this.addToBot(new ApplyPowerAction(p,p,new ChiMeRaPower(this.magicNumber)));
-        //感染进度
-        //Amiyamod.addY(1);
+
     }
     public AbstractCard makeCopy() {return new ChiMeRa();}
 }

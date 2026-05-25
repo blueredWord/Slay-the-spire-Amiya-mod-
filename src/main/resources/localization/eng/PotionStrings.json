@@ -1,23 +1,28 @@
 {
-  "WarlordEmblem:ReserveRunePotion": {
-    "NAME": "Reserve Rune",
-    "DESCRIPTIONS": [
-      "Gain #b",
-      " #yRune Energy ."
+
+  "AmiyaMod:YPotion": {
+    "NAME": "Originium Tincture",
+"DESCRIPTIONS": [
+  "Enter #yInfection Outburst.",
+  "Infection Outburst",
+  "You do not accumulate #yInfection Progress for #b1 turn. When you play an #yAcute Onset card, trigger #yAcute Onset at least once."
     ]
   },
-  "WarlordEmblem:RuneExpandPotion": {
-    "NAME": "Rune Expand",
-    "DESCRIPTIONS": [
-      "Gain #b",
-      " #yMax #yRune."
+  "AmiyaMod:LovePotion": {
+   "NAME": "Thread Tincture",
+"DESCRIPTIONS": [
+  "Gain #b",
+  " #yThreads.",
+  "Threads",
+  "Temporary HP that is #yhalved at the start of your turn."
     ]
   },
-  "WarlordEmblem:RealmPotion": {
-    "NAME": "Realm Potion",
-    "DESCRIPTIONS": [
-      "Gain #b",
-      " #yRealm Increase."
+  "AmiyaMod:AngryPotion": {
+ "NAME": "Liquid Fury",
+"DESCRIPTIONS": [
+  "Enter #yUnsheathed.",
+  "Unsheathed",
+  "For #b1 turn, whenever you play an Attack card, gain #yChixiao equal to its Energy cost. NL If you are already in this stance, perform the bonus effects listed after the keyword instead."
     ]
   }
 }

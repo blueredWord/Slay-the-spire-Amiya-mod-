@@ -1,6 +1,7 @@
 package Amiyamod.cards;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -49,6 +50,7 @@ public class AmiyaStrike extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(
                         m,

@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LineBow;
@@ -51,6 +52,8 @@ public class Wish extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 获得茧
+        this.addToBot(new SEAction(NAME,true));
+
         Amiyamod.LinePower(this.magicNumber);
         this.addToTop(new ApplyPowerAction(p, p, new LineBow(p,this.magicNumber)));
     }

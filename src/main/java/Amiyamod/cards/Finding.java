@@ -39,7 +39,7 @@ public class Finding extends CustomCard {
     public Finding() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //源石卡牌tag
-        this.misc = 1;
+        this.misc = 3;
         this.magicNumber = this.baseMagicNumber = 3;
         this.isEthereal = true;
         //this.tags.add(YCardTagClassEnum.YCard);
@@ -56,18 +56,28 @@ public class Finding extends CustomCard {
         }
     }
 
+    public void applyPowers() {
+        this.baseMagicNumber = this.misc;
+        super.applyPowers();
+        this.initializeDescription();
+    }
+    
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //AbstractDungeon.player.loseGold(50);
         //this.addToBot(new FindingAction(this.misc));
         //if (!this.upgraded){
-            this.upgradeMagicNumber(-1);
+            this.misc--;
+            this.magicNumber = this.misc;
             this.applyPowers();
             this.addToBot(new ApplyPowerAction(p,p,new FindingPower(p,1)));
             for (AbstractCard caa: AbstractDungeon.player.masterDeck.group) {
                 if (caa.uuid == this.uuid) {
+                    caa.misc = this.misc;
                     caa.baseMagicNumber = caa.magicNumber = this.magicNumber;
-                    this.upgradedMagicNumber = true;
+
+                   // this.upgradedMagicNumber = true;
+
                     if (caa.magicNumber == 0){
                         caa.untip();
                         caa.unhover();
@@ -76,6 +86,7 @@ public class Finding extends CustomCard {
                     }else {
                         caa.applyPowers();
                     }
+
                     break;
                 }
             }

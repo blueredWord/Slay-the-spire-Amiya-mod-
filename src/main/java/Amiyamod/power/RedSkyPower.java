@@ -1,6 +1,7 @@
 package Amiyamod.power;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.cards.RedSky.RedSky;
 import Amiyamod.cards.RedSky.ShadowCry;
 import Amiyamod.cards.RedSky.ShadowDefend;
@@ -94,6 +95,7 @@ public class RedSkyPower extends AbstractPower {
     }
 
     public void onInitialApplication() {
+        this.addToBot(new SEAction("ShadowOut"));
         if (this.owner.isPlayer && this.owner instanceof Amiya && !this.owner.hasPower(ChiMeRaPower.POWERID) && !this.owner.hasPower(YSayPower.POWER_ID)){
             ((Amiya)this.owner).ChangeA(false);
             this.owner.state.setAnimation(0, "Start", false);

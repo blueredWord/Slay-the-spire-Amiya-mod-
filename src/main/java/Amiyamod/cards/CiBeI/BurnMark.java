@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
@@ -57,6 +58,7 @@ public class BurnMark extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
         Amiyamod.BurnSelf(this.magicNumber);
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage,this.damageTypeForTurn), AbstractGameAction.AttackEffect.FIRE));
 

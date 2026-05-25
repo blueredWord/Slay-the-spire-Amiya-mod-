@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.HerDoPower;
 import Amiyamod.power.HerSeePower;
@@ -51,6 +52,7 @@ public class HerDo extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         //获得状态：每花费次受到伤害 对全体敌人造成6反伤
         this.addToTop(new ApplyPowerAction(p, p, new HerDoPower(this.magicNumber)));
     }

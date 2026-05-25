@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.FindExRedAction;
 import Amiyamod.action.cards.ShadowSkillAction;
 import Amiyamod.patches.CardColorEnum;
@@ -63,7 +64,7 @@ public class ShadowCloudBreak2 extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        this.addToBot(new SEAction(NAME,true));
         this.addToBot(new ShadowSkillAction(this));
         //this.addToBot(new FindExRedAction());
     }

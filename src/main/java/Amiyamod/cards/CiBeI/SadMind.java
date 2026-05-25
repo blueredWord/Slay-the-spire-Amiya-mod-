@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.RedSkyPower;
@@ -34,8 +35,10 @@ public class SadMind extends CustomCard {
     private static final AbstractCard.CardColor COLOR = CardColorEnum.AMIYA;//卡牌颜色
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
+
     // 哀恸共情
     // 急性发作 1。 NL  造成 !D! 点伤害。 获得等同于目标伤害意图一半的 丝线 。
+
     public SadMind() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //this.isInnate = true; //固有
@@ -65,6 +68,7 @@ public class SadMind extends CustomCard {
         //this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
         int i = p.maxHealth - p.currentHealth - Amiyamod.playerLine;
         if (i>0) {
+            this.addToBot(new SEAction(NAME,true));
             Amiyamod.LinePower(i);
         }
         //Amiyamod.HenJi(1,this,m);

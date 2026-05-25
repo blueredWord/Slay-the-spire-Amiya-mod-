@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.YBBSPower;
@@ -70,6 +71,7 @@ public class YBBS extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
         this.addToBot(new ApplyPowerAction(p,p,new YBBSPower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new YBBS();}

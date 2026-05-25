@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.LineBow;
@@ -54,6 +55,7 @@ public class MakeLine extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         // 获得茧
+        this.addToBot(new SEAction(NAME,true));
         this.addToTop(new ApplyPowerAction(p, p, new MakeLinePower(this.magicNumber)));
     }
 

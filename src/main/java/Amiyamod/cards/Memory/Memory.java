@@ -1,6 +1,7 @@
 package Amiyamod.cards.Memory;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.character.Amiya;
 import Amiyamod.patches.AmiyaClassEnum;
 import Amiyamod.patches.CardColorEnum;
@@ -105,6 +106,7 @@ public class Memory extends CustomCard {
                 G.addToBottom(card);
             }
             this.addToBot(new ChooseOneAction(G.group));
+            this.addToBot(new SEAction(NAME,true));
         }
     }
 

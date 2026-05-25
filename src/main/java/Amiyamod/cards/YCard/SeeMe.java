@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.SeeMeAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -66,6 +67,7 @@ public class SeeMe extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //this.addToBot(new SEAction(NAME,true));
         AbstractDungeon.actionManager.addToBottom(
                 new DamageAction(
                         m,

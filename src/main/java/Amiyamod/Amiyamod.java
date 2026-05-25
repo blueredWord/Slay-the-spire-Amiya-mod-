@@ -93,6 +93,7 @@ public class Amiyamod implements
     public static boolean addonRelic = true;    //是否读取mod遗物
     public static Properties AmiyaModDefaults = new Properties();
     public int value = 0;
+    public static boolean sayed = false;
     public static ArrayList<CustomCard> Rcard = new ArrayList<>();
     public static ArrayList<CustomCard> Mcard = new ArrayList<>();
     public static final Color Amiya_Color = new Color(0x89643fff);
@@ -190,6 +191,7 @@ public class Amiyamod implements
     //  回合开始接口
     @Override
     public void receiveOnPlayerTurnStart() {
+        sayed = true;
         LoseHPthisturn = false;
         LogManager.getLogger(Amiyamod.class.getSimpleName()).info(
                 "模组核心：成功触发回合开始 开始判定丝线减半，playline："+playerLine
@@ -655,6 +657,14 @@ public class Amiyamod implements
     private static final String KEYWORD_STRING_EN = "localization/eng/KeywordStrings.json";
     private static final String EVENT_PATH_EN = "localization/eng/EventStrings.json";
 
+    private static final String CARD_STRING_JPN = "localization/jpn/CardStrings.json";
+    private static final String RELIC_STRING_JPN = "localization/jpn/RelicStrings.json";
+    private static final String POWER_STRING_JPN = "localization/jpn/PowerStrings.json";
+    private static final String POTION_STRING_JPN = "localization/jpn/PotionStrings.json";
+    private static final String KEYWORD_STRING_JPN = "localization/jpn/KeywordStrings.json";
+    private static final String EVENT_PATH_JPN = "localization/jpn/EventStrings.json";
+
+
     //############################################################
     // @ 设置自定义角色
     //############################################################
@@ -681,7 +691,7 @@ public class Amiyamod implements
     public void receiveEditCards() {
         List<CustomCard> cards = new ArrayList<>();
     //加入卡牌
-        cards.add(new BallCard());
+        //cards.add(new BallCard());
         //cards.add(new Before());
 
         cards.add(new AmiyaStrike());
@@ -1046,11 +1056,9 @@ public class Amiyamod implements
                 powerStrings,
                 potionStrings,
                 eventStrings,
-
                 relic,
                 card,
                 power,
-
                 potion,
                 event;
 
@@ -1062,23 +1070,21 @@ public class Amiyamod implements
             potion = POTION_STRING_ZH;
             event = EVENT_PATH_ZHS;
 
+        }else if(Settings.language == Settings.GameLanguage.JPN ){
+            logger.info("lang == jp");
+            card = CARD_STRING_JPN;
+            relic = RELIC_STRING_JPN;
+            power = POWER_STRING_JPN;
+            potion = POTION_STRING_JPN;
+            event = EVENT_PATH_JPN;
         }
         else {
-            /*
             logger.info("lang == eng");
             card = CARD_STRING_EN;
             relic = RELIC_STRING_EN;
             power = POWER_STRING_EN;
             potion = POTION_STRING_EN;
             event = EVENT_PATH_EN;
-
-             */
-            logger.info("lang == en");
-            card = CARD_STRING_EN;
-            relic = RELIC_STRING_ZH;
-            power = POWER_STRING_ZH;
-            potion = POTION_STRING_ZH;
-            event = EVENT_PATH_ZHS;
         }
 
         relicStrings = Gdx.files.internal(relic).readString(
@@ -1114,7 +1120,10 @@ public class Amiyamod implements
 
         if (Settings.language == Settings.GameLanguage.ZHS || Settings.language == Settings.GameLanguage.ZHT) {
             keywordsPath = KEYWORD_STRING_ZH;
-        }else {
+        } else if (Settings.language == Settings.GameLanguage.JPN) {
+            keywordsPath = KEYWORD_STRING_JPN;
+        } else {
+            logger.info("阿米娅MOD:导入英文关键词");
             keywordsPath = KEYWORD_STRING_EN;
         }
 
@@ -1124,7 +1133,7 @@ public class Amiyamod implements
         Keywords keywords;
         keywords = gson.fromJson(loadJson(keywordsPath), Keywords.class);
         for (Keyword key : keywords.keywords) {
-            logger.info("阿米娅MOD读取关键词文件 : {}", key.NAMES[0]);
+            logger.info("阿米娅MOD读取关键词文件 : {}+{}", key.NAMES[0],key.DESCRIPTION);
             BaseMod.addKeyword(key.NAMES, key.DESCRIPTION);
         }
         logger.info("阿米娅MOD关键词读取完毕");

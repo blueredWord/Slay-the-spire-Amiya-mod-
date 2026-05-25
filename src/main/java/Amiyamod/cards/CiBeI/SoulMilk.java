@@ -2,6 +2,7 @@ package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.patches.core.AbstractCreature.TempHPField;
@@ -66,6 +67,8 @@ public class SoulMilk extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
+
         this.addToBot(new KingSeeAction(this.cardID, this.magicNumber ,this.upgraded));
     }
 

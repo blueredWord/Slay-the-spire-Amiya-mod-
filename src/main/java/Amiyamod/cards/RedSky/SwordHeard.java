@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.KingSeeAction;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.UpRedAction;
 import Amiyamod.cards.YCard.SeeMe;
 import Amiyamod.patches.CardColorEnum;
@@ -71,6 +72,7 @@ public class SwordHeard extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         Amiyamod.Sword(true,new UpRedAction(false));
         this.addToBot(new ApplyPowerAction(p,p,new VulnerablePower(p,1,false)));
         this.addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,this.magicNumber,false)));

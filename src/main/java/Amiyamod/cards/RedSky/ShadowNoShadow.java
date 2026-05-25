@@ -2,6 +2,7 @@ package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
 
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.ShadowNoShadowAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -64,6 +65,8 @@ public class ShadowNoShadow extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
+
         Amiyamod.Sword(false,new ApplyPowerAction(p,p,new IntangiblePlayerPower(p,this.magicNumber)));
         for (int i = 0 ; i<10 ; i++){
             AbstractDungeon.actionManager.addToBottom(

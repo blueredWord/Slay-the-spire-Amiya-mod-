@@ -2,99 +2,131 @@
   "keywords": [
     {
       "NAMES": [
-        "感染阶段"
+        "Infection-stage",
+        "infection-stage"
       ],
-      "DESCRIPTION": "每打出 #b10 张 #yStoneMagic 牌会上升1级，And #b1 random #yStoneCurse into Your Deck."
+      "DESCRIPTION": "Increases by 1 for every #b10 #yOriginium #yArts cards played, then shuffle a random #yOriginium #yCurse into your deck."
     },
     {
       "NAMES": [
-        "Severity"
+        "Infection-progress",
+        "infection-progress"
       ],
-      "DESCRIPTION": "When #ySeverity become #b10 时，Will Into #yTheBreak Power .And add #b1 #yStoneCurse into your deck."
+      "DESCRIPTION": "When #yInfection #yProgress reaches #b10, enter #yInfection #yOutbreak and add #b1 #yOriginium #yCurse into your deck."
     },
     {
       "NAMES": [
-        "TheBreak"
+        "Infection-Outbreak",
+        "infection-outbreak"
       ],
-      "DESCRIPTION": "You will not add #ySeverity one turn . When you play #yStoneMagic ，Play again even you have not StoneCurse."
+      "DESCRIPTION": "For #b1 turn, you do not accumulate #yInfection #yProgress . When you play an #yOriginium #yArts , its repeat effect triggers even if you have no #yOriginium #yCurse in hand (without losing HP)."
     },
     {
       "NAMES": [
-        "Line"
+        "Thread",
+        "thread"
       ],
-      "DESCRIPTION": "Temporary Hp , Will #yhalved at the start of your turn."
-    }
-  ,
-
-    {
-      "NAMES": [
-        "StoneCurse"
-      ],
-      "DESCRIPTION": "共有九种效果各异的 #yCurse . When You Gain #yStoneCurse Twice ，It will become more #rDanger ."
-    }
-  ,
-    {
-      "NAMES": [
-        "StoneMagic"
-      ],
-      "DESCRIPTION": "When you play #yStoneMagic will add #ySeverity .If #yStone ，将会失去 #b1 点生命来将其丢弃并重复打出 #yStoneMagic ."
-    }
-  ,
-    {
-      "NAMES": [
-        "茧"
-      ],
-      "DESCRIPTION": "每回合结束获得等量的 #y丝线 ."
+      "DESCRIPTION": "Temporary HP. At the start of your turn, Halved."
     },
     {
       "NAMES": [
-        "TheOut"
+        "Acute-Onset",
+        "acute-onset"
       ],
-      "DESCRIPTION": " #b1 回合内打出 #yShadowSword 以外的 #yAttack Card 时，按照消耗的费用获得对应 #y升级 次数的 #yShadowSword . NL If you had this Power , Apply Extra effect."
+      "DESCRIPTION": "Discard up to X #yOriginium #yCurses from your hand. For each #b1 discarded, the card triggers its effect #b1 additional time."
     },
     {
       "NAMES": [
-        "Thein"
+        "Originium-Curse",
+        "originium-curse"
       ],
-      "DESCRIPTION": "If you have #yTheOut Power ，End your #yTheOut Power and Apply."
+      "DESCRIPTION": "There are nine #yCurses with different effects. When you obtain the same #yOriginium #yCurse a second time, it becomes #rMore Dangerous ."
     },
     {
       "NAMES": [
-        "ShadowSword"
+        "Self-immolation",
+        "self-immolation"
       ],
-      "DESCRIPTION": "The Attack Card - Damage #b2 and #b0 Cost ，Double Damage each Upgrade."
+      "DESCRIPTION": "Lose #b1 HP an equal number of times."
     },
     {
       "NAMES": [
-        "追忆",
-        "Memory"
+        "Originium-Arts",
+        "originium-arts"
       ],
-      "DESCRIPTION": " #yMemory is random card, Extra possession #yEthereal and #yExhaust 的效果."
+      "DESCRIPTION": "Playing an #yOriginium #yArts increases #yInfection #yProgress . If you have an #yOriginium #yCurse in hand, lose #b1 HP to discard it and play the #yOriginium #yArts again."
     },
     {
       "NAMES": [
-        "不稳定的力量"
+        "Cocoon",
+        "cocoon"
       ],
-      "DESCRIPTION": "耗能为 #b0 的 #yStoneMagic . Draw #b2 card and Gain #b1 Energy."
+      "DESCRIPTION": "At the end of your turn, gain an equal amount of #yThread ."
     },
     {
       "NAMES": [
-        "污染碎片"
+        "Unsheathed",
+        "unsheathed"
       ],
-      "DESCRIPTION": "#b2 费 #y能力牌 ，拥有 #y保留 词条.When你打出 #b2 张后获得 #b60 枚 #yGold ."
+      "DESCRIPTION": "For #b1 turn, whenever you play an #yAttack that is not #yYing #yXiao , gain a #yYing #yXiao #yUpgraded a number of times equal to the Energy spent. NL If you are already in this stance, execute the additional effect after the keyword instead."
     },
     {
       "NAMES": [
-        "微尘",
-        "微尘+"
+        "Sheathed",
+        "sheathed"
       ],
-      "DESCRIPTION": "充能球：对获得 #y丝线 ."
+      "DESCRIPTION": "If you are #yUnsheathed , exit #yUnsheathed and trigger the additional effect."
     },
     {
       "NAMES": [
-        "TheUse"
+        "Ying-Xiao",
+        "ying-xiao"
       ],
-      "DESCRIPTION": "Double right click to use."
+      "DESCRIPTION": "A #b0-cost Attack dealing #b2 base damage. Each Upgrade doubles its damage."
+    },
+    {
+      "NAMES": [
+        "Reminiscence",
+        "reminiscence"
+      ],
+      "DESCRIPTION": "#yReminiscence cards also have #yEthereal and #yExhaust ."
+    },
+    {
+      "NAMES": [
+        "UnstablePower",
+        "unstablePower"
+      ],
+      "DESCRIPTION": "A #b0-cost #yOriginium #yArts . Draw #b2 cards and gain #b1 Energy."
+    },
+    {
+      "NAMES": [
+        "Contaminated-Shard",
+        "contaminated-Shard"
+      ],
+      "DESCRIPTION": "A #b1-cost #yPower with #yRetain . After playing #b2 of them, gain #b80 #yGold ."
+    },
+    {
+      "NAMES": [
+        "Mote",
+        "mote",
+        "Mote+",
+        "mote+"
+      ],
+      "DESCRIPTION": "Orb: Grants #yThread ."
+    },
+    {
+      "NAMES": [
+        "Use",
+        "use"
+      ],
+      "DESCRIPTION": "A special effect activated by right-clicking during your turn."
+    },
+    {
+      "NAMES": [
+        "Accumulate-Sword",
+        "accumulate-sword"
+      ],
+      "DESCRIPTION": "Repeat the following: If you have no #yYing #yXiao in hand, add one. Otherwise, #yUpgrade it."
     }
   ]
 }

@@ -1,6 +1,7 @@
 package Amiyamod.cards;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.cards.CiBeI.LittleTe;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.LittleTePower;
@@ -26,6 +27,8 @@ public class MindEat extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;//卡片稀有度，基础BASIC 普通COMMON 罕见UNCOMMON 稀有RARE 特殊SPECIAL 诅咒CURSE
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;//是否指向敌人
 
+    //情绪吸收
+
     public MindEat() {
         super(ID, CARD_STRINGS.NAME, IMG_PATH, COST, CARD_STRINGS.DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         //源石卡牌tag
@@ -48,6 +51,8 @@ public class MindEat extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
+
         this.addToTop(new ApplyPowerAction(p, p, new MindEatPower(this.magicNumber)));
     }
     public AbstractCard makeCopy() {return new MindEat();}

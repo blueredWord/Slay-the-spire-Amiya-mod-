@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.MercyPower;
@@ -53,6 +54,7 @@ public class Mercy extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //获得状态：本回合造成伤害时获得等同于伤害点丝线。
+        this.addToBot(new SEAction(NAME,true));
         this.addToTop(new ApplyPowerAction(p, p, new MercyPower(p)));
     }
     public AbstractCard makeCopy() {return new Mercy();}

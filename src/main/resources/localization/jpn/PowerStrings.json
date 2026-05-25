@@ -1,0 +1,514 @@
+{
+  "AmiyaMod:UI": {
+    "NAME": "魂の溶解炉",
+    "DESCRIPTIONS": [
+      "アップグレードするカードを選択してください。",
+      "保留するカードを選択してください。",
+      "魂の溶解炉の燃料にするカードを選択してください。",
+      "救援するカードを選択してください。",
+      "治癒するカードを選択してください。",
+      "準備する源石技芸を選択してください。",
+      "継承する技芸を選択してください。",
+      "感じ取りたい感情を選択してください。",
+      "複製するカードを選択してください。",
+      "消費するカードを選択してください。"
+    ]
+  },
+  "AmiyaMod:UI2": {
+    "NAME": "魂の溶解炉",
+    "DESCRIPTIONS": [
+      "端末に刻録するカードを選択してください。",
+      " 源石技芸 。 NL ",
+      " 保留 。 NL ",
+      " 源石技芸 。 保留 。 NL "
+    ]
+  },
+  "AmiyaMod:BeautifulLifePower": {
+    "NAME": "命定の予言",
+    "DESCRIPTIONS": [
+      "コストが #b0 に下がった #y",
+      " 、 #y",
+      " をプレイした後、元のコストに等しいHPを失う。"
+    ]
+  },
+  "AmiyaMod:HerDoPower": {
+    "NAME": "彼女の行いを",
+    "DESCRIPTIONS": [
+      "ターン終了時、このターンにHPを失った回数の #b",
+      " 倍のダメージを敵全体に与える。（ #b",
+      " ダメージを与える。）"
+    ]
+  },
+  "AmiyaMod:HerSeePower": {
+    "NAME": "彼女の見たもの",
+    "DESCRIPTIONS": [
+      "このターン、エナジーを #b1 消費するたび、HPを #b1 失う #b",
+      " 回。",
+      ""
+    ]
+  },
+  "AmiyaMod:LineBowPower": {
+    "NAME": "繭",
+    "DESCRIPTIONS": [
+      "ターン終了時、",
+      " #y絲線 を得る。",
+      "後、元のコストに等しいHPを失う。"
+    ]
+  },
+  "AmiyaMod:LineDefenderPower": {
+    "NAME": "進軍",
+    "DESCRIPTIONS": [
+      "#y絲線 を失うたび、 #b",
+      " #yブロック を得る。",
+      ""
+    ]
+  },
+  "AmiyaMod:MercyPower": {
+    "NAME": "慈悲の展望",
+    "DESCRIPTIONS": [
+      "このターン、ダメージを与えるたび、そのダメージの半分の #y絲線 を得る。"
+    ]
+  },
+  "AmiyaMod:NoFengPower": {
+    "NAME": "無鋒",
+    "DESCRIPTIONS": [
+      "次のターン開始時まで、 #b2 回ダメージを受けるたび、",
+      "層の繭を得る。",
+      "後、元のコストに等しいHPを失う。"
+    ]
+  },
+  "AmiyaMod:OpenPower": {
+    "NAME": "綻放",
+    "DESCRIPTIONS": [
+      "ダメージを受けるたび、ランダムな敵 #b1 体に",
+      "層の #y脱力 を与える。",
+      "ダメージを受けるたび、あなたは"
+    ]
+  },
+  "AmiyaMod:SoulDefenderPower": {
+    "NAME": "幽影の瞬き",
+    "DESCRIPTIONS": [
+      "次のターン開始時まで、HPを失うたび、 #b",
+      "点の絲線を得る。",
+      "後、元のコストに等しいHPを失う。"
+    ]
+  },
+  "AmiyaMod:SnakePower": {
+    "NAME": "一時的な混乱",
+    "DESCRIPTIONS": [
+      "引くカードすべてのコストがランダムに変化する。 #b",
+      " ターン後にこの効果は終了する。",
+      "引くカードすべてのコストがランダムに変化する。ターン終了時にこの効果は終了する。"
+    ]
+  },
+  "AmiyaMod:CRingPower": {
+    "NAME": "茨と棘の輪",
+    "DESCRIPTIONS": [
+      "#y絲線 をすべて使い果たすたび、 #b",
+      " 層の #y茨 を得る。"
+    ]
+  },
+  "AmiyaMod:CardBackPower": {
+    "NAME": "返還",
+    "DESCRIPTIONS": [
+      "次のターン開始時、山札か捨て札にある #y",
+      " が手札に戻る。"
+    ]
+  },
+  "AmiyaMod:RedSkyPower": {
+    "NAME": "抜剣",
+    "DESCRIPTIONS": [
+      "このターン中、#y影霄 以外のアタックカードをプレイするたび、#y影霄 1枚を手札に加える。"
+    ]
+  },
+  "AmiyaMod:AngryForeverPower": {
+    "NAME": "無名の怒り",
+    "DESCRIPTIONS": [
+      "コストが #b",
+      " 以上のカードをプレイするたび、手札の #y影霄 すべてを #b",
+      " 回 #yアップグレード する。",
+      "毎ターン開始時、 #y抜剣 状態に入る。"
+    ]
+  },
+  "AmiyaMod:FireAgainPower": {
+    "NAME": "再燃する星火",
+    "DESCRIPTIONS": [
+      "毎ターン、デッキ由来ではないカードを最初にプレイする時、その複製を1枚追加で得る。",
+      "毎ターン、デッキ由来ではないカードを最初の",
+      "枚プレイする時、その複製を1枚追加で得る。"
+    ]
+  },
+  "AmiyaMod:SoMuchSworldPower": {
+    "NAME": "無限の剣製",
+    "DESCRIPTIONS": [
+      "毎ターン開始時、手札に #y影霄 がない場合、 #b",
+      " 回 #yアップグレード した #y影霄 を #b1 枚得る。そうでない場合、手札の影霄を同回数 #yアップグレード する。"
+    ]
+  },
+  "AmiyaMod:BigNotWorkPower": {
+    "NAME": "穹蒼の怒り",
+    "DESCRIPTIONS": [
+      "毎ターン最初に得る #b",
+      " 枚の #y影霄 は、追加で #b1 回 #yアップグレード される。",
+      "次に得る #b"
+    ]
+  },
+  "AmiyaMod:ShadowBlueFirePower": {
+    "NAME": "青焔の燎原",
+    "DESCRIPTIONS": [
+      "#y抜剣 状態の時、非アタックカードをプレイしても #y影霄 を得る。"
+    ]
+  },
+  "AmiyaMod:ShadowDefendPower": {
+    "NAME": "守勢",
+    "DESCRIPTIONS": [
+      "#y影霄 をプレイする時、そのダメージ値に等しい #yブロック を得る。"
+    ]
+  },
+  "AmiyaMod:ShadowWaterMusicPower": {
+    "NAME": "水韻",
+    "DESCRIPTIONS": [
+      "#y影霄 をプレイする時、敵全体にダメージを与える。"
+    ]
+  },
+  "AmiyaMod:LoseTempHpPower": {
+    "NAME": "絲命の貴重",
+    "DESCRIPTIONS": [
+      "絲線を失った時にも、カードの「HPを失った時」の効果が発動する。"
+    ]
+  },
+  "AmiyaMod:YSayPower": {
+    "NAME": "感染爆発",
+    "DESCRIPTIONS": [
+      "このターン、あなたの #y感染度 は蓄積しない。さらに、手札に #y源石呪詛 がなくても、 #y源石技芸 の追加発動効果が少なくとも #b1 回発動する。"
+    ]
+  },
+  "AmiyaMod:MindEatPower": {
+    "NAME": "感情吸収",
+    "DESCRIPTIONS": [
+      "このターンに #b",
+      " 枚のアタックカードをさらにプレイすると、 #b",
+      " 枚のカードを引く。",
+      " 枚のアタックカードで、 #b"
+    ]
+  },
+  "AmiyaMod:MemoryPower": {
+    "NAME": "の追憶",
+    "DESCRIPTIONS": [
+      "色褪せた追憶",
+      "追憶:",
+      " NL 虚無 。 消費 。",
+      " NL 虚無 。",
+      " NL 消費 。",
+      "ターン開始時、 #y",
+      " からの #y追憶 を #b",
+      " 枚手札に加える。",
+      " 追憶 。 NL "
+    ]
+  },
+  "AmiyaMod:ChiMeRaPower": {
+    "NAME": "キメラ",
+    "DESCRIPTIONS": [
+      "ターン中、与えるダメージが #b",
+      "% 増加する。効果終了時、全ての手札を捨て、1ターンを飛ばす。"
+    ]
+  },
+  "AmiyaMod:ZuZhouMagicPower": {
+    "NAME": "呪詛の魔術",
+    "DESCRIPTIONS": [
+      "あなたがHPを失うたび、",
+      " #y",
+      " 、",
+      " も同量のHPを失う。"
+    ]
+  },
+  "AmiyaMod:MindBubblePower": {
+    "NAME": "バブル",
+    "DESCRIPTIONS": [
+      "#yアタック カードをプレイした後、 #b",
+      " 点の #y絲線 を失う。これらの #y絲線 を失った後、 #b",
+      " 枚のカードを引く。"
+    ]
+  },
+  "AmiyaMod:BreakRingPower": {
+    "NAME": "限界駆動",
+    "DESCRIPTIONS": [
+      "次にプレイする #b",
+      " 枚の #y急性発作 カードは、効果が追加で #b1 回発動する。"
+    ]
+  },
+  "AmiyaMod:SoulBurnPower": {
+    "NAME": "魂の溶解炉",
+    "DESCRIPTIONS": [
+      "ターン開始時に #b1 エナジーを得る。"
+    ]
+  },
+  "AmiyaMod:FirstSayPower": {
+    "NAME": "アナナ",
+    "DESCRIPTIONS": [
+      "毎ターン終了時、手札の #y源石呪詛 以外のカードすべてを1枚の #y源石結晶 に凝結する。",
+      "ランダムな #y源石技芸 カード #b1 枚を手札に加えるために"
+    ]
+  },
+  "AmiyaMod:NoNamePower": {
+    "NAME": "無名の怒り",
+    "DESCRIPTIONS": [
+      "コストが #b",
+      " 以上のカードをプレイするたび、手札の #y影霄 すべてを #b",
+      " 回 #yアップグレード する。"
+    ]
+  },
+  "AmiyaMod:SadMindPower": {
+    "NAME": "存続",
+    "DESCRIPTIONS": [
+      "#b",
+      " ターンの間、ターン開始時に #y絲線 が半減しなくなる。"
+    ]
+  },
+  "AmiyaMod:KingSayPower": {
+    "NAME": "魔王の律令",
+    "DESCRIPTIONS": [
+      "ターン終了時、手札をすべて #y消費 する。少なくとも #b",
+      " 枚を #y消費 した場合、次に #b",
+      " 枚の #yアップグレード された #y源石技芸 を手札に加える。"
+    ]
+  },
+  "AmiyaMod:SoloPower": {
+    "NAME": "ヴァイオリンの独奏",
+    "DESCRIPTIONS": [
+      "ターン開始時、あなたの #y絲線 の数に等しいダメージを敵全体に与える。"
+    ]
+  },
+  "AmiyaMod:ShadowSkyOpenPower": {
+    "NAME": "穹蒼の怒り",
+    "DESCRIPTIONS": [
+      "あなたが得る #y影霄 は追加で #b",
+      " 回 #yアップグレード される。",
+      "枚の #y影霄 は追加で #b1 回 #yアップグレード される。",
+      "あなたが得る #y影霄 は追加で #b",
+      " 回 #yアップグレード される。"
+    ]
+  },
+  "AmiyaMod:ShadowBackWindyPower": {
+    "NAME": "夜を奔る",
+    "DESCRIPTIONS": [
+      "このターン中、 #y影霄 をプレイするたび、 #b",
+      " #yブロック を得る。"
+    ]
+  },
+  "AmiyaMod:YBBSPower": {
+    "NAME": "源石の祭壇",
+    "DESCRIPTIONS": [
+      "#y源石呪詛 を引いた時、ランダムな #y源石技芸 カード #b",
+      " 枚を手札に加える。",
+      "ターン終了時、 #y感染度 が #b",
+      " 増加し、敵全体に #b",
+      " ダメージを与える。"
+    ]
+  },
+  "AmiyaMod:BloodNoPower": {
+    "NAME": "青焔",
+    "DESCRIPTIONS": [
+      "このターンに次にプレイする #b",
+      " 枚の #y影霄 は、敵の #yブロック を無視する。"
+    ]
+  },
+  "AmiyaMod:EatZuzhouPower": {
+    "NAME": "呪いのキレート",
+    "DESCRIPTIONS": [
+      "ターン開始時、#b50%の確率で #b",
+      " エナジーを得る。",
+      "ターン終了時、 #b",
+      " HPを失う。",
+      "与えるダメージが #b",
+      " 減少する。",
+      "受けるダメージが #b",
+      " 増加する。",
+      "一度に #b8 以上のHPを失った後、 #b",
+      " 層の #y弱体 を得る。",
+      "#y源石技芸 をプレイするたび、対象はすべての #yブロック を失う。",
+      " % の #yブロック を失う。",
+      "ターン開始時、追加で #b",
+      " 枚のカードを引く。",
+      "#y源石技芸 カードをプレイするたび、 #b",
+      " 層の #y脱力 を得る。",
+      "ターン開始時、HPが整数になるよう切り捨てられる。",
+      " #b",
+      " 回発動する。"
+    ]
+  },
+  "AmiyaMod:OutcastPower": {
+    "NAME": "装填",
+    "DESCRIPTIONS": [
+      "#b",
+      " 発の弾丸を装填した。それぞれ #b13 ダメージを与える。",
+      "#b6 発の弾丸を装填した。敵全体に倍のダメージを与える。ただし、あなたにも #b13 ダメージを与える。"
+    ]
+  },
+  "AmiyaMod:ScoutPower": {
+    "NAME": "照準",
+    "DESCRIPTIONS": [
+      "照準中。毎ターン #b",
+      " ダメージを累積する。現在 #b",
+      " ダメージを累積している。手札に #y引き金 がない場合、毎ターン #y引き金 を手札に加える。"
+    ]
+  },
+  "AmiyaMod:ACEPower": {
+    "NAME": "守護",
+    "DESCRIPTIONS": [
+      "次の #b",
+      " 回の少なくとも #b6 点のHP喪失を防ぐ。"
+    ]
+  },
+  "AmiyaMod:LittleLeOrb": {
+    "NAME": "微塵",
+    "DESCRIPTIONS": [
+      "#b",
+      " 点の #y絲線 を得る。",
+      " #b",
+      " 点の #y絲線 を得る。",
+      " #yパッシブ : ",
+      " NL #y起動 : "
+    ]
+  },
+  "AmiyaMod:BreakBonePower": {
+    "NAME": "継承",
+    "DESCRIPTIONS": [
+      "#y絲線 をすべて失った時、 #b",
+      " 枚の #y「砕骨」 を手札に加える。"
+    ]
+  },
+  "AmiyaMod:KingSeePower": {
+    "NAME": "虚妄の情景",
+    "DESCRIPTIONS": [
+      "ターン開始時、 #y絲線 が残っている場合、 #b",
+      " 層の #y脱力 を得る。",
+      "攻撃を受ける前、与えるダメージが #b",
+      " 減少する。"
+    ]
+  },
+  "AmiyaMod:MakeLinePower": {
+    "NAME": "篭",
+    "DESCRIPTIONS": [
+      "#yデッキに存在しない カードをプレイするたび、 #b",
+      " 点の #y絲線 を得る。"
+    ]
+  },
+  "AmiyaMod:BlackKingPower": {
+    "NAME": "黒き冠の聖賢",
+    "DESCRIPTIONS": [
+      "ターン終了時、 #b ",
+      " 枚の #y主君の影 を手札に加える。",
+      " 枚の #y主君の影+ を手札に加える。",
+      " 枚のランダムな #y追憶 を手札に加える。"
+    ]
+  },
+  "AmiyaMod:HatePower": {
+    "NAME": "広がる憎悪の炎",
+    "DESCRIPTIONS": [
+      "あなたのターン開始時、 #y抜剣 。"
+    ]
+  },
+  "AmiyaMod:BonkPower": {
+    "NAME": "鞘撃準備",
+    "DESCRIPTIONS": [
+      "次にプレイする #b",
+      "枚の #y影霄 は、その #yアップグレード 回数に等しい #y筋力 を対象から減少させる。"
+    ]
+  },
+  "AmiyaMod:BloodPower": {
+    "NAME": "血魔の雨",
+    "DESCRIPTIONS": [
+      "このターン、敵にダメージを与えるたび、 #b",
+      " 点の絲線を得る。"
+    ]
+  },
+  "AmiyaMod:LittleTePower": {
+    "NAME": "テレジアの加護",
+    "DESCRIPTIONS": [
+      "このターン終了時、手札に残っているカード1枚につき #b",
+      " 点の #y絲線 を得る。",
+      "#b",
+      " ターンの間、手札が #y保留 される。"
+    ]
+  },
+  "AmiyaMod:RedSky2Power": {
+    "NAME": "抜剣",
+    "DESCRIPTIONS": [
+      "このターン中、#y影霄 以外のアタックカードをプレイするたび、 #y蘊剣 #b",
+      " 。"
+    ]
+  },
+  "AmiyaMod:MindRollPower": {
+    "NAME": "意志の震盪",
+    "DESCRIPTIONS": [
+      "毎ターン開始時、 #b",
+      " 枚のカードを選んで #y消費 する。 NL #y追憶 以外のカードが #y消費 されるたび、ランダムな #y追憶 を1枚手札に加える。",
+      " 。"
+    ]
+  },
+  "AmiyaMod:LoseWishPower": {
+    "NAME": "失われた期待",
+    "DESCRIPTIONS": [
+      "#yプレイ不可能 なカードを引くたび、 #b",
+      " 枚のカードを引く。"
+    ]
+  },
+  "AmiyaMod:StoneSwordPower": {
+    "NAME": "結晶の刃",
+    "DESCRIPTIONS": [
+      "次にプレイする #b",
+      " 枚の #y影霄 は #y源石技芸 として扱われる。",
+      " 枚のカード。"
+    ]
+  },
+  "AmiyaMod:HornPower": {
+    "NAME": "新生を注ぐ",
+    "DESCRIPTIONS": [
+      "HPを失うたび、 #b",
+      " 点の一時的な #y筋力 を得る。"
+    ]
+  },
+  "AmiyaMod:KingTypePower": {
+    "NAME": "「魔王」",
+    "DESCRIPTIONS": [
+      "次にプレイする #b",
+      " 枚の #y源石技芸 以外のカードは #y源石技芸 として扱われる。"
+    ]
+  },
+  "AmiyaMod:HopePower": {
+    "NAME": "希望の集い",
+    "DESCRIPTIONS": [
+      "#y源石技芸 カードをプレイするたび、 #y絲線 を持っている場合、 #y感染度 の増加を #b1 HPを失うことに置き換える。この効果が発動した時、 #b",
+      " 枚のカードを引く。"
+    ]
+  },
+  "AmiyaMod:PlanAPower": {
+    "NAME": "プランA:",
+    "DESCRIPTIONS": [
+      "#y",
+      " をプレイした後、 #b",
+      " エナジーを得る。ターン終了時までにこれをプレイしなかった場合、 #b",
+      " 枚の #y代替案 を得る。"
+    ]
+  },
+  "AmiyaMod:FindingPower": {
+    "NAME": "托生の蓮華座",
+    "DESCRIPTIONS": [
+      "次にプレイする #y呪い 以外のカード #b",
+      " 枚を #y消費 し、永続的に #yアップグレード する。"
+    ]
+  },
+  "AmiyaMod:BallAPower": {
+    "NAME": "残された創造性",
+    "DESCRIPTIONS": [
+      "コストが #b0 ではないカードをプレイした後、 #b1 枚の #y残された創造性 を手札に加える。"
+    ]
+  },
+  "AmiyaMod:BallBPower": {
+    "NAME": "封印",
+    "DESCRIPTIONS": [
+      "アーミヤが #y残された創造性 状態を持っていない場合、コストが #b0 ではないカードをプレイできない。"
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import Amiyamod.Amiyamod;
 
 import Amiyamod.Effect.BeamEffect;
 import Amiyamod.Effect.OrbEffect;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
@@ -95,7 +96,7 @@ public class MindBreak extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        this.addToBot(new SEAction(NAME));
         //造成多次伤害
         for(int i = 0; i < this.magicNumber; ++i) {
             AbstractMonster randomMonster = AbstractDungeon.getMonsters().getRandomMonster(true);

@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import Amiyamod.power.SoloPower;
@@ -64,6 +65,7 @@ public class Solo extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         Amiyamod.LinePower(this.magicNumber);
         this.addToBot(new ApplyPowerAction(p,p,new SoloPower(1)));
     }

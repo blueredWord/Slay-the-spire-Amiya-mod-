@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.ShadowBackAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -65,6 +66,7 @@ public class ShadowBack extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         //this.addToBot(new GainBlockAction(p,p,this.block));
         //this.addToBot(new GainEnergyAction(1));
         this.addToBot(new ShadowBackAction(this));

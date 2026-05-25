@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.power.BlackKingPower;
 import Amiyamod.power.MakeLinePower;
@@ -59,6 +60,7 @@ public class BlackKing extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //if(this.upgraded){
+        this.addToBot(new SEAction(NAME,true));
             this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeCopy()));
         //}
         this.addToTop(new ApplyPowerAction(p, p, new BlackKingPower(this.magicNumber)));

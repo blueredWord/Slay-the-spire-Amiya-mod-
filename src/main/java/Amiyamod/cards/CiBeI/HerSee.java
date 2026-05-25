@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.cards.Yzuzhou.Yjianwang;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
@@ -60,6 +61,7 @@ public class HerSee extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME,true));
         this.addToTop(new GainEnergyAction(this.misc));
         //获得等同于丝线层数的能量
         //if (AbstractDungeon.player.hasPower(LineBow.POWER_ID)){

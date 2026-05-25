@@ -1,50 +1,83 @@
 {
-  "WarlordEmblem:SpireHeart_DeathKnight": {
-  "NAME": "Spire Heart",
-  "DESCRIPTIONS": [
-    "NL You ready your Rune Sword..."
-  ],
-  "OPTIONS": [
-  ]
-},
-  "WarlordEmblem:SpireHeart_Kael": {
-  "NAME": "Spire Heart",
-  "DESCRIPTIONS": [
-    "NL You charge your core to its maximum..."
-  ],
-  "OPTIONS": [
-  ]
-},
-  "WarlordEmblem:SpireHeart_Crowbot": {
-  "NAME": "Spire Heart",
-  "DESCRIPTIONS": [
-    "NL You charge your core to its maximum..."
-  ],
-  "OPTIONS": [
-  ]
-},
-  "WarlordEmblem:Vampires_Kael": {
-  "NAME": "Vampires(?)",
-  "DESCRIPTIONS": [
-    "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
-  ],
-  "OPTIONS": [
-  ]
-},
-  "WarlordEmblem:Vampires_DeathKnight": {
-  "NAME": "Vampires(?)",
-  "DESCRIPTIONS": [
-    "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
-  ],
-  "OPTIONS": [
-  ]
-},
-  "WarlordEmblem:Vampires_Crowbot": {
-  "NAME": "Vampires(?)",
-  "DESCRIPTIONS": [
-    "Navigating an unlit street, you come across several hooded figures in the midst of some dark ritual. As you approach, they turn to you in eerie unison. The tallest among them bares fanged teeth and extends a long, pale hand towards you. NL ~\"Join~ ~us~ ~brother,~ ~and~ ~feel~ ~the~ ~warmth~ ~of~ ~the~ ~Spire.\"~"
-  ],
-  "OPTIONS": [
-  ]
-}
+  "AmiyaMod:selchar": {
+    "DESCRIPTIONS": [],
+    "OPTIONS": [
+      "Skin Select",
+      "Original",
+      "Newsboy",
+      "Sower",
+      "Apprentice Connector"
+    ]
+  },
+
+  "AmiyaTutorial": {
+    "DESCRIPTIONS": [
+      "Play an #yUnsheathed card to enter the Unsheathed stance. NL While Unsheathed, playing an #yUnsheathed card triggers its bonus effect. NL While Unsheathed, playing an #yAttack grants a Ying Xiao Upgraded a number of times equal to its Energy cost.",
+      "#yThread can absorb #yAttack damage and #rHP loss effects. NL Thread is #rhalved at the start of your turn.",
+      "Playing an #yOriginium #yArts accumulates #yInfection #yProgress . When it reaches #b10, you enter #yInfection #yOutbreak and add an #yOriginium #yCurse to your deck. NL When you play an #yOriginium #yArts , if you have an #yOriginium #yCurse in hand, it is automatically discarded and you lose 1 HP. In return, the Originium Arts is played an additional time."
+    ],
+    "OPTIONS": [
+      "Next",
+      "Understood",
+      "Tutorial",
+      "(Page: ",
+      ")"
+    ]
+  },
+
+  "AmiyaMod:Dream": {
+    "NAME": "Dream",
+    "DESCRIPTIONS": [
+      "You dream of the past, of your days at Babel. #rTheresa , #gDr. Kal'tsit , and the #bDoctor are all by your side. NL You walk through the corridors of Rhodes Island. It is late at night, and you want to ask #rTheresa to tell you a bedtime story. NL As you pass the Doctor's laboratory, pure white light spills out from the half-open door...",
+      "Worried that the Doctor has been overworking, you push the door open to urge him to rest. NL You see your most trusted person, haggard and hunched over his desk, muttering something under his breath. NL #r~\"Why? Why am I the only one who can't...?\"~ NL Broken test tubes are scattered around him. One remains intact. You reach down to pick it up and put it away. Suddenly, the slumbering figure stirs.",
+      "#r~\"Amiya, what are you doing here?\"~ NL Startled by the sudden question, you drop the test tube. As the sound of shattering glass rings out, you open your eyes. The test tube from before is now in your hand.",
+      "You remember Dr. Kal'tsit telling you not to disturb the Doctor's research. Though worried, you choose to leave him be. NL You carefully walk away, muffling your footsteps, and find Theresa. You drift into sleep to the sound of her bedtime story."
+    ],
+    "OPTIONS": [
+      "[Open the Door] #gGain 1 special card.",
+      "[Leave] #gHeal #g",
+      " #gHP.",
+      "[Open Your Eyes] "
+    ]
+  },
+
+  "AmiyaMod:Story": {
+    "NAME": "Story",
+    "DESCRIPTIONS": [
+      "Somehow, you suddenly recall a story that Theresa once told you. NL Long, long ago, there was a vast, vast desert, and a little doll stitched together from cloth. The little doll vowed to cross the desert and find the fabled Plain of Hope. NL In the desert, the little doll met a king adorned with crimson gold and jewels. The king promised him endless riches if only he would turn back.",
+      "Though the king tugged at him, the little doll cast aside the tempting gems and pressed on. NL The little doll's only goal was to reach the Plain of Hope. NL Even as the king rolled on the ground and wailed like a child, the little doll did not look back. He kept moving forward. NL He knew he could not stop here.",
+      "As it turned out, the king was afraid of loneliness, and that was why he did not want the little doll to leave. NL Though he was a king, he had no true friends. Clutching his brilliant gems, he begged the little doll not to go. NL The little doll could not halt his journey, but he extended his small cloth hand and invited the king to join him on the quest for the Plain of Hope.",
+      "Seeing the king's almost pleading expression, the little doll could not bear to leave. NL Besides, the Plain of Hope was only a legend—no one had ever truly reached it. NL Perhaps staying, and remaining by the side of those who needed him, was also a right choice. NL So thought the little doll.",
+      "The desert nights were terribly cold, and the wind never ceased. Under the light of the twin moons, shadowy figures in black robes seemed to whisper among themselves. Yet if you tried to find them, they would vanish in an instant. NL Those black-robed shadows were the oldest, oldest echoes of despair and sorrow. They pursued the little doll, who never stopped searching for hope. Once caught by them, there was no escape. NL The little doll evaded their traps, fled their schemes—all the shadows' plots came to naught. NL Furious and howling, they decided to hide no longer and fight the little doll to the death. The black-robed shadows caught up to him. They lunged at him, endless and unceasing.",
+      "The little doll could only draw a spear made of needle and thread to fight the black shadows. NL Though he suffered many wounds, he eventually fended off the shadows' claws and fled onward...",
+      "Facing the black-robed shadows, the little doll suddenly wondered—why had they become echoes of despair and sorrow? NL Did they also suffer from Oripathy, kept awake at night by pain? NL ~Then, could the little doll heal them?~ NL If the little doll could heal them, and turn them into... happy and peaceful shadows, then everyone could go to the Plain of Hope together. NL The black-robed shadows were not born wicked, delighting in frightening others. The little doll discovered... they all bore wounds upon their bodies. It was these wounds that had made them what they were now. So the little doll tried to sew them up with his needle and thread. He tried again and again, but his stitches were coarse and ugly, making the black-robed shadows hopping mad. NL Perhaps... happiness and peace are not so easily won. But in the end, they decided to let the little doll go.",
+      "Gazing at the sky full of black shadows, the little doll fled in terror. He feared being entangled by those shadows, feared becoming one of them. NL He ran for a long, long time—so long that he could no longer find the way to the Plain of Hope, nor even the desert where he had started. NL Looking back, the little doll realized the black robes were long gone. NL Perhaps the moment he turned his head, they had already stopped pursuing him...",
+      "A great river blocked the little doll's path. He did not even know how wide it was—only that he could not see the far shore. NL The little doll understood that the Plain of Hope must lie on the other side. But there was no boat nearby, not even a single leaf. NL What now? Should he try to swim across? NL But he was a cloth doll. Soaked in water, he would grow heavier and heavier, until he sank into the river. Yet if he stopped here, the entire journey would have been for nothing.",
+      "The little doll swam and swam, and swam on. He felt his body gradually fill with tears. NL Did the far shore truly exist? Perhaps the shadows were right—the place was called the \"Plain of Hope\" precisely because no one could ever reach it. NL People's languages are not the same, and people's hearts do not connect. NL \"Homeland.\" NL Yet if it was a river, it must have a destination. NL In the end, after an unknowable length of time, the little doll surfaced.",
+      "The little doll was never alone. Beneath the river of tears, his companions had long been waiting. NL There were so many little stone figures—white, black, blue, red... so many of them. They clustered tightly around the little doll, carrying him along with the surging current. NL Surrounded by the little stone figures, the little doll drifted down the long river of tears. Though the undercurrents battered them dizzy, as long as they did not give up and stood together hand in hand, they would not lose their way in the river of sorrow. NL The little doll and his friends did not know how much time had passed, but even when they were utterly exhausted, they did not surrender. Holding the same wish, they seized the moment the current slowed and struggled toward the surface, rising, rising.",
+      "The little doll gave up. After all, he was made of cloth. If he fell into the river, surely he would never surface again. NL Sorrowfully, he turned back. Even the black robes that had always tormented him parted to make way. NL And so the story came to an end. Perhaps many years later, the little doll would wonder—what if he had made a different choice?",
+      "At last—he succeeded. At last, he saw it— NL #yThe sea, its surface dyed gold by the sun. NL It turned out they had not only crossed the long river of tears, but also the boundless unknown ocean behind them. They set foot on land again. They found the Plain of Hope.",
+      "This is a story Theresa created herself, recorded in no book. NL As she wished, you have now crossed beyond her. All the words she wanted to speak have been conveyed to you. NL The rest of the story, you will write yourself."
+    ],
+    "OPTIONS": [
+      "[Advance] The little doll cast aside the tempting gems.",
+      "[Companion] The little doll invited the king to join him. #gGain a random Upgraded card.",
+      "[Stay] The little doll accepted the gems and stayed. #rThe story ends. #gGain #g",
+      " #gGold.",
+      "[Fight] The little doll will not back down! #rTake #r",
+      " #rdamage.",
+      "[Sew] Then, could the little doll heal them? #rLose #r",
+      "[Locked] Requires: Thread-type card.",
+      "[Flee] The little doll could never defeat them! #rThe story ends.",
+      "[Advance] #bThe little doll presses on.",
+      "[Advance] #bThe little doll presses on. #gHeal to full HP.",
+      "[Locked] Requires: Deck size of at least 30.",
+      "[Give Up] #rThe story ends. #gGain the relic #gUnfinished Story.",
+      "[Happy Ending] And so, everyone found happiness.",
+      " #r.",
+      "[Continue] The little doll presses on.",
+      "[End] The little doll's story ends here. But perhaps, one day, you will find another path for him.",
+      "[Ending] #gGain Relic: Hopeful Ending."
+    ]
+  }
 }

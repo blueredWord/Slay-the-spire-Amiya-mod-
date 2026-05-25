@@ -2,6 +2,7 @@ package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
 import Amiyamod.action.BackHandAction;
+import Amiyamod.action.SEAction;
 import Amiyamod.cards.RedSky.Shadow15;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.OnBreakInterface;
@@ -96,6 +97,7 @@ public class PainMagic extends CustomCard implements OnBreakInterface {
  */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
         this.addToBot(
                 new DamageAllEnemiesAction(p,this.multiDamage,this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE)
         );

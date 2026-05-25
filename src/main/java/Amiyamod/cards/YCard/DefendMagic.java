@@ -2,6 +2,7 @@ package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
 
+import Amiyamod.action.SEAction;
 import Amiyamod.patches.CardColorEnum;
 import Amiyamod.patches.YCardTagClassEnum;
 import basemod.abstracts.CustomCard;
@@ -69,8 +70,10 @@ public class DefendMagic extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new RemoveSpecificPowerAction(p,p, VulnerablePower.POWER_ID));
-
+        this.addToBot(new SEAction(NAME,true));
+        if (p.hasPower(VulnerablePower.POWER_ID)){
+            this.addToBot(new RemoveSpecificPowerAction(p,p, VulnerablePower.POWER_ID));
+        }
         //this.addToTop(new RemoveSpecificPowerAction(p,p, FrailPower.POWER_ID));
         this.addToBot(new GainBlockAction(p,p,this.block));
         if (this.upgraded){

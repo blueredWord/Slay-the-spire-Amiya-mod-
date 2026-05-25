@@ -1,45 +1,48 @@
 {
   "AmiyaMod:UI": {
-    "NAME": "Soul Furnace",
+    "NAME": "Soul Forge",
     "DESCRIPTIONS": [
-      "Please choose the card you want to upgrade.",
-      "Please choose the card you want to keep.",
-      "Please choose the card you want to use as fuel for the soul furnace.",
-      "Please choose the card you want to rescue.",
-      "Please choose the card you want to heal.",
-      "Please choose the source stone skill you want to prepare.",
-      "Please choose the skill you want to inherit.",
-      "Please choose the emotion you want to experience.",
-      "Please choose the card you want to mimic."
+      "Choose a card to Upgrade.",
+      "Choose a card to Retain.",
+      "Choose a card to use as fuel for the Soul Forge.",
+      "Choose a card to rescue.",
+      "Choose a card to heal.",
+      "Choose an Originium Art to prepare.",
+      "Choose an Art to inherit.",
+      "Choose an emotion to feel.",
+      "Choose a card to copy.",
+      "Choose a card to Exhaust."
     ]
   },
   "AmiyaMod:UI2": {
-    "NAME": "Soul Furnace",
+    "NAME": "Soul Forge",
     "DESCRIPTIONS": [
-      "Please choose the card to be recorded in the terminal.",
-      " Source Stone Skill . NL ",
-      " Keep . NL ",
-      " Source Stone Skill . Keep . NL "
+      "Choose a card to burn into the Terminal.",
+      " OriginiumArts . NL ",
+      " Retain . NL ",
+      " OriginiumArts . Retain . NL "
     ]
   },
   "AmiyaMod:BeautifulLifePower": {
-    "NAME": "Fateful Prophecy",
+    "NAME": "Fated Prophecy",
     "DESCRIPTIONS": [
-      "When you play a card with energy cost reduced to #b0, #y",
-      " , lose life equal to the original energy cost."
+      "When you play a #y",
+      " that costs #b0, lose HP equal to its original cost after it is played.",
+      ""
     ]
   },
   "AmiyaMod:HerDoPower": {
-    "NAME": "Do as She Does",
+    "NAME": "Walk Her Path",
     "DESCRIPTIONS": [
-      "At the end of the turn, deal damage to all enemies equal to #b times the number of life lost this turn. (Deal #b",
-      " points of damage.)"
+      "At the end of your turn, deal damage to ALL enemies equal to #b",
+      " times the number of times you lost HP this turn. (Deals #b",
+      " damage.)"
     ]
   },
   "AmiyaMod:HerSeePower": {
-    "NAME": "See as She Sees",
+    "NAME": "See What She Saw",
     "DESCRIPTIONS": [
-      "For each #b1 point of energy consumed this turn, lose #b1 points of life #b",
+      "Whenever you spend #b1 Energy this turn, lose #b1 HP #b",
       " times.",
       ""
     ]
@@ -47,199 +50,466 @@
   "AmiyaMod:LineBowPower": {
     "NAME": "Cocoon",
     "DESCRIPTIONS": [
-      "At the end of the turn, gain",
-      " points of #y thread.",
-      " Then, lose life equal to the original energy cost."
+      "At the end of your turn, gain ",
+      " #yThread .",
+      ""
     ]
   },
   "AmiyaMod:LineDefenderPower": {
     "NAME": "Advance",
     "DESCRIPTIONS": [
-      "Each time you lose #y thread, gain #b",
-      " points of #y block.",
+      "Whenever you lose #yThread , gain #b",
+      " #yBlock .",
       ""
     ]
   },
   "AmiyaMod:MercyPower": {
     "NAME": "Vision of Mercy",
     "DESCRIPTIONS": [
-      "When dealing damage this turn, gain #y thread equal to half of the damage dealt."
+      "Whenever you deal damage this turn, gain #yThread equal to half the damage dealt."
     ]
   },
   "AmiyaMod:NoFengPower": {
-    "NAME": "No Edge",
+    "NAME": "Blunt Edge",
     "DESCRIPTIONS": [
-      "Until the next round begins, for every #b2 points of damage received, gain",
-      " layers of Cocoon.",
-      " Then, lose life equal to the original energy cost."
+      "Until the start of your next turn, whenever you take damage #b2 times, gain ",
+      " Cocoon.",
+      ""
     ]
   },
   "AmiyaMod:OpenPower": {
     "NAME": "Bloom",
     "DESCRIPTIONS": [
-      "Each time you take damage, make #b1 random enemies gain",
-      " layers of #y Weakness.",
-      " Each time you take damage, you gain"
+      "Whenever you take damage, apply ",
+      " #yWeak to #b1 random enemy.",
+      "Whenever you take damage, gain "
     ]
   },
   "AmiyaMod:SoulDefenderPower": {
-    "NAME": "Shadow Gateway",
+    "NAME": "Umbral Flicker",
     "DESCRIPTIONS": [
-      "Each time you take damage, gain #b",
-      " points of thread.",
-      " Then, lose life equal to the original energy cost."
+      "Until the start of your next turn, whenever you lose HP, gain #b",
+      " #yThread .",
+      ""
     ]
   },
   "AmiyaMod:SnakePower": {
-    "NAME": "Temporary Chaos",
+    "NAME": "Temporary Confusion",
     "DESCRIPTIONS": [
-      "For every card drawn, the energy cost will change randomly. #b",
-      " rounds after this effect ends.",
-      " Each card you draw will have randomly changing energy costs. This effect ends at the end of the turn."
+      "Whenever you draw a card, randomize its cost. This effect ends in #b",
+      " turns.",
+      "Whenever you draw a card, randomize its cost. This effect ends at the end of your turn."
     ]
   },
   "AmiyaMod:CRingPower": {
-    "NAME": "Ring of Thorns",
+    "NAME": "Ring of Thorns and Briars",
     "DESCRIPTIONS": [
-      "Each time you exhaust #y thread, gain #b",
-      " layers of #y Thorns."
+      "Whenever your #yThread is fully depleted, gain #b",
+      " #yThorns ."
     ]
   },
   "AmiyaMod:CardBackPower": {
-    "NAME": "Refund",
+    "NAME": "Return",
     "DESCRIPTIONS": [
-      "At the start of the next turn, the #y",
-      " in the draw pile or discard pile will return to your hand."
+      "At the start of your next turn, #y",
+      " in your draw pile or discard pile will return to your hand."
     ]
   },
   "AmiyaMod:RedSkyPower": {
-    "NAME": "Unsheathe",
+    "NAME": "Unsheathed",
     "DESCRIPTIONS": [
-      "This turn, each time you play a non-#y Shadow Gale attack card, add a #y Shadow Gale to your hand."
+      "Whenever you play an Attack that is not #yYing #yXiao this turn, add a #yYing #yXiao into your hand."
     ]
   },
   "AmiyaMod:AngryForeverPower": {
-    "NAME": "Unnamed Fury",
+    "NAME": "Nameless Fury",
     "DESCRIPTIONS": [
-      "Each time you play a card with an energy cost of at least #b, upgrade all #y Shadow Gale cards in your hand #b times.",
-      "At the start of your turn, enter #y Unsheathe state."
+      "Whenever you play a card that costs at least #b",
+      ", #yUpgrade all #yYing #yXiao in your hand #b",
+      " times.",
+      "At the start of your turn, enter #yUnsheathed ."
     ]
   },
   "AmiyaMod:FireAgainPower": {
-    "NAME": "Spark Rekindling",
+    "NAME": "Sparks Rekindled",
     "DESCRIPTIONS": [
-      "When playing the first card of the turn that is not in the deck, gain an extra copy.",
-      "When you play the first #b cards that are not in the deck, gain an extra copy."
+      "Each turn, the first card you play that did not start in your deck is duplicated.",
+      "Each turn, the first ",
+      " cards you play that did not start in your deck are duplicated."
     ]
   },
   "AmiyaMod:SoMuchSworldPower": {
-    "NAME": "Infinite Sword Control",
+    "NAME": "Infinite Sword Works",
     "DESCRIPTIONS": [
-      "At the start of each turn, #y Sword Essence #b."
+      "At the start of your turn, if you have no #yYing #yXiao in your hand, add #b1 #yYing #yXiao Upgraded #b",
+      " times. Otherwise, #yUpgrade the #yYing #yXiao in your hand that many times."
     ]
   },
   "AmiyaMod:BigNotWorkPower": {
-    "NAME": "Angry Eyes of the Firmament",
+    "NAME": "Heaven's Glare",
     "DESCRIPTIONS": [
-      "The first #b cards of #y Shadow Gale you gain each turn will be additionally #y upgraded #b1 times.",
-      "You gain the next #b"
+      "The first #b",
+      " #yYing #yXiao you obtain each turn are #yUpgraded an additional #b1 time.",
+      "The next #b"
     ]
   },
   "AmiyaMod:ShadowBlueFirePower": {
-    "NAME": "Blue Flame Scorching",
+    "NAME": "Azure Flame Seared Body",
     "DESCRIPTIONS": [
-      "When you are in #y Unsheathe state, playing a non-attack card will also grant #y Shadow Gale."
+      "While you are #yUnsheathed , playing non-Attack cards also grants #yYing #yXiao ."
     ]
   },
   "AmiyaMod:ShadowDefendPower": {
-    "NAME": "Guard Stance",
+    "NAME": "Defensive Form",
     "DESCRIPTIONS": [
-      "When you play #y Shadow Gale, gain #y block equal to the damage value."
+      "Whenever you play a #yYing #yXiao , gain #yBlock equal to its damage."
     ]
   },
   "AmiyaMod:ShadowWaterMusicPower": {
-    "NAME": "Water Melody",
+    "NAME": "Water Rhythm",
     "DESCRIPTIONS": [
-      "When you play #y Shadow Gale, deal damage to all enemies."
+      "Whenever you play a #yYing #yXiao , it deals damage to ALL enemies."
     ]
   },
   "AmiyaMod:LoseTempHpPower": {
-    "NAME": "Silken Life is Precious",
+    "NAME": "Thread is Precious",
     "DESCRIPTIONS": [
-      "When you lose thread, the effect of losing life on cards can also be triggered."
+      "Whenever you lose #yThread , it also triggers on-HP-loss effects from cards."
     ]
   },
   "AmiyaMod:YSayPower": {
     "NAME": "Infection Outbreak",
     "DESCRIPTIONS": [
-      "This turn, your #y infection progress will not accumulate. And even if you have no #y Source Stone Curse, the additional activation effect of #y Source Stone Skills will trigger at least #b1 times."
+      "This turn, your #yInfection #yProgress does not accumulate. Additionally, even if you have no #yOriginium #yCurse in hand, the bonus effect of #yOriginium #yArts triggers at least #b1 time."
     ]
   },
   "AmiyaMod:MindEatPower": {
-    "NAME": "Emotion Absorption",
+    "NAME": "Emotional Absorption",
     "DESCRIPTIONS": [
       "If you play #b",
-      " attack cards in this turn, draw #b",
+      " more Attack cards this turn, draw #b",
       " cards.",
-      " attack cards, draw #b"
+      " more Attack cards this turn, draw #b"
     ]
   },
   "AmiyaMod:MemoryPower": {
-    "NAME": "Memory of",
+    "NAME": "Memory of ",
     "DESCRIPTIONS": [
-      "Faded memories",
-      "Recollection:",
-      " NL Nothingness. Consume.",
-      " NL Nothingness.",
-      " NL Consume.",
-      "At the start of the turn, put #b",
-      " cards from #y",
-      " 's #y recollection into your hand."
+      "Faded Memories",
+      "Reminiscence:",
+      " NL Ethereal . Exhaust .",
+      " NL Ethereal .",
+      " NL Exhaust .",
+      "At the start of your turn, add #b",
+      " #yReminiscence of #y",
+      " into your hand.",
+      " #yReminiscences . NL "
     ]
   },
   "AmiyaMod:ChiMeRaPower": {
     "NAME": "Chimera",
     "DESCRIPTIONS": [
-      "During this turn, your dealt damage increases by #b%",
-      " At the end of the effect, you will discard all cards in hand and skip a turn."
+      "For #b",
+      " turns, your damage is increased by #b",
+      "%. When this effect ends, discard your hand and skip a turn."
     ]
   },
   "AmiyaMod:ZuZhouMagicPower": {
-    "NAME": "Cursed Sorcery",
+    "NAME": "Cursing Hex",
     "DESCRIPTIONS": [
-      "Each time you lose life,",
+      "Whenever you lose HP, ",
       " #y",
-      " and",
-      " will also lose an equal amount of life."
+      ", ",
+      " also loses an equal amount of HP."
     ]
   },
   "AmiyaMod:MindBubblePower": {
     "NAME": "Bubble",
     "DESCRIPTIONS": [
-      "After you play a #b attack card, lose #b",
-      " points of #y thread. After losing this #y thread, draw #b",
+      "After you play #b Attack cards, lose #b",
+      " #yThread . When this #yThread is lost, draw #b",
       " cards."
     ]
   },
   "AmiyaMod:BreakRingPower": {
-    "NAME": "Extreme Spellcasting",
+    "NAME": "Limit Casting",
     "DESCRIPTIONS": [
-      "The next #b cards of #y Acute Attack you play will trigger their effects #b1 times additionally."
+      "The next #b",
+      " #yAcute #yOnset cards you play will trigger their effects #b1 additional time."
     ]
   },
   "AmiyaMod:SoulBurnPower": {
-    "NAME": "Soul Furnace",
+    "NAME": "Soul Forge",
     "DESCRIPTIONS": [
-      "At the start of the turn, gain #b1 energy."
+      "At the start of your turn, gain #b1 Energy."
     ]
   },
   "AmiyaMod:FirstSayPower": {
-    "NAME": "Ananai",
+    "NAME": "Amnannam",
     "DESCRIPTIONS": [
-      "At the end of each turn, condense all non-#y Source Stone Curse cards in your hand into one #y Source Stone Crystal.",
-      "To take #b1 random #y Source Stone Skill cards into your hand."
+      "At the end of your turn, condense all non-#yOriginium #yCurse cards in your hand into 1 #yOriginium #yCrystal .",
+      "Put #b1 random #yOriginium #yArts card into your hand."
+    ]
+  },
+  "AmiyaMod:NoNamePower": {
+    "NAME": "Nameless Fury",
+    "DESCRIPTIONS": [
+      "Whenever you play a card that costs at least #b",
+      ", #yUpgrade all #yYing #yXiao in your hand #b",
+      " times."
+    ]
+  },
+  "AmiyaMod:SadMindPower": {
+    "NAME": "Persistence",
+    "DESCRIPTIONS": [
+      "For #b",
+      " turns, your #yThread does not halve at the start of your turn."
+    ]
+  },
+  "AmiyaMod:KingSayPower": {
+    "NAME": "Sarkaz King's Decree",
+    "DESCRIPTIONS": [
+      "At the end of your turn, #yExhaust your hand. If at least #b",
+      " cards were #yExhausted, next turn add #b",
+      " #yUpgraded #yOriginium #yArts cards into your hand."
+    ]
+  },
+  "AmiyaMod:SoloPower": {
+    "NAME": "Violin Solo",
+    "DESCRIPTIONS": [
+      "At the start of your turn, deal damage to ALL enemies equal to your #yThread ."
+    ]
+  },
+  "AmiyaMod:ShadowSkyOpenPower": {
+    "NAME": "Heaven's Glare",
+    "DESCRIPTIONS": [
+      "#yYing #yXiao you obtain are #yUpgraded an additional #b",
+      " times.",
+      "#yYing #yXiao you obtain are #yUpgraded an additional #b1 time.",
+      "#yYing #yXiao you obtain are #yUpgraded an additional #b",
+      " times."
+    ]
+  },
+  "AmiyaMod:ShadowBackWindyPower": {
+    "NAME": "Fleeting Night",
+    "DESCRIPTIONS": [
+      "Whenever you play a #yYing #yXiao this turn, gain #b",
+      " #yBlock ."
+    ]
+  },
+  "AmiyaMod:YBBSPower": {
+    "NAME": "Originium Altar",
+    "DESCRIPTIONS": [
+      "Whenever you draw an #yOriginium #yCurse , add #b",
+      " random #yOriginium #yArts into your hand.",
+      "At the end of your turn, increase #yInfection #yProgress by #b",
+      " and deal #b",
+      " damage to ALL enemies."
+    ]
+  },
+  "AmiyaMod:BloodNoPower": {
+    "NAME": "Azure Flame",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " #yYing #yXiao you play this turn ignore the enemy's #yBlock ."
+    ]
+  },
+  "AmiyaMod:EatZuzhouPower": {
+    "NAME": "Chelating Curse",
+    "DESCRIPTIONS": [
+      "At the start of your turn, #b50% chance to grant you #b",
+      " Energy.",
+      "At the end of your turn, lose #b",
+      " HP.",
+      "Deal #b",
+      " less damage.",
+      "Take #b",
+      " more damage.",
+      "After losing at least #b8 HP in a single instance, gain #b",
+      " #yVulnerable .",
+      "Whenever you play an #yOriginium #yArts , the target loses all #yBlock .",
+      " % of their #yBlock .",
+      "At the start of your turn, draw #b",
+      " additional cards.",
+      "Whenever you play an #yOriginium #yArts , gain #b",
+      " #yWeak .",
+      "At the start of your turn, round your HP down to the nearest multiple of 10.",
+      "Triggers #b",
+      " times."
+    ]
+  },
+  "AmiyaMod:OutcastPower": {
+    "NAME": "Loaded",
+    "DESCRIPTIONS": [
+      "Loaded #b",
+      " bullets, each dealing #b13 damage.",
+      "You have loaded #b6 bullets, dealing double damage to ALL enemies. Also deals #b13 damage to you."
+    ]
+  },
+  "AmiyaMod:ScoutPower": {
+    "NAME": "Aiming",
+    "DESCRIPTIONS": [
+      "Taking aim, accumulating #b",
+      " damage each turn. #b",
+      " damage accumulated. If you have no #yTrigger in your hand, add one at the start of each turn."
+    ]
+  },
+  "AmiyaMod:ACEPower": {
+    "NAME": "Guardian",
+    "DESCRIPTIONS": [
+      "Prevent the next #b",
+      " times you would lose at least #b6 HP."
+    ]
+  },
+  "AmiyaMod:LittleLeOrb": {
+    "NAME": "Mote",
+    "DESCRIPTIONS": [
+      "Gain #b",
+      " #yThread .",
+      " Gain #b",
+      " #yThread .",
+      " #yPassive : ",
+      " NL #yEvoke : "
+    ]
+  },
+  "AmiyaMod:BreakBonePower": {
+    "NAME": "Inheritance",
+    "DESCRIPTIONS": [
+      "Whenever you lose all #yThread , add #b",
+      " #y\"Bonebreaker\" into your hand."
+    ]
+  },
+  "AmiyaMod:KingSeePower": {
+    "NAME": "Illusory Mirage",
+    "DESCRIPTIONS": [
+      "At the start of your turn, if #yThread remains, gain #b",
+      " #yWeak .",
+      "Until attacked, the target deals #b",
+      " less damage."
+    ]
+  },
+  "AmiyaMod:MakeLinePower": {
+    "NAME": "Cage",
+    "DESCRIPTIONS": [
+      "Whenever you play a card that did not start in your deck, gain #b",
+      " #yThread ."
+    ]
+  },
+  "AmiyaMod:BlackKingPower": {
+    "NAME": "Black-Crowned Sage",
+    "DESCRIPTIONS": [
+      "At the end of your turn, add #b",
+      " #yShadow #yof #ythe #yLord into your hand.",
+      " #yShadow #yof #ythe #yLord+ into your hand.",
+      " random #yReminiscence into your hand."
+    ]
+  },
+  "AmiyaMod:HatePower": {
+    "NAME": "Spreading Hatred",
+    "DESCRIPTIONS": [
+      "At the start of your turn, enter #yUnsheathed ."
+    ]
+  },
+  "AmiyaMod:BonkPower": {
+    "NAME": "Scabbard Strike Ready",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " #yYing #yXiao you play reduce the target's #yStrength by the number of times they were #yUpgraded ."
+    ]
+  },
+  "AmiyaMod:BloodPower": {
+    "NAME": "Rain of the Bloodborn",
+    "DESCRIPTIONS": [
+      "Whenever you deal damage to an enemy this turn, gain #b",
+      " #yThread ."
+    ]
+  },
+  "AmiyaMod:LittleTePower": {
+    "NAME": "Theresa's Protection",
+    "DESCRIPTIONS": [
+      "At the end of this turn, gain #b",
+      " #yThread for each card in your hand.",
+      "For #b",
+      " turns, your hand is #yRetained ."
+    ]
+  },
+  "AmiyaMod:RedSky2Power": {
+    "NAME": "Unsheathed",
+    "DESCRIPTIONS": [
+      "Whenever you play an Attack that is not #yYing #yXiao this turn, #yAccumulate #ySword #b",
+      "."
+    ]
+  },
+  "AmiyaMod:MindRollPower": {
+    "NAME": "Will Shock",
+    "DESCRIPTIONS": [
+      "At the start of your turn, choose #b",
+      " cards to #yExhaust . NL Whenever a non-#yReminiscence card is #yExhausted , add a random #yReminiscence into your hand.",
+      " ."
+    ]
+  },
+  "AmiyaMod:LoseWishPower": {
+    "NAME": "Lost Hope",
+    "DESCRIPTIONS": [
+      "Whenever you draw an #yUnplayable card, draw #b",
+      " cards."
+    ]
+  },
+  "AmiyaMod:StoneSwordPower": {
+    "NAME": "Crystallized Blade",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " #yYing #yXiao you play are treated as #yOriginium #yArts .",
+      " cards."
+    ]
+  },
+  "AmiyaMod:HornPower": {
+    "NAME": "Nurturing Rebirth",
+    "DESCRIPTIONS": [
+      "Whenever you lose HP, gain #b",
+      " temporary #yStrength ."
+    ]
+  },
+  "AmiyaMod:KingTypePower": {
+    "NAME": "\"Sarkaz King\"",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " non-#yOriginium #yArts cards you play are treated as #yOriginium #yArts ."
+    ]
+  },
+  "AmiyaMod:HopePower": {
+    "NAME": "Converging Hope",
+    "DESCRIPTIONS": [
+      "Whenever you play an #yOriginium #yArts . If you have #yThread , replace the #yInfection #yProgress increase with losing #b1 HP. When this effect triggers, draw #b",
+      " cards."
+    ]
+  },
+  "AmiyaMod:PlanAPower": {
+    "NAME": "Plan A:",
+    "DESCRIPTIONS": [
+      "When you play #y",
+      ", gain #b",
+      " Energy. If you do not play it by the end of your turn, gain #b",
+      " #yPlan #yB ."
+    ]
+  },
+  "AmiyaMod:FindingPower": {
+    "NAME": "Rebirth Lotus Throne",
+    "DESCRIPTIONS": [
+      "#yExhaust and permanently #yUpgrade the next #b",
+      " non-#yCurse cards you play."
+    ]
+  },
+  "AmiyaMod:BallAPower": {
+    "NAME": "Last Creativity",
+    "DESCRIPTIONS": [
+      "Whenever you play a card that costs non-#b0, add #b1 #yLast #yCreativity into your hand."
+    ]
+  },
+  "AmiyaMod:BallBPower": {
+    "NAME": "Seal",
+    "DESCRIPTIONS": [
+      "If Amiya does not have #yLast #yCreativity , you cannot play cards that cost non-#b0."
     ]
   }
-}
-}
 }

@@ -1,6 +1,7 @@
 package Amiyamod.cards.RedSky;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.ShadowSkyOpenAction;
 import Amiyamod.action.cards.ShadowUpgradeAction;
 import Amiyamod.patches.CardColorEnum;
@@ -71,6 +72,7 @@ public class ShadowSkyOpen extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //this.addToBot(new ShadowSkyOpenAction(this.misc));
+        this.addToBot(new SEAction(NAME,true));
         this.addToBot(new ApplyPowerAction(p,p,new ShadowSkyOpenPower(this.magicNumber)));
     }
 

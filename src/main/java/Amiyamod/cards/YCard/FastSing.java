@@ -1,6 +1,7 @@
 package Amiyamod.cards.YCard;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.FastSingAction;
 import Amiyamod.patches.CardColorEnum;
 import basemod.abstracts.CustomCard;
@@ -61,6 +62,7 @@ public class FastSing extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
         this.addToBot(new FastSingAction(this.magicNumber));
     }
     public AbstractCard makeCopy() {return new FastSing();}

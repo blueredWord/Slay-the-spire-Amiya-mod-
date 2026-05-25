@@ -1,6 +1,7 @@
 package Amiyamod.cards.CiBeI;
 
 import Amiyamod.Amiyamod;
+import Amiyamod.action.SEAction;
 import Amiyamod.action.cards.BeautifulLifeAction;
 import Amiyamod.action.cards.EchoAction;
 import Amiyamod.patches.CardColorEnum;
@@ -52,6 +53,8 @@ public class BeautifulLife extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SEAction(NAME));
+
         this.addToBot(new ScryAction(this.magicNumber));
         this.addToBot(new DrawCardAction(this.draw, new BeautifulLifeAction()));
     }
